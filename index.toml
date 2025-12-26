@@ -1,10 +1,6 @@
 hash-format = "sha256"
 
 [[files]]
-file = ".claude/settings.local.json"
-hash = "fad13a8d80080f00170cfb4df3fe9fc71e8af34752f679a2f0a18df0e129c94e"
-
-[[files]]
 file = ".deepsource.toml"
 hash = "93f48d4a64e2c78f3f421118723c497abf90339fc248efd0aebc37cffd45918f"
 
@@ -22,7 +18,7 @@ hash = "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499"
 
 [[files]]
 file = "README.md"
-hash = "d7f928e28c762f671157c408640009eef928045803640bc46c57629b93439a94"
+hash = "03ccfb9cdf388d5f424509f70f868d8d379b551510cbd970e29400d97d63911e"
 
 [[files]]
 file = "SECURITY.md"
@@ -30,7 +26,7 @@ hash = "48981474996310a7861d97b5aaea8a11ba16d6075c273766daab566848930c09"
 
 [[files]]
 file = "VERSION"
-hash = "d4c04da6fbfc0214d814fdae8c43bace672e4c428faf41ecc9f5f39e02e340a5"
+hash = "058955c512357dfcfab4851e21fe145ef9f54f140eb2d13c1cd311586a7945e6"
 
 [[files]]
 file = "config/MouseTweaks.cfg"
@@ -147,10 +143,6 @@ hash = "f2512ad2ad22526a6d1e14da7c929dfd16cf628e3edc97597747c96a5dba561a"
 [[files]]
 file = "config/fancymenu/assets/background.png"
 hash = "fd6e3a011492b262710ff526e0cde49bb90d27e558eff284f38342e2e8994391"
-
-[[files]]
-file = "config/fancymenu/assets/last_world.fmdata"
-hash = "f4c7ba54c49335b66a157922c7f294c27c474b62df32f058df909d3cfbc8379e"
 
 [[files]]
 file = "config/fancymenu/assets/pipes.png"
@@ -301,34 +293,6 @@ file = "config/fancymenu/legacy_checklist.txt"
 hash = "9a25d3dc708e43eabafce5479a13c02dae15bc7f673afb2745b8b2ba48a97dc0"
 
 [[files]]
-file = "config/fancymenu/locals/de_de.local"
-hash = "13485f1d678322a328e798c34f1ff9f7f9c690464d1050e2e7c1ea02b0f49b61"
-
-[[files]]
-file = "config/fancymenu/locals/en_us.local"
-hash = "b0d171d4b61ec85b02e1f1e30a1cdc299ce5f5236dbad01689606923d99ca4cb"
-
-[[files]]
-file = "config/fancymenu/locals/pl_pl.local"
-hash = "66d4e9b270d4d92bffd85b13255def475d3ff6c865965deaa700be2ed1b08bc0"
-
-[[files]]
-file = "config/fancymenu/locals/pt_br.local"
-hash = "0b19fc1d8bd8c86435eb39886116aceb3b4554fa749561fc87be2df0157a134c"
-
-[[files]]
-file = "config/fancymenu/locals/ru_ru.local"
-hash = "2120cd2e1de7d8ec9ee8d18f24db70645e92042ba55ffbbc68403ecdc8a50fce"
-
-[[files]]
-file = "config/fancymenu/locals/uk_ua.local"
-hash = "c9a592ff8445f3d8d6a87a59df27e72a67b71afcf0fc03dad27a5ded2f94a780"
-
-[[files]]
-file = "config/fancymenu/locals/zh_cn.local"
-hash = "50cf30919fd2c7b11f6ce246425d657e3b93dfb919a0b6fe4730dc5d9fee0d2a"
-
-[[files]]
 file = "config/fancymenu/minecraftwindow/icons/icon16x16.png"
 hash = "a5f347c8982aefe87a82045adfb760ea990d76143e5f40b46c1fc101d7b07ca2"
 
@@ -386,7 +350,7 @@ hash = "14eb4e8cd105c580403c4e5bc6bba831c81aedcf4e6e04485c74e9d3f253689f"
 
 [[files]]
 file = "config/forgery/features.ini"
-hash = "843ae74b1ffe6b6c5830267ff35c03714c74b9f859bb8f8fd3dbbe58ba02e511"
+hash = "a3a3a12510e694d8fdde98574edbcf0fb314888569baf273eded6b3f64b3f49a"
 
 [[files]]
 file = "config/forgery/fscript.ini"
@@ -437,10 +401,6 @@ file = "config/invmove/cloth-config.json"
 hash = "65242c90d0248278a7d2293b4ac8e531ba9d9981255a4c81f938b077b58c79f2"
 
 [[files]]
-file = "config/invmove/emi.json"
-hash = "65242c90d0248278a7d2293b4ac8e531ba9d9981255a4c81f938b077b58c79f2"
-
-[[files]]
 file = "config/invmove/jei.json"
 hash = "65242c90d0248278a7d2293b4ac8e531ba9d9981255a4c81f938b077b58c79f2"
 
@@ -450,7 +410,7 @@ hash = "2027a1b29ce1966e09b853fdd9d07ef73ea954119e36ddf25d1eea60c113b38d"
 
 [[files]]
 file = "config/invmove/unrecognized.json"
-hash = "f0300133599a0e7d13e32f253a6d8079bc1bb302425dd8e81d987b9376971704"
+hash = "d4e5411733e4ef6b4216e75b7aa4e1a7b02c72cdfbc8b8e11e5b9a0f94b9c4fa"
 
 [[files]]
 file = "config/invmove/vanilla.json"
@@ -458,7 +418,7 @@ hash = "d1151ee0b7aa54a262ade99ba45014b32bf8774a90040f0b65c733d9ab9e2258"
 
 [[files]]
 file = "config/item_converter.client.json"
-hash = "3c7d7b2b19c39b818e44315363293a4ca3d9ba8864bc26310eecbf083ff84f45"
+hash = "90d9fd12326f7fda97914e2668b3111e0dff7c08e56a7547aee5e1667d57483b"
 
 [[files]]
 file = "config/item_converter.common.json"
@@ -479,10 +439,6 @@ hash = "4624fc2e033829004e59a6269ccc409529d653d7cfa902e8cb3dc570daba14a2"
 [[files]]
 file = "config/jade/plugins.json"
 hash = "53fd0dcefccd51e7a26c17be1c8099b36b9000f0a27c121101a10a54084aaf59"
-
-[[files]]
-file = "config/jade/sort-order.json"
-hash = "b7b4020c9932d32ca40924c6dc57fcc6b84e3e890643f9e694a13034b0c5da23"
 
 [[files]]
 file = "config/jei/blacklist.cfg"
@@ -509,24 +465,8 @@ file = "config/jupiter.json"
 hash = "e6692fd7c3b5d4db82c9836c81b02182500bb00c81817919120f514df2bc7f00"
 
 [[files]]
-file = "config/konkrete/locals/de_de.local"
-hash = "79a34cfd15c2d9c06498dc221be79279507d9b57666cd44f8d2c2cf95d3582ef"
-
-[[files]]
-file = "config/konkrete/locals/en_us.local"
-hash = "fdf1864fd049b3f1b9af1f8db6c5125a627be7d06a451c778da3329843d3c39a"
-
-[[files]]
-file = "config/konkrete/locals/pl_pl.local"
-hash = "d38a7776e362e4de6082078d803c1c9358d9d40526edfe4bdfd29c552aef76d8"
-
-[[files]]
-file = "config/konkrete/locals/pt_br.local"
-hash = "dca55a2792451b31424cd5c24037141ec57cdca51955d062dd908fa9ca6a3e9c"
-
-[[files]]
 file = "config/modpack-update-checker/config.json"
-hash = "f2a1b5e8545b2e0bf1e9905497f4c7622dd691fcdc7ee62f82c1d777c04c73ac"
+hash = "2ecec17e26c3f3546422f9ea1c9ab522b037e61e90a44084f51ff6bec146fd56"
 
 [[files]]
 file = "config/modpack-update-checker/modpack-info.txt"
@@ -602,7 +542,7 @@ hash = "9f9c67600c80cb9306217a1f33282e8eabe5b2c8d374b5a2fbadd1ee6b672923"
 
 [[files]]
 file = "config/tooltips_reforged_dyed.json"
-hash = "38c387c7c659ce1d0d403e2bc304a88f45b57bfae8e4acda1469cfa1f1841e7f"
+hash = "52aaa3fe6fd7fd5257ffd97bc00d01567ef319144c71f3f299bfd22bff5fc8ea"
 
 [[files]]
 file = "config/wares-client.toml"
@@ -665,10 +605,6 @@ file = "discord-mark-white.png"
 hash = "3e862997885fc898199365b6907ddd71b9297e2a56b845fa9bfbbd3663600a36"
 
 [[files]]
-file = "emi.json"
-hash = "edf4c7a0b13f05a8d570f7fab95893a31a0996b988c2f89acebc2585842232d3"
-
-[[files]]
 file = "fancymenu_data/action_panel.png"
 hash = "ab88953017b0508e198b49e1e836d93950e5388d16205c2ea3a69392c9ed554f"
 
@@ -703,10 +639,6 @@ hash = "c79892b2e4d4e3d88bf708dd43000ede9759728a1f612d58acc26b7d984f8b50"
 [[files]]
 file = "fancymenu_data/buddy/buddy_save.json"
 hash = "19b6506ed8421df8e68ba9a0ecfc32e59c1d2027cff88c7b5d4f49b9d77cdeac"
-
-[[files]]
-file = "fancymenu_data/last_world.fmdata"
-hash = "2fb8a9ed6a1385d7c8da2066d612f53c7f2d58c242254ade95b8706721abe790"
 
 [[files]]
 file = "fancymenu_data/pipes.png"
@@ -3670,7 +3602,7 @@ hash = "ded1b3b51c1b47ee3e812ef73dfb4dd423dec7119ed921585bed038c95328c0d"
 
 [[files]]
 file = "kubejs/assets/sdrp/lang/en_us.json"
-hash = "90cee4b8e83755b567e3719cdee5cd1289e8bf978aa720921435df657b986c47"
+hash = "38f60d67feb813a8d633cfb39b0df4e5b131cd1ac506c0d38d68d5bfaecae588"
 
 [[files]]
 file = "kubejs/assets/storagedrawers/lang/en_us.json"
@@ -4474,7 +4406,7 @@ hash = "49912938746143f82d21dad602f4b751f78b951624b40bf5634dd8d78e7f36f0"
 
 [[files]]
 file = "modpack-update-checker/meta.json"
-hash = "86bf8ec8350d58d55e8af7b33d63e2faf17a02b0f40497099f0525c7a351b24d"
+hash = "a7108aa286efa28085efbf17e579a54fdb3196df9b2e32c768a7a44614f382fa"
 
 [[files]]
 file = "modpack-update-checker/versions/1.100.0/changelog.txt"
@@ -6637,6 +6569,10 @@ file = "modpack-update-checker/versions/1.232.9/changelog.txt"
 hash = "1849092360ee772e5572627025a85baf1af67ce6a4e5b866a5d3eeb59de4fe13"
 
 [[files]]
+file = "modpack-update-checker/versions/1.233.3/changelog.txt"
+hash = "5e91c0f48300932fca0c13d9cb98fabe1a3d2d3835dbf98efdb4f890759725f9"
+
+[[files]]
 file = "modpack-update-checker/versions/1.79.33/changelog.txt"
 hash = "3ffee41ebf2c4f32db44a257c726f8496cc33446635821d2cf364ce80a6bef3e"
 
@@ -7020,11 +6956,6 @@ metafile = true
 [[files]]
 file = "mods/betterf3.pw.toml"
 hash = "28358fe53c22695b3bf1f93ac2225c46fe3525918b7b993ac36e68a7f0a16fe8"
-metafile = true
-
-[[files]]
-file = "mods/botania.pw.toml"
-hash = "450686274e074a0caa8adb5ae1a740abb37126cbe02df4a7aa29b54532c0aa79"
 metafile = true
 
 [[files]]
