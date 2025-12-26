@@ -7148,6 +7148,11 @@ hash = "cdc8112f5320b49ad6973f346f86fdae99bc9d0df703c42023f210c9632c8de6"
 metafile = true
 
 [[files]]
+file = "mods/item-converter.pw.toml"
+hash = "62ed95da862deeb4d02b3ca38461b1f7c17d6ca7a011a43f8ec198d069f5a0a1"
+metafile = true
+
+[[files]]
 file = "mods/jade-addons-forge.pw.toml"
 hash = "f8312021fd88a4952e1d50a2f156fab65314f87658d7153efc56be76a422d5cd"
 metafile = true
