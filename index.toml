@@ -1,10 +1,6 @@
 hash-format = "sha256"
 
 [[files]]
-file = ".claude/settings.local.json"
-hash = "fad13a8d80080f00170cfb4df3fe9fc71e8af34752f679a2f0a18df0e129c94e"
-
-[[files]]
 file = ".deepsource.toml"
 hash = "93f48d4a64e2c78f3f421118723c497abf90339fc248efd0aebc37cffd45918f"
 
@@ -22,7 +18,7 @@ hash = "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499"
 
 [[files]]
 file = "README.md"
-hash = "d7f928e28c762f671157c408640009eef928045803640bc46c57629b93439a94"
+hash = "03ccfb9cdf388d5f424509f70f868d8d379b551510cbd970e29400d97d63911e"
 
 [[files]]
 file = "SECURITY.md"
@@ -30,7 +26,7 @@ hash = "48981474996310a7861d97b5aaea8a11ba16d6075c273766daab566848930c09"
 
 [[files]]
 file = "VERSION"
-hash = "d4c04da6fbfc0214d814fdae8c43bace672e4c428faf41ecc9f5f39e02e340a5"
+hash = "e7466d29292ff3e63ccd9577250b9f2b3cf2e11139723d74283a2c536f092fa5"
 
 [[files]]
 file = "config/MouseTweaks.cfg"
@@ -149,10 +145,6 @@ file = "config/fancymenu/assets/background.png"
 hash = "fd6e3a011492b262710ff526e0cde49bb90d27e558eff284f38342e2e8994391"
 
 [[files]]
-file = "config/fancymenu/assets/last_world.fmdata"
-hash = "f4c7ba54c49335b66a157922c7f294c27c474b62df32f058df909d3cfbc8379e"
-
-[[files]]
 file = "config/fancymenu/assets/pipes.png"
 hash = "b17cc0db99a87fd66bba591358d88d5ad46b1f1b3c832091657ff56a7c287106"
 
@@ -246,7 +238,7 @@ hash = "a2eed1d666e84b1dde75edc9972798b4059d9d83c9ea34d66340a6c2254ec89d"
 
 [[files]]
 file = "config/fancymenu/customization/newworld.txt"
-hash = "11e427abcb627f16fd7877a27a149cd253c21da63cf3d55a6d60c80857b9ae6f"
+hash = "041d09315fdeec0eb2ea20fe5ae036cd28d5e3f9e2bc4ddacbd6ecc172c1cf1d"
 
 [[files]]
 file = "config/fancymenu/customization/pause.txt"
@@ -299,34 +291,6 @@ hash = "051d700ea7ff1bd626063d60f9a9cd65a0af1fed5903706d1e70fce20bcb2495"
 [[files]]
 file = "config/fancymenu/legacy_checklist.txt"
 hash = "9a25d3dc708e43eabafce5479a13c02dae15bc7f673afb2745b8b2ba48a97dc0"
-
-[[files]]
-file = "config/fancymenu/locals/de_de.local"
-hash = "13485f1d678322a328e798c34f1ff9f7f9c690464d1050e2e7c1ea02b0f49b61"
-
-[[files]]
-file = "config/fancymenu/locals/en_us.local"
-hash = "b0d171d4b61ec85b02e1f1e30a1cdc299ce5f5236dbad01689606923d99ca4cb"
-
-[[files]]
-file = "config/fancymenu/locals/pl_pl.local"
-hash = "66d4e9b270d4d92bffd85b13255def475d3ff6c865965deaa700be2ed1b08bc0"
-
-[[files]]
-file = "config/fancymenu/locals/pt_br.local"
-hash = "0b19fc1d8bd8c86435eb39886116aceb3b4554fa749561fc87be2df0157a134c"
-
-[[files]]
-file = "config/fancymenu/locals/ru_ru.local"
-hash = "2120cd2e1de7d8ec9ee8d18f24db70645e92042ba55ffbbc68403ecdc8a50fce"
-
-[[files]]
-file = "config/fancymenu/locals/uk_ua.local"
-hash = "c9a592ff8445f3d8d6a87a59df27e72a67b71afcf0fc03dad27a5ded2f94a780"
-
-[[files]]
-file = "config/fancymenu/locals/zh_cn.local"
-hash = "50cf30919fd2c7b11f6ce246425d657e3b93dfb919a0b6fe4730dc5d9fee0d2a"
 
 [[files]]
 file = "config/fancymenu/minecraftwindow/icons/icon16x16.png"
@@ -386,7 +350,7 @@ hash = "14eb4e8cd105c580403c4e5bc6bba831c81aedcf4e6e04485c74e9d3f253689f"
 
 [[files]]
 file = "config/forgery/features.ini"
-hash = "843ae74b1ffe6b6c5830267ff35c03714c74b9f859bb8f8fd3dbbe58ba02e511"
+hash = "a3a3a12510e694d8fdde98574edbcf0fb314888569baf273eded6b3f64b3f49a"
 
 [[files]]
 file = "config/forgery/fscript.ini"
@@ -437,10 +401,6 @@ file = "config/invmove/cloth-config.json"
 hash = "65242c90d0248278a7d2293b4ac8e531ba9d9981255a4c81f938b077b58c79f2"
 
 [[files]]
-file = "config/invmove/emi.json"
-hash = "65242c90d0248278a7d2293b4ac8e531ba9d9981255a4c81f938b077b58c79f2"
-
-[[files]]
 file = "config/invmove/jei.json"
 hash = "65242c90d0248278a7d2293b4ac8e531ba9d9981255a4c81f938b077b58c79f2"
 
@@ -450,7 +410,7 @@ hash = "2027a1b29ce1966e09b853fdd9d07ef73ea954119e36ddf25d1eea60c113b38d"
 
 [[files]]
 file = "config/invmove/unrecognized.json"
-hash = "f0300133599a0e7d13e32f253a6d8079bc1bb302425dd8e81d987b9376971704"
+hash = "d4e5411733e4ef6b4216e75b7aa4e1a7b02c72cdfbc8b8e11e5b9a0f94b9c4fa"
 
 [[files]]
 file = "config/invmove/vanilla.json"
@@ -458,7 +418,7 @@ hash = "d1151ee0b7aa54a262ade99ba45014b32bf8774a90040f0b65c733d9ab9e2258"
 
 [[files]]
 file = "config/item_converter.client.json"
-hash = "3c7d7b2b19c39b818e44315363293a4ca3d9ba8864bc26310eecbf083ff84f45"
+hash = "90d9fd12326f7fda97914e2668b3111e0dff7c08e56a7547aee5e1667d57483b"
 
 [[files]]
 file = "config/item_converter.common.json"
@@ -479,10 +439,6 @@ hash = "4624fc2e033829004e59a6269ccc409529d653d7cfa902e8cb3dc570daba14a2"
 [[files]]
 file = "config/jade/plugins.json"
 hash = "53fd0dcefccd51e7a26c17be1c8099b36b9000f0a27c121101a10a54084aaf59"
-
-[[files]]
-file = "config/jade/sort-order.json"
-hash = "b7b4020c9932d32ca40924c6dc57fcc6b84e3e890643f9e694a13034b0c5da23"
 
 [[files]]
 file = "config/jei/blacklist.cfg"
@@ -509,24 +465,8 @@ file = "config/jupiter.json"
 hash = "e6692fd7c3b5d4db82c9836c81b02182500bb00c81817919120f514df2bc7f00"
 
 [[files]]
-file = "config/konkrete/locals/de_de.local"
-hash = "79a34cfd15c2d9c06498dc221be79279507d9b57666cd44f8d2c2cf95d3582ef"
-
-[[files]]
-file = "config/konkrete/locals/en_us.local"
-hash = "fdf1864fd049b3f1b9af1f8db6c5125a627be7d06a451c778da3329843d3c39a"
-
-[[files]]
-file = "config/konkrete/locals/pl_pl.local"
-hash = "d38a7776e362e4de6082078d803c1c9358d9d40526edfe4bdfd29c552aef76d8"
-
-[[files]]
-file = "config/konkrete/locals/pt_br.local"
-hash = "dca55a2792451b31424cd5c24037141ec57cdca51955d062dd908fa9ca6a3e9c"
-
-[[files]]
 file = "config/modpack-update-checker/config.json"
-hash = "f2a1b5e8545b2e0bf1e9905497f4c7622dd691fcdc7ee62f82c1d777c04c73ac"
+hash = "1d2e28b4f08ac9e7a4c894e5639ff79142f0072e2df127826d71f6b6cfbd5658"
 
 [[files]]
 file = "config/modpack-update-checker/modpack-info.txt"
@@ -602,7 +542,7 @@ hash = "9f9c67600c80cb9306217a1f33282e8eabe5b2c8d374b5a2fbadd1ee6b672923"
 
 [[files]]
 file = "config/tooltips_reforged_dyed.json"
-hash = "38c387c7c659ce1d0d403e2bc304a88f45b57bfae8e4acda1469cfa1f1841e7f"
+hash = "52aaa3fe6fd7fd5257ffd97bc00d01567ef319144c71f3f299bfd22bff5fc8ea"
 
 [[files]]
 file = "config/wares-client.toml"
@@ -665,10 +605,6 @@ file = "discord-mark-white.png"
 hash = "3e862997885fc898199365b6907ddd71b9297e2a56b845fa9bfbbd3663600a36"
 
 [[files]]
-file = "emi.json"
-hash = "edf4c7a0b13f05a8d570f7fab95893a31a0996b988c2f89acebc2585842232d3"
-
-[[files]]
 file = "fancymenu_data/action_panel.png"
 hash = "ab88953017b0508e198b49e1e836d93950e5388d16205c2ea3a69392c9ed554f"
 
@@ -695,18 +631,6 @@ hash = "2d27ac04fcefde732e1df11e8ecd1af91b0c1344da4a505ef1ce51bc1b5e23ce"
 [[files]]
 file = "fancymenu_data/background.png"
 hash = "fd6e3a011492b262710ff526e0cde49bb90d27e558eff284f38342e2e8994391"
-
-[[files]]
-file = "fancymenu_data/buddy/buddy_leveling.json"
-hash = "c79892b2e4d4e3d88bf708dd43000ede9759728a1f612d58acc26b7d984f8b50"
-
-[[files]]
-file = "fancymenu_data/buddy/buddy_save.json"
-hash = "19b6506ed8421df8e68ba9a0ecfc32e59c1d2027cff88c7b5d4f49b9d77cdeac"
-
-[[files]]
-file = "fancymenu_data/last_world.fmdata"
-hash = "2fb8a9ed6a1385d7c8da2066d612f53c7f2d58c242254ade95b8706721abe790"
 
 [[files]]
 file = "fancymenu_data/pipes.png"
@@ -3670,7 +3594,7 @@ hash = "ded1b3b51c1b47ee3e812ef73dfb4dd423dec7119ed921585bed038c95328c0d"
 
 [[files]]
 file = "kubejs/assets/sdrp/lang/en_us.json"
-hash = "90cee4b8e83755b567e3719cdee5cd1289e8bf978aa720921435df657b986c47"
+hash = "b36c24bf1abd9fb0eceda0970f75c29cf731d6540b6abc3a8b26d93943adbc46"
 
 [[files]]
 file = "kubejs/assets/storagedrawers/lang/en_us.json"
@@ -4225,6 +4149,138 @@ file = "kubejs/data/botania/orechid_ore_weights/orechid_ignem.json"
 hash = "ca2d5d08632e85b6cab5279889d30969aa1979e6c8e19f7917770b4131988425"
 
 [[files]]
+file = "kubejs/data/minecraft/dimension/overworld.json"
+hash = "260ba4d6103a55cb2ac3b61a501f273f7b14dd84a9b75e6c0dd6c6e03a21ae57"
+
+[[files]]
+file = "kubejs/data/minecraft/worldgen/biome/badlands.json"
+hash = "6c379e8e79a110c24917c5cdc24e13aa4906f3d008da1a0bdfb5701f903e5ea2"
+
+[[files]]
+file = "kubejs/data/minecraft/worldgen/biome/eroded_badlands.json"
+hash = "b5ac78fdebcf40b2eea27a24997b747504e0901f61c9aab6a470229d0acb10a0"
+
+[[files]]
+file = "kubejs/data/minecraft/worldgen/noise_settings/overworld.json"
+hash = "c6169be6af7f2f45d9320eb816c8ab6bafae2c7e3ecae9004c02dd9cb5e0f93b"
+
+[[files]]
+file = "kubejs/data/minecraft/worldgen/structure/large_fossil.json"
+hash = "f86331fbb133fa39208f20b3e642abf732ad0ad5c06091c372fc5c2b60aa9ea5"
+
+[[files]]
+file = "kubejs/data/minecraft/worldgen/structure/mineshaft_mesa.json"
+hash = "e0d80199005b8da054f831a66ba5c8956a8ebdb28b52b6dc3c9a67439e8644a5"
+
+[[files]]
+file = "kubejs/data/minecraft/worldgen/structure/nether_fossil.json"
+hash = "ba8ed3e412bdeb8b15b751a1c7a6c8c0be3d5d61326d09668a9bafa17d71207c"
+
+[[files]]
+file = "kubejs/data/minecraft/worldgen/structure/ruined_portal.json"
+hash = "6476cf63940e802adbebbe4a4830984d4c12372ab7821b4366ac0f8c1ea9ec61"
+
+[[files]]
+file = "kubejs/data/minecraft/worldgen/structure/ruined_portal_mountain.json"
+hash = "aea5381c6fab3aabfb1e74ad52c177b097d47ff5388032339ad5f0e8543a677f"
+
+[[files]]
+file = "kubejs/data/minecraft/worldgen/structure/spaceship_wreck_main.json"
+hash = "7afa1b28a7357ca8ee028441c48c81585404bebbe948595c68258cfe37d17404"
+
+[[files]]
+file = "kubejs/data/minecraft/worldgen/structure_set/large_fossils.json"
+hash = "4b31905ccc7b74f0ea30159e8f0227fbdef11400a26e3a15b0e536952fae5d60"
+
+[[files]]
+file = "kubejs/data/minecraft/worldgen/structure_set/nether_fossils.json"
+hash = "6a105924d08ddc1b40918b2ca7821fdcf5d7c13843d840a16891027b6c23e11b"
+
+[[files]]
+file = "kubejs/data/minecraft/worldgen/template_pool/large_fossil.json"
+hash = "5d679a41ee667b7c99106a000a0cc10180355d23e82b83d9cec53b6fc05b707b"
+
+[[files]]
+file = "kubejs/data/minecraft/worldgen/template_pool/spaceship_wreck_main.json"
+hash = "3f1199896eb16802a6f7a9751816f7a5b7eea0a16aa31e843699bce8f5f39612"
+
+[[files]]
+file = "kubejs/data/ptd/worldgen/configured_feature/replace_terracotta/replace1.json"
+hash = "417d755f0e88a6f3a15e64b3c47dc2ec379a99a6416a468e8e3d5fbe295472f8"
+
+[[files]]
+file = "kubejs/data/ptd/worldgen/configured_feature/replace_terracotta/replace2.json"
+hash = "bdaf4ede3797729e77c2d81f2e32d40bd94b2ad67d7348cf2ceb93ec41b2c783"
+
+[[files]]
+file = "kubejs/data/ptd/worldgen/configured_feature/replace_terracotta/replace3.json"
+hash = "bf0d5bc38c4db44dd076fd2049293a6d346710d440ecf053e4bbf759f79593c2"
+
+[[files]]
+file = "kubejs/data/ptd/worldgen/configured_feature/replace_terracotta/replace4.json"
+hash = "968a4a5ca2dbec6119c2b04eda0f870ab46d8c2ca807e799f57d090d44837a80"
+
+[[files]]
+file = "kubejs/data/ptd/worldgen/configured_feature/replace_terracotta/replace5.json"
+hash = "881a61102be27220050893f03d221eb518eb5df199d5474215436dfa9432e719"
+
+[[files]]
+file = "kubejs/data/ptd/worldgen/configured_feature/replace_terracotta/replace6.json"
+hash = "c985c24e0c2208600b4bfd1c7fcf727b06c5f8bc511b7a3462f6da0d92e1b3fe"
+
+[[files]]
+file = "kubejs/data/ptd/worldgen/configured_feature/replace_terracotta/replace7.json"
+hash = "de4e0a5d6e46ef63957eb93af470fd9e6876540315500cddc1b5c78c8c5ec67a"
+
+[[files]]
+file = "kubejs/data/ptd/worldgen/configured_feature/replace_terracotta/replace8.json"
+hash = "29e393ab91307e465c941b87947417ead41cd4952884a57c850f5bc7bafff70e"
+
+[[files]]
+file = "kubejs/data/ptd/worldgen/configured_feature/replace_terracotta/replace9.json"
+hash = "c5f33f3a7989662e9808982c63268b109c0be02cac3a552fdaabcad2e2a5be2d"
+
+[[files]]
+file = "kubejs/data/ptd/worldgen/placed_feature/replace_terracotta/replace1.json"
+hash = "fdab922ab9b7c3ad766348250c1fdd9a9c81ce3ecbd5f8127be63ad64a4579b6"
+
+[[files]]
+file = "kubejs/data/ptd/worldgen/placed_feature/replace_terracotta/replace2.json"
+hash = "2f9fa4c45f93140afbdfe3acb1d8909d9427b8be20e20a1ceb98fddab69e1de4"
+
+[[files]]
+file = "kubejs/data/ptd/worldgen/placed_feature/replace_terracotta/replace3.json"
+hash = "7fd595313c586a23e31fcb5dbab9d142c9dd1c51cecd87c2652ef8ed5bd5f064"
+
+[[files]]
+file = "kubejs/data/ptd/worldgen/placed_feature/replace_terracotta/replace4.json"
+hash = "cebeea172e00963642cff25344b6b76a167015cc36eb6351dd6e2cdd8bfb3a71"
+
+[[files]]
+file = "kubejs/data/ptd/worldgen/placed_feature/replace_terracotta/replace5.json"
+hash = "303915a4f97de641adf3c4258a274d2a4a6a0dfe005524f14c62bad910a140c3"
+
+[[files]]
+file = "kubejs/data/ptd/worldgen/placed_feature/replace_terracotta/replace6.json"
+hash = "b6471e590c5c93ab7af6c2076a1b5fccc23ff4a991ad7cdd4255084871a1f4db"
+
+[[files]]
+file = "kubejs/data/ptd/worldgen/placed_feature/replace_terracotta/replace7.json"
+hash = "43bfe751590a2d6f356ea2719b7d593c5b997ca4edd6dd8cd763e8c4d23791bb"
+
+[[files]]
+file = "kubejs/data/ptd/worldgen/placed_feature/replace_terracotta/replace8.json"
+hash = "f03aeee8743b95ebc6692fbe4af39994aeb2e1bac2817e0b3a0884cbe6174c52"
+
+[[files]]
+file = "kubejs/data/ptd/worldgen/placed_feature/replace_terracotta/replace9.json"
+hash = "ce6d92118c1344fad4f2b6ba5e098d62191d70b6b51afab730b1431200246f01"
+
+[[files]]
+file = "kubejs/data/salt/worldgen/biome_modifier/add_rock_salt_deposit.json"
+hash = "7952921e9d4106984e0f71cf58e061f812a3fc35d12b7a23d0459ff965ce4618"
+
+[[files]]
 file = "kubejs/data/supplementaries/loot_modifiers/ash_from_burning_mobs.json"
 hash = "3453aca4151d11583b45db3178b79420327669346a5116ef1f8d97ee5905b1eb"
 
@@ -4474,7 +4530,7 @@ hash = "49912938746143f82d21dad602f4b751f78b951624b40bf5634dd8d78e7f36f0"
 
 [[files]]
 file = "modpack-update-checker/meta.json"
-hash = "86bf8ec8350d58d55e8af7b33d63e2faf17a02b0f40497099f0525c7a351b24d"
+hash = "cb941b9fa620d13ccab3208de9875a57d2e19e4b19ed4861506b4fbee5884640"
 
 [[files]]
 file = "modpack-update-checker/versions/1.100.0/changelog.txt"
@@ -6637,6 +6693,10 @@ file = "modpack-update-checker/versions/1.232.9/changelog.txt"
 hash = "1849092360ee772e5572627025a85baf1af67ce6a4e5b866a5d3eeb59de4fe13"
 
 [[files]]
+file = "modpack-update-checker/versions/1.234.0/changelog.txt"
+hash = "7731824994ba2b878e4e61cff02f207cfd4c9b9095419d10a16708e7ceeda1f2"
+
+[[files]]
 file = "modpack-update-checker/versions/1.79.33/changelog.txt"
 hash = "3ffee41ebf2c4f32db44a257c726f8496cc33446635821d2cf364ce80a6bef3e"
 
@@ -7023,11 +7083,6 @@ hash = "28358fe53c22695b3bf1f93ac2225c46fe3525918b7b993ac36e68a7f0a16fe8"
 metafile = true
 
 [[files]]
-file = "mods/botania.pw.toml"
-hash = "450686274e074a0caa8adb5ae1a740abb37126cbe02df4a7aa29b54532c0aa79"
-metafile = true
-
-[[files]]
 file = "mods/caelus.pw.toml"
 hash = "8a8ea0af79b88d9c192d208aa5be4bacd934e2b92d4721566e2e796eb9761e10"
 metafile = true
@@ -7393,6 +7448,10 @@ hash = "c7a47ddd80ff8c0c93bbc3302610254b4fe233141d5696dfe04a11bc37ac2da1"
 [[files]]
 file = "tools/check_mod_sync.py"
 hash = "7ca3b505b9b0eef53a39ee3b1d957c16e6d0402a9220985fb94939e2ddff1451"
+
+[[files]]
+file = "tools/check_rank.py"
+hash = "54a735ad03f2353e61b420286739df23be08f823bf43ffcf811e36f1ecad1a36"
 
 [[files]]
 file = "tools/create_original_name_aliases.py"

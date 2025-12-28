@@ -1,0 +1,19 @@
+## [1.234.0](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/compare/1.233.3...1.234.0) (2025-12-28)
+
+
+### Features
+
+* add itemconverter ([c04af1a](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/c04af1a342c33b877220458a70b3fea9a2c10338))
+* port planet worldgen ([2df2cc6](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/2df2cc6e5680ffb8b43185d78ebe5cdba57c6473))
+
+
+### Fixes
+
+* hash ([31d2d39](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/31d2d397ba93afbf4e482436c9f06d4b71d55c90))
+
+
+### Continuous Integration
+
+* fix rankcheck ([b50838e](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/b50838e42411665e4a559aefade29e98813ecf58))
+
+
