@@ -2,12 +2,16 @@
 // Hammer - Device deconstruction and block pickup
 
 function hammerGetGenericDevice(block) {
-  // Find device tag on this block (ptd:devices/* but not ptd:devices/generics)
-  var blockTags = block.getTags().toArray();
+  // Get the item form of this block to check item tags
+  var blockItem = Item.of(block.id);
+  if (blockItem.isEmpty()) return null;
+
+  // Find device tag on this item (ptd:devices/* but not ptd:devices/generics)
+  var itemTags = blockItem.getTags().toArray();
   var deviceTag = null;
 
-  for (var i = 0; i < blockTags.length; i++) {
-    var tag = blockTags[i].location().toString();
+  for (var i = 0; i < itemTags.length; i++) {
+    var tag = itemTags[i].location().toString();
     if (tag.startsWith("ptd:devices/") && tag !== "ptd:devices/generics") {
       deviceTag = tag;
       break;
@@ -58,14 +62,12 @@ function hammerBreakDevice(block, player) {
 }
 
 // Hammer right-click: deconstruct device blocks
-ItemEvents.rightClicked(function(event) {
-  if (event.item.id !== "ptdye:hammer") return;
-  if (event.player.getOffHandItem().id !== "minecraft:air") return;
+BlockEvents.rightClicked(function(event) {
+  var item = event.player.getMainHandItem();
+  if (item.id !== "ptdye:hammer") return;
+  if (!event.player.getOffHandItem().isEmpty()) return;
 
-  var target = event.target;
-  if (!target || !target.block) return;
-
-  var block = target.block;
+  var block = event.block;
   if (hammerBreakDevice(block, event.player)) {
     event.player.swing();
     event.cancel();
@@ -74,8 +76,9 @@ ItemEvents.rightClicked(function(event) {
 
 // Hammer block break: deconstruct device OR pick up drops
 BlockEvents.broken(function(event) {
-  if (event.player.getMainHandItem().id !== "ptdye:hammer") return;
-  if (event.player.getOffHandItem().id !== "minecraft:air") return;
+  var item = event.player.getMainHandItem();
+  if (item.id !== "ptdye:hammer") return;
+  if (!event.player.getOffHandItem().isEmpty()) return;
 
   var block = event.block;
 
@@ -87,8 +90,8 @@ BlockEvents.broken(function(event) {
 
   // Otherwise pick up all drops directly
   if (!event.player.creative) {
-    block.getDrops(event.player, event.player.getMainHandItem()).forEach(function(item) {
-      event.player.give(item);
+    block.getDrops(event.player, item).forEach(function(drop) {
+      event.player.give(drop);
     });
     block.set("minecraft:air");
     event.cancel();
