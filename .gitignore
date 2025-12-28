@@ -91,3 +91,4 @@ kubejs/allEnglishTranslationKeys.json
 /.item_converter_generated
 /mods/.index
 .claude/settings.local.json
+fancymenu_data/buddy
