@@ -1,0 +1,21 @@
+## [1.240.0](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/compare/1.239.0...1.240.0) (2025-12-29)
+
+
+### Features
+
+* add quark crate back into decices, assuming fixed since last time but we'll see ([6ff909b](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/6ff909bebab458ba4cfc9d16eabe544d22bf55fb))
+* improve emi scripts ([1385eff](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/1385eff8068988934c70eb1b448bcc5c7c955175))
+* port diesel generators ([01944e4](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/01944e4ab3f19e22bc49b7212a5c4587582008b5))
+* port emi description generator ([5815769](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/5815769b0dee256204ec894e8804c6d93e4eeeaa))
+
+
+### Fixes
+
+* comment out predicates until I figure out propper port ([28a261a](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/28a261a98f52afc6280c2f4c7db095070d279bc6))
+
+
+### chores
+
+* autopublish 2025-12-28T22:45:03Z ([6d39151](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/6d391511e411c01dc2acd419bb45b8c59de5fa88))
+
+
