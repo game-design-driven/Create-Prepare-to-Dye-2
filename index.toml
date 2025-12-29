@@ -26,7 +26,7 @@ hash = "48981474996310a7861d97b5aaea8a11ba16d6075c273766daab566848930c09"
 
 [[files]]
 file = "VERSION"
-hash = "b87a1542a5db7dabfa8effa531e37ac6cd21cf1187ac5c88f6566b70d67dc38d"
+hash = "054c8cc4afeef75ff74fd25d9c3cfc51cab8dd692b1e712a774e9fe4a1d32dff"
 
 [[files]]
 file = "config/MouseTweaks.cfg"
@@ -418,7 +418,7 @@ hash = "d1151ee0b7aa54a262ade99ba45014b32bf8774a90040f0b65c733d9ab9e2258"
 
 [[files]]
 file = "config/item_converter.client.json"
-hash = "90d9fd12326f7fda97914e2668b3111e0dff7c08e56a7547aee5e1667d57483b"
+hash = "3393773495ef3a2826533e980b33d45dddd55c578391fd20e85828ae5677af75"
 
 [[files]]
 file = "config/item_converter.common.json"
@@ -466,7 +466,7 @@ hash = "e6692fd7c3b5d4db82c9836c81b02182500bb00c81817919120f514df2bc7f00"
 
 [[files]]
 file = "config/modpack-update-checker/config.json"
-hash = "7d3f40c8be0bb9b226ea583b4dbf0d21e81f750d25b09b883079617288377a1d"
+hash = "6ff48f84c0d8e6bfd037aa05ee19a7e96c9346f078c6b316105580f79ed7437f"
 
 [[files]]
 file = "config/modpack-update-checker/modpack-info.txt"
@@ -678,7 +678,7 @@ hash = "989f3737ae4621b8ff6730bce4cbeeee756921e7e510e0c281c8a350501d98af"
 
 [[files]]
 file = "kubejs/TODO.md"
-hash = "47972590cf58f15494a7557c735a0befc00fff1f6c960c794a93b14dd817fada"
+hash = "ac540326b84af56be38abd2d4de2340195d1efb8ff074be5f9d12d3aa229a8c4"
 
 [[files]]
 file = "kubejs/assets/ae2/lang/en_us.json"
@@ -3602,7 +3602,7 @@ hash = "ded1b3b51c1b47ee3e812ef73dfb4dd423dec7119ed921585bed038c95328c0d"
 
 [[files]]
 file = "kubejs/assets/sdrp/lang/en_us.json"
-hash = "a969f28e9dd580b4d993c435176212bc4944b40a507d9cdc3bc2385f867aa7c7"
+hash = "82e4ecbac90707c37e4e779c208812b5af69a6eed61b424244b4cd9269bcc575"
 
 [[files]]
 file = "kubejs/assets/storagedrawers/blockstates/controller.json"
@@ -3830,7 +3830,7 @@ hash = "a3612d063fb39cca67e322cf7495d7f927616dc25298ead4bf5fe5ad8d447bd9"
 
 [[files]]
 file = "kubejs/client_scripts/tooltips.js"
-hash = "0b68941b7ef36f4f0fe3d8f3de30c4d71f6bc60a24a748a2079d17d579ae5d07"
+hash = "56d857577595c310300636a4b223704f35877b64ad1ec6835463c6cfc007d00c"
 
 [[files]]
 file = "kubejs/config/client.properties"
@@ -4402,7 +4402,7 @@ hash = "60a461aad7885a7c637a84aa55bf9339f35020fe03de2e41dd4a2c64d92249b0"
 
 [[files]]
 file = "kubejs/server_scripts/automaticAssembly.js"
-hash = "a0968cc6304e939ee05eeef46f8f2f6bd96cf81cdad689a4a81fba465ce2a884"
+hash = "4617f72df96c85ce127fc2a1de36a96cd649a9b9f024f14ff3b7b061b200e80b"
 
 [[files]]
 file = "kubejs/server_scripts/block_tweaks.js"
@@ -4414,7 +4414,7 @@ hash = "2ca6b7e4f96e70e82a9467db8c6da5b3abb01b2837961a8469a9b04bcbd5e99b"
 
 [[files]]
 file = "kubejs/server_scripts/bulkrecycle.js"
-hash = "194064c3a861804182c09756e88e7851bc8e9abebba0cc96a1a2cf92d4773112"
+hash = "b23aff3bad1e78dde289f0253d4d883899c07453ac8b5c316af51e33f972fb5f"
 
 [[files]]
 file = "kubejs/server_scripts/chicken_eggs.js"
@@ -4426,7 +4426,7 @@ hash = "09032a8b214df6d92d5ac3d93605cf617f54e96728c30c30a887dd60382a32e6"
 
 [[files]]
 file = "kubejs/server_scripts/devices.js"
-hash = "4b7e1a66cd9fb2fc392ac7153cd0615d56f454d6f95eb40f0e5fd54639356da2"
+hash = "eea58799d63470f9d7253a3abb25b36f69316b53f6d62f4690a2d487ddf6042d"
 
 [[files]]
 file = "kubejs/server_scripts/gamerules.js"
@@ -4434,7 +4434,7 @@ hash = "3789a9448d8f276e053e92d8543da6b4db4e4218b4d0df7ca219deb00867c478"
 
 [[files]]
 file = "kubejs/server_scripts/hammer.js"
-hash = "3086a027db0d1eacdcf0efdfee184d8b4371781237099227710e177df07286c1"
+hash = "f495d19e26589caff2fdd5a8b606e57f2624b7ee92fa5fb3aa0971f8b421ab00"
 
 [[files]]
 file = "kubejs/server_scripts/loot.js"
@@ -4442,7 +4442,7 @@ hash = "c01ff0efb8bdbc65f4b28fb4cf56a5f7634ea1ba5183dfe07536d61a1dbab0fd"
 
 [[files]]
 file = "kubejs/server_scripts/lychee.js"
-hash = "16e00d9d8f29aa662f722ddae397fb52e8b456c421ea76323073ecaaa90e888a"
+hash = "a0b728b5e412dd9a9c4149c6bcdac9b24ddebc4ce2ed0f6af6243658c38b8afc"
 
 [[files]]
 file = "kubejs/server_scripts/manapool.js"
@@ -4466,11 +4466,11 @@ hash = "3c740c145d5c68cef90cf48be82122fb51e18af3a08f70be745f791db7707a9a"
 
 [[files]]
 file = "kubejs/server_scripts/recipes/botania.js"
-hash = "fb62709e0d1acb9a8b7959e21fe9406626950db2ccf4ee02fd4553d1f3d96a33"
+hash = "f353a0590dfcd6faeb48cb58977376fab6bf1144865219357505dd3c085a2e6e"
 
 [[files]]
 file = "kubejs/server_scripts/recipes/compacting.js"
-hash = "3048054d951d00f0a89439fe781ba0e620d3d26291689cc328472f81b8e585bc"
+hash = "be3e340d018d6330bfd006f9e29d3ace6bc3da9b454908822e48ccabe38c92c5"
 
 [[files]]
 file = "kubejs/server_scripts/recipes/crafting.js"
@@ -4478,7 +4478,7 @@ hash = "13da7020cd3b9bdc449aeae3299cccce4db4b4485d17170898bddff4cef969c7"
 
 [[files]]
 file = "kubejs/server_scripts/recipes/crushing.js"
-hash = "d3effefae1e0ad26c099bfd617f54e5f70a30988762c9d60ed7fb315219ce176"
+hash = "10a43c034ac0b5e02e568ffcd886cdcd1026769f4599aceefc277df91c10a9c7"
 
 [[files]]
 file = "kubejs/server_scripts/recipes/cutting.js"
@@ -4494,7 +4494,7 @@ hash = "c699c5a05b5a2d8958ad3d202c549899a3a92bab289ae7ce880da4d7d4da63b8"
 
 [[files]]
 file = "kubejs/server_scripts/recipes/filling.js"
-hash = "62032632e63434e7adf0ccb5a33f2fef7bba2b5e5f1861a71ffecd22420a3a46"
+hash = "d84568a0efa2aa858dc84fe2d822144ec38f790cc1c400d4d238670791c63e40"
 
 [[files]]
 file = "kubejs/server_scripts/recipes/item_application.js"
@@ -4502,11 +4502,11 @@ hash = "c94f9410416b37200491e4e13e0006c276de6dd0b7b975efe2f8a95b74a7937d"
 
 [[files]]
 file = "kubejs/server_scripts/recipes/milling.js"
-hash = "0e8395033b1a3d6cfe90af8346bd31896830164476b3804856960c4777ec1b88"
+hash = "5e2c04802f07c442a8132ee18e19e70779156a298296c85e65e47ce69c415e87"
 
 [[files]]
 file = "kubejs/server_scripts/recipes/mixing.js"
-hash = "a6a830d67f01a1b5d3cff57d7fb1efe2b0afe87baf931b1b133834c25d7c8d43"
+hash = "89e929b74fe5882fed6b239cb2df8b62f8dd3e1ecfd6206a6a1181f68a5f16c1"
 
 [[files]]
 file = "kubejs/server_scripts/recipes/pressing.js"
@@ -4514,7 +4514,7 @@ hash = "40bf7c94d3762575ca78190667356e4ee839f6a5fe75ab8c569117c6e296c7e9"
 
 [[files]]
 file = "kubejs/server_scripts/recipes/recipe_removals.js"
-hash = "65fef4f5d10cdbc3780bd27cce8339e5002d1a06c70c89b983dc5dd11ecf0217"
+hash = "42a68f44968f5ac001d15971d640f420e6a16629c9b918b9d5d2d5609b4afe3b"
 
 [[files]]
 file = "kubejs/server_scripts/recipes/sandpaper_polishing.js"
@@ -4594,7 +4594,7 @@ hash = "ab323610254d7b8ce09ca2580b344714c58fd4804d26ee0e2525baa24a148809"
 
 [[files]]
 file = "modpack-update-checker/meta.json"
-hash = "9334290bca5dec505c2017d8ee60ea2afe3425d04c96bdcdf7c8ed7ae3480bca"
+hash = "6c803c8fc067414231f9178f35be84965e0943aff143cba2d588715d819ff9b0"
 
 [[files]]
 file = "modpack-update-checker/versions/1.100.0/changelog.txt"
@@ -6775,6 +6775,10 @@ hash = "a175cb5ac485b298c02aef0dc60019636053d316ce05eaa3d80844ab21e5ebb9"
 [[files]]
 file = "modpack-update-checker/versions/1.240.0/changelog.txt"
 hash = "01754c7a7e07110b0fe6c97dba7274c5f6792a44615831313e2000f05d3b30a3"
+
+[[files]]
+file = "modpack-update-checker/versions/1.241.0/changelog.txt"
+hash = "1dcbf877624bbdda19e501b610a59d36067d37d844b13faad51378d009857eea"
 
 [[files]]
 file = "modpack-update-checker/versions/1.79.33/changelog.txt"

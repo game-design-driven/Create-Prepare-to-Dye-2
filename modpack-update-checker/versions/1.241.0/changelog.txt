@@ -1,0 +1,14 @@
+## [1.241.0](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/compare/1.240.0...1.241.0) (2025-12-29)
+
+
+### Features
+
+* make device tags fully descriptive ([c4c5a06](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/c4c5a065405953bbd6831dc9839d104f2067f73a))
+* port dead planet scripts ([6e0714f](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/6e0714f05ea5e3c43f5987447114bb46a03379d4))
+
+
+### chores
+
+* autopublish 2025-12-29T09:09:36Z ([ccffcb6](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/ccffcb6adcae09e30236a00757a87fa728c4becb))
+
+
