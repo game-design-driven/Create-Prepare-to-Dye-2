@@ -85,6 +85,19 @@ ServerEvents.recipes((event) => {
     output: { name: "botania:livingrock" },
   });
 
+  // White concrete powder from flowing milk (pure daisy)
+  event.custom({
+    type: "botania:pure_daisy",
+    input: {
+      type: "tag_excluding",
+      tag: "ptdye:milk",
+      exclude: [{ type: "state", name: "minecraft:milk", properties: { level: "0" } }],
+    },
+    output: { name: "minecraft:white_concrete_powder" },
+    time: 15,
+    hidden: true,
+  });
+
   // Slime from silicon
   event.custom({
     type: "botania:mana_infusion",

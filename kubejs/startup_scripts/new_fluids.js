@@ -16,6 +16,13 @@ StartupEvents.registry("fluid", (event) => {
     .thickTexture(0x2db83d)
     .bucketColor(0x2db83d);
 
+  // // Placeable milk (extends vanilla milk to be placeable)
+  // event
+  //   .create("minecraft:milk")
+  //   .displayName("Milk")
+  //   .thinTexture(0xfcfcfc)
+  //   .bucketColor(0xfcfcfc);
+
   // Flowing milk (fake fluid for display)
   event
     .create("ptdye:flowing_milk")

@@ -31,3 +31,8 @@ BlockEvents.rightClicked("create:spout", function(event) {
     event.cancel();
   }
 });
+
+// Bucket entity interactions cancelled (server handles milk cooldown)
+ItemEvents.entityInteracted("minecraft:bucket", function(event) {
+  event.cancel();
+});

@@ -1,6 +1,46 @@
 //priority: 0
 // Block Tweaks - block-related gameplay modifications
 
+// =============================================================================
+// INDESTRUCTIBLE ITEMS - Never despawn
+// =============================================================================
+
+var NEVER_DESPAWN_ITEMS = [
+  "wares:delivery_agreement",
+  "wares:completed_delivery_agreement",
+  "wares:sealed_delivery_agreement",
+  "create:brass_casing",
+  "create:copper_casing",
+  "create:andesite_casing",
+  "ptdye:cobblestone_casing",
+  "ptdye:redstone_casing",
+  "create:controller_rail",
+  "create:railway_casing"
+];
+
+EntityEvents.spawned(function(event) {
+  if (!event.entity.item) return;
+
+  var itemId = event.entity.item.id;
+
+  // Check explicit list
+  for (var i = 0; i < NEVER_DESPAWN_ITEMS.length; i++) {
+    if (NEVER_DESPAWN_ITEMS[i] === itemId) {
+      event.entity.age = -32768; // Never despawn
+      return;
+    }
+  }
+
+  // Check tag
+  if (event.entity.item.hasTag("forge:indestructible")) {
+    event.entity.age = -32768;
+  }
+});
+
+// =============================================================================
+// DIAMOND TOOLS SILK TOUCH
+// =============================================================================
+
 // Diamond tools have built-in silk touch
 var SILKY_TOOLS = [
   "minecraft:diamond_pickaxe",
