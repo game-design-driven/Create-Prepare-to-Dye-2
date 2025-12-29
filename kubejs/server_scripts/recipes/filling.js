@@ -172,9 +172,9 @@ ServerEvents.recipes((event) => {
     "ae2:large_quartz_bud",
   ]);
 
-  // DEAD PLANET - sand to red sand with milk
-  event.recipes.create.filling("minecraft:red_sand", [
-    Fluid.of("minecraft:milk", 100),
-    "minecraft:sand",
-  ]);
+  // // DEAD PLANET - sand to red sand with milk
+  // event.recipes.create.filling("minecraft:red_sand", [
+  //   Fluid.of("minecraft:milk", 100),
+  //   "minecraft:sand",
+  // ]);
 });
