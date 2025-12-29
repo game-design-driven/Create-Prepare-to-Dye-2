@@ -251,7 +251,7 @@ ItemEvents.tooltip(function(event) {
     }
 
     // Device type tooltip
-    if (itemObj.hasTag("ptd:devices/generics") || itemObj.hasTag("forge:devices")) {
+    if (itemObj.hasTag("ptd:devices/generic_devices") || itemObj.hasTag("forge:devices")) {
       var tags = itemObj.getTags().toArray();
       var deviceTag = null;
       for (var i = 0; i < tags.length; i++) {

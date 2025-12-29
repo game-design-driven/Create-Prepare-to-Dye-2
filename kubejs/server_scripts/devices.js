@@ -12,7 +12,7 @@
 const DEVICE_GROUPS = {
   sturdy: {
     generic: "ptdye:sturdy_device",
-    tag: "ptd:devices/sturdy",
+    tag: "ptd:devices/sturdy_devices",
     incomplete: "ptdye:incomplete_sturdy_device",
     assembly: ["cobblestone", "create:iron_sheet"],
     configKey: "config_deviceSturdy",
@@ -49,7 +49,7 @@ const DEVICE_GROUPS = {
 
   mechanical: {
     generic: "ptdye:mechanical_device",
-    tag: "ptd:devices/mechanical",
+    tag: "ptd:devices/mechanical_devices",
     incomplete: "ptdye:incomplete_mechanical_device",
     assembly: ["create:iron_sheet", "create:andesite_alloy"],
     configKey: "config_deviceMechanical",
@@ -94,7 +94,7 @@ const DEVICE_GROUPS = {
 
   sealed: {
     generic: "ptdye:sealed_device",
-    tag: "ptd:devices/sealed",
+    tag: "ptd:devices/sealed_devices",
     incomplete: "ptdye:incomplete_sealed_device",
     assembly: ["create:copper_sheet", "ae2:silicon"],
     configKey: "config_deviceSealed",
@@ -122,7 +122,7 @@ const DEVICE_GROUPS = {
 
   smart: {
     generic: "ptdye:smart_device",
-    tag: "ptd:devices/smart",
+    tag: "ptd:devices/smart_devices",
     incomplete: "ptdye:incomplete_smart_device",
     assembly: ["create:brass_sheet", "create:polished_rose_quartz"],
     configKey: "config_deviceSmart",
@@ -157,7 +157,7 @@ const DEVICE_GROUPS = {
 
   locomotive: {
     generic: "ptdye:locomotive_device",
-    tag: "ptd:devices/locomotive",
+    tag: "ptd:devices/locomotive_devices",
     incomplete: "ptdye:incomplete_locomotive_device",
     assembly: ["create:sturdy_sheet", "create:brass_sheet"],
     configKey: "config_deviceLocomotive",
@@ -181,7 +181,7 @@ const DEVICE_GROUPS = {
 
   logic: {
     generic: "ptdye:logic_device",
-    tag: "ptd:devices/logic",
+    tag: "ptd:devices/logic_devices",
     incomplete: "ptdye:incomplete_logic_device",
     assembly: ["minecraft:smooth_stone", "create:copper_sheet", "minecraft:redstone"],
     configKey: "config_deviceLogic",
@@ -208,7 +208,7 @@ const DEVICE_GROUPS = {
 
   red_stringed: {
     generic: "ptdye:red_stringed_device",
-    tag: "ptd:devices/red_stringed",
+    tag: "ptd:devices/red_stringed_devices",
     incomplete: "ptdye:incomplete_red_stringed_device",
     assembly: ["botania:livingrock", "minecraft:string", "minecraft:red_dye"],
     configKey: "config_deviceRedStringed",
@@ -225,7 +225,7 @@ const DEVICE_GROUPS = {
 
   furnished: {
     generic: "ptdye:furnished_device",
-    tag: "ptd:devices/furnished",
+    tag: "ptd:devices/furnished_devices",
     incomplete: "ptdye:incomplete_furnished_device",
     assembly: ["#minecraft:wool", "#minecraft:logs"],
     configKey: "config_deviceFurnished",
@@ -267,7 +267,7 @@ const DEVICE_GROUPS = {
 
   tools: {
     generic: "ptdye:tool_parts",
-    tag: "ptd:devices/tools",
+    tag: "ptd:devices/tool_devices",
     // No assembly - made via mixing
     devices: [
       "create:wrench",
@@ -287,7 +287,7 @@ const DEVICE_GROUPS = {
 
   lamp: {
     generic: "minecraft:redstone_lamp",
-    tag: "ptd:devices/lamp",
+    tag: "ptd:devices/lamp_devices",
     // No assembly - made via item application
     devices: [
       "quark:red_crystal_lamp",
@@ -306,7 +306,7 @@ const DEVICE_GROUPS = {
 
   cogs: {
     generic: "create:cogwheel",
-    tag: "ptd:devices/cogs",
+    tag: "ptd:devices/cog_devices",
     // No assembly - kept original recipe
     devices: [
       "create:large_cogwheel",
@@ -317,7 +317,7 @@ const DEVICE_GROUPS = {
 
   network: {
     generic: "ae2:fluix_smart_cable",
-    tag: "ptd:devices/network",
+    tag: "ptd:devices/network_devices",
     // No assembly - cables crafted separately
     devices: [
       "ae2:toggle_bus",
@@ -335,7 +335,7 @@ const DEVICE_GROUPS = {
 
   craftingplaceholder: {
     generic: "minecraft:gold_nugget",
-    tag: "ptd:devices/craftingplaceholder",
+    tag: "ptd:devices/crafting_placeholder_devices",
     // No assembly - simple placeholder conversion
     convertBack: false,
     devices: [
@@ -346,7 +346,7 @@ const DEVICE_GROUPS = {
 
   track: {
     generic: "create:track",
-    tag: "ptd:devices/track",
+    tag: "ptd:devices/track_devices",
     incomplete: "create:incomplete_track",
     assembly: ["#create:sleepers", "botania:livingwood_planks", "botania:livingwood_planks", "#forge:nuggets"],
     amount: 32,
@@ -359,7 +359,7 @@ const DEVICE_GROUPS = {
 
   rail: {
     generic: "create:controller_rail",
-    tag: "ptd:devices/rail",
+    tag: "ptd:devices/rail_devices",
     incomplete: "minecraft:rail",
     assembly: ["minecraft:rail", "create:polished_rose_quartz", "minecraft:rail", "minecraft:rail", "minecraft:rail", "minecraft:rail"],
     amount: 5,
@@ -372,7 +372,7 @@ const DEVICE_GROUPS = {
 
   window: {
     generic: "create:ornate_iron_window",
-    tag: "ptd:devices/window",
+    tag: "ptd:devices/window_devices",
     // No assembly - made via mixing
     devices: [
       "create:oak_window",
@@ -389,7 +389,7 @@ const DEVICE_GROUPS = {
 
   copycats: {
     generic: "copycats:copycat_ghost_block",
-    tag: "ptd:devices/copycats",
+    tag: "ptd:devices/copycat_devices",
     // No assembly - made via stonecutting from andesite alloy
     devices: [
       "create:copycat_panel",
@@ -411,7 +411,7 @@ const DEVICE_GROUPS = {
 
   smokestack: {
     generic: "railways:smokestack_woodburner",
-    tag: "ptd:devices/smokestack",
+    tag: "ptd:devices/smokestack_devices",
     incomplete: "minecraft:campfire",
     assembly: ["minecraft:campfire", "create:iron_sheet", "minecraft:black_dye"],
     amount: 8,
@@ -446,7 +446,7 @@ ServerEvents.tags("item", function(event) {
     // Also tag the generic item
     if (!Item.of(group.generic).isEmpty()) {
       event.add(group.tag, group.generic);
-      event.add("ptd:devices/generics", group.generic);
+      event.add("ptd:devices/generic_devices", group.generic);
     }
   }
 });

@@ -3,17 +3,17 @@
 // Usage: /bulkrecycle (keep 1 of each), /bulkrecycle all (keep none)
 
 var DEVICE_GENERICS = {
-  "sturdy": "ptdye:sturdy_device",
-  "mechanical": "ptdye:mechanical_device",
-  "sealed": "ptdye:sealed_device",
-  "smart": "ptdye:smart_device",
-  "locomotive": "ptdye:locomotive_device",
-  "logic": "ptdye:logic_device",
-  "red_stringed": "ptdye:red_stringed_device",
-  "furnished": "ptdye:furnished_device",
-  "tools": "ptdye:tool_parts",
-  "lamp": "minecraft:redstone_lamp",
-  "cogs": "create:cogwheel"
+  "sturdy_devices": "ptdye:sturdy_device",
+  "mechanical_devices": "ptdye:mechanical_device",
+  "sealed_devices": "ptdye:sealed_device",
+  "smart_devices": "ptdye:smart_device",
+  "locomotive_devices": "ptdye:locomotive_device",
+  "logic_devices": "ptdye:logic_device",
+  "red_stringed_devices": "ptdye:red_stringed_device",
+  "furnished_devices": "ptdye:furnished_device",
+  "tool_devices": "ptdye:tool_parts",
+  "lamp_devices": "minecraft:redstone_lamp",
+  "cog_devices": "create:cogwheel"
 };
 
 function getDeviceType(item) {
@@ -35,7 +35,7 @@ function getDeviceType(item) {
 
     if (cleanTag.indexOf("ptd:devices/") === 0) {
       var deviceType = cleanTag.substring(12);
-      if (deviceType === "generics") continue;
+      if (deviceType === "generic_devices") continue;
       if (DEVICE_GENERICS[deviceType]) {
         return deviceType;
       }

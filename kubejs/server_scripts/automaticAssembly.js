@@ -51,7 +51,7 @@ function shareVariantOrDeviceTag(itemId1, itemId2) {
       console.log("+++++++++++++++++++++++++++++++++++++++++++++");
       console.log(cleanTag);
       console.log("+++++++++++++++++++++++++++++++++++++++++++++");
-      if (cleanTag !== "ptd:devices/generics" && item2.hasTag(cleanTag)) {
+      if (cleanTag !== "ptd:devices/generic_devices" && item2.hasTag(cleanTag)) {
         console.log("-+++++++++++++++++++++++++++++++++++++++++++++");
         return true;
       }
@@ -67,7 +67,7 @@ function findAssemblableInInventory(player, placedItemId) {
 
   if (mode === "off") return null;
 
-  if (mode === "generics" && !placedItem.hasTag("ptd:devices/generics")) {
+  if (mode === "generics" && !placedItem.hasTag("ptd:devices/generic_devices")) {
     return null;
   }
 

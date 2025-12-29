@@ -12,7 +12,7 @@ function hammerGetGenericDevice(block) {
 
   for (var i = 0; i < itemTags.length; i++) {
     var tag = itemTags[i].location().toString();
-    if (tag.startsWith("ptd:devices/") && tag !== "ptd:devices/generics") {
+    if (tag.startsWith("ptd:devices/") && tag !== "ptd:devices/generic_devices") {
       deviceTag = tag;
       break;
     }
@@ -21,7 +21,7 @@ function hammerGetGenericDevice(block) {
   if (!deviceTag) return null;
 
   // Find item that has both this device tag AND generics tag
-  var generics = Ingredient.of("#ptd:devices/generics").stacks.toArray();
+  var generics = Ingredient.of("#ptd:devices/generic_devices").stacks.toArray();
   for (var i = 0; i < generics.length; i++) {
     if (generics[i].hasTag(deviceTag)) {
       return generics[i].id;

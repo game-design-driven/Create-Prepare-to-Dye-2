@@ -5,7 +5,7 @@
     "allowScroll": true,
     "middleClickConvert": true,
     "specialTags": [
-        "ptd:devices/generics",
+        "ptd:devices/generic_devices",
         "ptd:generics"
     ],
     "specialTagBorderColor": -10496
