@@ -1,0 +1,13 @@
+name = "Another Liquid Milk"
+filename = "AnotherLiquidMilkMod-1.20.1-1.0.2.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/Rg44Gane/versions/CxmTBJKe/AnotherLiquidMilkMod-1.20.1-1.0.2.jar"
+hash-format = "sha512"
+hash = "74eb735d5de3d810faa358f8bbac35278fbfa3282c5f2b4cae3f5caadfaae5683d0ceb96b1377e2cd8b9d9656189935b22167ca5268da7164c99f927d843c33d"
+
+[update]
+[update.modrinth]
+mod-id = "Rg44Gane"
+version = "CxmTBJKe"
