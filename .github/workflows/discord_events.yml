@@ -1,16 +1,24 @@
 name: Discord events
+concurrency:
+  group: github-events-queue
 
 on:
   issue_comment: 
     types: 
       - created
-  issues: 
-    types: 
+  issues:
+    types:
       - opened
+      - closed
+      - reopened
+      - labeled
+      - unlabeled
+      - milestoned
+      - assigned
   pull_request: 
     types: 
       - opened
-  
+      - synchronize
 jobs:
   test:
     permissions:
@@ -24,7 +32,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          repository: Yarden-zamir/discord_bot
+          fetch-depth: 0
+          repository: Yarden-zamir/Discord-Github-Bridge
       - uses: actions/setup-node@v4
         with:
           node-version: 20
