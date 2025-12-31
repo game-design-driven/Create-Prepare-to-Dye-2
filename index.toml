@@ -26,7 +26,7 @@ hash = "48981474996310a7861d97b5aaea8a11ba16d6075c273766daab566848930c09"
 
 [[files]]
 file = "VERSION"
-hash = "c1701e7e500123f7de4ae025955d73e5b036f633a81874e03eb24806a985607c"
+hash = "be73f5bc03b372a4881c3902107a39f081c827ddeaaedc472c4d54f04d26f3c3"
 
 [[files]]
 file = "config/MouseTweaks.cfg"
@@ -238,7 +238,7 @@ hash = "ac47fa95b8af62fed8e7188f4beb3899c0394bec794d091166bb99f6bd0f43b0"
 
 [[files]]
 file = "config/fancymenu/customization/modpacksettings.txt"
-hash = "a2eed1d666e84b1dde75edc9972798b4059d9d83c9ea34d66340a6c2254ec89d"
+hash = "03ba84317376e54b5eae91a45a8fe9332d07e8efaf68c220d54f4c4c3817250f"
 
 [[files]]
 file = "config/fancymenu/customization/newworld.txt"
@@ -250,7 +250,7 @@ hash = "72968a18827773b58d2a218d5058efa6ba311e4741c1189a85098ff38b903dba"
 
 [[files]]
 file = "config/fancymenu/customization/personalassembler.txt"
-hash = "192420c8c1ce26a36748ca2902ce82055dbcaf39b1ed2384cda3f46fe59e597e"
+hash = "0534c322ebbef96279d2b54175d017448bc667fd5fc98285237ceb7c50c71a23"
 
 [[files]]
 file = "config/fancymenu/customization/q.txt"
@@ -470,7 +470,7 @@ hash = "e6692fd7c3b5d4db82c9836c81b02182500bb00c81817919120f514df2bc7f00"
 
 [[files]]
 file = "config/modpack-update-checker/config.json"
-hash = "79630796c6732b86bff216509a8d71b464e74bde98cfef09108f514e2ea67587"
+hash = "a6dc2a24bcaa73104df6af7503ccfa4c3f0930a7c4cda4c753373e2dd0bfc95a"
 
 [[files]]
 file = "config/modpack-update-checker/modpack-info.txt"
@@ -3606,7 +3606,7 @@ hash = "ded1b3b51c1b47ee3e812ef73dfb4dd423dec7119ed921585bed038c95328c0d"
 
 [[files]]
 file = "kubejs/assets/sdrp/lang/en_us.json"
-hash = "433db7ce39e1cda76ec9ec4981955077a874d026c8f06f83fbc05e99ab5f5770"
+hash = "f3c20f795bb6344d65ab1f610d014534c02854fc33b303313a7609dacf1080dd"
 
 [[files]]
 file = "kubejs/assets/storagedrawers/blockstates/controller.json"
@@ -4426,11 +4426,11 @@ hash = "2aed96c56bf27ffc34ebaa82ee685b195db033a2e43813eb1ea2ec924657a3df"
 
 [[files]]
 file = "kubejs/server_scripts/chunk_territory_commands.js"
-hash = "f1f12f39e90b73a8ff3fb9c4e05116ac0f597f809105af3cc7655af98a64611c"
+hash = "c045b4442941218ed25ddc80e12773220521c2f88426d1c7d813bf6ad13110fc"
 
 [[files]]
 file = "kubejs/server_scripts/chunk_territory_enforce.js"
-hash = "caeda86ad6801e340bd07f896c535888bfaf9833a3e37c7d7f9254ed0b9319b9"
+hash = "b8cc90b19fd5cc010fa2de4444cdd8de695ba89a24d14a0fd2f174ccf5d44169"
 
 [[files]]
 file = "kubejs/server_scripts/commands.js"
@@ -4610,7 +4610,7 @@ hash = "ab323610254d7b8ce09ca2580b344714c58fd4804d26ee0e2525baa24a148809"
 
 [[files]]
 file = "modpack-update-checker/meta.json"
-hash = "f365d7d8fce7297b3fd3b7edd24b0328e54f80f3cacabccf565dcbe35b04302b"
+hash = "164f4afa7e6d5bfca06e9fe90c59f3fd6a5587cc3ca88ebaa09fc3798bda9cc0"
 
 [[files]]
 file = "modpack-update-checker/versions/1.100.0/changelog.txt"
@@ -6807,6 +6807,10 @@ hash = "259673c3cbb668dcdb15572058a54165d45ff76fd010f9c001b43fa1b735d122"
 [[files]]
 file = "modpack-update-checker/versions/1.244.1/changelog.txt"
 hash = "90142aefd85ac7cb99e684d339550853f8d15ffaeef974d7b0273ed5fb641b54"
+
+[[files]]
+file = "modpack-update-checker/versions/1.245.0/changelog.txt"
+hash = "8587e64013bbc1359a9ae70e1f3cdee61385a9b31e797e630f9d062b11314246"
 
 [[files]]
 file = "modpack-update-checker/versions/1.79.33/changelog.txt"

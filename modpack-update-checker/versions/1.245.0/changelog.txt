@@ -1,0 +1,19 @@
+## [1.245.0](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/compare/1.244.1...1.245.0) (2025-12-31)
+
+
+### Features
+
+* added github to discord sync ([e9448ed](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/e9448edd2a2498eb277966eed8cecb570f20b34a))
+* expand territory functionality ([10cbcee](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/10cbcee468c370066b12399593e79baab04f4cff))
+
+
+### Fixes
+
+* settings ui ([831a1b9](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/831a1b9cf9fc18b09b8afa2df2387fcd6beff590))
+
+
+### chores
+
+* autopublish 2025-12-30T14:02:31Z ([82f6808](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/82f680809c46fbab16c295c7a312a091bd3ccbe9))
+
+
