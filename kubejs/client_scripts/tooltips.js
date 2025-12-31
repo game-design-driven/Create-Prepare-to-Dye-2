@@ -267,4 +267,22 @@ ItemEvents.tooltip(function(event) {
       }
     }
   });
+
+  // ---------------------------------------------------------------------------
+  // Botania "debookified" summaries
+  // Shows the generated `.tooltip.summary` text while holding Shift.
+  // (We can't rely on Create's ItemDescription integration here because `global.create`
+  // is not available in this environment, see logs.)
+  // ---------------------------------------------------------------------------
+  var $Screen = Java.loadClass("net.minecraft.client.gui.screens.Screen");
+  event.addAdvanced(Ingredient.of(/^botania:/), function(item, advanced, text) {
+    if (!$Screen.hasShiftDown()) return;
+
+    var itemObj = Item.of(item);
+    var key = itemObj.getDescriptionId() + ".tooltip.summary";
+    var translated = Text.translate(key).getString();
+    if (translated === key) return;
+
+    text.add(formatTooltipText(translated));
+  });
 });
