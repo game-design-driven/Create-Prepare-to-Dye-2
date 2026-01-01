@@ -2,19 +2,24 @@
 // Bulk Recycle Command - compacts device items into generic forms
 // Usage: /bulkrecycle (keep 1 of each), /bulkrecycle all (keep none)
 
-var DEVICE_GENERICS = {
-  "sturdy_devices": "ptdye:sturdy_device",
-  "mechanical_devices": "ptdye:mechanical_device",
-  "sealed_devices": "ptdye:sealed_device",
-  "smart_devices": "ptdye:smart_device",
-  "locomotive_devices": "ptdye:locomotive_device",
-  "logic_devices": "ptdye:logic_device",
-  "red_stringed_devices": "ptdye:red_stringed_device",
-  "furnished_devices": "ptdye:furnished_device",
-  "tool_devices": "ptdye:tool_parts",
-  "lamp_devices": "minecraft:redstone_lamp",
-  "cog_devices": "create:cogwheel"  
-};
+// Lazy-initialized map from global.DEVICE_GROUPS (defined in devices.js)
+var DEVICE_GENERICS = null;
+
+function getDeviceGenerics() {
+  if (DEVICE_GENERICS === null) {
+    DEVICE_GENERICS = {};
+    var groupNames = Object.keys(global.DEVICE_GROUPS);
+    for (var i = 0; i < groupNames.length; i++) {
+      var group = global.DEVICE_GROUPS[groupNames[i]];
+      // Extract device type from tag (e.g., "ptd:devices/sturdy_devices" -> "sturdy_devices")
+      var tagParts = group.tag.split("/");
+      if (tagParts.length === 2) {
+        DEVICE_GENERICS[tagParts[1]] = group.generic;
+      }
+    }
+  }
+  return DEVICE_GENERICS;
+}
 
 function getDeviceType(item) {
   if (item.isEmpty()) return null;
@@ -44,7 +49,7 @@ function getDeviceType(item) {
     if (cleanTag.indexOf("ptd:devices/") === 0) {
       var deviceType = cleanTag.substring(12);
       if (deviceType === "generic_devices") continue;
-      if (DEVICE_GENERICS[deviceType]) {
+      if (getDeviceGenerics()[deviceType]) {
         return deviceType;
       }
     }
@@ -121,7 +126,7 @@ function compactItems(player, keepOne) {
         Text.of(")").darkGray()
       ]));
 
-      player.give(Item.of(DEVICE_GENERICS[deviceType], totalDevices));
+      player.give(Item.of(getDeviceGenerics()[deviceType], totalDevices));
       anySucceeded = true;
     }
   }

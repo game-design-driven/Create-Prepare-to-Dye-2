@@ -9,7 +9,7 @@
 // DEVICE DEFINITIONS
 // =============================================================================
 
-const DEVICE_GROUPS = {
+global.DEVICE_GROUPS = {
   sturdy: {
     generic: "ptdye:sturdy_device",
     tag: "ptd:devices/sturdy_devices",
@@ -430,10 +430,10 @@ const DEVICE_GROUPS = {
 // =============================================================================
 
 ServerEvents.tags("item", function(event) {
-  var groupNames = Object.keys(DEVICE_GROUPS);
+  var groupNames = Object.keys(global.DEVICE_GROUPS);
 
   for (var g = 0; g < groupNames.length; g++) {
-    var group = DEVICE_GROUPS[groupNames[g]];
+    var group = global.DEVICE_GROUPS[groupNames[g]];
 
     // Tag all devices in the group
     for (var i = 0; i < group.devices.length; i++) {
@@ -451,7 +451,7 @@ ServerEvents.tags("item", function(event) {
   }
 
   // Tag tool devices as none_recycleable
-  var toolDevices = DEVICE_GROUPS.tools.devices;
+  var toolDevices = global.DEVICE_GROUPS.tools.devices;
   for (var i = 0; i < toolDevices.length; i++) {
     if (!Item.of(toolDevices[i]).isEmpty()) {
       event.add("ptdye:none_recycleable", toolDevices[i]);
@@ -464,10 +464,10 @@ ServerEvents.tags("item", function(event) {
 // =============================================================================
 
 ServerEvents.recipes(function(event) {
-  let groupNames = Object.keys(DEVICE_GROUPS);
+  let groupNames = Object.keys(global.DEVICE_GROUPS);
 
   for (let g = 0; g < groupNames.length; g++) {
-    let group = DEVICE_GROUPS[groupNames[g]];
+    let group = global.DEVICE_GROUPS[groupNames[g]];
 
     // Build item list: generic first, then devices sorted alphabetically
     let items = [];
