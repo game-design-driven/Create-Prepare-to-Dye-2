@@ -3,320 +3,209 @@
 var IntegerArgumentType = Java.loadClass('com.mojang.brigadier.arguments.IntegerArgumentType');
 var EntityArgument = Java.loadClass('net.minecraft.commands.arguments.EntityArgument');
 
-// Initialize ChunkTerritory if not exists, always update functions
+// Initialize/update ChunkTerritory
 if (!global.ChunkTerritory) {
     global.ChunkTerritory = { chunks: {} };
 }
 
-global.ChunkTerritory.owns = function(playerUuid, cx, cz) {
-    var key = cx + ',' + cz;
-    var data = global.ChunkTerritory.chunks[key];
-    if (!data) return false;
-    var uuid = typeof data === 'string' ? data : data.uuid;
-    return uuid === playerUuid;
+var CT = global.ChunkTerritory;
+
+CT.owns = function(playerUuid, cx, cz) {
+    var data = CT.chunks[cx + ',' + cz];
+    return data && data.uuid === playerUuid;
 };
 
-global.ChunkTerritory.getOwner = function(cx, cz) {
-    var key = cx + ',' + cz;
-    var data = global.ChunkTerritory.chunks[key];
-    if (!data) return null;
-    return typeof data === 'string' ? data : data.uuid;
+CT.getOwner = function(cx, cz) {
+    var data = CT.chunks[cx + ',' + cz];
+    return data ? data.uuid : null;
 };
 
-global.ChunkTerritory.save = function(server) {
+CT.save = function(server) {
     try {
         var level = server.getLevel('minecraft:overworld');
-        if (level) {
-            level.persistentData.putString('chunkTerritory', JSON.stringify(global.ChunkTerritory.chunks));
-        }
-    } catch(e) {
+        if (level) level.persistentData.putString('chunkTerritory', JSON.stringify(CT.chunks));
+    } catch (e) {
         console.log('[territory] Save error: ' + e);
     }
 };
 
-global.ChunkTerritory.load = function(server) {
+CT.load = function(server) {
     try {
         var level = server.getLevel('minecraft:overworld');
         if (level && level.persistentData.contains('chunkTerritory')) {
-            global.ChunkTerritory.chunks = JSON.parse(level.persistentData.getString('chunkTerritory'));
-            console.log('[territory] Loaded ' + Object.keys(global.ChunkTerritory.chunks).length + ' chunks');
+            CT.chunks = JSON.parse(level.persistentData.getString('chunkTerritory'));
+            console.log('[territory] Loaded ' + Object.keys(CT.chunks).length + ' chunks');
         }
-    } catch(e) {
+    } catch (e) {
         console.log('[territory] Load error: ' + e);
     }
 };
 
-ServerEvents.loaded(function(event) {
-    global.ChunkTerritory.load(event.server);
+ServerEvents.loaded(function (event) {
+    CT.load(event.server);
 });
 
-// Tick handler for chunk expirations
-ServerEvents.tick(function(event) {
-    if (!global.ChunkTerritory) return;
+// Expire chunks every second
+ServerEvents.tick(function (event) {
     if (event.server.tickCount % 20 !== 0) return;
 
-    var chunks = global.ChunkTerritory.chunks;
     var currentTick = event.server.tickCount;
-    var toDelete = [];
-
-    for (var key in chunks) {
-        var data = chunks[key];
-        if (typeof data === 'string') continue; // old format
+    for (var key in CT.chunks) {
+        var data = CT.chunks[key];
         if (data.expiry && currentTick >= data.expiry) {
-            toDelete.push({ key: key, uuid: data.uuid });
-        }
-    }
-
-    for (var i = 0; i < toDelete.length; i++) {
-        var item = toDelete[i];
-        var parts = item.key.split(',');
-        delete chunks[item.key];
-
-        var players = event.server.players;
-        for (var j = 0; j < players.size(); j++) {
-            var p = players.get(j);
-            if (p.uuid.toString() === item.uuid) {
-                p.tell('Chunk [' + parts[0] + ', ' + parts[1] + '] expired');
-                break;
+            delete CT.chunks[key];
+            var parts = key.split(',');
+            var players = event.server.players;
+            for (var i = 0; i < players.size(); i++) {
+                var p = players.get(i);
+                if (p.uuid.toString() === data.uuid) {
+                    p.tell('Chunk [' + parts[0] + ', ' + parts[1] + '] expired');
+                    break;
+                }
             }
         }
     }
 });
 
-// Helper functions
-function getSourceChunk(ctx) {
-    var pos = ctx.source.position;
+// Helpers
+function getChunk(pos) {
     return { x: Math.floor(pos.x() / 16), z: Math.floor(pos.z() / 16) };
 }
 
-function getLocalPos(ctx) {
-    var pos = ctx.source.position;
-    var cx = Math.floor(pos.x() / 16);
-    var cz = Math.floor(pos.z() / 16);
-    return { x: pos.x() - cx * 16, z: pos.z() - cz * 16 };
-}
-
-// Add chunk with consistent format
 function addChunk(uuid, cx, cz, expiryTick) {
-    var key = cx + ',' + cz;
-    global.ChunkTerritory.chunks[key] = { uuid: uuid, expiry: expiryTick || null };
+    CT.chunks[cx + ',' + cz] = { uuid: uuid, expiry: expiryTick || null };
 }
 
-// Spawn green border particles on the shared edge
 function spawnClaimParticles(server, cx, cz, srcX, srcY, srcZ) {
-    var minX = cx * 16, maxX = (cx + 1) * 16;
-    var minZ = cz * 16, maxZ = (cz + 1) * 16;
-    var srcCx = Math.floor(srcX / 16);
-    var srcCz = Math.floor(srcZ / 16);
+    var srcCx = Math.floor(srcX / 16), srcCz = Math.floor(srcZ / 16);
+    var alongX = (srcCx !== cx); // border runs along X if chunks differ in X
+    var borderPos, rangeMin, rangeMax;
 
-    var borderPos, axis;
-    if (srcCx < cx) { borderPos = minX; axis = 'z'; }
-    else if (srcCx > cx) { borderPos = maxX; axis = 'z'; }
-    else if (srcCz < cz) { borderPos = minZ; axis = 'x'; }
-    else { borderPos = maxZ; axis = 'x'; }
-
-    var rangeMin = (axis === 'x') ? minX : minZ;
-    var rangeMax = (axis === 'x') ? maxX : maxZ;
-    var isX = (axis === 'x');
+    if (alongX) {
+        borderPos = srcCx < cx ? cx * 16 : (cx + 1) * 16;
+        rangeMin = cz * 16;
+        rangeMax = (cz + 1) * 16;
+    } else {
+        borderPos = srcCz < cz ? cz * 16 : (cz + 1) * 16;
+        rangeMin = cx * 16;
+        rangeMax = (cx + 1) * 16;
+    }
 
     for (var i = rangeMin + 2; i < rangeMax - 1; i += 3) {
-        var x = isX ? i : borderPos;
-        var z = isX ? borderPos : i;
-        var dx = isX ? 1.5 : 0.1;
-        var dz = isX ? 0.1 : 1.5;
+        var x = alongX ? borderPos : i;
+        var z = alongX ? i : borderPos;
+        var dx = alongX ? 0.1 : 1.5, dz = alongX ? 1.5 : 0.1;
         server.runCommandSilent('particle dust 0 1 0 2 ' + x + ' ' + srcY + ' ' + z + ' ' + dx + ' 3 ' + dz + ' 0 8 force');
         server.runCommandSilent('particle dust 0.2 1 0.2 1.5 ' + x + ' ' + (srcY + 2) + ' ' + z + ' ' + dx + ' 2 ' + dz + ' 0 5 force');
     }
-
     server.runCommandSilent('playsound minecraft:block.beacon.activate block @a ' + srcX + ' ' + srcY + ' ' + srcZ + ' 1 1.2');
 }
 
-function addAdjacentChunk(ctx, targetPlayer, ticks) {
-    if (!global.ChunkTerritory) { ctx.source.sendFailure('Not initialized'); return 0; }
-
-    var chunk = getSourceChunk(ctx);
-    var local = getLocalPos(ctx);
-
-    var distW = local.x, distE = 16 - local.x;
-    var distN = local.z, distS = 16 - local.z;
-    var min = Math.min(distW, distE, distN, distS);
-
-    var adjX = chunk.x, adjZ = chunk.z;
-    if (min === distW) adjX = chunk.x - 1;
-    else if (min === distE) adjX = chunk.x + 1;
-    else if (min === distN) adjZ = chunk.z - 1;
-    else adjZ = chunk.z + 1;
-
-    var uuid = targetPlayer.uuid.toString();
-    var expiryTick = ticks > 0 ? ctx.source.server.tickCount + ticks : null;
-    addChunk(uuid, adjX, adjZ, expiryTick);
-
+function claimChunk(ctx, target, dx, dz, ticks) {
     var pos = ctx.source.position;
-    spawnClaimParticles(ctx.source.server, adjX, adjZ, pos.x(), pos.y(), pos.z());
+    var chunk = getChunk(pos);
+    var cx = chunk.x + dx, cz = chunk.z + dz;
+    var expiryTick = ticks > 0 ? ctx.source.server.tickCount + ticks : null;
 
-    var targetName = targetPlayer.name.string;
-    if (ticks > 0) {
-        ctx.source.sendSuccess('Added chunk [' + adjX + ', ' + adjZ + '] for ' + targetName + ' for ' + ticks + ' ticks', true);
-    } else {
-        ctx.source.sendSuccess('Added chunk [' + adjX + ', ' + adjZ + '] for ' + targetName, true);
-    }
+    addChunk(target.uuid.toString(), cx, cz, expiryTick);
+    spawnClaimParticles(ctx.source.server, cx, cz, pos.x(), pos.y(), pos.z());
+
+    var msg = 'Added chunk [' + cx + ', ' + cz + '] for ' + target.name.string;
+    if (ticks > 0) msg += ' for ' + ticks + ' ticks';
+    ctx.source.sendSuccess(msg, true);
     return 1;
 }
 
-ServerEvents.commandRegistry(function(event) {
-    var Commands = event.commands;
+function claimAdjacentChunk(ctx, target, ticks) {
+    var pos = ctx.source.position;
+    var chunk = getChunk(pos);
+    var localX = pos.x() - chunk.x * 16, localZ = pos.z() - chunk.z * 16;
+
+    // Find nearest edge
+    var dists = [
+        { dx: -1, dz: 0, d: localX },
+        { dx: 1, dz: 0, d: 16 - localX },
+        { dx: 0, dz: -1, d: localZ },
+        { dx: 0, dz: 1, d: 16 - localZ }
+    ];
+    var nearest = dists[0];
+    for (var i = 1; i < 4; i++) {
+        if (dists[i].d < nearest.d) nearest = dists[i];
+    }
+
+    return claimChunk(ctx, target, nearest.dx, nearest.dz, ticks);
+}
+
+ServerEvents.commandRegistry(function (event) {
+    var C = event.commands;
+
+    function playerArg() { return C.argument('player', EntityArgument.player()); }
+    function ticksArg() { return C.argument('ticks', IntegerArgumentType.integer(1)); }
+    function getTarget(ctx) { return EntityArgument.getPlayer(ctx, 'player'); }
+    function getTicks(ctx) { return IntegerArgumentType.getInteger(ctx, 'ticks'); }
 
     event.register(
-        Commands.literal('territory')
-            .requires(function(s) { return s.hasPermission(2); })
+        C.literal('territory').requires(function (s) { return s.hasPermission(2); })
 
-            .then(Commands.literal('add')
-                .then(Commands.argument('player', EntityArgument.player())
-                    .executes(function(ctx) {
-                        if (!global.ChunkTerritory) { ctx.source.sendFailure('Not initialized'); return 0; }
-                        var target = EntityArgument.getPlayer(ctx, 'player');
-                        var chunk = getSourceChunk(ctx);
-                        var pos = ctx.source.position;
-                        addChunk(target.uuid.toString(), chunk.x, chunk.z, null);
-                        spawnClaimParticles(ctx.source.server, chunk.x, chunk.z, pos.x(), pos.y(), pos.z());
-                        ctx.source.sendSuccess('Added chunk [' + chunk.x + ', ' + chunk.z + '] for ' + target.name.string, true);
-                        return 1;
-                    })
-                )
-            )
+            .then(C.literal('add').then(playerArg().executes(function (ctx) {
+                return claimChunk(ctx, getTarget(ctx), 0, 0, 0);
+            })))
 
-            .then(Commands.literal('add_adjacent')
-                .then(Commands.argument('player', EntityArgument.player())
-                    .executes(function(ctx) {
-                        var target = EntityArgument.getPlayer(ctx, 'player');
-                        return addAdjacentChunk(ctx, target, 0);
-                    })
-                    .then(Commands.argument('ticks', IntegerArgumentType.integer(1))
-                        .executes(function(ctx) {
-                            var target = EntityArgument.getPlayer(ctx, 'player');
-                            return addAdjacentChunk(ctx, target, IntegerArgumentType.getInteger(ctx, 'ticks'));
-                        })
-                    )
-                )
-            )
+            .then(C.literal('add_adjacent').then(playerArg()
+                .executes(function (ctx) { return claimAdjacentChunk(ctx, getTarget(ctx), 0); })
+                .then(ticksArg().executes(function (ctx) {
+                    return claimAdjacentChunk(ctx, getTarget(ctx), getTicks(ctx));
+                }))
+            ))
 
-            .then(Commands.literal('add_north')
-                .then(Commands.argument('player', EntityArgument.player())
-                    .executes(function(ctx) {
-                        if (!global.ChunkTerritory) return 0;
-                        var target = EntityArgument.getPlayer(ctx, 'player');
-                        var chunk = getSourceChunk(ctx);
-                        var pos = ctx.source.position;
-                        var cx = chunk.x, cz = chunk.z - 1;
-                        addChunk(target.uuid.toString(), cx, cz, null);
-                        spawnClaimParticles(ctx.source.server, cx, cz, pos.x(), pos.y(), pos.z());
-                        ctx.source.sendSuccess('Added chunk [' + cx + ', ' + cz + '] for ' + target.name.string, true);
-                        return 1;
-                    })
-                )
-            )
+            .then(C.literal('add_north').then(playerArg().executes(function (ctx) {
+                return claimChunk(ctx, getTarget(ctx), 0, -1, 0);
+            })))
+            .then(C.literal('add_south').then(playerArg().executes(function (ctx) {
+                return claimChunk(ctx, getTarget(ctx), 0, 1, 0);
+            })))
+            .then(C.literal('add_east').then(playerArg().executes(function (ctx) {
+                return claimChunk(ctx, getTarget(ctx), 1, 0, 0);
+            })))
+            .then(C.literal('add_west').then(playerArg().executes(function (ctx) {
+                return claimChunk(ctx, getTarget(ctx), -1, 0, 0);
+            })))
 
-            .then(Commands.literal('add_south')
-                .then(Commands.argument('player', EntityArgument.player())
-                    .executes(function(ctx) {
-                        if (!global.ChunkTerritory) return 0;
-                        var target = EntityArgument.getPlayer(ctx, 'player');
-                        var chunk = getSourceChunk(ctx);
-                        var pos = ctx.source.position;
-                        var cx = chunk.x, cz = chunk.z + 1;
-                        addChunk(target.uuid.toString(), cx, cz, null);
-                        spawnClaimParticles(ctx.source.server, cx, cz, pos.x(), pos.y(), pos.z());
-                        ctx.source.sendSuccess('Added chunk [' + cx + ', ' + cz + '] for ' + target.name.string, true);
-                        return 1;
-                    })
-                )
-            )
+            .then(C.literal('remove').executes(function (ctx) {
+                var chunk = getChunk(ctx.source.position);
+                delete CT.chunks[chunk.x + ',' + chunk.z];
+                ctx.source.sendSuccess('Removed chunk [' + chunk.x + ', ' + chunk.z + ']', true);
+                return 1;
+            }))
 
-            .then(Commands.literal('add_east')
-                .then(Commands.argument('player', EntityArgument.player())
-                    .executes(function(ctx) {
-                        if (!global.ChunkTerritory) return 0;
-                        var target = EntityArgument.getPlayer(ctx, 'player');
-                        var chunk = getSourceChunk(ctx);
-                        var pos = ctx.source.position;
-                        var cx = chunk.x + 1, cz = chunk.z;
-                        addChunk(target.uuid.toString(), cx, cz, null);
-                        spawnClaimParticles(ctx.source.server, cx, cz, pos.x(), pos.y(), pos.z());
-                        ctx.source.sendSuccess('Added chunk [' + cx + ', ' + cz + '] for ' + target.name.string, true);
-                        return 1;
-                    })
-                )
-            )
+            .then(C.literal('clear').executes(function (ctx) {
+                var count = Object.keys(CT.chunks).length;
+                CT.chunks = {};
+                ctx.source.sendSuccess('Cleared ' + count + ' chunks', true);
+                return 1;
+            }))
 
-            .then(Commands.literal('add_west')
-                .then(Commands.argument('player', EntityArgument.player())
-                    .executes(function(ctx) {
-                        if (!global.ChunkTerritory) return 0;
-                        var target = EntityArgument.getPlayer(ctx, 'player');
-                        var chunk = getSourceChunk(ctx);
-                        var pos = ctx.source.position;
-                        var cx = chunk.x - 1, cz = chunk.z;
-                        addChunk(target.uuid.toString(), cx, cz, null);
-                        spawnClaimParticles(ctx.source.server, cx, cz, pos.x(), pos.y(), pos.z());
-                        ctx.source.sendSuccess('Added chunk [' + cx + ', ' + cz + '] for ' + target.name.string, true);
-                        return 1;
-                    })
-                )
-            )
+            .then(C.literal('info').executes(function (ctx) {
+                var chunk = getChunk(ctx.source.position);
+                var data = CT.chunks[chunk.x + ',' + chunk.z];
+                var msg = 'Chunk [' + chunk.x + ', ' + chunk.z + ']: ';
+                msg += data ? data.uuid : 'unowned';
+                if (data && data.expiry) msg += ' (expires tick ' + data.expiry + ')';
+                ctx.source.sendSuccess(msg, false);
+                return 1;
+            }))
 
-            .then(Commands.literal('remove')
-                .executes(function(ctx) {
-                    if (!global.ChunkTerritory) return 0;
-                    var chunk = getSourceChunk(ctx);
-                    var key = chunk.x + ',' + chunk.z;
-                    delete global.ChunkTerritory.chunks[key];
-                    ctx.source.sendSuccess('Removed chunk [' + chunk.x + ', ' + chunk.z + ']', true);
-                    return 1;
-                })
-            )
-
-            .then(Commands.literal('info')
-                .executes(function(ctx) {
-                    if (!global.ChunkTerritory) return 0;
-                    var chunk = getSourceChunk(ctx);
-                    var key = chunk.x + ',' + chunk.z;
-                    var data = global.ChunkTerritory.chunks[key];
-
-                    ctx.source.sendSuccess('Chunk [' + chunk.x + ', ' + chunk.z + ']:', false);
-                    ctx.source.sendSuccess('  Key: ' + key, false);
-                    ctx.source.sendSuccess('  Data type: ' + (typeof data), false);
-                    ctx.source.sendSuccess('  Data: ' + JSON.stringify(data), false);
-
-                    var player = ctx.source.player;
-                    if (player) {
-                        var playerUuid = player.uuid.toString();
-                        ctx.source.sendSuccess('  Your UUID: ' + playerUuid, false);
-
-                        // Manual owns check
-                        var storedUuid = data ? (typeof data === 'string' ? data : data.uuid) : null;
-                        ctx.source.sendSuccess('  Stored UUID: ' + storedUuid, false);
-                        ctx.source.sendSuccess('  Match: ' + (storedUuid === playerUuid), false);
-                        ctx.source.sendSuccess('  owns(): ' + global.ChunkTerritory.owns(playerUuid, chunk.x, chunk.z), false);
-                    }
-                    return 1;
-                })
-            )
-
-            .then(Commands.literal('list')
-                .executes(function(ctx) {
-                    if (!global.ChunkTerritory) return 0;
-                    var chunks = global.ChunkTerritory.chunks;
-                    var keys = Object.keys(chunks);
-                    ctx.source.sendSuccess('Owned chunks: ' + keys.length, false);
-                    for (var i = 0; i < keys.length; i++) {
-                        var data = chunks[keys[i]];
-                        var info = typeof data === 'string' ? data : (data.uuid + (data.expiry ? ' (expires tick ' + data.expiry + ')' : ''));
-                        ctx.source.sendSuccess('  ' + keys[i] + ' -> ' + info, false);
-                    }
-                    return 1;
-                })
-            )
+            .then(C.literal('list').executes(function (ctx) {
+                var keys = Object.keys(CT.chunks);
+                ctx.source.sendSuccess('Owned chunks: ' + keys.length, false);
+                for (var i = 0; i < keys.length; i++) {
+                    var data = CT.chunks[keys[i]];
+                    var info = data.uuid + (data.expiry ? ' (expires ' + data.expiry + ')' : '');
+                    ctx.source.sendSuccess('  ' + keys[i] + ' -> ' + info, false);
+                }
+                return 1;
+            }))
     );
 });
 
-console.log('[territory] Commands script loaded');
+console.log('[territory] Commands loaded');
