@@ -1,7 +1,8 @@
 <!-- ![infographic](https://raw.githubusercontent.com/game-design-driven/Create-Prepare-to-Dye-2/main/infographic.png) -->
 # ⚙️ Create : Prepare to Dye         
 [![Discord](https://img.shields.io/discord/890222432605057044?label=Chat+on+Discord)](https://discord.gg/v8cZ83kTPY)
-[![Modrinth Game Versions](https://img.shields.io/modrinth/game-versions/bMs2ZGmU?label=Avilable+for)](https://modrinth.com/modpack/Create-Prepare-to-Dye-2)
+[![Modrinth Game Versions](https://img.shields.io/modrinth/game-versions/bMs2ZGmU?label=Avilable+for)](https://modrinth.com/modpack/Create-Prepare-to-Dye)
+[![Modrinth Game Versions](https://img.shields.io/modrinth/game-versions/nFSlxpJI?label=Avilable+for)](https://modrinth.com/modpack/Create-Prepare-to-Dye-2)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/game-design-driven/Create-Prepare-to-Dye-2)](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/releases)
 [![GitHub issues](https://img.shields.io/github/issues/game-design-driven/Create-Prepare-to-Dye-2)](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/issues?q=is%3Aissue+is%3Aopen+sort%3Acomments-desc)
 [![GitHub closed issues](https://img.shields.io/github/issues-closed/game-design-driven/Create-Prepare-to-Dye-2)](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/issues?q=is%3Aissue+sort%3Aupdated-desc+is%3Aclosed)
