@@ -13,7 +13,7 @@
     "durabilityTooltip": "NONE",
     "equipmentCompareTooltip": false,
     "containerTooltip": "IMAGE",
-    "paintingTooltip": true,
+    "paintingTooltip": false,
     "bannerTooltip": true,
     "mapTooltip": true,
     "debugInfoTooltip": true
