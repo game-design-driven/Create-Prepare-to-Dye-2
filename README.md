@@ -94,21 +94,16 @@ Not uploaded as part of the cf release so a few more steps are required
 3. Go there and read readme.md and follow the instructions
 
 ### Development Setup
-To set up a development environment, install the modpack normally via Modrinth/Curseforge, then run in the modpack folder:
+Install the modpack via Modrinth/Curseforge, then run in the modpack folder:
 ```bash
 git init
-git remote add origin https://github.com/game-design-driven/Create-Prepare-to-Dye-2.git
-git fetch origin
-git reset --hard origin/main
+git remote add upstream https://github.com/game-design-driven/Create-Prepare-to-Dye-2.git
+git fetch upstream
+git reset --hard upstream/main
 ```
-This overwrites local files with the repo state, giving you a playable modpack that's also a git repo.
-
-**Contributing without write access:** Fork the repo first, then replace the origin URL with your fork URL. Alternatively, with [GitHub CLI](https://cli.github.com/) (run `gh auth login` after installing):
+When ready to push, [fork the repo](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/fork) and add your fork:
 ```bash
-git init
-gh repo fork game-design-driven/Create-Prepare-to-Dye-2 --remote
-git fetch origin
-git reset --hard origin/main
+git remote add origin https://github.com/YOUR_USERNAME/Create-Prepare-to-Dye-2.git
 ```
 
 [Join us on Discord](https://discord.gg/v8cZ83kTPY)   
