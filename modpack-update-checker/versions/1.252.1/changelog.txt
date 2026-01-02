@@ -1,0 +1,8 @@
+### [1.252.1](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/compare/1.252.0...1.252.1) (2026-01-02)
+
+
+### Fixes
+
+* instructions for dev ([bf44933](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/bf4493356679fcf4dbaf3b4947a4e522196e571b))
+
+
