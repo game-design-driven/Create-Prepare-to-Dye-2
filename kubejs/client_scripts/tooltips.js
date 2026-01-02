@@ -326,8 +326,18 @@ ItemEvents.tooltip(function(event) {
     var stored = nbt.get("StoredAgreement");
     if (!stored) return;
 
+    // The stored agreement has structure: {Count, id, tag:{requestedItems, paymentItems}}
     var tag = stored.get("tag");
-    if (!tag) return;
+    if (!tag) {
+      // Maybe it's stored directly without the tag wrapper
+      var reqItems = stored.get("requestedItems");
+      var payItems = stored.get("paymentItems");
+      if (reqItems || payItems) {
+        text.add(Text.gold("Stored Trade:"));
+        addTradeTooltip(text, reqItems, payItems);
+      }
+      return;
+    }
 
     text.add(Text.gold("Stored Trade:"));
     addTradeTooltip(text, tag.get("requestedItems"), tag.get("paymentItems"));
