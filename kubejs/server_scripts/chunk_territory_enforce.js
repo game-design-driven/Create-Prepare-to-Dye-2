@@ -136,6 +136,10 @@ function playSound(player, sound, x, y, z, volume, pitch) {
     );
 }
 
+function actionbar(player, text) {
+    player.server.runCommandSilent('title ' + player.name.string + ' actionbar {"text":"' + text + '"}');
+}
+
 function denyEffect(server, name, x, y, z) {
     server.runCommandSilent('particle angry_villager ' + x + ' ' + y + ' ' + z + ' 0.2 0.2 0.2 0 5 force ' + name);
     server.runCommandSilent('playsound minecraft:block.note_block.bass master ' + name + ' ' + x + ' ' + y + ' ' + z + ' 0.5 0.5');
@@ -163,7 +167,7 @@ PlayerEvents.tick(function(event) {
         if (playerWasOutside[uuid] && player.spectator) {
             playerWasOutside[uuid] = false;
             player.setGameMode('survival');
-            player.tell('Territory enforcement disabled');
+            actionbar(player, 'Territory enforcement disabled');
         }
         return;
     }
@@ -179,7 +183,7 @@ PlayerEvents.tick(function(event) {
     if (!owns && !wasOutside) {
         playerWasOutside[uuid] = true;
         player.setGameMode('spectator');
-        player.tell('You do not own this chunk');
+        actionbar(player, 'You do not own this chunk');
         playSound(player, 'minecraft:block.respawn_anchor.charge', player.x, player.y, player.z, 1, 0.5);
     }
     // Returned to owned chunk -> survival (with safe teleport)
@@ -197,7 +201,7 @@ PlayerEvents.tick(function(event) {
         }
 
         player.setGameMode('survival');
-        player.tell('Welcome back');
+        actionbar(player, 'Welcome back');
         playSound(player, 'minecraft:block.respawn_anchor.charge', player.x, player.y, player.z, 1, 1.5);
     }
 });
