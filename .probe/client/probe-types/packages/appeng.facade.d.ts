@@ -12,15 +12,15 @@ constructor(arg0: $ItemStack$Type, arg1: $Direction$Type)
 
 public "getItem"(): $Item
 public "getSide"(): $Direction
-public "getTextureItem"(): $ItemStack
-public "getItemStack"(): $ItemStack
 public "getBlockState"(): $BlockState
+public "getItemStack"(): $ItemStack
+public "getTextureItem"(): $ItemStack
 public "getBoxes"(arg0: $IPartCollisionHelper$Type, arg1: boolean): void
 get "item"(): $Item
 get "side"(): $Direction
-get "textureItem"(): $ItemStack
-get "itemStack"(): $ItemStack
 get "blockState"(): $BlockState
+get "itemStack"(): $ItemStack
+get "textureItem"(): $ItemStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

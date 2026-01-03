@@ -26,9 +26,9 @@ declare module "packages/com/jab125/mpuc/api/$ModpackInfo" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $ModpackInfo {
 
- "getModpackVersion"(): string
  "getModpackName"(): string
  "getModpackReleaseType"(): string
+ "getModpackVersion"(): string
 }
 
 export namespace $ModpackInfo {
@@ -51,11 +51,11 @@ import {$ModpackInfo, $ModpackInfo$Type} from "packages/com/jab125/mpuc/api/$Mod
 
 export interface $SimpleBrandingVersionExtension extends $ModpackInfo {
 
- "getModpackInfo"(): $ModpackInfo
- "getModpackVersion"(): string
+ "setModpackInfo"(arg0: $ModpackInfo$Type): void
  "getModpackName"(): string
  "getModpackReleaseType"(): string
- "setModpackInfo"(arg0: $ModpackInfo$Type): void
+ "getModpackVersion"(): string
+ "getModpackInfo"(): $ModpackInfo
 }
 
 export namespace $SimpleBrandingVersionExtension {

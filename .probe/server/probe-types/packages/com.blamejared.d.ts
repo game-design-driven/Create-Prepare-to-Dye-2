@@ -25,8 +25,8 @@ import {$Predicate, $Predicate$Type} from "packages/java/util/function/$Predicat
 
 export interface $AccessEditBox {
 
- "searchables$getFilter"(): $Predicate<(string)>
  "searchables$getResponder"(): $Consumer<(string)>
+ "searchables$getFilter"(): $Predicate<(string)>
 }
 
 export namespace $AccessEditBox {

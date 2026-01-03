@@ -119,20 +119,20 @@ readonly "properties": $BlockBehaviour$Properties
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntityController
-public "makeFramedItem"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: $ItemStack$Type, arg3: $ItemStack$Type): $ItemStack
 public "togglePersonal"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $Player$Type, arg3: string): void
-public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
+public "makeFramedItem"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: $ItemStack$Type, arg3: $ItemStack$Type): $ItemStack
 public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
 public "tick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
 public "toggle"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $Player$Type, arg3: $EnumKeyType$Type): void
 public "toggle"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $Player$Type, arg3: $Item$Type): boolean
+public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
+public "supportsDirectControllerLink"(): boolean
 public "getBoundControlGroup"(): $IControlGroup
+public "getSoftBoundControlGroups"(): $Set<($IControlGroup)>
+public "softBindControlGroup"(arg0: $IControlGroup$Type): void
+public "canRecurseSearch"(): boolean
 public "unbindControlGroup"(): void
 public "scheduleValidation"(): void
-public "canRecurseSearch"(): boolean
-public "softBindControlGroup"(arg0: $IControlGroup$Type): void
-public "getSoftBoundControlGroups"(): $Set<($IControlGroup)>
-public "supportsDirectControllerLink"(): boolean
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
 public "getTicker"<T extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
 get "boundControlGroup"(): $IControlGroup
@@ -169,12 +169,12 @@ public "write"(arg0: $CompoundTag$Type): $CompoundTag
 public "read"(arg0: $CompoundTag$Type): void
 public "setSide"(arg0: $ItemStack$Type): void
 public "getSide"(): $ItemStack
-public "allMatOpaque"(): boolean
-public "setMaterial"(arg0: $FrameMaterial$Type, arg1: $ItemStack$Type): void
 public "getMaterial"(arg0: $FrameMaterial$Type): $ItemStack
-public "getEffectiveSide"(): $ItemStack
+public "setMaterial"(arg0: $FrameMaterial$Type, arg1: $ItemStack$Type): void
+public "allMatOpaque"(): boolean
 public "getHostBlock"(): $ItemStack
 public "getFrameBase"(): $ItemStack
+public "getEffectiveSide"(): $ItemStack
 public "getEffectiveFront"(): $ItemStack
 public "getEffectiveTrim"(): $ItemStack
 public "isMatOpaque"(arg0: $ItemStack$Type): boolean
@@ -187,9 +187,9 @@ public "setTrim"(arg0: $ItemStack$Type): void
 get "empty"(): boolean
 set "side"(value: $ItemStack$Type)
 get "side"(): $ItemStack
-get "effectiveSide"(): $ItemStack
 get "hostBlock"(): $ItemStack
 get "frameBase"(): $ItemStack
+get "effectiveSide"(): $ItemStack
 get "effectiveFront"(): $ItemStack
 get "effectiveTrim"(): $ItemStack
 set "frameBase"(value: $ItemStack$Type)
@@ -229,16 +229,16 @@ public "toString"(): string
 public static "values"(): ($EnumUpgradeMagnet)[]
 public static "valueOf"(arg0: string): $EnumUpgradeMagnet
 public "getLevel"(): integer
-public "getMetadata"(): integer
 public "getUnlocalizedName"(): string
+public "getMetadata"(): integer
 public "getSerializedName"(): string
 public static "byMetadata"(arg0: integer): $EnumUpgradeMagnet
 public static "fromEnum"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromEnumWithMapping"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>, arg1: $Function$Type<(string), (string)>): $StringRepresentable$EnumCodec<(E)>
 public static "keys"(arg0: ($StringRepresentable$Type)[]): $Keyable
 get "level"(): integer
-get "metadata"(): integer
 get "unlocalizedName"(): string
+get "metadata"(): integer
 get "serializedName"(): string
 }
 /**
@@ -396,9 +396,9 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Block$Type, arg1: $Item$Properties$Type)
 
-public "moonlight$getClientAnimationExtension"(): any
-public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
 public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
+public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$setClientAnimationExtension"(arg0: any): void
 }
 /**
@@ -422,8 +422,8 @@ import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/
 import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
 import {$IDrawerAttributesGroupControl, $IDrawerAttributesGroupControl$Type} from "packages/com/jaquadro/minecraft/storagedrawers/api/storage/$IDrawerAttributesGroupControl"
 import {$IFramedBlockEntity, $IFramedBlockEntity$Type} from "packages/com/jaquadro/minecraft/storagedrawers/api/framing/$IFramedBlockEntity"
-import {$IDrawerGroup, $IDrawerGroup$Type} from "packages/com/jaquadro/minecraft/storagedrawers/api/storage/$IDrawerGroup"
 import {$INetworked, $INetworked$Type} from "packages/com/jaquadro/minecraft/storagedrawers/api/storage/$INetworked"
+import {$IDrawerGroup, $IDrawerGroup$Type} from "packages/com/jaquadro/minecraft/storagedrawers/api/storage/$IDrawerGroup"
 import {$IControlGroup, $IControlGroup$Type} from "packages/com/jaquadro/minecraft/storagedrawers/api/storage/$IControlGroup"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$List, $List$Type} from "packages/java/util/$List"
@@ -440,34 +440,34 @@ readonly "materialData": $MaterialData
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 constructor(arg0: $BlockPos$Type, arg1: $BlockState$Type)
 
-public "getController"(): $BlockEntityController
+public "getGroupControllableAttributes"(arg0: $Player$Type): $IDrawerAttributesGroupControl
 public "getCapability"<T>(arg0: $ChameleonCapability$Type<(T)>): T
+public "getController"(): $BlockEntityController
+public "getBoundControlGroup"(): $IControlGroup
+public "getDrawerCount"(): integer
+public "getControllerPos"(): $BlockPos
+public "addRemoteNode"(arg0: $INetworked$Type): boolean
+public "isGroupValid"(): boolean
+public "invalidateRemoteNode"(arg0: $INetworked$Type): void
+public "getAccessibleDrawerSlots"(): (integer)[]
+public "isSoftBindingValid"(arg0: $BlockPos$Type, arg1: $IDrawerGroup$Type): boolean
 public "getDrawerGroup"(): $IDrawerGroup
 public "getBoundRemoteNodes"(): $List<($INetworked)>
 public "validateRemoteNode"(arg0: $INetworked$Type): void
 public "bindController"(arg0: $BlockPos$Type): void
 public "getItemRepository"(): $IItemRepository
-public "getControllerPos"(): $BlockPos
-public "invalidateRemoteNode"(arg0: $INetworked$Type): void
-public "addRemoteNode"(arg0: $INetworked$Type): boolean
-public "isGroupValid"(): boolean
-public "getAccessibleDrawerSlots"(): (integer)[]
-public "isSoftBindingValid"(arg0: $BlockPos$Type, arg1: $IDrawerGroup$Type): boolean
-public "getDrawerCount"(): integer
-public "getBoundControlGroup"(): $IControlGroup
-public "getGroupControllableAttributes"(arg0: $Player$Type): $IDrawerAttributesGroupControl
 public "setChanged"(): void
 public "getDrawer"(arg0: integer): $IDrawer
 public "hasMissingDrawers"(): boolean
 get "controller"(): $BlockEntityController
-get "drawerGroup"(): $IDrawerGroup
-get "boundRemoteNodes"(): $List<($INetworked)>
-get "itemRepository"(): $IItemRepository
+get "boundControlGroup"(): $IControlGroup
+get "drawerCount"(): integer
 get "controllerPos"(): $BlockPos
 get "groupValid"(): boolean
 get "accessibleDrawerSlots"(): (integer)[]
-get "drawerCount"(): integer
-get "boundControlGroup"(): $IControlGroup
+get "drawerGroup"(): $IDrawerGroup
+get "boundRemoteNodes"(): $List<($INetworked)>
+get "itemRepository"(): $IItemRepository
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -523,19 +523,19 @@ public "toString"(): string
 public static "values"(): ($EnumCompDrawer)[]
 public static "valueOf"(arg0: string): $EnumCompDrawer
 public "getMetadata"(): integer
-public "getOpenSlots"(): integer
-public static "byOpenSlots"(arg0: integer): $EnumCompDrawer
 public "isHalfDepth"(): boolean
 public "getDrawerCount"(): integer
+public "getOpenSlots"(): integer
+public static "byOpenSlots"(arg0: integer): $EnumCompDrawer
 public "getSerializedName"(): string
 public static "byMetadata"(arg0: integer): $EnumCompDrawer
 public static "fromEnum"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromEnumWithMapping"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>, arg1: $Function$Type<(string), (string)>): $StringRepresentable$EnumCodec<(E)>
 public static "keys"(arg0: ($StringRepresentable$Type)[]): $Keyable
 get "metadata"(): integer
-get "openSlots"(): integer
 get "halfDepth"(): boolean
 get "drawerCount"(): integer
+get "openSlots"(): integer
 get "serializedName"(): string
 }
 /**
@@ -629,6 +629,7 @@ declare module "packages/com/jaquadro/minecraft/storagedrawers/block/tile/$Block
 import {$ISecurityProvider, $ISecurityProvider$Type} from "packages/com/jaquadro/minecraft/storagedrawers/api/security/$ISecurityProvider"
 import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
+import {$MaterialData, $MaterialData$Type} from "packages/com/jaquadro/minecraft/storagedrawers/block/tile/tiledata/$MaterialData"
 import {$BaseBlockEntity, $BaseBlockEntity$Type} from "packages/com/jaquadro/minecraft/storagedrawers/block/tile/$BaseBlockEntity"
 import {$IDrawer, $IDrawer$Type} from "packages/com/jaquadro/minecraft/storagedrawers/api/storage/$IDrawer"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
@@ -654,33 +655,30 @@ export class $BlockEntityDrawers extends $BaseBlockEntity implements $IDrawerGro
 
 public "getOwner"(): $UUID
 public "setOwner"(arg0: $UUID$Type): boolean
-public static "getGroup"(arg0: $BlockEntityDrawers$Type): $IDrawerGroup
-public "getGroup"(): $IDrawerGroup
+public "dataPacketRequiresRenderUpdate"(): boolean
+public "supportsDirectControllerLink"(): boolean
+public "interactPutCurrentInventoryIntoSlot"(arg0: integer, arg1: $Player$Type): integer
+public "interactPutCurrentItemIntoSlot"(arg0: integer, arg1: $Player$Type): integer
 public "customName"(): $CustomNameData
+public "getGroup"(): $IDrawerGroup
+public static "getGroup"(arg0: $BlockEntityDrawers$Type): $IDrawerGroup
 public "entityInside"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Entity$Type): void
 public "getCapability"<T>(arg0: $ChameleonCapability$Type<(T)>): T
-public "writePortable"(arg0: $CompoundTag$Type): $CompoundTag
-public "onEntityLoad"(): void
-public "isGroupValid"(): boolean
-public "getDrawerCapacity"(): integer
-public "getSecurityProvider"(): $ISecurityProvider
-public "putItemsIntoSlot"(arg0: integer, arg1: $ItemStack$Type, arg2: integer, arg3: $Player$Type): integer
-public "putItemsIntoSlot"(arg0: integer, arg1: $ItemStack$Type, arg2: integer): integer
-public "clientUpdateCount"(arg0: integer, arg1: integer): void
-/**
- * 
- * @deprecated
- */
-public "getAccessibleDrawerSlots"(): (integer)[]
-public "getDrawerAttributes"(): $IDrawerAttributes
+public "getBoundControlGroup"(): $IControlGroup
+public "getSoftBoundControlGroups"(): $Set<($IControlGroup)>
+public "softBindControlGroup"(arg0: $IControlGroup$Type): void
+public "canRecurseSearch"(): boolean
+public "unbindControlGroup"(): void
+public "scheduleValidation"(): void
 public static "getDrawerAttributes"(arg0: $BlockEntityDrawers$Type): $IDrawerAttributes
+public "getDrawerAttributes"(): $IDrawerAttributes
 public "readPortable"(arg0: $CompoundTag$Type): void
 public "setSecurityProvider"(arg0: $ISecurityProvider$Type): boolean
 public "interactPutItemsIntoSlot"(arg0: integer, arg1: $Player$Type): integer
 public "takeItemsFromSlot"(arg0: integer, arg1: integer, arg2: $Player$Type): $ItemStack
 public "takeItemsFromSlot"(arg0: integer, arg1: integer): $ItemStack
-public "interactReplaceDrawer"(arg0: integer, arg1: $ItemStack$Type, arg2: $Player$Type): boolean
 public "interactReplaceDrawer"(arg0: integer, arg1: $ItemStack$Type): boolean
+public "interactReplaceDrawer"(arg0: integer, arg1: $ItemStack$Type, arg2: $Player$Type): boolean
 public "getEffectiveDrawerCapacity"(): integer
 public "getRedstoneLevel"(): integer
 public "pushItemsTick"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): boolean
@@ -690,18 +688,22 @@ public "validateBoundController"(): void
  * @deprecated
  */
 public "getDrawerCount"(): integer
-public "getBoundControlGroup"(): $IControlGroup
-public "unbindControlGroup"(): void
-public "scheduleValidation"(): void
-public "canRecurseSearch"(): boolean
-public "softBindControlGroup"(arg0: $IControlGroup$Type): void
-public "getSoftBoundControlGroups"(): $Set<($IControlGroup)>
-public "supportsDirectControllerLink"(): boolean
-public "dataPacketRequiresRenderUpdate"(): boolean
-public "interactPutCurrentInventoryIntoSlot"(arg0: integer, arg1: $Player$Type): integer
-public "interactPutCurrentItemIntoSlot"(arg0: integer, arg1: $Player$Type): integer
+public "getSecurityProvider"(): $ISecurityProvider
+public "isGroupValid"(): boolean
+public "onEntityLoad"(): void
+public "putItemsIntoSlot"(arg0: integer, arg1: $ItemStack$Type, arg2: integer, arg3: $Player$Type): integer
+public "putItemsIntoSlot"(arg0: integer, arg1: $ItemStack$Type, arg2: integer): integer
+public "getDrawerCapacity"(): integer
+public "clientUpdateCount"(arg0: integer, arg1: integer): void
+/**
+ * 
+ * @deprecated
+ */
+public "getAccessibleDrawerSlots"(): (integer)[]
+public "writePortable"(arg0: $CompoundTag$Type): $CompoundTag
 public "setChanged"(): void
 public "upgrades"(): $UpgradeData
+public "material"(): $MaterialData
 /**
  * 
  * @deprecated
@@ -712,17 +714,17 @@ public "hasMissingDrawers"(): boolean
 get "owner"(): $UUID
 set "owner"(value: $UUID$Type)
 get "group"(): $IDrawerGroup
-get "groupValid"(): boolean
-get "drawerCapacity"(): integer
-get "securityProvider"(): $ISecurityProvider
-get "accessibleDrawerSlots"(): (integer)[]
+get "boundControlGroup"(): $IControlGroup
+get "softBoundControlGroups"(): $Set<($IControlGroup)>
 get "drawerAttributes"(): $IDrawerAttributes
 set "securityProvider"(value: $ISecurityProvider$Type)
 get "effectiveDrawerCapacity"(): integer
 get "redstoneLevel"(): integer
 get "drawerCount"(): integer
-get "boundControlGroup"(): $IControlGroup
-get "softBoundControlGroups"(): $Set<($IControlGroup)>
+get "securityProvider"(): $ISecurityProvider
+get "groupValid"(): boolean
+get "drawerCapacity"(): integer
+get "accessibleDrawerSlots"(): (integer)[]
 get "redstone"(): boolean
 }
 /**
@@ -865,9 +867,9 @@ constructor(arg0: integer, arg1: boolean, arg2: $Supplier$Type<($IDrawerConfig$T
 
 public "getFramedBlockEntity"(arg0: $Level$Type, arg1: $BlockPos$Type): $IFramedBlockEntity
 public "supportsFrameMaterial"(arg0: $FrameMaterial$Type): boolean
+public "getShadeBrightness"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): float
 public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
 public "getCloneItemStack"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
-public "getShadeBrightness"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -904,9 +906,9 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $Block$Type, arg1: $Item$Properties$Type)
 
 public "getName"(arg0: $ItemStack$Type): $Component
-public "moonlight$getClientAnimationExtension"(): any
-public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
 public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
+public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$setClientAnimationExtension"(arg0: any): void
 }
 /**
@@ -925,20 +927,20 @@ declare module "packages/com/jaquadro/minecraft/storagedrawers/api/storage/$ICon
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$IDrawerAttributesGroupControl, $IDrawerAttributesGroupControl$Type} from "packages/com/jaquadro/minecraft/storagedrawers/api/storage/$IDrawerAttributesGroupControl"
-import {$IDrawerGroup, $IDrawerGroup$Type} from "packages/com/jaquadro/minecraft/storagedrawers/api/storage/$IDrawerGroup"
 import {$INetworked, $INetworked$Type} from "packages/com/jaquadro/minecraft/storagedrawers/api/storage/$INetworked"
+import {$IDrawerGroup, $IDrawerGroup$Type} from "packages/com/jaquadro/minecraft/storagedrawers/api/storage/$IDrawerGroup"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 
 export interface $IControlGroup {
 
+ "getGroupControllableAttributes"(arg0: $Player$Type): $IDrawerAttributesGroupControl
+ "getBoundControlGroup"(): $IControlGroup
+ "addRemoteNode"(arg0: $INetworked$Type): boolean
+ "invalidateRemoteNode"(arg0: $INetworked$Type): void
+ "isSoftBindingValid"(arg0: $BlockPos$Type, arg1: $IDrawerGroup$Type): boolean
  "getDrawerGroup"(): $IDrawerGroup
  "getBoundRemoteNodes"(): $List<($INetworked)>
  "validateRemoteNode"(arg0: $INetworked$Type): void
- "invalidateRemoteNode"(arg0: $INetworked$Type): void
- "addRemoteNode"(arg0: $INetworked$Type): boolean
- "isSoftBindingValid"(arg0: $BlockPos$Type, arg1: $IDrawerGroup$Type): boolean
- "getBoundControlGroup"(): $IControlGroup
- "getGroupControllableAttributes"(arg0: $Player$Type): $IDrawerAttributesGroupControl
 }
 
 export namespace $IControlGroup {
@@ -1000,10 +1002,10 @@ constructor(arg0: $BlockBehaviour$Properties$Type)
 
 public "getFramedBlockEntity"(arg0: $Level$Type, arg1: $BlockPos$Type): $IFramedBlockEntity
 public "supportsFrameMaterial"(arg0: $FrameMaterial$Type): boolean
-public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
-public "getCloneItemStack"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
 public "getDrops"(arg0: $BlockState$Type, arg1: $LootParams$Builder$Type): $List<($ItemStack)>
 public "getShadeBrightness"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): float
+public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
+public "getCloneItemStack"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1023,13 +1025,13 @@ import {$Set, $Set$Type} from "packages/java/util/$Set"
 
 export interface $INetworked {
 
+ "supportsDirectControllerLink"(): boolean
  "getBoundControlGroup"(): $IControlGroup
+ "getSoftBoundControlGroups"(): $Set<($IControlGroup)>
+ "softBindControlGroup"(arg0: $IControlGroup$Type): void
+ "canRecurseSearch"(): boolean
  "unbindControlGroup"(): void
  "scheduleValidation"(): void
- "canRecurseSearch"(): boolean
- "softBindControlGroup"(arg0: $IControlGroup$Type): void
- "getSoftBoundControlGroups"(): $Set<($IControlGroup)>
- "supportsDirectControllerLink"(): boolean
 }
 
 export namespace $INetworked {
@@ -1198,14 +1200,14 @@ constructor(arg0: $BlockBehaviour$Properties$Type)
 public static "getTableDirection"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Direction
 public static "getBlockType"(arg0: $BlockState$Type): $DoubleBlockCombiner$BlockType
 public static "getConnectedDirection"(arg0: $BlockState$Type): $Direction
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
-public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
-public "playerWillDestroy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Player$Type): void
 public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
 public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
 public "getMenuProvider"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): $MenuProvider
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
+public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
+public "playerWillDestroy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Player$Type): void
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
 public "getTicker"<T extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
 }
@@ -1323,10 +1325,10 @@ import {$IDrawerCapabilityProvider, $IDrawerCapabilityProvider$Type} from "packa
 
 export interface $IDrawerGroup extends $IDrawerCapabilityProvider {
 
- "isGroupValid"(): boolean
- "getAccessibleDrawerSlots"(): (integer)[]
  "hasMissingDrawers"(): boolean
  "getDrawerCount"(): integer
+ "isGroupValid"(): boolean
+ "getAccessibleDrawerSlots"(): (integer)[]
  "getDrawer"(arg0: integer): $IDrawer
  "getCapability"<T>(arg0: $ChameleonCapability$Type<(T)>): T
 }
@@ -1511,8 +1513,8 @@ import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
-import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
 import {$LootParams$Builder, $LootParams$Builder$Type} from "packages/net/minecraft/world/level/storage/loot/$LootParams$Builder"
+import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$FrameMaterial, $FrameMaterial$Type} from "packages/com/jaquadro/minecraft/storagedrawers/api/framing/$FrameMaterial"
 import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
@@ -1548,11 +1550,11 @@ constructor(arg0: $BlockBehaviour$Properties$Type)
 public "getFramedBlockEntity"(arg0: $Level$Type, arg1: $BlockPos$Type): $IFramedBlockEntity
 public "supportsFrameMaterial"(arg0: $FrameMaterial$Type): boolean
 public "canUseForRetrim"(): boolean
+public "getDrops"(arg0: $BlockState$Type, arg1: $LootParams$Builder$Type): $List<($ItemStack)>
+public "getShadeBrightness"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): float
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
 public "getCloneItemStack"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
-public "getDrops"(arg0: $BlockState$Type, arg1: $LootParams$Builder$Type): $List<($ItemStack)>
-public "getShadeBrightness"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): float
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
 public "getTicker"<T extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
 }
@@ -1618,20 +1620,20 @@ readonly "properties": $BlockBehaviour$Properties
 
 public "putSlot"(arg0: $FaceSlotBlock$InteractContext$Type, arg1: boolean): $InteractionResult
 public "rightAction"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $BlockHitResult$Type): $InteractionResult
-public "useSlotInvertible"(arg0: $FaceSlotBlock$InteractContext$Type): $Optional<($InteractionResult)>
 public "getFaceSlot"(arg0: $BlockState$Type, arg1: $BlockHitResult$Type): integer
+public "useSlotInvertible"(arg0: $FaceSlotBlock$InteractContext$Type): $Optional<($InteractionResult)>
 public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
 public "attack"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type): void
 public "useSlot"(arg0: $FaceSlotBlock$InteractContext$Type): $Optional<($InteractionResult)>
 public "takeSlot"(arg0: $FaceSlotBlock$InteractContext$Type, arg1: boolean): $InteractionResult
 public "leftAction"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $BlockHitResult$Type): $InteractionResult
+public "supportsDirectControllerLink"(): boolean
 public "getBoundControlGroup"(): $IControlGroup
+public "getSoftBoundControlGroups"(): $Set<($IControlGroup)>
+public "softBindControlGroup"(arg0: $IControlGroup$Type): void
+public "canRecurseSearch"(): boolean
 public "unbindControlGroup"(): void
 public "scheduleValidation"(): void
-public "canRecurseSearch"(): boolean
-public "softBindControlGroup"(arg0: $IControlGroup$Type): void
-public "getSoftBoundControlGroups"(): $Set<($IControlGroup)>
-public "supportsDirectControllerLink"(): boolean
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
 public "getTicker"<T extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
@@ -1711,12 +1713,12 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 export interface $IItemRepository {
 
  "getAllItems"(): $NonNullList<($IItemRepository$ItemRecord)>
- "extractItem"(arg0: $ItemStack$Type, arg1: integer, arg2: boolean, arg3: $Predicate$Type<($ItemStack$Type)>): $ItemStack
  "extractItem"(arg0: $ItemStack$Type, arg1: integer, arg2: boolean): $ItemStack
- "getItemCapacity"(arg0: $ItemStack$Type, arg1: $Predicate$Type<($ItemStack$Type)>): integer
- "getItemCapacity"(arg0: $ItemStack$Type): integer
+ "extractItem"(arg0: $ItemStack$Type, arg1: integer, arg2: boolean, arg3: $Predicate$Type<($ItemStack$Type)>): $ItemStack
  "getRemainingItemCapacity"(arg0: $ItemStack$Type): integer
  "getRemainingItemCapacity"(arg0: $ItemStack$Type, arg1: $Predicate$Type<($ItemStack$Type)>): integer
+ "getItemCapacity"(arg0: $ItemStack$Type, arg1: $Predicate$Type<($ItemStack$Type)>): integer
+ "getItemCapacity"(arg0: $ItemStack$Type): integer
  "getStoredItemCount"(arg0: $ItemStack$Type, arg1: $Predicate$Type<($ItemStack$Type)>): integer
  "getStoredItemCount"(arg0: $ItemStack$Type): integer
  "insertItem"(arg0: $ItemStack$Type, arg1: boolean, arg2: $Predicate$Type<($ItemStack$Type)>): $ItemStack
@@ -1765,14 +1767,13 @@ export type $MagnetDim_ = $MagnetDim$Type;
 declare module "packages/com/jaquadro/minecraft/storagedrawers/block/tile/$BlockEntityController" {
 import {$ISecurityProvider, $ISecurityProvider$Type} from "packages/com/jaquadro/minecraft/storagedrawers/api/security/$ISecurityProvider"
 import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
-import {$MaterialData, $MaterialData$Type} from "packages/com/jaquadro/minecraft/storagedrawers/block/tile/tiledata/$MaterialData"
 import {$BaseBlockEntity, $BaseBlockEntity$Type} from "packages/com/jaquadro/minecraft/storagedrawers/block/tile/$BaseBlockEntity"
 import {$IDrawer, $IDrawer$Type} from "packages/com/jaquadro/minecraft/storagedrawers/api/storage/$IDrawer"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$IDrawerAttributesGroupControl, $IDrawerAttributesGroupControl$Type} from "packages/com/jaquadro/minecraft/storagedrawers/api/storage/$IDrawerAttributesGroupControl"
 import {$IFramedBlockEntity, $IFramedBlockEntity$Type} from "packages/com/jaquadro/minecraft/storagedrawers/api/framing/$IFramedBlockEntity"
-import {$IDrawerGroup, $IDrawerGroup$Type} from "packages/com/jaquadro/minecraft/storagedrawers/api/storage/$IDrawerGroup"
 import {$INetworked, $INetworked$Type} from "packages/com/jaquadro/minecraft/storagedrawers/api/storage/$INetworked"
+import {$IDrawerGroup, $IDrawerGroup$Type} from "packages/com/jaquadro/minecraft/storagedrawers/api/storage/$IDrawerGroup"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$IControlGroup, $IControlGroup$Type} from "packages/com/jaquadro/minecraft/storagedrawers/api/storage/$IControlGroup"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
@@ -1789,42 +1790,41 @@ export class $BlockEntityController extends $BaseBlockEntity implements $IDrawer
 
 constructor(arg0: $BlockPos$Type, arg1: $BlockState$Type)
 
+public "getGroupControllableAttributes"(arg0: $Player$Type): $IDrawerAttributesGroupControl
+public "dataPacketRequiresRenderUpdate"(): boolean
+public "interactPutItemsIntoInventory"(arg0: $Player$Type): integer
 public "getCapability"<T>(arg0: $ChameleonCapability$Type<(T)>): T
+public "getBoundControlGroup"(): $IControlGroup
+public "getDrawerCount"(): integer
+public "printDebugInfo"(): void
+public "addRemoteNode"(arg0: $INetworked$Type): boolean
+public "isGroupValid"(): boolean
+public "onEntityLoad"(): void
+public "invalidateRemoteNode"(arg0: $INetworked$Type): void
+public "getAccessibleDrawerSlots"(): (integer)[]
+public "isSoftBindingValid"(arg0: $BlockPos$Type, arg1: $IDrawerGroup$Type): boolean
+public "clearProtection"(): void
+public "toggleProtection"(arg0: $GameProfile$Type, arg1: $ISecurityProvider$Type): void
+public "updateCache"(): void
 public "getDrawerGroup"(): $IDrawerGroup
 public "getBoundRemoteNodes"(): $List<($INetworked)>
 public "validateRemoteNode"(arg0: $INetworked$Type): void
 public "getGroupForDrawerSlot"(arg0: integer): $IDrawerGroup
 public "getItemRepository"(): $IItemRepository
 public "getBalanceDrawers"(arg0: $ItemStack$Type, arg1: $Player$Type): $Stream<($IDrawer)>
-public "invalidateRemoteNode"(arg0: $INetworked$Type): void
-public "addRemoteNode"(arg0: $INetworked$Type): boolean
-public "onEntityLoad"(): void
-public "isGroupValid"(): boolean
-public "getAccessibleDrawerSlots"(): (integer)[]
-public "isSoftBindingValid"(arg0: $BlockPos$Type, arg1: $IDrawerGroup$Type): boolean
-public "printDebugInfo"(): void
-public "clearProtection"(): void
-public "toggleProtection"(arg0: $GameProfile$Type, arg1: $ISecurityProvider$Type): void
-public "updateCache"(): void
-public "getDrawerCount"(): integer
-public "getBoundControlGroup"(): $IControlGroup
-public "interactPutItemsIntoInventory"(arg0: $Player$Type): integer
-public "getGroupControllableAttributes"(arg0: $Player$Type): $IDrawerAttributesGroupControl
-public "dataPacketRequiresRenderUpdate"(): boolean
 public "setRemoved"(): void
-public "material"(): $MaterialData
 public "getDrawer"(arg0: integer): $IDrawer
-public "isValidIO"(arg0: $BlockPos$Type): boolean
 public "readFixed"(arg0: $CompoundTag$Type): void
+public "isValidIO"(arg0: $BlockPos$Type): boolean
 public "getBlock"(): $BlockController
 public "hasMissingDrawers"(): boolean
+get "boundControlGroup"(): $IControlGroup
+get "drawerCount"(): integer
+get "groupValid"(): boolean
+get "accessibleDrawerSlots"(): (integer)[]
 get "drawerGroup"(): $IDrawerGroup
 get "boundRemoteNodes"(): $List<($INetworked)>
 get "itemRepository"(): $IItemRepository
-get "groupValid"(): boolean
-get "accessibleDrawerSlots"(): (integer)[]
-get "drawerCount"(): integer
-get "boundControlGroup"(): $IControlGroup
 get "block"(): $BlockController
 }
 /**
@@ -1874,9 +1874,9 @@ public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$T
 public "getName"(arg0: $ItemStack$Type): $Component
 public "canFitInsideContainerItems"(): boolean
 public "isHeavy"(arg0: $ItemStack$Type): boolean
-public "moonlight$getClientAnimationExtension"(): any
-public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
 public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
+public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$setClientAnimationExtension"(arg0: any): void
 get "description"(): $Component
 }
@@ -1950,8 +1950,8 @@ declare module "packages/com/jaquadro/minecraft/storagedrawers/item/$ItemKey" {
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
 import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
@@ -1973,10 +1973,10 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $Item$Properties$Type)
 
 public "isEnabled"(): boolean
+public "canAttackBlock"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type): boolean
 public "useOn"(arg0: $UseOnContext$Type): $InteractionResult
 public "getDescription"(): $Component
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
-public "canAttackBlock"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type): boolean
 get "enabled"(): boolean
 get "description"(): $Component
 }
@@ -2030,8 +2030,8 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 
 export interface $IFramedMaterials {
 
- "setMaterial"(arg0: $FrameMaterial$Type, arg1: $ItemStack$Type): void
  "getMaterial"(arg0: $FrameMaterial$Type): $ItemStack
+ "setMaterial"(arg0: $FrameMaterial$Type, arg1: $ItemStack$Type): void
  "getHostBlock"(): $ItemStack
  "setHostBlock"(arg0: $ItemStack$Type): void
 }
@@ -2173,17 +2173,17 @@ constructor(arg0: integer, arg1: boolean, arg2: integer, arg3: $BlockBehaviour$P
 constructor(arg0: integer, arg1: boolean, arg2: $Supplier$Type<($IDrawerConfig$Type)>, arg3: $BlockBehaviour$Properties$Type)
 
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntityDrawers
-public "retrimBlock"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $ItemStack$Type): boolean
 public "repartitionBlock"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $ItemStack$Type): boolean
+public "retrimBlock"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $ItemStack$Type): boolean
 public "getNameMatKey"(): string
 public "makeFramedItem"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: $ItemStack$Type, arg3: $ItemStack$Type): $ItemStack
-public "getMatKey"(): string
 public "setMatKey"(arg0: string): $BlockStandardDrawers
 public "setMatKey"(arg0: $ResourceLocation$Type): $BlockStandardDrawers
+public "getMatKey"(): string
 get "nameMatKey"(): string
-get "matKey"(): string
 set "matKey"(value: string)
 set "matKey"(value: $ResourceLocation$Type)
+get "matKey"(): string
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2266,6 +2266,7 @@ constructor(arg0: $RegistryEntry$Type<(any)>, arg1: $Item$Properties$Type)
 
 public static "add"(arg0: $ItemStack$Type, arg1: $ItemStack$Type): integer
 public "getKey"(): $ItemStack
+public "onDestroyed"(arg0: $ItemEntity$Type): void
 public "useOn"(arg0: $UseOnContext$Type): $InteractionResult
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "overrideOtherStackedOnMe"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: $Slot$Type, arg3: $ClickAction$Type, arg4: $Player$Type, arg5: $SlotAccess$Type): boolean
@@ -2273,7 +2274,6 @@ public "getDescription"(): $Component
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "getTooltipImage"(arg0: $ItemStack$Type): $Optional<($TooltipComponent)>
 public "getName"(arg0: $ItemStack$Type): $Component
-public "onDestroyed"(arg0: $ItemEntity$Type): void
 public static "getKeyring"(arg0: $ItemStack$Type): $ItemStack
 get "key"(): $ItemStack
 get "description"(): $Component
@@ -2314,16 +2314,16 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
+public "getDefaultInstance"(): $ItemStack
+public "getDescriptionId"(): string
 public "getDescription"(): $Component
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "getTooltipImage"(arg0: $ItemStack$Type): $Optional<($TooltipComponent)>
 public "canFitInsideContainerItems"(): boolean
-public "getDefaultInstance"(): $ItemStack
-public "getDescriptionId"(): string
 public "isHeavy"(arg0: $ItemStack$Type): boolean
-get "description"(): $Component
 get "defaultInstance"(): $ItemStack
 get "descriptionId"(): string
+get "description"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2345,15 +2345,15 @@ export interface $IDrawerAttributes {
  "isSealed"(): boolean
  "getPriority"(): integer
  "isVoid"(): boolean
- "hasFillLevel"(): boolean
- "canItemLock"(arg0: $LockAttribute$Type): boolean
- "isDictConvertible"(): boolean
- "isUnlimitedStorage"(): boolean
- "isBalancedFill"(): boolean
  "isUnlimitedVending"(): boolean
+ "hasFillLevel"(): boolean
+ "isBalancedFill"(): boolean
  "isItemLocked"(arg0: $LockAttribute$Type): boolean
  "isShowingQuantity"(): boolean
  "isConcealed"(): boolean
+ "isDictConvertible"(): boolean
+ "canItemLock"(arg0: $LockAttribute$Type): boolean
+ "isUnlimitedStorage"(): boolean
  "isHopper"(): boolean
  "isMagnet"(): boolean
  "isSuspended"(): boolean
@@ -2442,17 +2442,15 @@ constructor(arg0: integer, arg1: boolean, arg2: $Supplier$Type<($IDrawerConfig$T
 constructor(arg0: integer, arg1: boolean, arg2: integer, arg3: $BlockBehaviour$Properties$Type)
 
 public "putSlot"(arg0: $FaceSlotBlock$InteractContext$Type, arg1: boolean): $InteractionResult
-public "retrimBlock"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $ItemStack$Type): boolean
 public "repartitionBlock"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $ItemStack$Type): boolean
 public "getStorageUnits"(): integer
 public "getNameTypeKey"(): string
+public "retrimBlock"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $ItemStack$Type): boolean
 public "interactPullDrawer"(arg0: $FaceSlotBlock$InteractContext$Type): boolean
 public "interactReturnDrawer"(arg0: $FaceSlotBlock$InteractContext$Type, arg1: $ItemStack$Type): boolean
-public "useSlotInvertible"(arg0: $FaceSlotBlock$InteractContext$Type): $Optional<($InteractionResult)>
 public "isHalfDepth"(): boolean
 public "getDrawerCount"(): integer
-public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
-public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
+public "useSlotInvertible"(arg0: $FaceSlotBlock$InteractContext$Type): $Optional<($InteractionResult)>
 public "isPathfindable"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $PathComputationType$Type): boolean
 public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
 public "useShapeForLightOcclusion"(arg0: $BlockState$Type): boolean
@@ -2467,6 +2465,8 @@ public "tick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$T
 public "getSignal"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): integer
 public "entityInside"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Entity$Type): void
 public "getDirectSignal"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): integer
+public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
+public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
 public "retrimType"(): $BlockType
 public "useSlot"(arg0: $FaceSlotBlock$InteractContext$Type): $Optional<($InteractionResult)>
 public "takeSlot"(arg0: $FaceSlotBlock$InteractContext$Type, arg1: boolean): $InteractionResult
@@ -2573,9 +2573,9 @@ constructor(arg0: integer, arg1: boolean, arg2: $Supplier$Type<($IDrawerConfig$T
 
 public "getFramedBlockEntity"(arg0: $Level$Type, arg1: $BlockPos$Type): $IFramedBlockEntity
 public "supportsFrameMaterial"(arg0: $FrameMaterial$Type): boolean
+public "getShadeBrightness"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): float
 public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
 public "getCloneItemStack"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
-public "getShadeBrightness"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): float
 public "retrimType"(): $BlockType
 }
 /**
@@ -2600,8 +2600,8 @@ constructor()
 public "write"(arg0: $CompoundTag$Type): $CompoundTag
 public "read"(arg0: $CompoundTag$Type): void
 public "invalidateCaps"(): void
-public "serializeNBT"(): $CompoundTag
 public "deserializeNBT"(arg0: $CompoundTag$Type): void
+public "serializeNBT"(): $CompoundTag
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2623,8 +2623,8 @@ export interface $IProtectable {
 
  "getOwner"(): $UUID
  "setOwner"(arg0: $UUID$Type): boolean
- "getSecurityProvider"(): $ISecurityProvider
  "setSecurityProvider"(arg0: $ISecurityProvider$Type): boolean
+ "getSecurityProvider"(): $ISecurityProvider
 }
 
 export namespace $IProtectable {
@@ -2658,16 +2658,16 @@ export class $BaseBlockEntity extends $BlockEntity {
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
 public "read"(arg0: $CompoundTag$Type): void
+public "dataPacketRequiresRenderUpdate"(): boolean
 public "onDataPacket"(arg0: $Connection$Type, arg1: $ClientboundBlockEntityDataPacket$Type): void
 public "getUpdatePacket"(): $ClientboundBlockEntityDataPacket
+public "readPortable"(arg0: $CompoundTag$Type): void
 public "injectPortableData"(arg0: $BlockEntityDataShim$Type): void
-public "markBlockForUpdate"(): void
 public "hasDataPacket"(): boolean
 public "markBlockForRenderUpdate"(): void
-public "markBlockForUpdateClient"(): void
 public "writePortable"(arg0: $CompoundTag$Type): $CompoundTag
-public "readPortable"(arg0: $CompoundTag$Type): void
-public "dataPacketRequiresRenderUpdate"(): boolean
+public "markBlockForUpdate"(): void
+public "markBlockForUpdateClient"(): void
 public "load"(arg0: $CompoundTag$Type): void
 public "getUpdateTag"(): $CompoundTag
 public "injectData"(arg0: $BlockEntityDataShim$Type): void
@@ -2708,17 +2708,17 @@ public "toString"(): string
 public static "values"(): ($EnumUpgradeStorage)[]
 public static "valueOf"(arg0: string): $EnumUpgradeStorage
 public "getLevel"(): integer
-public "getMetadata"(): integer
 public "getUnlocalizedName"(): string
+public "getMetadata"(): integer
 public "getSerializedName"(): string
-public static "byLevel"(arg0: integer): $EnumUpgradeStorage
 public static "byMetadata"(arg0: integer): $EnumUpgradeStorage
+public static "byLevel"(arg0: integer): $EnumUpgradeStorage
 public static "fromEnum"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromEnumWithMapping"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>, arg1: $Function$Type<(string), (string)>): $StringRepresentable$EnumCodec<(E)>
 public static "keys"(arg0: ($StringRepresentable$Type)[]): $Keyable
 get "level"(): integer
-get "metadata"(): integer
 get "unlocalizedName"(): string
+get "metadata"(): integer
 get "serializedName"(): string
 }
 /**
@@ -2773,21 +2773,21 @@ public "getNameTypeKey"(): string
 public "getNameMatKey"(): string
 public "canUseForRetrim"(): boolean
 public "makeFramedItem"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: $ItemStack$Type, arg3: $ItemStack$Type): $ItemStack
-public "getMatKey"(): string
-public "setMatKey"(arg0: string): $BlockTrim
 public "setMatKey"(arg0: $ResourceLocation$Type): $BlockTrim
+public "setMatKey"(arg0: string): $BlockTrim
+public "getMatKey"(): string
+public "supportsDirectControllerLink"(): boolean
 public "getBoundControlGroup"(): $IControlGroup
+public "getSoftBoundControlGroups"(): $Set<($IControlGroup)>
+public "softBindControlGroup"(arg0: $IControlGroup$Type): void
+public "canRecurseSearch"(): boolean
 public "unbindControlGroup"(): void
 public "scheduleValidation"(): void
-public "canRecurseSearch"(): boolean
-public "softBindControlGroup"(arg0: $IControlGroup$Type): void
-public "getSoftBoundControlGroups"(): $Set<($IControlGroup)>
-public "supportsDirectControllerLink"(): boolean
 get "nameTypeKey"(): string
 get "nameMatKey"(): string
-get "matKey"(): string
-set "matKey"(value: string)
 set "matKey"(value: $ResourceLocation$Type)
+set "matKey"(value: string)
+get "matKey"(): string
 get "boundControlGroup"(): $IControlGroup
 get "softBoundControlGroups"(): $Set<($IControlGroup)>
 }
@@ -2852,15 +2852,15 @@ static readonly "MIN": $EnumUpgradeRedstone
 public "toString"(): string
 public static "values"(): ($EnumUpgradeRedstone)[]
 public static "valueOf"(arg0: string): $EnumUpgradeRedstone
-public "getMetadata"(): integer
 public "getUnlocalizedName"(): string
+public "getMetadata"(): integer
 public "getSerializedName"(): string
 public static "byMetadata"(arg0: integer): $EnumUpgradeRedstone
 public static "fromEnum"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromEnumWithMapping"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>, arg1: $Function$Type<(string), (string)>): $StringRepresentable$EnumCodec<(E)>
 public static "keys"(arg0: ($StringRepresentable$Type)[]): $Keyable
-get "metadata"(): integer
 get "unlocalizedName"(): string
+get "metadata"(): integer
 get "serializedName"(): string
 }
 /**
@@ -3165,9 +3165,9 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Block$Type, arg1: $Item$Properties$Type)
 
-public "moonlight$getClientAnimationExtension"(): any
-public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
 public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
+public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$setClientAnimationExtension"(arg0: any): void
 }
 /**
@@ -3230,13 +3230,13 @@ constructor(arg0: $BlockBehaviour$Properties$Type)
 public "getController"(arg0: $Level$Type, arg1: $BlockPos$Type): $BlockEntityController
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntitySlave
 public "makeFramedItem"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: $ItemStack$Type, arg3: $ItemStack$Type): $ItemStack
+public "supportsDirectControllerLink"(): boolean
 public "getBoundControlGroup"(): $IControlGroup
+public "getSoftBoundControlGroups"(): $Set<($IControlGroup)>
+public "softBindControlGroup"(arg0: $IControlGroup$Type): void
+public "canRecurseSearch"(): boolean
 public "unbindControlGroup"(): void
 public "scheduleValidation"(): void
-public "canRecurseSearch"(): boolean
-public "softBindControlGroup"(arg0: $IControlGroup$Type): void
-public "getSoftBoundControlGroups"(): $Set<($IControlGroup)>
-public "supportsDirectControllerLink"(): boolean
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
 public "getTicker"<T extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
 get "boundControlGroup"(): $IControlGroup
@@ -3279,17 +3279,17 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $EnumUpgradeMagnet$Type, arg1: $Item$Properties$Type)
 
 public "isEnabled"(): boolean
-public "getActiveSpeed"(): integer
-public "getHorzRange"(): integer
 public "getDownRange"(): integer
+public "getHorzRange"(): integer
+public "getActiveSpeed"(): integer
 public "getIdleSpeed"(): integer
 public "getDescription"(): $Component
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "getUpRange"(): integer
 get "enabled"(): boolean
-get "activeSpeed"(): integer
-get "horzRange"(): integer
 get "downRange"(): integer
+get "horzRange"(): integer
+get "activeSpeed"(): integer
 get "idleSpeed"(): integer
 get "description"(): $Component
 get "upRange"(): integer
@@ -3403,8 +3403,8 @@ import {$GameProfile, $GameProfile$Type} from "packages/com/mojang/authlib/$Game
 
 export interface $ISecurityProvider {
 
- "getProviderID"(): string
  "hasOwnership"(arg0: $GameProfile$Type, arg1: $IProtectable$Type): boolean
+ "getProviderID"(): string
  "hasAccess"(arg0: $Player$Type, arg1: $IProtectable$Type): boolean
 }
 
@@ -3576,24 +3576,24 @@ export interface $IDrawer {
  "copy"(): $IDrawer
  "getAttributes"(): $IDrawerAttributes
  "isEnabled"(): boolean
- "canItemBeStored"(arg0: $ItemStack$Type, arg1: $Predicate$Type<($ItemStack$Type)>): boolean
- "canItemBeStored"(arg0: $ItemStack$Type): boolean
- "setStoredItemCount"(arg0: integer): void
- "canItemBeStoredManual"(arg0: $ItemStack$Type, arg1: $Predicate$Type<($ItemStack$Type)>): boolean
- "getRemainingCapacity"(): integer
- "getStoredItemStackSize"(): integer
- "setDetached"(arg0: boolean): void
- "getStoredItemPrototype"(): $ItemStack
- "getStoredItemCount"(): integer
- "setStoredItem"(arg0: $ItemStack$Type): $IDrawer
- "setStoredItem"(arg0: $ItemStack$Type, arg1: integer): $IDrawer
- "getMaxCapacity"(): integer
- "getMaxCapacity"(arg0: $ItemStack$Type): integer
  "adjustStoredItemCount"(arg0: integer): integer
  "getAcceptingMaxCapacity"(arg0: $ItemStack$Type): integer
  "canItemBeExtracted"(arg0: $ItemStack$Type, arg1: $Predicate$Type<($ItemStack$Type)>): boolean
  "canItemBeExtracted"(arg0: $ItemStack$Type): boolean
  "getAcceptingRemainingCapacity"(): integer
+ "getStoredItemStackSize"(): integer
+ "setDetached"(arg0: boolean): void
+ "getMaxCapacity"(): integer
+ "getMaxCapacity"(arg0: $ItemStack$Type): integer
+ "canItemBeStoredManual"(arg0: $ItemStack$Type, arg1: $Predicate$Type<($ItemStack$Type)>): boolean
+ "getRemainingCapacity"(): integer
+ "setStoredItemCount"(arg0: integer): void
+ "getStoredItemPrototype"(): $ItemStack
+ "getStoredItemCount"(): integer
+ "setStoredItem"(arg0: $ItemStack$Type, arg1: integer): $IDrawer
+ "setStoredItem"(arg0: $ItemStack$Type): $IDrawer
+ "canItemBeStored"(arg0: $ItemStack$Type, arg1: $Predicate$Type<($ItemStack$Type)>): boolean
+ "canItemBeStored"(arg0: $ItemStack$Type): boolean
  "isMissing"(): boolean
  "canDetach"(): boolean
 }
@@ -3690,10 +3690,10 @@ constructor(arg0: $BlockBehaviour$Properties$Type)
 
 public "getFramedBlockEntity"(arg0: $Level$Type, arg1: $BlockPos$Type): $IFramedBlockEntity
 public "supportsFrameMaterial"(arg0: $FrameMaterial$Type): boolean
-public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
-public "getCloneItemStack"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
 public "getDrops"(arg0: $BlockState$Type, arg1: $LootParams$Builder$Type): $List<($ItemStack)>
 public "getShadeBrightness"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): float
+public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
+public "getCloneItemStack"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3721,22 +3721,6 @@ constructor(arg0: integer)
 
 public "write"(arg0: $CompoundTag$Type): $CompoundTag
 public "read"(arg0: $CompoundTag$Type): void
-public "hasEmptySlot"(): boolean
-public "canRemoveUpgrade"(arg0: integer): boolean
-public "canSwapUpgrade"(arg0: integer, arg1: $ItemStack$Type): boolean
-public "hasUnlimitedUpgrade"(): boolean
-public "hasConversionUpgrade"(): boolean
-public "hasIlluminationUpgrade"(): boolean
-public "hasHopperUpgrade"(): boolean
-public "setDrawerAttributes"(arg0: $IDrawerAttributesModifiable$Type): void
-public "getRemoteUpgrade"(): $ItemStack
-public "unbindRemoteUpgrade"(): void
-public "hasOneStackUpgrade"(): boolean
-public "hasMagnetUpgrade"(): boolean
-public "getMagnetRange"(arg0: $MagnetDim$Type): integer
-public "getRedstoneType"(): $EnumUpgradeRedstone
-public "hasbalancedFillUpgrade"(): boolean
-public "hasVendingUpgrade"(): boolean
 public "hasRemoteUpgrade"(): boolean
 public "updateRemoteUpgradeBinding"(arg0: $ItemStack$Type): void
 public "canAddUpgrade"(arg0: $ItemStack$Type): boolean
@@ -3744,16 +3728,32 @@ public "getStorageMultiplier"(): integer
 public "hasPortabilityUpgrade"(): boolean
 public "getMagnetIdleRate"(): integer
 public "getMagnetActiveRate"(): integer
+public "hasEmptySlot"(): boolean
+public "canRemoveUpgrade"(arg0: integer): boolean
+public "canSwapUpgrade"(arg0: integer, arg1: $ItemStack$Type): boolean
+public "hasUnlimitedUpgrade"(): boolean
+public "hasConversionUpgrade"(): boolean
+public "hasIlluminationUpgrade"(): boolean
+public "hasHopperUpgrade"(): boolean
+public "getRemoteUpgrade"(): $ItemStack
+public "hasOneStackUpgrade"(): boolean
+public "hasbalancedFillUpgrade"(): boolean
+public "unbindRemoteUpgrade"(): void
+public "setDrawerAttributes"(arg0: $IDrawerAttributesModifiable$Type): void
+public "hasMagnetUpgrade"(): boolean
+public "hasVendingUpgrade"(): boolean
+public "getMagnetRange"(arg0: $MagnetDim$Type): integer
+public "getRedstoneType"(): $EnumUpgradeRedstone
 public "getSlotCount"(): integer
-public "addUpgrade"(arg0: $ItemStack$Type): boolean
 public "getUpgrade"(arg0: integer): $ItemStack
 public "setUpgrade"(arg0: integer, arg1: $ItemStack$Type): boolean
-set "drawerAttributes"(value: $IDrawerAttributesModifiable$Type)
-get "remoteUpgrade"(): $ItemStack
-get "redstoneType"(): $EnumUpgradeRedstone
+public "addUpgrade"(arg0: $ItemStack$Type): boolean
 get "storageMultiplier"(): integer
 get "magnetIdleRate"(): integer
 get "magnetActiveRate"(): integer
+get "remoteUpgrade"(): $ItemStack
+set "drawerAttributes"(value: $IDrawerAttributesModifiable$Type)
+get "redstoneType"(): $EnumUpgradeRedstone
 get "slotCount"(): integer
 }
 /**
@@ -3775,6 +3775,10 @@ import {$LockAttribute, $LockAttribute$Type} from "packages/com/jaquadro/minecra
 export interface $IDrawerAttributesModifiable extends $IDrawerAttributes {
 
  "setPriority"(arg0: integer): boolean
+ "setItemLocked"(arg0: $LockAttribute$Type, arg1: boolean): boolean
+ "setIsShowingQuantity"(arg0: boolean): boolean
+ "setIsConcealed"(arg0: boolean): boolean
+ "setIsSuspended"(arg0: boolean): boolean
  "setHasFillLevel"(arg0: boolean): boolean
  "setIsDictConvertible"(arg0: boolean): boolean
  "setIsUnlimitedStorage"(arg0: boolean): boolean
@@ -3783,23 +3787,19 @@ export interface $IDrawerAttributesModifiable extends $IDrawerAttributes {
  "setIsHopper"(arg0: boolean): boolean
  "setIsMagnet"(arg0: boolean): boolean
  "setIsSealed"(arg0: boolean): boolean
- "setItemLocked"(arg0: $LockAttribute$Type, arg1: boolean): boolean
- "setIsShowingQuantity"(arg0: boolean): boolean
- "setIsConcealed"(arg0: boolean): boolean
- "setIsSuspended"(arg0: boolean): boolean
  "setIsVoid"(arg0: boolean): boolean
  "isSealed"(): boolean
  "getPriority"(): integer
  "isVoid"(): boolean
- "hasFillLevel"(): boolean
- "canItemLock"(arg0: $LockAttribute$Type): boolean
- "isDictConvertible"(): boolean
- "isUnlimitedStorage"(): boolean
- "isBalancedFill"(): boolean
  "isUnlimitedVending"(): boolean
+ "hasFillLevel"(): boolean
+ "isBalancedFill"(): boolean
  "isItemLocked"(arg0: $LockAttribute$Type): boolean
  "isShowingQuantity"(): boolean
  "isConcealed"(): boolean
+ "isDictConvertible"(): boolean
+ "canItemLock"(arg0: $LockAttribute$Type): boolean
+ "isUnlimitedStorage"(): boolean
  "isHopper"(): boolean
  "isMagnet"(): boolean
  "isSuspended"(): boolean
@@ -3847,9 +3847,9 @@ constructor(arg0: $Block$Type, arg1: $Item$Properties$Type)
 
 public "doesSneakBypassUse"(arg0: $ItemStack$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $Player$Type): boolean
 public "getName"(arg0: $ItemStack$Type): $Component
-public "moonlight$getClientAnimationExtension"(): any
-public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
 public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
+public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$setClientAnimationExtension"(arg0: any): void
 }
 /**
@@ -3880,15 +3880,15 @@ static readonly "VENDING": $EnumUpgradeCreative
 public "toString"(): string
 public static "values"(): ($EnumUpgradeCreative)[]
 public static "valueOf"(arg0: string): $EnumUpgradeCreative
-public "getMetadata"(): integer
 public "getUnlocalizedName"(): string
+public "getMetadata"(): integer
 public "getSerializedName"(): string
 public static "byMetadata"(arg0: integer): $EnumUpgradeCreative
 public static "fromEnum"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromEnumWithMapping"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>, arg1: $Function$Type<(string), (string)>): $StringRepresentable$EnumCodec<(E)>
 public static "keys"(arg0: ($StringRepresentable$Type)[]): $Keyable
-get "metadata"(): integer
 get "unlocalizedName"(): string
+get "metadata"(): integer
 get "serializedName"(): string
 }
 /**

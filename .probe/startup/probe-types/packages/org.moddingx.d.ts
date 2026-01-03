@@ -22,39 +22,39 @@ static readonly "TYPE": $RecipeType<($EmptyRecipe)>
 constructor(arg0: $ResourceLocation$Type)
 
 public static "empty"(arg0: $ResourceLocation$Type): $FinishedRecipe
-public "getId"(): $ResourceLocation
 public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
+public "assemble"(arg0: $Container$Type, arg1: $RegistryAccess$Type): $ItemStack
+public "matches"(arg0: $Container$Type, arg1: $Level$Type): boolean
+public "getId"(): $ResourceLocation
+public "isSpecial"(): boolean
 public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
 public "getRemainingItems"(arg0: $Container$Type): $NonNullList<($ItemStack)>
 public "getIngredients"(): $NonNullList<($Ingredient)>
 public "getToastSymbol"(): $ItemStack
 public "getSerializer"(): $RecipeSerializer<(any)>
-public "isSpecial"(): boolean
-public "assemble"(arg0: $Container$Type, arg1: $RegistryAccess$Type): $ItemStack
-public "matches"(arg0: $Container$Type, arg1: $Level$Type): boolean
 public "showNotification"(): boolean
 public "isIncomplete"(): boolean
+public "getType"(): $ResourceLocation
 public "getGroup"(): string
 public "setGroup"(group: string): void
 public "getOrCreateId"(): $ResourceLocation
 public "getSchema"(): $RecipeSchema
 public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
 public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
-public "getType"(): $ResourceLocation
 public "getMod"(): string
 public "hasInput"(match: $ReplacementMatch$Type): boolean
 public "hasOutput"(match: $ReplacementMatch$Type): boolean
 get "id"(): $ResourceLocation
+get "special"(): boolean
 get "ingredients"(): $NonNullList<($Ingredient)>
 get "toastSymbol"(): $ItemStack
 get "serializer"(): $RecipeSerializer<(any)>
-get "special"(): boolean
 get "incomplete"(): boolean
+get "type"(): $ResourceLocation
 get "group"(): string
 set "group"(value: string)
 get "orCreateId"(): $ResourceLocation
 get "schema"(): $RecipeSchema
-get "type"(): $ResourceLocation
 get "mod"(): string
 }
 /**
@@ -102,8 +102,8 @@ export type $EmptyRecipe$Serializer_ = $EmptyRecipe$Serializer$Type;
 }}
 declare module "packages/org/moddingx/libx/command/$EnumArgument2" {
 import {$Suggestions, $Suggestions$Type} from "packages/com/mojang/brigadier/suggestion/$Suggestions"
-import {$CompletableFuture, $CompletableFuture$Type} from "packages/java/util/concurrent/$CompletableFuture"
 import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
+import {$CompletableFuture, $CompletableFuture$Type} from "packages/java/util/concurrent/$CompletableFuture"
 import {$Collection, $Collection$Type} from "packages/java/util/$Collection"
 import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$SuggestionsBuilder, $SuggestionsBuilder$Type} from "packages/com/mojang/brigadier/suggestion/$SuggestionsBuilder"
@@ -113,9 +113,9 @@ import {$CommandContext, $CommandContext$Type} from "packages/com/mojang/brigadi
 export class $EnumArgument2<T extends $Enum<(T)>> implements $ArgumentType<(T)> {
 
 
+public static "enumArgument"<R extends $Enum<(R)>>(arg0: $Class$Type<(R)>): $EnumArgument2<(R)>
 public "listSuggestions"<S>(arg0: $CommandContext$Type<(S)>, arg1: $SuggestionsBuilder$Type): $CompletableFuture<($Suggestions)>
 public "getExamples"(): $Collection<(string)>
-public static "enumArgument"<R extends $Enum<(R)>>(arg0: $Class$Type<(R)>): $EnumArgument2<(R)>
 get "examples"(): $Collection<(string)>
 }
 /**
@@ -166,9 +166,9 @@ static readonly "INSTANCE": $EnumArgument2$Info
 
 
 public "unpack"(arg0: $EnumArgument2$Type<(any)>): $EnumArgument2$Info$Template
-public "serializeToNetwork"(arg0: $EnumArgument2$Info$Template$Type, arg1: $FriendlyByteBuf$Type): void
-public "deserializeFromNetwork"(arg0: $FriendlyByteBuf$Type): $EnumArgument2$Info$Template
 public "serializeToJson"(arg0: $EnumArgument2$Info$Template$Type, arg1: $JsonObject$Type): void
+public "deserializeFromNetwork"(arg0: $FriendlyByteBuf$Type): $EnumArgument2$Info$Template
+public "serializeToNetwork"(arg0: $EnumArgument2$Info$Template$Type, arg1: $FriendlyByteBuf$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

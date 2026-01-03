@@ -519,26 +519,20 @@ static readonly "DEFAULT_BB_HEIGHT": float
 
 constructor(world: $Level$Type)
 
+public "getContainerSize"(): integer
+public "getItem"(slot: integer): $ItemStack
+public "removeItemNoUpdate"(slot: integer): $ItemStack
+public "setChanged"(): void
+public "getAddEntityPacket"(): $Packet<($ClientGamePacketListener)>
 public "removeItem"(slot: integer, amount: integer): $ItemStack
 public "isEmpty"(): boolean
 public "clearContent"(): void
 public "setItem"(slot: integer, stack: $ItemStack$Type): void
-public "getAddEntityPacket"(): $Packet<($ClientGamePacketListener)>
-public "setChanged"(): void
-public "getContainerSize"(): integer
-public "getItem"(slot: integer): $ItemStack
-public "removeItemNoUpdate"(slot: integer): $ItemStack
+public "getMaxStackSize"(): integer
+public "stillValid"(player: $Player$Type): boolean
 public "getSlotsForFace"(side: $Direction$Type): (integer)[]
 public "canPlaceItemThroughFace"(slot: integer, stack: $ItemStack$Type, dir: $Direction$Type): boolean
 public "canTakeItemThroughFace"(slot: integer, stack: $ItemStack$Type, dir: $Direction$Type): boolean
-public "getMaxStackSize"(): integer
-public "stillValid"(player: $Player$Type): boolean
-public "getHeight"(): integer
-public "setChanged"(): void
-public "asContainer"(): $Container
-public "isItemValid"(slot: integer, stack: $ItemStack$Type): boolean
-public "getWidth"(): integer
-public "setStackInSlot"(slot: integer, stack: $ItemStack$Type): void
 public static "stillValidBlockEntity"(arg0: $BlockEntity$Type, arg1: $Player$Type, arg2: double): boolean
 public "isMutable"(): boolean
 public "getSlots"(): integer
@@ -546,6 +540,12 @@ public "getStackInSlot"(slot: integer): $ItemStack
 public "insertItem"(slot: integer, stack: $ItemStack$Type, simulate: boolean): $ItemStack
 public "getSlotLimit"(slot: integer): integer
 public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
+public "setStackInSlot"(slot: integer, stack: $ItemStack$Type): void
+public "isItemValid"(slot: integer, stack: $ItemStack$Type): boolean
+public "getWidth"(): integer
+public "getHeight"(): integer
+public "setChanged"(): void
+public "asContainer"(): $Container
 public "getBlock"(level: $Level$Type): $BlockContainerJS
 public "self"(): $Container
 public "startOpen"(arg0: $Player$Type): void
@@ -555,28 +555,28 @@ public "canTakeItem"(arg0: $Container$Type, arg1: integer, arg2: $ItemStack$Type
 public "countItem"(arg0: $Item$Type): integer
 public "hasAnyOf"(arg0: $Set$Type<($Item$Type)>): boolean
 public "hasAnyMatching"(arg0: $Predicate$Type<($ItemStack$Type)>): boolean
+public static "stillValidBlockEntity"(arg0: $BlockEntity$Type, arg1: $Player$Type): boolean
 public static "stillValidBlockEntity"(arg0: $BlockEntity$Type, arg1: $Player$Type, arg2: integer): boolean
 public "clear"(): void
-public static "stillValidBlockEntity"(arg0: $BlockEntity$Type, arg1: $Player$Type): boolean
 public static "tryClear"(arg0: any): void
+public "insertItem"(stack: $ItemStack$Type, simulate: boolean): $ItemStack
 public "countNonEmpty"(): integer
 public "countNonEmpty"(ingredient: $Ingredient$Type): integer
 public "getAllItems"(): $List<($ItemStack)>
-public "insertItem"(stack: $ItemStack$Type, simulate: boolean): $ItemStack
 public "isEmpty"(): boolean
 public "clear"(ingredient: $Ingredient$Type): void
-public "find"(): integer
 public "find"(ingredient: $Ingredient$Type): integer
-public "count"(): integer
+public "find"(): integer
 public "count"(ingredient: $Ingredient$Type): integer
-get "empty"(): boolean
-get "addEntityPacket"(): $Packet<($ClientGamePacketListener)>
+public "count"(): integer
 get "containerSize"(): integer
+get "addEntityPacket"(): $Packet<($ClientGamePacketListener)>
+get "empty"(): boolean
 get "maxStackSize"(): integer
-get "height"(): integer
-get "width"(): integer
 get "mutable"(): boolean
 get "slots"(): integer
+get "width"(): integer
+get "height"(): integer
 get "allItems"(): $List<($ItemStack)>
 get "empty"(): boolean
 }
@@ -690,8 +690,8 @@ declare module "packages/com/unascribed/fabrication/interfaces/$ToggleableFurnac
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $ToggleableFurnaceCart {
 
- "fabrication$tgfc$setFuel"(arg0: integer): void
  "fabrication$tgfc$getPauseFuel"(): integer
+ "fabrication$tgfc$setFuel"(arg0: integer): void
 }
 
 export namespace $ToggleableFurnaceCart {
@@ -893,13 +893,13 @@ import {$Map, $Map$Type} from "packages/java/util/$Map"
 
 export interface $GetServerConfig {
 
- "fabrication$hasHandshook"(): boolean
- "fabrication$getLaunchId"(): long
- "fabrication$getServerBanned"(): $Set<(string)>
  "fabrication$getServerTrileanConfig"(): $Map<(string), ($ConfigValues$ResolvedFeature)>
  "fabrication$getServerStringConfig"(): $Map<(string), (string)>
  "fabrication$getServerVersion"(): string
  "fabrication$getServerFailedConfig"(): $Map<(string), (string)>
+ "fabrication$getServerBanned"(): $Set<(string)>
+ "fabrication$hasHandshook"(): boolean
+ "fabrication$getLaunchId"(): long
 }
 
 export namespace $GetServerConfig {

@@ -299,32 +299,32 @@ constructor(arg0: $CraftingCPUCluster$Type)
 
 public "insert"(arg0: $AEKey$Type, arg1: long, arg2: $Actionable$Type): long
 public "cancel"(): void
+public "executeCrafting"(arg0: integer, arg1: $CraftingService$Type, arg2: $IEnergyService$Type, arg3: $Level$Type): integer
+public "getPendingOutputs"(arg0: $AEKey$Type): long
+public "trySubmitJob"(arg0: $IGrid$Type, arg1: $ICraftingPlan$Type, arg2: $IActionSource$Type, arg3: $ICraftingRequester$Type): $ICraftingSubmitResult
+public "getFinalJobOutput"(): $GenericStack
+public "getElapsedTimeTracker"(): $ElapsedTimeTracker
+public "isCantStoreItems"(): boolean
 public "addListener"(arg0: $Consumer$Type<($AEKey$Type)>): void
 public "removeListener"(arg0: $Consumer$Type<($AEKey$Type)>): void
-public "getAllItems"(arg0: $KeyCounter$Type): void
 public "readFromNBT"(arg0: $CompoundTag$Type): void
+public "getAllItems"(arg0: $KeyCounter$Type): void
+public "getInventory"(): $ListCraftingInventory
+public "getWaitingFor"(arg0: $AEKey$Type): long
+public "getLastLink"(): $ICraftingLink
 public "tickCraftingLogic"(arg0: $IEnergyService$Type, arg1: $CraftingService$Type): void
 public "getLastModifiedOnTick"(): long
 public "getAllWaitingFor"(arg0: $Set$Type<($AEKey$Type)>): void
-public "getLastLink"(): $ICraftingLink
-public "getWaitingFor"(arg0: $AEKey$Type): long
-public "getInventory"(): $ListCraftingInventory
-public "isCantStoreItems"(): boolean
-public "getElapsedTimeTracker"(): $ElapsedTimeTracker
-public "trySubmitJob"(arg0: $IGrid$Type, arg1: $ICraftingPlan$Type, arg2: $IActionSource$Type, arg3: $ICraftingRequester$Type): $ICraftingSubmitResult
-public "getFinalJobOutput"(): $GenericStack
-public "getPendingOutputs"(arg0: $AEKey$Type): long
-public "executeCrafting"(arg0: integer, arg1: $CraftingService$Type, arg2: $IEnergyService$Type, arg3: $Level$Type): integer
 public "writeToNBT"(arg0: $CompoundTag$Type): void
+public "hasJob"(): boolean
 public "storeItems"(): void
 public "getStored"(arg0: $AEKey$Type): long
-public "hasJob"(): boolean
-get "lastModifiedOnTick"(): long
-get "lastLink"(): $ICraftingLink
-get "inventory"(): $ListCraftingInventory
-get "cantStoreItems"(): boolean
-get "elapsedTimeTracker"(): $ElapsedTimeTracker
 get "finalJobOutput"(): $GenericStack
+get "elapsedTimeTracker"(): $ElapsedTimeTracker
+get "cantStoreItems"(): boolean
+get "inventory"(): $ListCraftingInventory
+get "lastLink"(): $ICraftingLink
+get "lastModifiedOnTick"(): long
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -359,9 +359,9 @@ public "isDone"(): boolean
 public "isStandalone"(): boolean
 public "isCanceled"(): boolean
 public "getCraftingID"(): $UUID
-public "markDone"(): void
 public "setNexus"(arg0: $CraftingLinkNexus$Type): void
 public "writeToNBT"(arg0: $CompoundTag$Type): void
+public "markDone"(): void
 get "done"(): boolean
 get "standalone"(): boolean
 get "canceled"(): boolean

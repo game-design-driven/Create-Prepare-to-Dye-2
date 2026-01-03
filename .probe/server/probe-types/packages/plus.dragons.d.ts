@@ -25,12 +25,12 @@ constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $Blo
 public "write"(arg0: $CompoundTag$Type, arg1: boolean): void
 public "destroy"(): void
 public "tick"(): void
-public "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
 public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
+public "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
+public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
+public "setHeldItem"(arg0: $TransportedItemStack$Type, arg1: $Direction$Type): void
 public "getHeldItemStack"(): $ItemStack
 public "getInternalTank"(): $SmartFluidTankBehaviour
-public "setHeldItem"(arg0: $TransportedItemStack$Type, arg1: $Direction$Type): void
-public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
 public "invalidate"(): void
 public "containedFluidTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean, arg2: $LazyOptional$Type<($IFluidHandler$Type)>): boolean
 public "getIcon"(arg0: boolean): $ItemStack
@@ -267,32 +267,32 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getBlockEntityClass"(): $Class<($DisenchanterBlockEntity)>
-public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
+public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "isPathfindable"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $PathComputationType$Type): boolean
 public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
 public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
 public "hasAnalogOutputSignal"(arg0: $BlockState$Type): boolean
 public "getAnalogOutputSignal"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): integer
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
+public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
 public "getDrops"(arg0: $BlockState$Type, arg1: $LootContext$Builder$Type): $List<($ItemStack)>
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
-public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
-public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
+public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
+public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "onWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($DisenchanterBlockEntity$Type)>): void
 public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($DisenchanterBlockEntity)>
 public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($DisenchanterBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
-public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($DisenchanterBlockEntity$Type)>): void
 public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $DisenchanterBlockEntity
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
-get "blockEntityType"(): $BlockEntityType<(any)>
 get "blockEntityClass"(): $Class<($DisenchanterBlockEntity)>
+get "blockEntityType"(): $BlockEntityType<(any)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -406,12 +406,12 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $Item$Properties$Type)
 
 public static "getEnchantment"(arg0: $ItemStack$Type): $EnchantmentEntry
-public "createMenu"(arg0: integer, arg1: $Inventory$Type, arg2: $Player$Type): $AbstractContainerMenu
+public "getDisplayName"(): $Component
 public "useOn"(arg0: $UseOnContext$Type): $InteractionResult
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "isFoil"(arg0: $ItemStack$Type): boolean
-public "getDisplayName"(): $Component
+public "createMenu"(arg0: integer, arg1: $Inventory$Type, arg2: $Player$Type): $AbstractContainerMenu
 get "displayName"(): $Component
 }
 /**
@@ -515,11 +515,9 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
+public "getBlockEntityClass"(): $Class<($BlazeEnchanterBlockEntity)>
 public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "getBlockEntityType"(): $BlockEntityType<(any)>
-public "getBlockEntityClass"(): $Class<($BlazeEnchanterBlockEntity)>
-public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
-public "getCloneItemStack"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
 public "isPathfindable"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $PathComputationType$Type): boolean
 public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
 public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
@@ -528,22 +526,24 @@ public "getDrops"(arg0: $BlockState$Type, arg1: $LootParams$Builder$Type): $List
 public "getAnalogOutputSignal"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): integer
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public "asItem"(): $Item
+public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
+public "getCloneItemStack"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
 public static "getLight"(arg0: $BlockState$Type): integer
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
-public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
+public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
 public "onWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($BlazeEnchanterBlockEntity$Type)>): void
 public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($BlazeEnchanterBlockEntity)>
 public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($BlazeEnchanterBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
-public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($BlazeEnchanterBlockEntity$Type)>): void
 public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $BlazeEnchanterBlockEntity
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
-get "blockEntityType"(): $BlockEntityType<(any)>
 get "blockEntityClass"(): $Class<($BlazeEnchanterBlockEntity)>
+get "blockEntityType"(): $BlockEntityType<(any)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -616,23 +616,23 @@ constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $Blo
 public "write"(arg0: $CompoundTag$Type, arg1: boolean): void
 public "destroy"(): void
 public "tick"(): void
+public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
 public "getRequiredItems"(arg0: $BlockState$Type): $ItemRequirement
 public "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
-public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
+public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
+public "setHeldItem"(arg0: $TransportedItemStack$Type, arg1: $Direction$Type): void
+public "getHeldItemStack"(): $ItemStack
 public "setTargetItem"(arg0: $ItemStack$Type): void
 public "updateHeatLevel"(arg0: $BlazeEnchanterBlock$HeatLevel$Type): void
-public "getHeldItemStack"(): $ItemStack
-public "setHeldItem"(arg0: $TransportedItemStack$Type, arg1: $Direction$Type): void
-public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
-public "createMenu"(arg0: integer, arg1: $Inventory$Type, arg2: $Player$Type): $AbstractContainerMenu
 public "getDisplayName"(): $Component
+public "createMenu"(arg0: integer, arg1: $Inventory$Type, arg2: $Player$Type): $AbstractContainerMenu
 public "writeSafe"(arg0: $CompoundTag$Type): void
 public "hyper"(): boolean
 public "invalidate"(): void
 public "containedFluidTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean, arg2: $LazyOptional$Type<($IFluidHandler$Type)>): boolean
 public "getIcon"(arg0: boolean): $ItemStack
-set "targetItem"(value: $ItemStack$Type)
 get "heldItemStack"(): $ItemStack
+set "targetItem"(value: $ItemStack$Type)
 get "displayName"(): $Component
 }
 /**
@@ -687,14 +687,14 @@ static readonly "FALLING": $BooleanProperty
 static readonly "LEVEL": $IntegerProperty
 static readonly "FLUID_STATE_REGISTRY": $IdMapper<($FluidState)>
 
-constructor(arg0: integer, arg1: $ForgeFlowingFluid$Properties$Type, arg2: boolean)
 constructor(arg0: $ForgeFlowingFluid$Properties$Type, arg1: boolean)
+constructor(arg0: integer, arg1: $ForgeFlowingFluid$Properties$Type, arg2: boolean)
 
 public "drop"(arg0: $ServerLevel$Type, arg1: $Vec3$Type, arg2: integer): void
-public "convertToOrb"(arg0: $Level$Type, arg1: double, arg2: double, arg3: double, arg4: integer): $ExperienceOrb
 public static "createSource"(arg0: $ForgeFlowingFluid$Properties$Type): $ExperienceFluid
 public static "createFlowing"(arg0: $ForgeFlowingFluid$Properties$Type): $ExperienceFluid
 public "applyAdditionalEffects"(arg0: $LivingEntity$Type, arg1: integer): void
+public "convertToOrb"(arg0: $Level$Type, arg1: double, arg2: double, arg3: double, arg4: integer): $ExperienceOrb
 public "awardOrDrop"(arg0: $Player$Type, arg1: $ServerLevel$Type, arg2: $Vec3$Type, arg3: $Vec3$Type, arg4: integer): void
 public "getXpRatio"(): integer
 get "xpRatio"(): integer
@@ -785,11 +785,11 @@ export interface $PrintEntry {
  "match"(arg0: $ItemStack$Type): boolean
  "print"(arg0: $ItemStack$Type, arg1: $ItemStack$Type): $ItemStack
  "valid"(arg0: $ItemStack$Type, arg1: $ItemStack$Type): boolean
- "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean, arg2: $ItemStack$Type): void
- "isTooExpensive"(arg0: $ItemStack$Type, arg1: integer): boolean
- "getDisplaySourceContent"(arg0: $ItemStack$Type): $MutableComponent
  "requiredInkAmount"(arg0: $ItemStack$Type): integer
  "requiredInkType"(arg0: $ItemStack$Type): $Fluid
+ "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean, arg2: $ItemStack$Type): void
+ "getDisplaySourceContent"(arg0: $ItemStack$Type): $MutableComponent
+ "isTooExpensive"(arg0: $ItemStack$Type, arg1: integer): boolean
 }
 
 export namespace $PrintEntry {
@@ -891,11 +891,11 @@ constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $Blo
 
 public "destroy"(): void
 public "tick"(): void
-public "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
 public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
+public "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
+public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
 public "getCopyTarget"(): $ItemStack
 public "setCopyTarget"(arg0: $ItemStack$Type): void
-public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
 public "writeSafe"(arg0: $CompoundTag$Type): void
 public "invalidate"(): void
 public "containedFluidTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean, arg2: $LazyOptional$Type<($IFluidHandler$Type)>): boolean
@@ -933,12 +933,12 @@ static readonly "ENTRIES_MAP": $Map<(string), ($List<($AdvancementHolder)>)>
 public "id"(): $ResourceLocation
 public "save"(arg0: $Consumer$Type<($Advancement$Type)>): void
 public "description"(): string
-public "title"(): string
-public static "provideLangEntries"(arg0: string): $JsonObject
-public "asCreateAdvancement"(): $CreateAdvancement
-public "descriptionKey"(): string
 public "appendToLang"(arg0: $JsonObject$Type): void
+public "title"(): string
+public "descriptionKey"(): string
+public static "provideLangEntries"(arg0: string): $JsonObject
 public "isAlreadyAwardedTo"(arg0: $Player$Type): boolean
+public "asCreateAdvancement"(): $CreateAdvancement
 public "awardTo"(arg0: $Player$Type): void
 public "titleKey"(): string
 public "getTrigger"(): $SimpleTrigger
@@ -1015,9 +1015,8 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getBlockEntityClass"(): $Class<($PrinterBlockEntity)>
-public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
+public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "isPathfindable"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $PathComputationType$Type): boolean
 public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
 public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
@@ -1026,22 +1025,23 @@ public "getDrops"(arg0: $BlockState$Type, arg1: $LootParams$Builder$Type): $List
 public "canSurvive"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): boolean
 public "getAnalogOutputSignal"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): integer
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
+public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
-public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
-public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
+public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
+public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "onWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($PrinterBlockEntity$Type)>): void
 public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($PrinterBlockEntity)>
 public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($PrinterBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
-public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($PrinterBlockEntity$Type)>): void
 public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $PrinterBlockEntity
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
-get "blockEntityType"(): $BlockEntityType<(any)>
 get "blockEntityClass"(): $Class<($PrinterBlockEntity)>
+get "blockEntityType"(): $BlockEntityType<(any)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

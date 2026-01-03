@@ -39,7 +39,6 @@ export type $AgreementType_ = $AgreementType$Type;
 declare module "packages/io/github/mortuusars/wares/data/agreement/$DeliveryAgreement" {
 import {$AgreementBuilder, $AgreementBuilder$Type} from "packages/io/github/mortuusars/wares/data/agreement/$AgreementBuilder"
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
-import {$Commands, $Commands$Type} from "packages/io/github/mortuusars/wares/data/agreement/component/$Commands"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
@@ -52,7 +51,7 @@ static readonly "MAX_REQUESTED_STACKS": integer
 static readonly "MAX_PAYMENT_STACKS": integer
 static readonly "EMPTY": $DeliveryAgreement
 
-constructor(arg0: string, arg1: $Component$Type, arg2: $Component$Type, arg3: $Component$Type, arg4: $Component$Type, arg5: string, arg6: $List$Type<($RequestedItem$Type)>, arg7: $List$Type<($ItemStack$Type)>, arg8: integer, arg9: integer, arg10: integer, arg11: integer, arg12: long, arg13: boolean, arg14: boolean, arg15: $Commands$Type)
+constructor(arg0: string, arg1: $Component$Type, arg2: $Component$Type, arg3: $Component$Type, arg4: $Component$Type, arg5: string, arg6: $List$Type<($RequestedItem$Type)>, arg7: $List$Type<($ItemStack$Type)>, arg8: integer, arg9: integer, arg10: integer, arg11: integer, arg12: long, arg13: boolean, arg14: boolean)
 
 public "equals"(arg0: any): boolean
 public "toString"(): string
@@ -64,28 +63,23 @@ public "getId"(): string
 public "isInfinite"(): boolean
 public "complete"(): void
 public "isCompleted"(): boolean
-public "getTitle"(): $Component
-public "toItemStack"(arg0: $ItemStack$Type): boolean
-public "getDelivered"(): integer
-public "getCommands"(): $Commands
-public static "fromItemStack"(arg0: $ItemStack$Type): $Optional<($DeliveryAgreement)>
-public "getDeliveryTimeOrDefault"(): integer
 public "getDeliveryTime"(): integer
+public "getDeliveryTimeOrDefault"(): integer
 public "getRequested"(): $List<($RequestedItem)>
-public "hasDeliveryCommand"(): boolean
-public "getDeliveryCommand"(): string
 public "getExpireTimestamp"(): long
-public "hasCompletionCommand"(): boolean
-public "getCompletionCommand"(): string
-public "getExperience"(): integer
-public "getBuyerName"(): $Component
-public "getBuyerAddress"(): $Component
 public "addDelivered"(arg0: integer): void
 public "setDelivered"(arg0: integer): void
 public "getIsExpired"(): boolean
+public "getTitle"(): $Component
+public "getBuyerName"(): $Component
+public "getDelivered"(): integer
+public "getBuyerAddress"(): $Component
+public "toItemStack"(arg0: $ItemStack$Type): boolean
+public static "fromItemStack"(arg0: $ItemStack$Type): $Optional<($DeliveryAgreement)>
+public "getExperience"(): integer
 public "isExpired"(arg0: long): boolean
-public "expire"(): void
 public "getOrdered"(): integer
+public "expire"(): void
 public "getPayment"(): $List<($ItemStack)>
 public "onDeliver"(): void
 public "canExpire"(): boolean
@@ -96,19 +90,16 @@ get "message"(): $Component
 get "id"(): string
 get "infinite"(): boolean
 get "completed"(): boolean
-get "title"(): $Component
-get "delivered"(): integer
-get "commands"(): $Commands
-get "deliveryTimeOrDefault"(): integer
 get "deliveryTime"(): integer
+get "deliveryTimeOrDefault"(): integer
 get "requested"(): $List<($RequestedItem)>
-get "deliveryCommand"(): string
 get "expireTimestamp"(): long
-get "completionCommand"(): string
-get "experience"(): integer
-get "buyerName"(): $Component
-get "buyerAddress"(): $Component
 set "delivered"(value: integer)
+get "title"(): $Component
+get "buyerName"(): $Component
+get "delivered"(): integer
+get "buyerAddress"(): $Component
+get "experience"(): integer
 get "ordered"(): integer
 get "payment"(): $List<($ItemStack)>
 get "seal"(): string
@@ -154,9 +145,9 @@ constructor(arg0: $Block$Type, arg1: $Item$Properties$Type)
 
 public "useOn"(arg0: $UseOnContext$Type): $InteractionResult
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
-public "moonlight$getClientAnimationExtension"(): any
-public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
 public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
+public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$setClientAnimationExtension"(arg0: any): void
 }
 /**
@@ -170,6 +161,115 @@ export type $CardboardBoxItem$Type = ($CardboardBoxItem);
  */
 declare global {
 export type $CardboardBoxItem_ = $CardboardBoxItem$Type;
+}}
+declare module "packages/io/github/mortuusars/wares/block/entity/$DeliveryTableBlockEntity" {
+import {$Villager, $Villager$Type} from "packages/net/minecraft/world/entity/npc/$Villager"
+import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
+import {$LazyOptional, $LazyOptional$Type} from "packages/net/minecraftforge/common/util/$LazyOptional"
+import {$ServerPlayer, $ServerPlayer$Type} from "packages/net/minecraft/server/level/$ServerPlayer"
+import {$Connection, $Connection$Type} from "packages/net/minecraft/network/$Connection"
+import {$DeliveryTableTrigger, $DeliveryTableTrigger$Type} from "packages/io/github/mortuusars/wares/advancement/$DeliveryTableTrigger"
+import {$Packet, $Packet$Type} from "packages/net/minecraft/network/protocol/$Packet"
+import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
+import {$WorldlyContainer, $WorldlyContainer$Type} from "packages/net/minecraft/world/$WorldlyContainer"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$DeliveryAgreement, $DeliveryAgreement$Type} from "packages/io/github/mortuusars/wares/data/agreement/$DeliveryAgreement"
+import {$ClientboundBlockEntityDataPacket, $ClientboundBlockEntityDataPacket$Type} from "packages/net/minecraft/network/protocol/game/$ClientboundBlockEntityDataPacket"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$IItemHandlerModifiable, $IItemHandlerModifiable$Type} from "packages/net/minecraftforge/items/$IItemHandlerModifiable"
+import {$Capability, $Capability$Type} from "packages/net/minecraftforge/common/capabilities/$Capability"
+import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
+import {$ClientGamePacketListener, $ClientGamePacketListener$Type} from "packages/net/minecraft/network/protocol/game/$ClientGamePacketListener"
+import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
+import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
+import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
+import {$LockCode, $LockCode$Type} from "packages/net/minecraft/world/$LockCode"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$BaseContainerBlockEntity, $BaseContainerBlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BaseContainerBlockEntity"
+
+export class $DeliveryTableBlockEntity extends $BaseContainerBlockEntity implements $WorldlyContainer {
+static readonly "SLOTS": integer
+static readonly "AGREEMENT_SLOT": integer
+static readonly "BOX_SLOT": integer
+static readonly "AGREEMENT_SLOTS": (integer)[]
+static readonly "AGREEMENT_PLUS_PACKAGES_SLOTS": (integer)[]
+static readonly "INPUT_PLUS_AGREEMENT_PLUS_PACKAGES_SLOTS": (integer)[]
+static readonly "INPUT_PLUS_PACKAGES_SLOTS": (integer)[]
+static readonly "INPUT_SLOTS": (integer)[]
+static readonly "OUTPUT_SLOTS": (integer)[]
+static readonly "INPUT_PLUS_OUTPUT_SLOTS": (integer)[]
+static readonly "PACKAGER_WORK_RADIUS": integer
+static readonly "PACKAGER_LAST_WORK_THRESHOLD": integer
+static readonly "CONTAINER_DATA_SIZE": integer
+static readonly "CONTAINER_DATA_PROGRESS": integer
+static readonly "CONTAINER_DATA_DURATION": integer
+static readonly "CONTAINER_DATA_CAN_DELIVER_MANUALLY": integer
+ "lockKey": $LockCode
+ "blockState": $BlockState
+
+constructor(arg0: $BlockPos$Type, arg1: $BlockState$Type)
+
+public "getBatchSize"(): integer
+public "getPackagerWorker"(arg0: integer): $Optional<($Villager)>
+public "triggerAdvancement"(arg0: $DeliveryTableTrigger$Type, arg1: $ServerPlayer$Type): void
+public "startManualDelivery"(): void
+public "onDataPacket"(arg0: $Connection$Type, arg1: $ClientboundBlockEntityDataPacket$Type): void
+public "handleUpdateTag"(arg0: $CompoundTag$Type): void
+public "invalidateCaps"(): void
+public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
+public "trySetOwner"(arg0: $ServerPlayer$Type): boolean
+public "getAgreementItem"(): $ItemStack
+public "setAgreementItem"(arg0: $ItemStack$Type): void
+public "isAgreementLocked"(): boolean
+public "extractAgreementItem"(): $ItemStack
+public "getAgreement"(): $DeliveryAgreement
+public "shouldVoidAgreementOnBreak"(): boolean
+public "getInventory"(): $IItemHandlerModifiable
+public "getContainerSize"(): integer
+public "getItem"(arg0: integer): $ItemStack
+public "removeItemNoUpdate"(arg0: integer): $ItemStack
+public "reviveCaps"(): void
+public "removeItem"(arg0: integer, arg1: integer): $ItemStack
+public "isEmpty"(): boolean
+public "clearContent"(): void
+public "setItem"(arg0: integer, arg1: $ItemStack$Type): void
+public "serverTick"(): void
+public "stillValid"(arg0: $Player$Type): boolean
+public "canPlaceItem"(arg0: integer, arg1: $ItemStack$Type): boolean
+public "load"(arg0: $CompoundTag$Type): void
+public "getUpdatePacket"(): $Packet<($ClientGamePacketListener)>
+public "getUpdateTag"(): $CompoundTag
+public "getSlotsForFace"(arg0: $Direction$Type): (integer)[]
+public "canPlaceItemThroughFace"(arg0: integer, arg1: $ItemStack$Type, arg2: $Direction$Type): boolean
+public "canTakeItemThroughFace"(arg0: integer, arg1: $ItemStack$Type, arg2: $Direction$Type): boolean
+public "onPlacedBy"(arg0: $LivingEntity$Type, arg1: $ItemStack$Type): void
+public static "stillValidBlockEntity"(arg0: $BlockEntity$Type, arg1: $Player$Type, arg2: double): boolean
+public "setChanged"(): void
+public static "stillValidBlockEntity"(arg0: $BlockEntity$Type, arg1: $Player$Type): boolean
+public static "stillValidBlockEntity"(arg0: $BlockEntity$Type, arg1: $Player$Type, arg2: integer): boolean
+public static "tryClear"(arg0: any): void
+get "batchSize"(): integer
+get "agreementItem"(): $ItemStack
+set "agreementItem"(value: $ItemStack$Type)
+get "agreementLocked"(): boolean
+get "agreement"(): $DeliveryAgreement
+get "inventory"(): $IItemHandlerModifiable
+get "containerSize"(): integer
+get "empty"(): boolean
+get "updatePacket"(): $Packet<($ClientGamePacketListener)>
+get "updateTag"(): $CompoundTag
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $DeliveryTableBlockEntity$Type = ($DeliveryTableBlockEntity);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $DeliveryTableBlockEntity_ = $DeliveryTableBlockEntity$Type;
 }}
 declare module "packages/io/github/mortuusars/wares/item/$PackageItem" {
 import {$SoundEvent, $SoundEvent$Type} from "packages/net/minecraft/sounds/$SoundEvent"
@@ -204,16 +304,16 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Block$Type, arg1: $Item$Properties$Type)
 
+public "getUseDuration"(arg0: $ItemStack$Type): integer
 public "useOn"(arg0: $UseOnContext$Type): $InteractionResult
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "finishUsingItem"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $LivingEntity$Type): $ItemStack
 public "getUseAnimation"(arg0: $ItemStack$Type): $UseAnim
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "getEatingSound"(): $SoundEvent
-public "getUseDuration"(arg0: $ItemStack$Type): integer
-public "moonlight$getClientAnimationExtension"(): any
-public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
 public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
+public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$setClientAnimationExtension"(arg0: any): void
 get "eatingSound"(): $SoundEvent
 }
@@ -228,6 +328,32 @@ export type $PackageItem$Type = ($PackageItem);
  */
 declare global {
 export type $PackageItem_ = $PackageItem$Type;
+}}
+declare module "packages/io/github/mortuusars/wares/advancement/$AgreementPredicate" {
+import {$JsonElement, $JsonElement$Type} from "packages/com/google/gson/$JsonElement"
+import {$MinMaxBounds$Ints, $MinMaxBounds$Ints$Type} from "packages/net/minecraft/advancements/critereon/$MinMaxBounds$Ints"
+import {$DeliveryAgreement, $DeliveryAgreement$Type} from "packages/io/github/mortuusars/wares/data/agreement/$DeliveryAgreement"
+
+export class $AgreementPredicate {
+static readonly "ANY": $AgreementPredicate
+
+constructor(arg0: string, arg1: string, arg2: $MinMaxBounds$Ints$Type, arg3: $MinMaxBounds$Ints$Type, arg4: $MinMaxBounds$Ints$Type, arg5: $MinMaxBounds$Ints$Type)
+
+public "matches"(arg0: $DeliveryAgreement$Type): boolean
+public static "fromJson"(arg0: $JsonElement$Type): $AgreementPredicate
+public "serializeToJson"(): $JsonElement
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $AgreementPredicate$Type = ($AgreementPredicate);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $AgreementPredicate_ = $AgreementPredicate$Type;
 }}
 declare module "packages/io/github/mortuusars/wares/item/$DeliveryAgreementItem$AgreementError" {
 import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
@@ -300,12 +426,12 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
 public "rotate"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
 public "canBeReplaced"(arg0: $BlockState$Type, arg1: $BlockPlaceContext$Type): boolean
 public "canSurvive"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): boolean
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
+public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -321,7 +447,6 @@ export type $CardboardBoxBlock_ = $CardboardBoxBlock$Type;
 }}
 declare module "packages/io/github/mortuusars/wares/data/agreement/$AgreementBuilder" {
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
-import {$Commands, $Commands$Type} from "packages/io/github/mortuusars/wares/data/agreement/component/$Commands"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$DeliveryAgreement, $DeliveryAgreement$Type} from "packages/io/github/mortuusars/wares/data/agreement/$DeliveryAgreement"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
@@ -336,17 +461,14 @@ public "message"(arg0: $Component$Type): $AgreementBuilder
 public "build"(): $DeliveryAgreement
 public "requested"(arg0: $List$Type<($RequestedItem$Type)>): $AgreementBuilder
 public "ordered"(arg0: integer): $AgreementBuilder
-public "seal"(arg0: string): $AgreementBuilder
-public "title"(arg0: $Component$Type): $AgreementBuilder
-public "expireTime"(arg0: long): $AgreementBuilder
-public "completionCommand"(arg0: string): $AgreementBuilder
-public "deliveryCommand"(arg0: string): $AgreementBuilder
 public "addRequestedItem"(arg0: $RequestedItem$Type): $AgreementBuilder
 public "addPaymentItem"(arg0: $ItemStack$Type): $AgreementBuilder
-public "buyerAddress"(arg0: $Component$Type): $AgreementBuilder
 public "deliveryTime"(arg0: integer): $AgreementBuilder
+public "buyerAddress"(arg0: $Component$Type): $AgreementBuilder
+public "title"(arg0: $Component$Type): $AgreementBuilder
+public "expireTime"(arg0: long): $AgreementBuilder
+public "seal"(arg0: string): $AgreementBuilder
 public "experience"(arg0: integer): $AgreementBuilder
-public "commands"(arg0: $Commands$Type): $AgreementBuilder
 public "payment"(arg0: $List$Type<($ItemStack$Type)>): $AgreementBuilder
 public "buyerName"(arg0: $Component$Type): $AgreementBuilder
 public "delivered"(arg0: integer): $AgreementBuilder
@@ -362,6 +484,32 @@ export type $AgreementBuilder$Type = ($AgreementBuilder);
  */
 declare global {
 export type $AgreementBuilder_ = $AgreementBuilder$Type;
+}}
+declare module "packages/io/github/mortuusars/wares/integration/kubejs/event/$DeliveryEventJS" {
+import {$ServerPlayer, $ServerPlayer$Type} from "packages/net/minecraft/server/level/$ServerPlayer"
+import {$DeliveryTableBlockEntity, $DeliveryTableBlockEntity$Type} from "packages/io/github/mortuusars/wares/block/entity/$DeliveryTableBlockEntity"
+import {$SimpleLevelEventJS, $SimpleLevelEventJS$Type} from "packages/dev/latvian/mods/kubejs/level/$SimpleLevelEventJS"
+
+export class $DeliveryEventJS extends $SimpleLevelEventJS {
+
+constructor(arg0: $DeliveryTableBlockEntity$Type, arg1: $ServerPlayer$Type)
+
+public "getBlockEntity"(): $DeliveryTableBlockEntity
+public "getPlayer"(): $ServerPlayer
+get "blockEntity"(): $DeliveryTableBlockEntity
+get "player"(): $ServerPlayer
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $DeliveryEventJS$Type = ($DeliveryEventJS);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $DeliveryEventJS_ = $DeliveryEventJS$Type;
 }}
 declare module "packages/io/github/mortuusars/wares/item/$SealedDeliveryAgreementItem" {
 import {$SoundEvent, $SoundEvent$Type} from "packages/net/minecraft/sounds/$SoundEvent"
@@ -395,6 +543,7 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
+public "getUseDuration"(arg0: $ItemStack$Type): integer
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "finishUsingItem"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $LivingEntity$Type): $ItemStack
 public "overrideOtherStackedOnMe"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: $Slot$Type, arg3: $ClickAction$Type, arg4: $Player$Type, arg5: $SlotAccess$Type): boolean
@@ -402,7 +551,6 @@ public "getUseAnimation"(arg0: $ItemStack$Type): $UseAnim
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "getName"(arg0: $ItemStack$Type): $Component
 public "getEatingSound"(): $SoundEvent
-public "getUseDuration"(arg0: $ItemStack$Type): integer
 public "inspect"(arg0: $ItemStack$Type, arg1: $Player$Type): boolean
 get "eatingSound"(): $SoundEvent
 }
@@ -418,41 +566,38 @@ export type $SealedDeliveryAgreementItem$Type = ($SealedDeliveryAgreementItem);
 declare global {
 export type $SealedDeliveryAgreementItem_ = $SealedDeliveryAgreementItem$Type;
 }}
-declare module "packages/io/github/mortuusars/wares/data/agreement/component/$Commands" {
-import {$Record, $Record$Type} from "packages/java/lang/$Record"
-import {$Codec, $Codec$Type} from "packages/com/mojang/serialization/$Codec"
+declare module "packages/io/github/mortuusars/wares/advancement/$DeliveryTableTrigger" {
+import {$ServerPlayer, $ServerPlayer$Type} from "packages/net/minecraft/server/level/$ServerPlayer"
+import {$DeliveryTableTrigger$TriggerInstance, $DeliveryTableTrigger$TriggerInstance$Type} from "packages/io/github/mortuusars/wares/advancement/$DeliveryTableTrigger$TriggerInstance"
+import {$DeliveryTableBlockEntity, $DeliveryTableBlockEntity$Type} from "packages/io/github/mortuusars/wares/block/entity/$DeliveryTableBlockEntity"
+import {$SimpleCriterionTrigger, $SimpleCriterionTrigger$Type} from "packages/net/minecraft/advancements/critereon/$SimpleCriterionTrigger"
+import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
 
-export class $Commands extends $Record {
-static readonly "EMPTY": $Commands
-static readonly "CODEC": $Codec<($Commands)>
+export class $DeliveryTableTrigger extends $SimpleCriterionTrigger<($DeliveryTableTrigger$TriggerInstance)> {
 
-constructor(onDelivery: string, onCompletion: string)
+constructor(arg0: $ResourceLocation$Type)
 
-public "equals"(arg0: any): boolean
-public "toString"(): string
-public "hashCode"(): integer
-public "onCompletion"(): string
-public "hasDeliveryCommand"(): boolean
-public "hasCompletionCommand"(): boolean
-public "onDelivery"(): string
+public "trigger"(arg0: $ServerPlayer$Type, arg1: $DeliveryTableBlockEntity$Type): void
+public "getId"(): $ResourceLocation
+get "id"(): $ResourceLocation
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $Commands$Type = ($Commands);
+export type $DeliveryTableTrigger$Type = ($DeliveryTableTrigger);
 /**
  * Global type exported for convenience, use class-specific
  * types if there's a naming conflict.
  */
 declare global {
-export type $Commands_ = $Commands$Type;
+export type $DeliveryTableTrigger_ = $DeliveryTableTrigger$Type;
 }}
 declare module "packages/io/github/mortuusars/wares/block/$DeliveryTableBlock" {
 import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
@@ -501,10 +646,6 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public "getTicker"<T extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
-public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
-public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
 public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
 public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
 public "getRenderShape"(arg0: $BlockState$Type): $RenderShape
@@ -513,6 +654,10 @@ public "rotate"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
 public "mirror"(arg0: $BlockState$Type, arg1: $Mirror$Type): $BlockState
 public "getAnalogOutputSignal"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): integer
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "getTicker"<T extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
+public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
+public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -557,9 +702,9 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
+public static "convertToExpired"(arg0: $ItemStack$Type): $ItemStack
 public "getAgreementFromStack"(arg0: $ItemStack$Type): $Either<($DeliveryAgreement), ($DeliveryAgreementItem$AgreementError)>
 public static "convertToCompleted"(arg0: $ItemStack$Type): $ItemStack
-public static "convertToExpired"(arg0: $ItemStack$Type): $ItemStack
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "overrideOtherStackedOnMe"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: $Slot$Type, arg3: $ClickAction$Type, arg4: $Player$Type, arg5: $SlotAccess$Type): boolean
 public "inventoryTick"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $Entity$Type, arg3: integer, arg4: boolean): void
@@ -604,16 +749,16 @@ public "isEmpty"(): boolean
 public "matches"(arg0: $ItemStack$Type): boolean
 public "getCount"(): integer
 public "getTag"(): $CompoundTag
-public "getTagCompareBehavior"(): $CompoundTagCompareBehavior
 public "getTagOrItem"(): $Either<($TagKey<($Item)>), ($Item)>
+public "getTagCompareBehavior"(): $CompoundTagCompareBehavior
 public "matchesWithCount"(arg0: $ItemStack$Type): boolean
 public "getStacks"(): $List<($ItemStack)>
 public "tagMatches"(arg0: $ItemStack$Type): boolean
 get "empty"(): boolean
 get "count"(): integer
 get "tag"(): $CompoundTag
-get "tagCompareBehavior"(): $CompoundTagCompareBehavior
 get "tagOrItem"(): $Either<($TagKey<($Item)>), ($Item)>
+get "tagCompareBehavior"(): $CompoundTagCompareBehavior
 get "stacks"(): $List<($ItemStack)>
 }
 /**
@@ -627,6 +772,37 @@ export type $RequestedItem$Type = ($RequestedItem);
  */
 declare global {
 export type $RequestedItem_ = $RequestedItem$Type;
+}}
+declare module "packages/io/github/mortuusars/wares/advancement/$DeliveryTableTrigger$TriggerInstance" {
+import {$LocationPredicate, $LocationPredicate$Type} from "packages/net/minecraft/advancements/critereon/$LocationPredicate"
+import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObject"
+import {$ServerPlayer, $ServerPlayer$Type} from "packages/net/minecraft/server/level/$ServerPlayer"
+import {$DeliveryTableBlockEntity, $DeliveryTableBlockEntity$Type} from "packages/io/github/mortuusars/wares/block/entity/$DeliveryTableBlockEntity"
+import {$AbstractCriterionTriggerInstance, $AbstractCriterionTriggerInstance$Type} from "packages/net/minecraft/advancements/critereon/$AbstractCriterionTriggerInstance"
+import {$NbtPredicate, $NbtPredicate$Type} from "packages/net/minecraft/advancements/critereon/$NbtPredicate"
+import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
+import {$SerializationContext, $SerializationContext$Type} from "packages/net/minecraft/advancements/critereon/$SerializationContext"
+import {$ContextAwarePredicate, $ContextAwarePredicate$Type} from "packages/net/minecraft/advancements/critereon/$ContextAwarePredicate"
+import {$AgreementPredicate, $AgreementPredicate$Type} from "packages/io/github/mortuusars/wares/advancement/$AgreementPredicate"
+
+export class $DeliveryTableTrigger$TriggerInstance extends $AbstractCriterionTriggerInstance {
+
+constructor(arg0: $ResourceLocation$Type, arg1: $ContextAwarePredicate$Type, arg2: $AgreementPredicate$Type, arg3: $NbtPredicate$Type, arg4: $LocationPredicate$Type)
+
+public "matches"(arg0: $ServerPlayer$Type, arg1: $DeliveryTableBlockEntity$Type): boolean
+public "serializeToJson"(arg0: $SerializationContext$Type): $JsonObject
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $DeliveryTableTrigger$TriggerInstance$Type = ($DeliveryTableTrigger$TriggerInstance);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $DeliveryTableTrigger$TriggerInstance_ = $DeliveryTableTrigger$TriggerInstance$Type;
 }}
 declare module "packages/io/github/mortuusars/wares/block/$PackageBlock" {
 import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
@@ -676,15 +852,15 @@ readonly "properties": $BlockBehaviour$Properties
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
 public "getPistonPushReaction"(arg0: $BlockState$Type): $PushReaction
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
-public "playerWillDestroy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Player$Type): void
 public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
 public "getRenderShape"(arg0: $BlockState$Type): $RenderShape
 public "rotate"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
 public "mirror"(arg0: $BlockState$Type, arg1: $Mirror$Type): $BlockState
 public "canSurvive"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): boolean
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
+public "playerWillDestroy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Player$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

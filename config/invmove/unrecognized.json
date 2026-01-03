@@ -25,7 +25,15 @@
     "org.violetmoon.quark.addons.oddities.client.screen.CrateScreen": true,
     "io.github.mortuusars.wares.client.gui.screen.DeliveryTableScreen": true,
     "com.simibubi.create.content.equipment.clipboard.ClipboardScreen": true,
-    "com.simibubi.create.content.logistics.filter.FilterScreen": true
+    "com.simibubi.create.content.logistics.filter.FilterScreen": true,
+    "appeng.client.gui.me.items.PatternEncodingTermScreen": true,
+    "appeng.client.gui.implementations.InterfaceScreen": true,
+    "appeng.client.gui.implementations.PatternProviderScreen": true,
+    "appeng.client.gui.me.crafting.CraftAmountScreen": true,
+    "appeng.client.gui.me.crafting.CraftConfirmScreen": true,
+    "appeng.client.gui.me.crafting.CraftingCPUScreen": true,
+    "appeng.client.gui.me.crafting.CraftingStatusScreen": true,
+    "com.simibubi.create.content.redstone.thresholdSwitch.ThresholdSwitchScreen": true
   },
   "hideBackground": {
     "dev.emi.emi.screen.RecipeScreen": true,
@@ -38,6 +46,14 @@
     "org.violetmoon.quark.addons.oddities.client.screen.CrateScreen": true,
     "io.github.mortuusars.wares.client.gui.screen.DeliveryTableScreen": true,
     "com.simibubi.create.content.equipment.clipboard.ClipboardScreen": true,
-    "com.simibubi.create.content.logistics.filter.FilterScreen": true
+    "com.simibubi.create.content.logistics.filter.FilterScreen": true,
+    "appeng.client.gui.me.items.PatternEncodingTermScreen": true,
+    "appeng.client.gui.implementations.InterfaceScreen": true,
+    "appeng.client.gui.implementations.PatternProviderScreen": true,
+    "appeng.client.gui.me.crafting.CraftAmountScreen": true,
+    "appeng.client.gui.me.crafting.CraftConfirmScreen": true,
+    "appeng.client.gui.me.crafting.CraftingCPUScreen": true,
+    "appeng.client.gui.me.crafting.CraftingStatusScreen": true,
+    "com.simibubi.create.content.redstone.thresholdSwitch.ThresholdSwitchScreen": true
   }
 }

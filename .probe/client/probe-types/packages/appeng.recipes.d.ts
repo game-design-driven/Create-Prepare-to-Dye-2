@@ -26,25 +26,25 @@ constructor(arg0: $ResourceLocation$Type, arg1: $Ingredient$Type, arg2: $Item$Ty
 
 public "getResultItem"(): $ItemStack
 public "getIngredient"(): $Ingredient
-public "getId"(): $ResourceLocation
 public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
+public "assemble"(arg0: $Container$Type, arg1: $RegistryAccess$Type): $ItemStack
+public "matches"(arg0: $Container$Type, arg1: $Level$Type): boolean
+public "getId"(): $ResourceLocation
 public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
 public "getIngredients"(): $NonNullList<($Ingredient)>
 public "getSerializer"(): $RecipeSerializer<(any)>
-public "assemble"(arg0: $Container$Type, arg1: $RegistryAccess$Type): $ItemStack
-public "matches"(arg0: $Container$Type, arg1: $Level$Type): boolean
+public "isSpecial"(): boolean
 public "getRemainingItems"(arg0: $Container$Type): $NonNullList<($ItemStack)>
 public "showNotification"(): boolean
 public "getToastSymbol"(): $ItemStack
 public "isIncomplete"(): boolean
-public "isSpecial"(): boolean
+public "getType"(): $ResourceLocation
 public "getGroup"(): string
 public "setGroup"(group: string): void
 public "getOrCreateId"(): $ResourceLocation
 public "getSchema"(): $RecipeSchema
 public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
 public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
-public "getType"(): $ResourceLocation
 public "getMod"(): string
 public "hasInput"(match: $ReplacementMatch$Type): boolean
 public "hasOutput"(match: $ReplacementMatch$Type): boolean
@@ -53,14 +53,14 @@ get "ingredient"(): $Ingredient
 get "id"(): $ResourceLocation
 get "ingredients"(): $NonNullList<($Ingredient)>
 get "serializer"(): $RecipeSerializer<(any)>
+get "special"(): boolean
 get "toastSymbol"(): $ItemStack
 get "incomplete"(): boolean
-get "special"(): boolean
+get "type"(): $ResourceLocation
 get "group"(): string
 set "group"(value: string)
 get "orCreateId"(): $ResourceLocation
 get "schema"(): $RecipeSchema
-get "type"(): $ResourceLocation
 get "mod"(): string
 }
 /**
@@ -106,57 +106,57 @@ static readonly "TYPE": $RecipeType<($EntropyRecipe)>
 constructor(arg0: $ResourceLocation$Type, arg1: $EntropyMode$Type, arg2: $Block$Type, arg3: $List$Type<($StateMatcher$Type)>, arg4: $Fluid$Type, arg5: $List$Type<($StateMatcher$Type)>, arg6: $Block$Type, arg7: $List$Type<($StateApplier$Type<(any)>)>, arg8: boolean, arg9: $Fluid$Type, arg10: $List$Type<($StateApplier$Type<(any)>)>, arg11: boolean, arg12: $List$Type<($ItemStack$Type)>)
 
 public "matches"(arg0: $EntropyMode$Type, arg1: $BlockState$Type, arg2: $FluidState$Type): boolean
-public "getOutputFluidState"(arg0: $FluidState$Type): $FluidState
-public "getOutputBlockState"(arg0: $BlockState$Type): $BlockState
-public "getInputBlock"(): $Block
 public "getInputFluid"(): $Fluid
 public "getOutputBlock"(): $Block
 public "getOutputBlockKeep"(): boolean
 public "getOutputFluid"(): $Fluid
 public "getOutputFluidKeep"(): boolean
-public "getId"(): $ResourceLocation
+public "getOutputBlockState"(arg0: $BlockState$Type): $BlockState
+public "getOutputFluidState"(arg0: $FluidState$Type): $FluidState
+public "getInputBlock"(): $Block
 public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
+public "assemble"(arg0: $Container$Type, arg1: $RegistryAccess$Type): $ItemStack
+public "matches"(arg0: $Container$Type, arg1: $Level$Type): boolean
+public "getId"(): $ResourceLocation
+public "getDrops"(): $List<($ItemStack)>
 public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
 public "getIngredients"(): $NonNullList<($Ingredient)>
 public "getSerializer"(): $RecipeSerializer<(any)>
-public "getDrops"(): $List<($ItemStack)>
-public "assemble"(arg0: $Container$Type, arg1: $RegistryAccess$Type): $ItemStack
-public "matches"(arg0: $Container$Type, arg1: $Level$Type): boolean
 public "getMode"(): $EntropyMode
+public "isSpecial"(): boolean
 public "getRemainingItems"(arg0: $Container$Type): $NonNullList<($ItemStack)>
 public "showNotification"(): boolean
 public "getToastSymbol"(): $ItemStack
 public "isIncomplete"(): boolean
-public "isSpecial"(): boolean
+public "getType"(): $ResourceLocation
 public "getGroup"(): string
 public "setGroup"(group: string): void
 public "getOrCreateId"(): $ResourceLocation
 public "getSchema"(): $RecipeSchema
 public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
 public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
-public "getType"(): $ResourceLocation
 public "getMod"(): string
 public "hasInput"(match: $ReplacementMatch$Type): boolean
 public "hasOutput"(match: $ReplacementMatch$Type): boolean
-get "inputBlock"(): $Block
 get "inputFluid"(): $Fluid
 get "outputBlock"(): $Block
 get "outputBlockKeep"(): boolean
 get "outputFluid"(): $Fluid
 get "outputFluidKeep"(): boolean
+get "inputBlock"(): $Block
 get "id"(): $ResourceLocation
+get "drops"(): $List<($ItemStack)>
 get "ingredients"(): $NonNullList<($Ingredient)>
 get "serializer"(): $RecipeSerializer<(any)>
-get "drops"(): $List<($ItemStack)>
 get "mode"(): $EntropyMode
+get "special"(): boolean
 get "toastSymbol"(): $ItemStack
 get "incomplete"(): boolean
-get "special"(): boolean
+get "type"(): $ResourceLocation
 get "group"(): string
 set "group"(value: string)
 get "orCreateId"(): $ResourceLocation
 get "schema"(): $RecipeSchema
-get "type"(): $ResourceLocation
 get "mod"(): string
 }
 /**
@@ -184,8 +184,8 @@ export class $EntropyRecipeSerializer implements $RecipeSerializer<($EntropyReci
 static readonly "INSTANCE": $EntropyRecipeSerializer
 
 
-public "toJson"(arg0: $EntropyRecipe$Type, arg1: $JsonObject$Type): void
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $EntropyRecipe
+public "toJson"(arg0: $EntropyRecipe$Type, arg1: $JsonObject$Type): void
 public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $EntropyRecipe
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $EntropyRecipe$Type): void
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
@@ -421,40 +421,40 @@ readonly "circumstance": $TransformCircumstance
 constructor(arg0: $ResourceLocation$Type, arg1: $NonNullList$Type<($Ingredient$Type)>, arg2: $ItemStack$Type, arg3: $TransformCircumstance$Type)
 
 public "getResultItem"(): $ItemStack
-public "getId"(): $ResourceLocation
 public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
+public "assemble"(arg0: $Container$Type, arg1: $RegistryAccess$Type): $ItemStack
+public "matches"(arg0: $Container$Type, arg1: $Level$Type): boolean
+public "getId"(): $ResourceLocation
+public "isSpecial"(): boolean
 public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
 public "getIngredients"(): $NonNullList<($Ingredient)>
 public "getSerializer"(): $RecipeSerializer<(any)>
-public "isSpecial"(): boolean
-public "assemble"(arg0: $Container$Type, arg1: $RegistryAccess$Type): $ItemStack
-public "matches"(arg0: $Container$Type, arg1: $Level$Type): boolean
 public "getRemainingItems"(arg0: $Container$Type): $NonNullList<($ItemStack)>
 public "showNotification"(): boolean
 public "getToastSymbol"(): $ItemStack
 public "isIncomplete"(): boolean
+public "getType"(): $ResourceLocation
 public "getGroup"(): string
 public "setGroup"(group: string): void
 public "getOrCreateId"(): $ResourceLocation
 public "getSchema"(): $RecipeSchema
 public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
 public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
-public "getType"(): $ResourceLocation
 public "getMod"(): string
 public "hasInput"(match: $ReplacementMatch$Type): boolean
 public "hasOutput"(match: $ReplacementMatch$Type): boolean
 get "resultItem"(): $ItemStack
 get "id"(): $ResourceLocation
+get "special"(): boolean
 get "ingredients"(): $NonNullList<($Ingredient)>
 get "serializer"(): $RecipeSerializer<(any)>
-get "special"(): boolean
 get "toastSymbol"(): $ItemStack
 get "incomplete"(): boolean
+get "type"(): $ResourceLocation
 get "group"(): string
 set "group"(value: string)
 get "orCreateId"(): $ResourceLocation
 get "schema"(): $RecipeSchema
-get "type"(): $ResourceLocation
 get "mod"(): string
 }
 /**
@@ -529,29 +529,29 @@ static readonly "TYPE": $RecipeType<($MatterCannonAmmo)>
 constructor(arg0: $ResourceLocation$Type, arg1: $Ingredient$Type, arg2: float)
 
 public "getWeight"(): float
-public "getId"(): $ResourceLocation
 public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
+public "assemble"(arg0: $Container$Type, arg1: $RegistryAccess$Type): $ItemStack
+public "matches"(arg0: $Container$Type, arg1: $Level$Type): boolean
+public "getId"(): $ResourceLocation
 public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
 public "getIngredients"(): $NonNullList<($Ingredient)>
 public "getSerializer"(): $RecipeSerializer<(any)>
-public "assemble"(arg0: $Container$Type, arg1: $RegistryAccess$Type): $ItemStack
-public "matches"(arg0: $Container$Type, arg1: $Level$Type): boolean
 public "getAmmo"(): $Ingredient
-public static "ammo"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ResourceLocation$Type, arg2: $ItemLike$Type, arg3: float): void
-public static "ammo"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ResourceLocation$Type, arg2: $TagKey$Type<($Item$Type)>, arg3: float): void
 public static "ammo"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ResourceLocation$Type, arg2: $Ingredient$Type, arg3: float): void
+public static "ammo"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ResourceLocation$Type, arg2: $TagKey$Type<($Item$Type)>, arg3: float): void
+public static "ammo"(arg0: $Consumer$Type<($FinishedRecipe$Type)>, arg1: $ResourceLocation$Type, arg2: $ItemLike$Type, arg3: float): void
+public "isSpecial"(): boolean
 public "getRemainingItems"(arg0: $Container$Type): $NonNullList<($ItemStack)>
 public "showNotification"(): boolean
 public "getToastSymbol"(): $ItemStack
 public "isIncomplete"(): boolean
-public "isSpecial"(): boolean
+public "getType"(): $ResourceLocation
 public "getGroup"(): string
 public "setGroup"(group: string): void
 public "getOrCreateId"(): $ResourceLocation
 public "getSchema"(): $RecipeSchema
 public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
 public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
-public "getType"(): $ResourceLocation
 public "getMod"(): string
 public "hasInput"(match: $ReplacementMatch$Type): boolean
 public "hasOutput"(match: $ReplacementMatch$Type): boolean
@@ -559,14 +559,14 @@ get "weight"(): float
 get "id"(): $ResourceLocation
 get "ingredients"(): $NonNullList<($Ingredient)>
 get "serializer"(): $RecipeSerializer<(any)>
+get "special"(): boolean
 get "toastSymbol"(): $ItemStack
 get "incomplete"(): boolean
-get "special"(): boolean
+get "type"(): $ResourceLocation
 get "group"(): string
 set "group"(value: string)
 get "orCreateId"(): $ResourceLocation
 get "schema"(): $RecipeSchema
-get "type"(): $ResourceLocation
 get "mod"(): string
 }
 /**
@@ -582,8 +582,8 @@ declare global {
 export type $MatterCannonAmmo_ = $MatterCannonAmmo$Type;
 }}
 declare module "packages/appeng/recipes/transform/$TransformCircumstance" {
-import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObject"
 import {$Fluid, $Fluid$Type} from "packages/net/minecraft/world/level/material/$Fluid"
+import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObject"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$TagKey, $TagKey$Type} from "packages/net/minecraft/tags/$TagKey"
 import {$FluidState, $FluidState$Type} from "packages/net/minecraft/world/level/material/$FluidState"
@@ -595,13 +595,13 @@ constructor(arg0: string)
 
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
+public "getFluidsForRendering"(): $List<($Fluid)>
 public "toJson"(): $JsonObject
 public "isExplosion"(): boolean
-public "getFluidsForRendering"(): $List<($Fluid)>
-public "isFluid"(arg0: $Fluid$Type): boolean
-public "isFluid"(arg0: $FluidState$Type): boolean
-public "isFluid"(): boolean
 public static "explosion"(): $TransformCircumstance
+public "isFluid"(arg0: $FluidState$Type): boolean
+public "isFluid"(arg0: $Fluid$Type): boolean
+public "isFluid"(): boolean
 public static "fluid"(arg0: $TagKey$Type<($Fluid$Type)>): $TransformCircumstance
 public "isFluidTag"(arg0: $TagKey$Type<($Fluid$Type)>): boolean
 get "fluidsForRendering"(): $List<($Fluid)>
@@ -641,49 +641,49 @@ static readonly "TYPE": $RecipeType<($InscriberRecipe)>
 
 constructor(arg0: $ResourceLocation$Type, arg1: $Ingredient$Type, arg2: $ItemStack$Type, arg3: $Ingredient$Type, arg4: $Ingredient$Type, arg5: $InscriberProcessType$Type)
 
-public "getResultItem"(): $ItemStack
-public "getProcessType"(): $InscriberProcessType
 public "getMiddleInput"(): $Ingredient
 public "getTopOptional"(): $Ingredient
 public "getBottomOptional"(): $Ingredient
-public "getId"(): $ResourceLocation
+public "getResultItem"(): $ItemStack
+public "getProcessType"(): $InscriberProcessType
 public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
+public "assemble"(arg0: $Container$Type, arg1: $RegistryAccess$Type): $ItemStack
+public "matches"(arg0: $Container$Type, arg1: $Level$Type): boolean
+public "getId"(): $ResourceLocation
+public "isSpecial"(): boolean
 public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
 public "getIngredients"(): $NonNullList<($Ingredient)>
 public "getSerializer"(): $RecipeSerializer<(any)>
-public "isSpecial"(): boolean
-public "assemble"(arg0: $Container$Type, arg1: $RegistryAccess$Type): $ItemStack
-public "matches"(arg0: $Container$Type, arg1: $Level$Type): boolean
 public "getRemainingItems"(arg0: $Container$Type): $NonNullList<($ItemStack)>
 public "showNotification"(): boolean
 public "getToastSymbol"(): $ItemStack
 public "isIncomplete"(): boolean
+public "getType"(): $ResourceLocation
 public "getGroup"(): string
 public "setGroup"(group: string): void
 public "getOrCreateId"(): $ResourceLocation
 public "getSchema"(): $RecipeSchema
 public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
 public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
-public "getType"(): $ResourceLocation
 public "getMod"(): string
 public "hasInput"(match: $ReplacementMatch$Type): boolean
 public "hasOutput"(match: $ReplacementMatch$Type): boolean
-get "resultItem"(): $ItemStack
-get "processType"(): $InscriberProcessType
 get "middleInput"(): $Ingredient
 get "topOptional"(): $Ingredient
 get "bottomOptional"(): $Ingredient
+get "resultItem"(): $ItemStack
+get "processType"(): $InscriberProcessType
 get "id"(): $ResourceLocation
+get "special"(): boolean
 get "ingredients"(): $NonNullList<($Ingredient)>
 get "serializer"(): $RecipeSerializer<(any)>
-get "special"(): boolean
 get "toastSymbol"(): $ItemStack
 get "incomplete"(): boolean
+get "type"(): $ResourceLocation
 get "group"(): string
 set "group"(value: string)
 get "orCreateId"(): $ResourceLocation
 get "schema"(): $RecipeSchema
-get "type"(): $ResourceLocation
 get "mod"(): string
 }
 /**

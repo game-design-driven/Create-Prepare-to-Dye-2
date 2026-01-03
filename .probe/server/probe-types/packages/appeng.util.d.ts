@@ -18,12 +18,12 @@ static readonly "EMPTY_TYPES": $ConfigInventory
 public "getKey"(arg0: integer): $AEKey
 public "keySet"(): $Set<($AEKey)>
 public "getStack"(arg0: integer): $GenericStack
+public "setStack"(arg0: integer, arg1: $GenericStack$Type): void
 public static "storage"(arg0: $AEKeyFilter$Type, arg1: integer, arg2: $Runnable$Type): $ConfigInventory
 public static "storage"(arg0: integer, arg1: $Runnable$Type): $ConfigInventory
-public "setStack"(arg0: integer, arg1: $GenericStack$Type): void
 public "addFilter"(arg0: $Fluid$Type): $ConfigInventory
-public "addFilter"(arg0: $AEKey$Type): $ConfigInventory
 public "addFilter"(arg0: $ItemLike$Type): $ConfigInventory
+public "addFilter"(arg0: $AEKey$Type): $ConfigInventory
 public static "configTypes"(arg0: $AEKeyFilter$Type, arg1: integer, arg2: $Runnable$Type): $ConfigInventory
 public static "configTypes"(arg0: integer, arg1: $Runnable$Type): $ConfigInventory
 public "getMaxAmount"(arg0: $AEKey$Type): long
@@ -118,30 +118,30 @@ export class $ConfigMenuInventory implements $InternalInventory {
 constructor(arg0: $GenericStackInv$Type)
 
 public "size"(): integer
+public "convertToSuitableStack"(arg0: $ItemStack$Type): $GenericStack
 public "getDelegate"(): $GenericStackInv
 public "getStackInSlot"(arg0: integer): $ItemStack
 public "getSlotLimit"(arg0: integer): integer
 public "isItemValid"(arg0: integer, arg1: $ItemStack$Type): boolean
 public "setItemDirect"(arg0: integer, arg1: $ItemStack$Type): void
-public "convertToSuitableStack"(arg0: $ItemStack$Type): $GenericStack
 public "clear"(): void
 public "isEmpty"(): boolean
 public "iterator"(): $Iterator<($ItemStack)>
 public static "empty"(): $InternalInventory
 public "getSubInventory"(arg0: integer, arg1: integer): $InternalInventory
 public "extractItem"(arg0: integer, arg1: integer, arg2: boolean): $ItemStack
-public static "wrapExternal"(arg0: $BlockEntity$Type, arg1: $Direction$Type): $ItemTransfer
 public static "wrapExternal"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $Direction$Type): $ItemTransfer
+public static "wrapExternal"(arg0: $BlockEntity$Type, arg1: $Direction$Type): $ItemTransfer
 public "toItemHandler"(): $IItemHandler
-public "sendChangeNotification"(arg0: integer): void
+public "toContainer"(): $Container
+public "getRedstoneSignal"(): integer
+public "simulateAdd"(arg0: $ItemStack$Type): $ItemStack
+public "removeItems"(arg0: integer, arg1: $ItemStack$Type, arg2: $Predicate$Type<($ItemStack$Type)>): $ItemStack
+public "simulateRemove"(arg0: integer, arg1: $ItemStack$Type, arg2: $Predicate$Type<($ItemStack$Type)>): $ItemStack
+public "removeSimilarItems"(arg0: integer, arg1: $ItemStack$Type, arg2: $FuzzyMode$Type, arg3: $Predicate$Type<($ItemStack$Type)>): $ItemStack
 public "simulateSimilarRemove"(arg0: integer, arg1: $ItemStack$Type, arg2: $FuzzyMode$Type, arg3: $Predicate$Type<($ItemStack$Type)>): $ItemStack
 public "mayAllowInsertion"(): boolean
-public "getRedstoneSignal"(): integer
-public "toContainer"(): $Container
-public "removeSimilarItems"(arg0: integer, arg1: $ItemStack$Type, arg2: $FuzzyMode$Type, arg3: $Predicate$Type<($ItemStack$Type)>): $ItemStack
-public "simulateRemove"(arg0: integer, arg1: $ItemStack$Type, arg2: $Predicate$Type<($ItemStack$Type)>): $ItemStack
-public "removeItems"(arg0: integer, arg1: $ItemStack$Type, arg2: $Predicate$Type<($ItemStack$Type)>): $ItemStack
-public "simulateAdd"(arg0: $ItemStack$Type): $ItemStack
+public "sendChangeNotification"(arg0: integer): void
 public "insertItem"(arg0: integer, arg1: $ItemStack$Type, arg2: boolean): $ItemStack
 public "getSlotInv"(arg0: integer): $InternalInventory
 public "addItems"(arg0: $ItemStack$Type): $ItemStack
@@ -170,8 +170,8 @@ import {$InternalInventory, $InternalInventory$Type} from "packages/appeng/api/i
 export interface $InternalInventoryHost {
 
  "isClientSide"(): boolean
- "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
  "saveChanges"(): void
+ "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
 }
 
 export namespace $InternalInventoryHost {

@@ -26,8 +26,8 @@ declare module "packages/malte0811/ferritecore/mixin/mrl/$ResourceLocationAccess
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $ResourceLocationAccess {
 
- "setNamespace"(arg0: string): void
  "setPath"(arg0: string): void
+ "setNamespace"(arg0: string): void
 }
 
 export namespace $ResourceLocationAccess {
@@ -49,9 +49,9 @@ declare module "packages/malte0811/ferritecore/mixin/blockstatecache/$DiscreteVS
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $DiscreteVSAccess {
 
- "getZSize"(): integer
  "getXSize"(): integer
  "getYSize"(): integer
+ "getZSize"(): integer
 }
 
 export namespace $DiscreteVSAccess {
@@ -117,8 +117,8 @@ public "with"<T extends $Comparable<(T)>>(arg0: integer, arg1: $Property$Type<(T
 public "numProperties"(): integer
 public "isSingleState"(): boolean
 public "getPropertySet"(): $ImmutableSet<($Property<(any)>)>
-public "withUnsafe"<T extends $Comparable<(T)>>(arg0: integer, arg1: $Property$Type<(T)>, arg2: any): Value
 public "getIndexOf"(arg0: $Map$Type<($Property$Type<(any)>), ($Comparable$Type<(any)>)>): integer
+public "withUnsafe"<T extends $Comparable<(T)>>(arg0: integer, arg1: $Property$Type<(T)>, arg2: any): Value
 get "singleState"(): boolean
 get "propertySet"(): $ImmutableSet<($Property<(any)>)>
 }

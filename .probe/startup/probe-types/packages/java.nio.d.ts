@@ -1785,10 +1785,10 @@ public "send"(arg0: $ByteBuffer$Type, arg1: $SocketAddress$Type): integer
 public "socket"(): $DatagramSocket
 public "disconnect"(): $DatagramChannel
 public "getRemoteAddress"(): $SocketAddress
+public "receive"(arg0: $ByteBuffer$Type): $SocketAddress
 public "isConnected"(): boolean
 public "getLocalAddress"(): $SocketAddress
 public "validOps"(): integer
-public "receive"(arg0: $ByteBuffer$Type): $SocketAddress
 public "join"(arg0: $InetAddress$Type, arg1: $NetworkInterface$Type): $MembershipKey
 public "join"(arg0: $InetAddress$Type, arg1: $NetworkInterface$Type, arg2: $InetAddress$Type): $MembershipKey
 public "close"(): void

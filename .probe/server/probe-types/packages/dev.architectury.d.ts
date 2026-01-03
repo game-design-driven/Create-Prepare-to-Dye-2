@@ -239,12 +239,12 @@ constructor(results: $ParseResults$Type<($CommandSourceStack$Type)>, throwable: 
 
 public "getThrowable"(): $Throwable
 public "setThrowable"(throwable: $Throwable$Type): void
-public "setResults"(results: $ParseResults$Type<($CommandSourceStack$Type)>): void
 public "getResults"(): $ParseResults<($CommandSourceStack)>
+public "setResults"(results: $ParseResults$Type<($CommandSourceStack$Type)>): void
 get "throwable"(): $Throwable
 set "throwable"(value: $Throwable$Type)
-set "results"(value: $ParseResults$Type<($CommandSourceStack$Type)>)
 get "results"(): $ParseResults<($CommandSourceStack)>
+set "results"(value: $ParseResults$Type<($CommandSourceStack$Type)>)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -291,9 +291,9 @@ import {$Map, $Map$Type} from "packages/java/util/$Map"
 
 export interface $SpawnProperties {
 
- "getSpawners"(): $Map<($MobCategory), ($List<($MobSpawnSettings$SpawnerData)>)>
- "getCreatureProbability"(): float
  "getMobSpawnCosts"(): $Map<($EntityType<(any)>), ($MobSpawnSettings$MobSpawnCost)>
+ "getCreatureProbability"(): float
+ "getSpawners"(): $Map<($MobCategory), ($List<($MobSpawnSettings$SpawnerData)>)>
 }
 
 export namespace $SpawnProperties {
@@ -327,45 +327,45 @@ public "hashCode"(): integer
 public "isEmpty"(): boolean
 public static "empty"(): $FluidStack
 public static "init"(): void
-public "write"(tag: $CompoundTag$Type): $CompoundTag
 public "write"(buf: $FriendlyByteBuf$Type): void
+public "write"(tag: $CompoundTag$Type): $CompoundTag
 public static "read"(buf: $FriendlyByteBuf$Type): $FluidStack
 public static "read"(tag: $CompoundTag$Type): $FluidStack
 public "copy"(): $FluidStack
 public static "create"(fluid: $Fluid$Type, amount: long): $FluidStack
 public static "create"(fluid: $Fluid$Type, amount: long, tag: $CompoundTag$Type): $FluidStack
 public static "create"(fluid: $Supplier$Type<($Fluid$Type)>, amount: long): $FluidStack
-public static "create"(fluid: $Supplier$Type<($Fluid$Type)>, amount: long, tag: $CompoundTag$Type): $FluidStack
 public static "create"(stack: $FluidStack$Type, amount: long): $FluidStack
+public static "create"(fluid: $Supplier$Type<($Fluid$Type)>, amount: long, tag: $CompoundTag$Type): $FluidStack
 public "grow"(amount: long): void
 public "getTag"(): $CompoundTag
-public "getFluid"(): $Fluid
-public "setTag"(tag: $CompoundTag$Type): void
-public "shrink"(amount: long): void
 public "getRawFluidSupplier"(): $Supplier<($Fluid)>
 public "isFluidStackEqual"(other: $FluidStack$Type): boolean
+public "setTag"(tag: $CompoundTag$Type): void
+public "shrink"(amount: long): void
+public "getRawFluid"(): $Fluid
+public "copyWithAmount"(amount: long): $FluidStack
 public "isFluidEqual"(other: $FluidStack$Type): boolean
 public "getTranslationKey"(): string
 public "getChildTag"(childName: string): $CompoundTag
 public "getOrCreateChildTag"(childName: string): $CompoundTag
+public "getOrCreateTag"(): $CompoundTag
 public "removeChildTag"(childName: string): void
 public static "bucketAmount"(): long
-public "getOrCreateTag"(): $CompoundTag
-public "getRawFluid"(): $Fluid
-public "copyWithAmount"(amount: long): $FluidStack
 public "getAmount"(): long
+public "getFluid"(): $Fluid
 public "hasTag"(): boolean
 public "setAmount"(amount: long): void
 public "isTagEqual"(other: $FluidStack$Type): boolean
 get "name"(): $Component
 get "tag"(): $CompoundTag
-get "fluid"(): $Fluid
-set "tag"(value: $CompoundTag$Type)
 get "rawFluidSupplier"(): $Supplier<($Fluid)>
+set "tag"(value: $CompoundTag$Type)
+get "rawFluid"(): $Fluid
 get "translationKey"(): string
 get "orCreateTag"(): $CompoundTag
-get "rawFluid"(): $Fluid
 get "amount"(): long
+get "fluid"(): $Fluid
 set "amount"(value: long)
 }
 /**
@@ -386,8 +386,8 @@ import {$Suggestions, $Suggestions$Type} from "packages/com/mojang/brigadier/sug
 import {$CompletableFuture, $CompletableFuture$Type} from "packages/java/util/concurrent/$CompletableFuture"
 import {$SharedSuggestionProvider$TextCoordinates, $SharedSuggestionProvider$TextCoordinates$Type} from "packages/net/minecraft/commands/$SharedSuggestionProvider$TextCoordinates"
 import {$FeatureFlagSet, $FeatureFlagSet$Type} from "packages/net/minecraft/world/flag/$FeatureFlagSet"
-import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
 import {$Iterable, $Iterable$Type} from "packages/java/lang/$Iterable"
+import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
 import {$ClientLevel, $ClientLevel$Type} from "packages/net/minecraft/client/multiplayer/$ClientLevel"
 import {$Function, $Function$Type} from "packages/java/util/function/$Function"
 import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
@@ -413,18 +413,18 @@ export interface $ClientCommandRegistrationEvent$ClientCommandSourceStack extend
 
  "arch$sendSuccess"(arg0: $Supplier$Type<($Component$Type)>, arg1: boolean): void
  "arch$sendFailure"(arg0: $Component$Type): void
- "arch$getPlayer"(): $LocalPlayer
- "arch$getPosition"(): $Vec3
  "arch$getRotation"(): $Vec2
  "arch$getLevel"(): $ClientLevel
- "customSuggestion"(arg0: $CommandContext$Type<(any)>): $CompletableFuture<($Suggestions)>
- "getAllTeams"(): $Collection<(string)>
+ "arch$getPlayer"(): $LocalPlayer
+ "arch$getPosition"(): $Vec3
  "levels"(): $Set<($ResourceKey<($Level)>)>
  "suggestRegistryElements"(arg0: $ResourceKey$Type<(any)>, arg1: $SharedSuggestionProvider$ElementSuggestionType$Type, arg2: $SuggestionsBuilder$Type, arg3: $CommandContext$Type<(any)>): $CompletableFuture<($Suggestions)>
- "getRelevantCoordinates"(): $Collection<($SharedSuggestionProvider$TextCoordinates)>
- "getAbsoluteCoordinates"(): $Collection<($SharedSuggestionProvider$TextCoordinates)>
  "getOnlinePlayerNames"(): $Collection<(string)>
  "getSelectedEntities"(): $Collection<(string)>
+ "customSuggestion"(arg0: $CommandContext$Type<(any)>): $CompletableFuture<($Suggestions)>
+ "getAllTeams"(): $Collection<(string)>
+ "getRelevantCoordinates"(): $Collection<($SharedSuggestionProvider$TextCoordinates)>
+ "getAbsoluteCoordinates"(): $Collection<($SharedSuggestionProvider$TextCoordinates)>
  "hasPermission"(arg0: integer): boolean
  "getCustomTabSugggestions"(): $Collection<(string)>
  "getAvailableSounds"(): $Stream<($ResourceLocation)>
@@ -435,15 +435,15 @@ export interface $ClientCommandRegistrationEvent$ClientCommandSourceStack extend
 }
 
 export namespace $ClientCommandRegistrationEvent$ClientCommandSourceStack {
-function suggest(arg0: (string)[], arg1: $SuggestionsBuilder$Type): $CompletableFuture<($Suggestions)>
-function suggestResource(arg0: $Stream$Type<($ResourceLocation$Type)>, arg1: $SuggestionsBuilder$Type): $CompletableFuture<($Suggestions)>
-function suggest(arg0: $Stream$Type<(string)>, arg1: $SuggestionsBuilder$Type): $CompletableFuture<($Suggestions)>
-function suggestCoordinates(arg0: string, arg1: $Collection$Type<($SharedSuggestionProvider$TextCoordinates$Type)>, arg2: $SuggestionsBuilder$Type, arg3: $Predicate$Type<(string)>): $CompletableFuture<($Suggestions)>
-function suggest2DCoordinates(arg0: string, arg1: $Collection$Type<($SharedSuggestionProvider$TextCoordinates$Type)>, arg2: $SuggestionsBuilder$Type, arg3: $Predicate$Type<(string)>): $CompletableFuture<($Suggestions)>
 function suggestResource(arg0: $Iterable$Type<($ResourceLocation$Type)>, arg1: $SuggestionsBuilder$Type, arg2: string): $CompletableFuture<($Suggestions)>
 function suggestResource(arg0: $Stream$Type<($ResourceLocation$Type)>, arg1: $SuggestionsBuilder$Type, arg2: string): $CompletableFuture<($Suggestions)>
 function suggestResource(arg0: $Iterable$Type<($ResourceLocation$Type)>, arg1: $SuggestionsBuilder$Type): $CompletableFuture<($Suggestions)>
 function suggest(arg0: $Iterable$Type<(string)>, arg1: $SuggestionsBuilder$Type): $CompletableFuture<($Suggestions)>
+function suggest(arg0: $Stream$Type<(string)>, arg1: $SuggestionsBuilder$Type): $CompletableFuture<($Suggestions)>
+function suggest(arg0: (string)[], arg1: $SuggestionsBuilder$Type): $CompletableFuture<($Suggestions)>
+function suggestResource(arg0: $Stream$Type<($ResourceLocation$Type)>, arg1: $SuggestionsBuilder$Type): $CompletableFuture<($Suggestions)>
+function suggestCoordinates(arg0: string, arg1: $Collection$Type<($SharedSuggestionProvider$TextCoordinates$Type)>, arg2: $SuggestionsBuilder$Type, arg3: $Predicate$Type<(string)>): $CompletableFuture<($Suggestions)>
+function suggest2DCoordinates(arg0: string, arg1: $Collection$Type<($SharedSuggestionProvider$TextCoordinates$Type)>, arg2: $SuggestionsBuilder$Type, arg3: $Predicate$Type<(string)>): $CompletableFuture<($Suggestions)>
 function filterResources<T>(arg0: $Iterable$Type<(T)>, arg1: string, arg2: $Function$Type<(T), ($ResourceLocation$Type)>, arg3: $Consumer$Type<(T)>): void
 function matchesSubStr(arg0: string, arg1: string): boolean
 function filterResources<T>(arg0: $Iterable$Type<(T)>, arg1: string, arg2: string, arg3: $Function$Type<(T), ($ResourceLocation$Type)>, arg4: $Consumer$Type<(T)>): void
@@ -477,12 +477,12 @@ public "isPresent"(): boolean
 public static "interrupt"<T>(value: boolean, object: T): $CompoundEventResult<(T)>
 public "object"(): T
 public static "pass"<T>(): $CompoundEventResult<(T)>
+public "interruptsFurtherEvaluation"(): boolean
 public "isTrue"(): boolean
 public static "interruptFalse"<T>(object: T): $CompoundEventResult<(T)>
-public "asMinecraft"(): $InteractionResultHolder<(T)>
 public static "interruptTrue"<T>(object: T): $CompoundEventResult<(T)>
 public static "interruptDefault"<T>(object: T): $CompoundEventResult<(T)>
-public "interruptsFurtherEvaluation"(): boolean
+public "asMinecraft"(): $InteractionResultHolder<(T)>
 public "isFalse"(): boolean
 get "empty"(): boolean
 get "present"(): boolean
@@ -667,12 +667,12 @@ public "isEmpty"(): boolean
 public "isPresent"(): boolean
 public static "interrupt"(value: boolean): $EventResult
 public static "pass"(): $EventResult
+public "interruptsFurtherEvaluation"(): boolean
 public "isTrue"(): boolean
 public static "interruptFalse"(): $EventResult
-public "asMinecraft"(): $InteractionResult
 public static "interruptTrue"(): $EventResult
 public static "interruptDefault"(): $EventResult
-public "interruptsFurtherEvaluation"(): boolean
+public "asMinecraft"(): $InteractionResult
 public "isFalse"(): boolean
 get "empty"(): boolean
 get "present"(): boolean
@@ -816,10 +816,10 @@ import {$Biome$TemperatureModifier, $Biome$TemperatureModifier$Type} from "packa
 
 export interface $ClimateProperties {
 
+ "getTemperatureModifier"(): $Biome$TemperatureModifier
  "hasPrecipitation"(): boolean
  "getTemperature"(): float
  "getDownfall"(): float
- "getTemperatureModifier"(): $Biome$TemperatureModifier
 }
 
 export namespace $ClimateProperties {
@@ -843,8 +843,8 @@ import {$DeferredSupplier, $DeferredSupplier$Type} from "packages/dev/architectu
 
 export interface $ItemPropertiesExtensionImpl {
 
- "arch$getTabSupplier"(): $DeferredSupplier<($CreativeModeTab)>
  "arch$getTab"(): $CreativeModeTab
+ "arch$getTabSupplier"(): $DeferredSupplier<($CreativeModeTab)>
 }
 
 export namespace $ItemPropertiesExtensionImpl {
@@ -878,46 +878,33 @@ import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecr
 
 export interface $ArchitecturyFluidAttributes {
 
- "getName"(): $Component
  "getName"(stack: $FluidStack$Type): $Component
- "getTranslationKey"(arg0: $FluidStack$Type): string
- "getTranslationKey"(): string
- "getEmptySound"(): $SoundEvent
+ "getName"(): $Component
  "getEmptySound"(arg0: $FluidStack$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type): $SoundEvent
+ "getEmptySound"(): $SoundEvent
  "getEmptySound"(stack: $FluidStack$Type): $SoundEvent
- "getViscosity"(): integer
- "getViscosity"(stack: $FluidStack$Type): integer
- "getViscosity"(arg0: $FluidStack$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type): integer
- "getTemperature"(): integer
- "getTemperature"(arg0: $FluidStack$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type): integer
- "getTemperature"(stack: $FluidStack$Type): integer
- "isLighterThanAir"(stack: $FluidStack$Type): boolean
- "isLighterThanAir"(): boolean
- "isLighterThanAir"(arg0: $FluidStack$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type): boolean
  "getExplosionResistance"(): float
  "canConvertToSource"(): boolean
- "getBucketItem"(): $Item
- "getTickDelay"(): integer
- "getTickDelay"(arg0: $LevelReader$Type): integer
- "getSourceFluid"(): $Fluid
- "getSlopeFindDistance"(): integer
- "getSlopeFindDistance"(arg0: $LevelReader$Type): integer
- "getFlowingFluid"(): $Fluid
- "getSourceTexture"(stack: $FluidStack$Type): $ResourceLocation
-/**
- * 
- * @deprecated
- */
- "getSourceTexture"(arg0: $FluidStack$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type): $ResourceLocation
- "getSourceTexture"(state: $FluidState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): $ResourceLocation
- "getSourceTexture"(): $ResourceLocation
+ "getTemperature"(): integer
+ "getTemperature"(stack: $FluidStack$Type): integer
+ "getTemperature"(arg0: $FluidStack$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type): integer
+ "getViscosity"(stack: $FluidStack$Type): integer
+ "getViscosity"(arg0: $FluidStack$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type): integer
+ "getViscosity"(): integer
+ "isLighterThanAir"(): boolean
+ "isLighterThanAir"(stack: $FluidStack$Type): boolean
+ "isLighterThanAir"(arg0: $FluidStack$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type): boolean
+ "getTranslationKey"(arg0: $FluidStack$Type): string
+ "getTranslationKey"(): string
  "getFillSound"(): $SoundEvent
- "getFillSound"(stack: $FluidStack$Type): $SoundEvent
  "getFillSound"(arg0: $FluidStack$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type): $SoundEvent
- "getLuminosity"(): integer
+ "getFillSound"(stack: $FluidStack$Type): $SoundEvent
  "getLuminosity"(arg0: $FluidStack$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type): integer
  "getLuminosity"(stack: $FluidStack$Type): integer
- "getFlowingTexture"(): $ResourceLocation
+ "getLuminosity"(): integer
+ "getOverlayTexture"(stack: $FluidStack$Type): $ResourceLocation
+ "getOverlayTexture"(): $ResourceLocation
+ "getOverlayTexture"(state: $FluidState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): $ResourceLocation
  "getFlowingTexture"(stack: $FluidStack$Type): $ResourceLocation
  "getFlowingTexture"(state: $FluidState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): $ResourceLocation
 /**
@@ -925,25 +912,38 @@ export interface $ArchitecturyFluidAttributes {
  * @deprecated
  */
  "getFlowingTexture"(arg0: $FluidStack$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type): $ResourceLocation
- "getOverlayTexture"(stack: $FluidStack$Type): $ResourceLocation
- "getOverlayTexture"(): $ResourceLocation
- "getOverlayTexture"(state: $FluidState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): $ResourceLocation
- "getRarity"(arg0: $FluidStack$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type): $Rarity
- "getRarity"(): $Rarity
- "getRarity"(stack: $FluidStack$Type): $Rarity
+ "getFlowingTexture"(): $ResourceLocation
+ "getSourceTexture"(stack: $FluidStack$Type): $ResourceLocation
+ "getSourceTexture"(state: $FluidState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): $ResourceLocation
+/**
+ * 
+ * @deprecated
+ */
+ "getSourceTexture"(arg0: $FluidStack$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type): $ResourceLocation
+ "getSourceTexture"(): $ResourceLocation
+ "getSourceFluid"(): $Fluid
+ "getFlowingFluid"(): $Fluid
+ "getSlopeFindDistance"(): integer
+ "getSlopeFindDistance"(arg0: $LevelReader$Type): integer
+ "getTickDelay"(arg0: $LevelReader$Type): integer
+ "getTickDelay"(): integer
+ "getBucketItem"(): $Item
  "getDensity"(stack: $FluidStack$Type): integer
  "getDensity"(arg0: $FluidStack$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type): integer
  "getDensity"(): integer
+ "getRarity"(stack: $FluidStack$Type): $Rarity
+ "getRarity"(arg0: $FluidStack$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type): $Rarity
+ "getRarity"(): $Rarity
  "getDropOff"(arg0: $LevelReader$Type): integer
  "getDropOff"(): integer
+ "getColor"(state: $FluidState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): integer
 /**
  * 
  * @deprecated
  */
  "getColor"(arg0: $FluidStack$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type): integer
- "getColor"(state: $FluidState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): integer
- "getColor"(stack: $FluidStack$Type): integer
  "getColor"(): integer
+ "getColor"(stack: $FluidStack$Type): integer
  "getBlock"(): $LiquidBlock
 }
 
@@ -1070,8 +1070,8 @@ import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/
 
 export interface $EventHandlerImplCommon$LevelEventAttachment {
 
- "architectury$attachLevel"(arg0: $LevelAccessor$Type): void
  "architectury$getAttachedLevel"(): $LevelAccessor
+ "architectury$attachLevel"(arg0: $LevelAccessor$Type): void
 }
 
 export namespace $EventHandlerImplCommon$LevelEventAttachment {
@@ -1145,10 +1145,10 @@ import {$GenerationProperties, $GenerationProperties$Type} from "packages/dev/ar
 
 export interface $BiomeProperties {
 
- "getSpawnProperties"(): $SpawnProperties
- "getGenerationProperties"(): $GenerationProperties
  "getClimateProperties"(): $ClimateProperties
  "getEffectsProperties"(): $EffectsProperties
+ "getSpawnProperties"(): $SpawnProperties
+ "getGenerationProperties"(): $GenerationProperties
 }
 
 export namespace $BiomeProperties {
@@ -1246,10 +1246,10 @@ import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/
 
 export interface $InjectedRegistryEntryExtension<T> {
 
- "arch$registryName"(): $ResourceLocation
  "arch$holder"(): $Holder<(T)>
+ "arch$registryName"(): $ResourceLocation
 
-(): $ResourceLocation
+(): $Holder<(T)>
 }
 
 export namespace $InjectedRegistryEntryExtension {
@@ -1375,8 +1375,6 @@ import {$BiomeSpecialEffects$GrassColorModifier, $BiomeSpecialEffects$GrassColor
 
 export interface $EffectsProperties {
 
- "getWaterColor"(): integer
- "getFogColor"(): integer
  "getWaterFogColor"(): integer
  "getSkyColor"(): integer
  "getGrassColorModifier"(): $BiomeSpecialEffects$GrassColorModifier
@@ -1387,6 +1385,8 @@ export interface $EffectsProperties {
  "getAmbientMoodSound"(): $Optional<($AmbientMoodSettings)>
  "getAmbientAdditionsSound"(): $Optional<($AmbientAdditionsSettings)>
  "getBackgroundMusic"(): $Optional<($Music)>
+ "getWaterColor"(): integer
+ "getFogColor"(): integer
 }
 
 export namespace $EffectsProperties {
@@ -1420,8 +1420,8 @@ import {$Registrar, $Registrar$Type} from "packages/dev/architectury/registry/re
 export interface $RegistrySupplier<T> extends $DeferredSupplier<(T)> {
 
  "listen"(callback: $Consumer$Type<(T)>): void
- "getRegistrar"(): $Registrar<(T)>
  "getRegistrarManager"(): $RegistrarManager
+ "getRegistrar"(): $Registrar<(T)>
  "getKey"(): $ResourceKey<(T)>
  "getId"(): $ResourceLocation
  "getRegistryKey"(): $ResourceKey<($Registry<(T)>)>

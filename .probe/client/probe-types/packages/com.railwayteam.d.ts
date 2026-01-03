@@ -23,16 +23,16 @@ export class $GenericCrossingBlockEntity extends $SmartBlockEntity implements $I
 constructor(type: $BlockEntityType$Type<(any)>, pos: $BlockPos$Type, state: $BlockState$Type)
 
 public "accept"(other: $BlockEntity$Type): void
-public "initFrom"(crossingData: $TrackShapeLookup$GenericCrossingData$Type): void
-public "getSecondary"(): $TrackMaterial
-public "addBehaviours"(behaviours: $List$Type<($BlockEntityBehaviour$Type)>): void
 public "railways$getFirstCrossingPiece"(): $Pair<($TrackMaterial), ($TrackShape)>
 public "railways$getSecondCrossingPiece"(): $Pair<($TrackMaterial), ($TrackShape)>
+public "initFrom"(crossingData: $TrackShapeLookup$GenericCrossingData$Type): void
+public "addBehaviours"(behaviours: $List$Type<($BlockEntityBehaviour$Type)>): void
+public "getSecondary"(): $TrackMaterial
 public "getPrimary"(): $TrackMaterial
-public static "getQuads"(material: $TrackMaterial$Type, shape: $TrackShape$Type, side: $Direction$Type, rand: $RandomSource$Type): $List<($BakedQuad)>
-public static "getQuads"(data: $Pair$Type<($TrackMaterial$Type), ($TrackShape$Type)>, side: $Direction$Type, rand: $RandomSource$Type): $List<($BakedQuad)>
-public static "getModel"(data: $Pair$Type<($TrackMaterial$Type), ($TrackShape$Type)>): $BakedModel
 public static "getModel"(material: $TrackMaterial$Type, shape: $TrackShape$Type): $BakedModel
+public static "getModel"(data: $Pair$Type<($TrackMaterial$Type), ($TrackShape$Type)>): $BakedModel
+public static "getQuads"(data: $Pair$Type<($TrackMaterial$Type), ($TrackShape$Type)>, side: $Direction$Type, rand: $RandomSource$Type): $List<($BakedQuad)>
+public static "getQuads"(material: $TrackMaterial$Type, shape: $TrackShape$Type, side: $Direction$Type, rand: $RandomSource$Type): $List<($BakedQuad)>
 get "secondary"(): $TrackMaterial
 get "primary"(): $TrackMaterial
 }
@@ -92,8 +92,8 @@ import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Blo
 
 export interface $AccessorBlockEntityType {
 
- "setValidBlocks"(arg0: $Set$Type<($Block$Type)>): void
  "getValidBlocks"(): $Set<($Block)>
+ "setValidBlocks"(arg0: $Set$Type<($Block$Type)>): void
 }
 
 export namespace $AccessorBlockEntityType {
@@ -122,8 +122,8 @@ static readonly "TO_LEFT": $TrackSwitchBlock$SwitchConstraint
 
 public static "values"(): ($TrackSwitchBlock$SwitchConstraint)[]
 public static "valueOf"(name: string): $TrackSwitchBlock$SwitchConstraint
-public "canGoRight"(): boolean
 public "canGoLeft"(): boolean
+public "canGoRight"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -204,15 +204,15 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(props: $BlockBehaviour$Properties$Type)
 
-public "getWheelPointSpacing"(): double
 public "getConnectorAnchorOffset"(): $Vec3
+public "getWheelPointSpacing"(): double
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 public "getRequiredItems"(arg0: $BlockState$Type, arg1: $BlockEntity$Type): $ItemRequirement
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-get "wheelPointSpacing"(): double
 get "connectorAnchorOffset"(): $Vec3
+get "wheelPointSpacing"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -291,14 +291,14 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
-public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getBlockEntityClass"(): $Class<($TrackBufferBlockEntity)>
+public "getBlockEntityType"(): $BlockEntityType<(any)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "blockEntityType"(): $BlockEntityType<(any)>
 get "blockEntityClass"(): $Class<($TrackBufferBlockEntity)>
+get "blockEntityType"(): $BlockEntityType<(any)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -398,18 +398,18 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type, shape: $ShapeWrapper$Type)
 
-public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getBlockEntityClass"(): $Class<($DieselSmokeStackBlockEntity)>
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
+public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "rotate"(state: $BlockState$Type, rotation: $Rotation$Type): $BlockState
 public "mirror"(state: $BlockState$Type, mirror: $Mirror$Type): $BlockState
 public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-get "blockEntityType"(): $BlockEntityType<(any)>
 get "blockEntityClass"(): $Class<($DieselSmokeStackBlockEntity)>
+get "blockEntityType"(): $BlockEntityType<(any)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -477,10 +477,10 @@ public "getCollisionShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, 
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-public static "walkConnectedTracks"(arg0: $BlockGetter$Type, arg1: $TrackNodeLocation$Type, arg2: boolean): $Collection<($TrackNodeLocation$DiscoveredLocation)>
 public static "addToListIfConnected"(arg0: $TrackNodeLocation$Type, arg1: $Collection$Type<($TrackNodeLocation$DiscoveredLocation$Type)>, arg2: $BiFunction$Type<(double), (boolean), ($Vec3$Type)>, arg3: $Function$Type<(boolean), ($Vec3$Type)>, arg4: $Function$Type<(boolean), ($ResourceKey$Type<($Level$Type)>)>, arg5: $Function$Type<($Vec3$Type), (integer)>, arg6: $Vec3$Type, arg7: $BezierConnection$Type, arg8: $BiFunction$Type<(boolean), ($Vec3$Type), ($TrackMaterial$Type)>): void
 public static "getMaterialSimple"(arg0: $BlockGetter$Type, arg1: $Vec3$Type): $TrackMaterial
 public static "getMaterialSimple"(arg0: $BlockGetter$Type, arg1: $Vec3$Type, arg2: $TrackMaterial$Type): $TrackMaterial
+public static "walkConnectedTracks"(arg0: $BlockGetter$Type, arg1: $TrackNodeLocation$Type, arg2: boolean): $Collection<($TrackNodeLocation$DiscoveredLocation)>
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 }
 /**
@@ -718,8 +718,8 @@ readonly "properties": $BlockBehaviour$Properties
 
 
 public static "create"(properties: $BlockBehaviour$Properties$Type): $TrackCouplerBlock
-public "shouldCheckWeakPower"(state: $BlockState$Type, level: $SignalGetter$Type, pos: $BlockPos$Type, side: $Direction$Type): boolean
 public "canConnectRedstone"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, direction: $Direction$Type): boolean
+public "shouldCheckWeakPower"(state: $BlockState$Type, level: $SignalGetter$Type, pos: $BlockPos$Type, side: $Direction$Type): boolean
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
@@ -761,37 +761,37 @@ export class $TrackSwitch extends $SingleBlockEntityEdgePoint {
 
 constructor()
 
-public "write"(buffer: $FriendlyByteBuf$Type, dimensions: $DimensionPalette$Type): void
 public "write"(nbt: $CompoundTag$Type, dimensions: $DimensionPalette$Type): void
-public "read"(nbt: $CompoundTag$Type, migration: boolean, dimensions: $DimensionPalette$Type): void
+public "write"(buffer: $FriendlyByteBuf$Type, dimensions: $DimensionPalette$Type): void
 public "read"(buffer: $FriendlyByteBuf$Type, dimensions: $DimensionPalette$Type): void
+public "read"(nbt: $CompoundTag$Type, migration: boolean, dimensions: $DimensionPalette$Type): void
 public "isAutomatic"(): boolean
 public "getType"(): $EdgePointType<(any)>
 public "isLocked"(): boolean
 public "tick"(graph: $TrackGraph$Type, preTrains: boolean): void
-public static "getSelectionPriority"(): integer
+public "blockEntityAdded"(tile: $BlockEntity$Type, front: boolean): void
+public "canCoexistWith"(otherType: $EdgePointType$Type<(any)>, front: boolean): boolean
+public "getTargetState"(loc: $TrackNodeLocation$Type): $TrackSwitchBlock$SwitchState
+public "trySetSwitchState"(state: $TrackSwitchBlock$SwitchState$Type): boolean
+public "getSwitchState"(): $TrackSwitchBlock$SwitchState
 public "shouldAutoTrainsSwitch"(): boolean
+public static "getSelectionPriority"(): integer
 public "hasStraightExit"(): boolean
 public "hasRightExit"(): boolean
 public "hasLeftExit"(): boolean
 public "setSwitchState"(state: $TrackSwitchBlock$SwitchState$Type): boolean
 public "getSwitchTarget"(): $TrackNodeLocation
-public "updateEdges"(graph: $TrackGraph$Type): void
 public "setEdgesActive"(graph: $TrackGraph$Type): void
-public "canCoexistWith"(otherType: $EdgePointType$Type<(any)>, front: boolean): boolean
-public "blockEntityAdded"(tile: $BlockEntity$Type, front: boolean): void
-public "getSwitchState"(): $TrackSwitchBlock$SwitchState
-public "trySetSwitchState"(state: $TrackSwitchBlock$SwitchState$Type): boolean
-public "getTargetState"(loc: $TrackNodeLocation$Type): $TrackSwitchBlock$SwitchState
+public "updateEdges"(graph: $TrackGraph$Type): void
 public "onRemoved"(graph: $TrackGraph$Type): void
 get "automatic"(): boolean
 get "type"(): $EdgePointType<(any)>
 get "locked"(): boolean
+get "switchState"(): $TrackSwitchBlock$SwitchState
 get "selectionPriority"(): integer
 set "switchState"(value: $TrackSwitchBlock$SwitchState$Type)
 get "switchTarget"(): $TrackNodeLocation
 set "edgesActive"(value: $TrackGraph$Type)
-get "switchState"(): $TrackSwitchBlock$SwitchState
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -918,25 +918,25 @@ readonly "properties": $BlockBehaviour$Properties
 constructor(properties: $BlockBehaviour$Properties$Type)
 
 public "getRotatedBlockState"(originalState: $BlockState$Type, targetedFace: $Direction$Type): $BlockState
-public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getBlockEntityClass"(): $Class<($DyeableBlockEntity)>
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
+public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "updateShape"(state: $BlockState$Type, direction: $Direction$Type, neighborState: $BlockState$Type, level: $LevelAccessor$Type, currentPos: $BlockPos$Type, neighborPos: $BlockPos$Type): $BlockState
 public "onRemove"(state: $BlockState$Type, worldIn: $Level$Type, pos: $BlockPos$Type, newState: $BlockState$Type, isMoving: boolean): void
 public "use"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
 public "getFluidState"(state: $BlockState$Type): $FluidState
 public "getShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($DyeableBlockEntity$Type)>): void
 public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($DyeableBlockEntity)>
 public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($DyeableBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
-public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($DyeableBlockEntity$Type)>): void
 public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $DyeableBlockEntity
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
-public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
+public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "onWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "updateWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): void
 public "fluidState"(arg0: $BlockState$Type): $FluidState
@@ -948,8 +948,8 @@ public "placeLiquid"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $Blo
 public "pickupBlock"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
 public "getPickupSound"(): $Optional<($SoundEvent)>
 public "getPickupSound"(arg0: $BlockState$Type): $Optional<($SoundEvent)>
-get "blockEntityType"(): $BlockEntityType<(any)>
 get "blockEntityClass"(): $Class<($DyeableBlockEntity)>
+get "blockEntityType"(): $BlockEntityType<(any)>
 get "pickupSound"(): $Optional<($SoundEvent)>
 }
 /**
@@ -1020,27 +1020,27 @@ readonly "properties": $BlockBehaviour$Properties
 constructor(props: $BlockBehaviour$Properties$Type)
 
 public "getDefaultStyle"(): $BogeyStyle
-public "isOnIncompatibleTrack"(carriage: $Carriage$Type, leading: boolean): boolean
-public "getTrackType"(style: $BogeyStyle$Type): $TrackMaterial$TrackType
+public "getBlockEntityClass"(): $Class<($InvisibleBogeyBlockEntity)>
 public "getValidPathfindingTypes"(style: $BogeyStyle$Type): $Set<($TrackMaterial$TrackType)>
+public "getTrackType"(style: $BogeyStyle$Type): $TrackMaterial$TrackType
+public "isOnIncompatibleTrack"(carriage: $Carriage$Type, leading: boolean): boolean
+public "getConnectorAnchorOffset"(): $Vec3
 public "getWheelPointSpacing"(): double
 public "getWheelRadius"(): double
-public "getConnectorAnchorOffset"(): $Vec3
 public "getBlockEntityType"(): $BlockEntityType<(any)>
-public "getBlockEntityClass"(): $Class<($InvisibleBogeyBlockEntity)>
-public "getCloneItemStack"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type): $ItemStack
 public "getShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
+public "getCloneItemStack"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type): $ItemStack
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 public "getRequiredItems"(arg0: $BlockState$Type, arg1: $BlockEntity$Type): $ItemRequirement
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 get "defaultStyle"(): $BogeyStyle
+get "blockEntityClass"(): $Class<($InvisibleBogeyBlockEntity)>
+get "connectorAnchorOffset"(): $Vec3
 get "wheelPointSpacing"(): double
 get "wheelRadius"(): double
-get "connectorAnchorOffset"(): $Vec3
 get "blockEntityType"(): $BlockEntityType<(any)>
-get "blockEntityClass"(): $Class<($InvisibleBogeyBlockEntity)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1109,9 +1109,8 @@ readonly "properties": $BlockBehaviour$Properties
 
 
 public static "create"(properties: $BlockBehaviour$Properties$Type): $TrackCouplerBlock
-public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getBlockEntityClass"(): $Class<($TrackCouplerBlockEntity)>
-public "getStateForPlacement"(pContext: $BlockPlaceContext$Type): $BlockState
+public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "neighborChanged"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pBlock: $Block$Type, pFromPos: $BlockPos$Type, pIsMoving: boolean): void
 public "onRemove"(state: $BlockState$Type, worldIn: $Level$Type, pos: $BlockPos$Type, newState: $BlockState$Type, isMoving: boolean): void
 /**
@@ -1125,22 +1124,23 @@ public "hasAnalogOutputSignal"(state: $BlockState$Type): boolean
  */
 public "getAnalogOutputSignal"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type): integer
 public "tick"(pState: $BlockState$Type, pLevel: $ServerLevel$Type, pPos: $BlockPos$Type, pRand: $RandomSource$Type): void
+public "getStateForPlacement"(pContext: $BlockPlaceContext$Type): $BlockState
 public "onWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($TrackCouplerBlockEntity$Type)>): void
 public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($TrackCouplerBlockEntity)>
 public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($TrackCouplerBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
-public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($TrackCouplerBlockEntity$Type)>): void
 public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $TrackCouplerBlockEntity
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
-public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
-public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
+public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
+public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
-get "blockEntityType"(): $BlockEntityType<(any)>
 get "blockEntityClass"(): $Class<($TrackCouplerBlockEntity)>
+get "blockEntityType"(): $BlockEntityType<(any)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1201,20 +1201,20 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
-public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getBlockEntityClass"(): $Class<($ConductorWhistleFlagBlockEntity)>
+public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "onRemove"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pNewState: $BlockState$Type, pIsMoving: boolean): void
 public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($ConductorWhistleFlagBlockEntity$Type)>): void
 public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($ConductorWhistleFlagBlockEntity)>
 public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($ConductorWhistleFlagBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
-public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($ConductorWhistleFlagBlockEntity$Type)>): void
 public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $ConductorWhistleFlagBlockEntity
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
-get "blockEntityType"(): $BlockEntityType<(any)>
 get "blockEntityClass"(): $Class<($ConductorWhistleFlagBlockEntity)>
+get "blockEntityType"(): $BlockEntityType<(any)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1348,30 +1348,30 @@ constructor(type: $BlockEntityType$Type<(any)>, pos: $BlockPos$Type, state: $Blo
 public "transform"(blockEntity: $BlockEntity$Type, structureTransform: $StructureTransform$Type): void
 public "tick"(): void
 public "addToGoggleTooltip"(tooltip: $List$Type<($Component$Type)>, isPlayerSneaking: boolean): boolean
-public "getOperationInfo"(): $TrackCouplerBlockEntity$OperationInfo
-public "getClientInfo"(): $TrackCouplerBlockEntity$ClientInfo
-public "getTargetAnalogOutput"(): integer
-public "getReportedPower"(): boolean
 public "addBehaviours"(behaviours: $List$Type<($BlockEntityBehaviour$Type)>): void
+public "getReportedPower"(): boolean
 public "getEdgeSpacing"(): integer
 public "areEdgePointsOk"(): boolean
 public "getSecondaryCoupler"(): $TrackCoupler
 public "getAllowedOperationMode"(): $TrackCouplerBlockEntity$AllowedOperationMode
 public "getOperationMode"(): $TrackCouplerBlockEntity$OperationMode
 public "setClientInfo"(info: $TrackCouplerBlockEntity$ClientInfo$Type): void
+public "getOperationInfo"(): $TrackCouplerBlockEntity$OperationInfo
+public "getClientInfo"(): $TrackCouplerBlockEntity$ClientInfo
+public "getTargetAnalogOutput"(): integer
 public "lazyTick"(): void
 public "getCoupler"(): $TrackCoupler
 public "containedFluidTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean, arg2: $LazyOptional$Type<($IFluidHandler$Type)>): boolean
 public "getIcon"(arg0: boolean): $ItemStack
-get "operationInfo"(): $TrackCouplerBlockEntity$OperationInfo
-get "clientInfo"(): $TrackCouplerBlockEntity$ClientInfo
-get "targetAnalogOutput"(): integer
 get "reportedPower"(): boolean
 get "edgeSpacing"(): integer
 get "secondaryCoupler"(): $TrackCoupler
 get "allowedOperationMode"(): $TrackCouplerBlockEntity$AllowedOperationMode
 get "operationMode"(): $TrackCouplerBlockEntity$OperationMode
 set "clientInfo"(value: $TrackCouplerBlockEntity$ClientInfo$Type)
+get "operationInfo"(): $TrackCouplerBlockEntity$OperationInfo
+get "clientInfo"(): $TrackCouplerBlockEntity$ClientInfo
+get "targetAnalogOutput"(): integer
 get "coupler"(): $TrackCoupler
 }
 /**
@@ -1427,15 +1427,15 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(props: $BlockBehaviour$Properties$Type)
 
-public "getWheelPointSpacing"(): double
 public "getConnectorAnchorOffset"(): $Vec3
+public "getWheelPointSpacing"(): double
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 public "getRequiredItems"(arg0: $BlockState$Type, arg1: $BlockEntity$Type): $ItemRequirement
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-get "wheelPointSpacing"(): double
 get "connectorAnchorOffset"(): $Vec3
+get "wheelPointSpacing"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1468,11 +1468,11 @@ static readonly "REVERSE_RIGHT": $TrackSwitchBlock$SwitchState
 
 public static "values"(): ($TrackSwitchBlock$SwitchState)[]
 public static "valueOf"(name: string): $TrackSwitchBlock$SwitchState
+public "nextStateForPonder"(constraint: $TrackSwitchBlock$SwitchConstraint$Type): $TrackSwitchBlock$SwitchState
+public "canSwitchTo"(next: $TrackSwitchBlock$SwitchState$Type, constraint: $TrackSwitchBlock$SwitchConstraint$Type): boolean
 public static "fromSteerDirection"(direction: $TravellingPoint$SteerDirection$Type, forward: boolean): $TrackSwitchBlock$SwitchState
 public "nextStateFor"(sw: $TrackSwitch$Type, constraint: $TrackSwitchBlock$SwitchConstraint$Type): $TrackSwitchBlock$SwitchState
-public "nextStateForPonder"(constraint: $TrackSwitchBlock$SwitchConstraint$Type): $TrackSwitchBlock$SwitchState
 public "getSerializedName"(): string
-public "canSwitchTo"(next: $TrackSwitchBlock$SwitchState$Type, constraint: $TrackSwitchBlock$SwitchConstraint$Type): boolean
 public static "fromEnum"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromEnumWithMapping"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>, arg1: $Function$Type<(string), (string)>): $StringRepresentable$EnumCodec<(E)>
 public static "keys"(arg0: ($StringRepresentable$Type)[]): $Keyable
@@ -1497,10 +1497,10 @@ export interface $ISwitchDisabledEdge {
 
  "isAutomatic"(): boolean
  "isEnabled"(): boolean
+ "getAutomaticallySelectedPriority"(): integer
  "setAutomatic"(arg0: boolean): void
  "isAutomaticallySelected"(): boolean
  "ackAutomaticSelection"(): void
- "getAutomaticallySelectedPriority"(): integer
  "setAutomaticallySelected"(): void
  "setEnabled"(arg0: boolean): void
 }
@@ -1527,8 +1527,8 @@ declare module "packages/com/railwayteam/railways/mixin_interfaces/$IPotentially
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $IPotentiallyInvisibleSpriteContents {
 
- "railways$isVisible"(): boolean
  "railways$uploadFrame"(arg0: boolean): void
+ "railways$isVisible"(): boolean
  "railways$shouldDoInvisibility"(): boolean
 }
 
@@ -1595,8 +1595,8 @@ declare module "packages/com/railwayteam/railways/mixin/$AccessorTrain" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $AccessorTrain {
 
- "railways$getStress"(): (double)[]
  "railways$setStress"(arg0: (double)[]): void
+ "railways$getStress"(): (double)[]
 }
 
 export namespace $AccessorTrain {
@@ -1670,10 +1670,10 @@ public "getShape"(state: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $Blo
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-public static "walkConnectedTracks"(arg0: $BlockGetter$Type, arg1: $TrackNodeLocation$Type, arg2: boolean): $Collection<($TrackNodeLocation$DiscoveredLocation)>
 public static "addToListIfConnected"(arg0: $TrackNodeLocation$Type, arg1: $Collection$Type<($TrackNodeLocation$DiscoveredLocation$Type)>, arg2: $BiFunction$Type<(double), (boolean), ($Vec3$Type)>, arg3: $Function$Type<(boolean), ($Vec3$Type)>, arg4: $Function$Type<(boolean), ($ResourceKey$Type<($Level$Type)>)>, arg5: $Function$Type<($Vec3$Type), (integer)>, arg6: $Vec3$Type, arg7: $BezierConnection$Type, arg8: $BiFunction$Type<(boolean), ($Vec3$Type), ($TrackMaterial$Type)>): void
 public static "getMaterialSimple"(arg0: $BlockGetter$Type, arg1: $Vec3$Type): $TrackMaterial
 public static "getMaterialSimple"(arg0: $BlockGetter$Type, arg1: $Vec3$Type, arg2: $TrackMaterial$Type): $TrackMaterial
+public static "walkConnectedTracks"(arg0: $BlockGetter$Type, arg1: $TrackNodeLocation$Type, arg2: boolean): $Collection<($TrackNodeLocation$DiscoveredLocation)>
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 }
 /**
@@ -1860,15 +1860,15 @@ static readonly "UPDATE_LIMIT": integer
 readonly "properties": $BlockBehaviour$Properties
 
 
-public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getBlockEntityClass"(): $Class<($WoodVariantTrackBufferBlockEntity)>
+public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "use"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "blockEntityType"(): $BlockEntityType<(any)>
 get "blockEntityClass"(): $Class<($WoodVariantTrackBufferBlockEntity)>
+get "blockEntityType"(): $BlockEntityType<(any)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1918,13 +1918,13 @@ public "isAutomatic"(): boolean
 public "isLocked"(): boolean
 public "tick"(): void
 public "addToGoggleTooltip"(tooltip: $List$Type<($Component$Type)>, isPlayerSneaking: boolean): boolean
+public "addBehaviours"(behaviours: $List$Type<($BlockEntityBehaviour$Type)>): void
 public "setStatePonder"(state: $TrackSwitchBlock$SwitchState$Type): void
 public "isReverseLeft"(): boolean
-public "getTargetAnalogOutput"(): integer
-public "addBehaviours"(behaviours: $List$Type<($BlockEntityBehaviour$Type)>): void
 public "isReverseRight"(): boolean
 public "getOverlayModel"(): $PartialModel
 public "clientLazyTick"(): void
+public "getTargetAnalogOutput"(): integer
 public "lazyTick"(): void
 public "getSwitch"(): $TrackSwitch
 public "hasExit"(state: $TrackSwitchBlock$SwitchState$Type): boolean
@@ -1936,9 +1936,9 @@ get "automatic"(): boolean
 get "locked"(): boolean
 set "statePonder"(value: $TrackSwitchBlock$SwitchState$Type)
 get "reverseLeft"(): boolean
-get "targetAnalogOutput"(): integer
 get "reverseRight"(): boolean
 get "overlayModel"(): $PartialModel
+get "targetAnalogOutput"(): integer
 get "switch"(): $TrackSwitch
 get "normal"(): boolean
 }
@@ -1969,9 +1969,9 @@ export class $DieselSmokeStackBlockEntity extends $SmartBlockEntity implements $
 constructor(type: $BlockEntityType$Type<(any)>, pos: $BlockPos$Type, state: $BlockState$Type)
 
 public "tick"(): void
-public "notifySpeed"(speed: double): void
 public "addBehaviours"(behaviours: $List$Type<($BlockEntityBehaviour$Type)>): void
 public "getFanRotation"(rpm: double): double
+public "notifySpeed"(speed: double): void
 public "getRpm"(partialTicks: float): double
 }
 /**
@@ -2093,8 +2093,8 @@ public "read"(nbt: $CompoundTag$Type, migration: boolean, dimensions: $Dimension
 public "read"(buffer: $FriendlyByteBuf$Type, dimensions: $DimensionPalette$Type): void
 public "keepAlive"(train: $Train$Type): void
 public "tick"(graph: $TrackGraph$Type, preTrains: boolean): void
-public "isActivated"(): boolean
 public "blockEntityAdded"(tile: $BlockEntity$Type, front: boolean): void
+public "isActivated"(): boolean
 public "getCurrentTrain"(): $UUID
 get "activated"(): boolean
 get "currentTrain"(): $UUID
@@ -2143,10 +2143,10 @@ import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packa
 import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
-import {$SmokeStackBlockEntity, $SmokeStackBlockEntity$Type} from "packages/com/railwayteam/railways/content/smokestack/block/be/$SmokeStackBlockEntity"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
+import {$SmokeStackBlockEntity, $SmokeStackBlockEntity$Type} from "packages/com/railwayteam/railways/content/smokestack/block/be/$SmokeStackBlockEntity"
+import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
 import {$SmokeStackBlock$SmokeStackType, $SmokeStackBlock$SmokeStackType$Type} from "packages/com/railwayteam/railways/content/smokestack/block/$SmokeStackBlock$SmokeStackType"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
 import {$ShapeWrapper, $ShapeWrapper$Type} from "packages/com/railwayteam/railways/util/$ShapeWrapper"
@@ -2190,23 +2190,23 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type, type: $SmokeStackBlock$SmokeStackType$Type, shape: $ShapeWrapper$Type, createsStationarySmoke: boolean, variant: string)
 
-public "getBlockEntityType"(): $BlockEntityType<(any)>
-public "getBlockEntityClass"(): $Class<($SmokeStackBlockEntity)>
-public static "makeParticlesStationary"(level: $Level$Type, pos: $BlockPos$Type, isSignalFire: boolean, spawnExtraSmoke: boolean, spawnOffset: $Vec3$Type, spawnDelta: $Vec3$Type): void
+public static "makeParticles"(level: $Level$Type, pos: $Vec3$Type, isSignalFire: boolean, spawnExtraSmoke: boolean, spawnOffset: $Vec3$Type, spawnDelta: $Vec3$Type, speedMultiplier: double, stationary: boolean): void
+public static "makeParticles"(level: $Level$Type, pos: $Vec3$Type, isSignalFire: boolean, spawnExtraSmoke: boolean, spawnOffset: $Vec3$Type, spawnDelta: $Vec3$Type, speedMultiplier: double, stationary: boolean, color: $DyeColor$Type): void
 public static "makeParticles"(level: $Level$Type, pos: $Vec3$Type, isSignalFire: boolean, spawnExtraSmoke: boolean, spawnOffset: $Vec3$Type, spawnDelta: $Vec3$Type, speedMultiplier: double, stationary: boolean, color: $DyeColor$Type, small: boolean): void
 public static "makeParticles"(level: $Level$Type, pos: $Vec3$Type, isSignalFire: boolean, spawnExtraSmoke: boolean, spawnOffset: $Vec3$Type, spawnDelta: $Vec3$Type, speedMultiplier: double, stationary: boolean, color: $DyeColor$Type, small: boolean, isSoul: boolean): void
 public static "makeParticles"(level: $Level$Type, pos: $Vec3$Type, isSignalFire: boolean, spawnExtraSmoke: boolean, spawnOffset: $Vec3$Type, spawnDelta: $Vec3$Type, speedMultiplier: double): void
-public static "makeParticles"(level: $Level$Type, pos: $Vec3$Type, isSignalFire: boolean, spawnExtraSmoke: boolean, spawnOffset: $Vec3$Type, spawnDelta: $Vec3$Type, speedMultiplier: double, stationary: boolean): void
-public static "makeParticles"(level: $Level$Type, pos: $Vec3$Type, isSignalFire: boolean, spawnExtraSmoke: boolean, spawnOffset: $Vec3$Type, spawnDelta: $Vec3$Type, speedMultiplier: double, stationary: boolean, color: $DyeColor$Type): void
 public static "makeParticles"(level: $Level$Type, pos: $Vec3$Type, isSignalFire: boolean, spawnExtraSmoke: boolean, spawnOffset: $Vec3$Type, spawnDelta: $Vec3$Type): void
+public static "makeParticlesStationary"(level: $Level$Type, pos: $BlockPos$Type, isSignalFire: boolean, spawnExtraSmoke: boolean, spawnOffset: $Vec3$Type, spawnDelta: $Vec3$Type): void
+public "getBlockEntityClass"(): $Class<($SmokeStackBlockEntity)>
+public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "blockEntityAnimateTick"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, random: $RandomSource$Type): void
 public "use"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-get "blockEntityType"(): $BlockEntityType<(any)>
 get "blockEntityClass"(): $Class<($SmokeStackBlockEntity)>
+get "blockEntityType"(): $BlockEntityType<(any)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2274,10 +2274,10 @@ public "getCollisionShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, 
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-public static "walkConnectedTracks"(arg0: $BlockGetter$Type, arg1: $TrackNodeLocation$Type, arg2: boolean): $Collection<($TrackNodeLocation$DiscoveredLocation)>
 public static "addToListIfConnected"(arg0: $TrackNodeLocation$Type, arg1: $Collection$Type<($TrackNodeLocation$DiscoveredLocation$Type)>, arg2: $BiFunction$Type<(double), (boolean), ($Vec3$Type)>, arg3: $Function$Type<(boolean), ($Vec3$Type)>, arg4: $Function$Type<(boolean), ($ResourceKey$Type<($Level$Type)>)>, arg5: $Function$Type<($Vec3$Type), (integer)>, arg6: $Vec3$Type, arg7: $BezierConnection$Type, arg8: $BiFunction$Type<(boolean), ($Vec3$Type), ($TrackMaterial$Type)>): void
 public static "getMaterialSimple"(arg0: $BlockGetter$Type, arg1: $Vec3$Type): $TrackMaterial
 public static "getMaterialSimple"(arg0: $BlockGetter$Type, arg1: $Vec3$Type, arg2: $TrackMaterial$Type): $TrackMaterial
+public static "walkConnectedTracks"(arg0: $BlockGetter$Type, arg1: $TrackNodeLocation$Type, arg2: boolean): $Collection<($TrackNodeLocation$DiscoveredLocation)>
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 }
 /**
@@ -2337,15 +2337,15 @@ readonly "properties": $BlockBehaviour$Properties
 
 public static "create"(large: boolean): $NonNullFunction<($BlockBehaviour$Properties), ($WideGaugeBogeyBlock)>
 public "getTrackType"(style: $BogeyStyle$Type): $TrackMaterial$TrackType
-public "getWheelRadius"(): double
 public "getConnectorAnchorOffset"(): $Vec3
+public "getWheelRadius"(): double
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 public "getRequiredItems"(arg0: $BlockState$Type, arg1: $BlockEntity$Type): $ItemRequirement
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-get "wheelRadius"(): double
 get "connectorAnchorOffset"(): $Vec3
+get "wheelRadius"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2447,10 +2447,10 @@ readonly "properties": $BlockBehaviour$Properties
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
 public "getDefaultStyle"(): $BogeyStyle
-public "isOnIncompatibleTrack"(carriage: $Carriage$Type, leading: boolean): boolean
-public "getValidPathfindingTypes"(style: $BogeyStyle$Type): $Set<($TrackMaterial$TrackType)>
-public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getBlockEntityClass"(): $Class<($InvisibleMonoBogeyBlockEntity)>
+public "getValidPathfindingTypes"(style: $BogeyStyle$Type): $Set<($TrackMaterial$TrackType)>
+public "isOnIncompatibleTrack"(carriage: $Carriage$Type, leading: boolean): boolean
+public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
@@ -2458,8 +2458,8 @@ public "getRequiredItems"(arg0: $BlockState$Type, arg1: $BlockEntity$Type): $Ite
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 get "defaultStyle"(): $BogeyStyle
-get "blockEntityType"(): $BlockEntityType<(any)>
 get "blockEntityClass"(): $Class<($InvisibleMonoBogeyBlockEntity)>
+get "blockEntityType"(): $BlockEntityType<(any)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2479,8 +2479,8 @@ import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packa
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$FuelTankBlockEntity, $FuelTankBlockEntity$Type} from "packages/com/railwayteam/railways/content/fuel/tank/$FuelTankBlockEntity"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$IBE, $IBE$Type} from "packages/com/simibubi/create/foundation/block/$IBE"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
@@ -2539,11 +2539,10 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
-public "getBlockEntityType"(): $BlockEntityType<(any)>
-public "getBlockEntityClass"(): $Class<($FuelTankBlockEntity)>
-public "getLightEmission"(state: $BlockState$Type, world: $BlockGetter$Type, pos: $BlockPos$Type): integer
 public "getSoundType"(state: $BlockState$Type, world: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): $SoundType
-public "setPlacedBy"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlacer: $LivingEntity$Type, pStack: $ItemStack$Type): void
+public "getLightEmission"(state: $BlockState$Type, world: $BlockGetter$Type, pos: $BlockPos$Type): integer
+public "getBlockEntityClass"(): $Class<($FuelTankBlockEntity)>
+public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "onPlace"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, oldState: $BlockState$Type, moved: boolean): void
 public "onRemove"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, newState: $BlockState$Type, isMoving: boolean): void
 public "use"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, ray: $BlockHitResult$Type): $InteractionResult
@@ -2552,23 +2551,24 @@ public "rotate"(state: $BlockState$Type, rotation: $Rotation$Type): $BlockState
 public "mirror"(state: $BlockState$Type, mirror: $Mirror$Type): $BlockState
 public "getBlockSupportShape"(pState: $BlockState$Type, pReader: $BlockGetter$Type, pPos: $BlockPos$Type): $VoxelShape
 public "getAnalogOutputSignal"(blockState: $BlockState$Type, worldIn: $Level$Type, pos: $BlockPos$Type): integer
+public "setPlacedBy"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlacer: $LivingEntity$Type, pStack: $ItemStack$Type): void
 public "onWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
 public static "isTank"(state: $BlockState$Type): boolean
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
-public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
-public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
+public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
+public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($FuelTankBlockEntity$Type)>): void
 public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($FuelTankBlockEntity)>
 public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($FuelTankBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
-public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($FuelTankBlockEntity$Type)>): void
 public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $FuelTankBlockEntity
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
-get "blockEntityType"(): $BlockEntityType<(any)>
 get "blockEntityClass"(): $Class<($FuelTankBlockEntity)>
+get "blockEntityType"(): $BlockEntityType<(any)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2639,9 +2639,9 @@ static readonly "WHITESPACE": $MutableComponent
 
 constructor()
 
-public "getPassiveRefreshTicks"(): integer
-public "loadFlapDisplayLayout"(context: $DisplayLinkContext$Type, flapDisplay: $FlapDisplayBlockEntity$Type, layout: $FlapDisplayLayout$Type): void
 public "provideText"(context: $DisplayLinkContext$Type, stats: $DisplayTargetStats$Type): $List<($MutableComponent)>
+public "loadFlapDisplayLayout"(context: $DisplayLinkContext$Type, flapDisplay: $FlapDisplayBlockEntity$Type, layout: $FlapDisplayLayout$Type): void
+public "getPassiveRefreshTicks"(): integer
 get "passiveRefreshTicks"(): integer
 }
 /**
@@ -2815,30 +2815,30 @@ readonly "properties": $BlockBehaviour$Properties
 
 
 public "getRotatedBlockState"(originalState: $BlockState$Type, targetedFace: $Direction$Type): $BlockState
-public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getBlockEntityClass"(): $Class<(BE)>
+public "getBlockEntityType"(): $BlockEntityType<(any)>
 public static "getBaseModelYRotationOf"(state: $BlockState$Type): integer
-public static "getBaseModelYRotationOf"(state: $BlockState$Type, offset: integer): integer
-public static "getBaseModelYRotationOf"(facing: $Direction$Type): integer
 public static "getBaseModelYRotationOf"(facing: $Direction$Type, offset: integer): integer
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
-public "getCloneItemStack"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type): $ItemStack
+public static "getBaseModelYRotationOf"(facing: $Direction$Type): integer
+public static "getBaseModelYRotationOf"(state: $BlockState$Type, offset: integer): integer
 public "updateShape"(state: $BlockState$Type, direction: $Direction$Type, neighborState: $BlockState$Type, level: $LevelAccessor$Type, currentPos: $BlockPos$Type, neighborPos: $BlockPos$Type): $BlockState
 public "onRemove"(state: $BlockState$Type, worldIn: $Level$Type, pos: $BlockPos$Type, newState: $BlockState$Type, isMoving: boolean): void
 public "use"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
 public "getFluidState"(state: $BlockState$Type): $FluidState
 public "getOcclusionShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type): $VoxelShape
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
+public "getCloneItemStack"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type): $ItemStack
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<(BE)>): void
 public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<(BE)>
 public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<(BE), ($InteractionResult$Type)>): $InteractionResult
-public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<(BE)>): void
 public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): BE
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
-public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
+public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "onWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "updateWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): void
 public "fluidState"(arg0: $BlockState$Type): $FluidState
@@ -2850,8 +2850,8 @@ public "placeLiquid"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $Blo
 public "pickupBlock"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
 public "getPickupSound"(): $Optional<($SoundEvent)>
 public "getPickupSound"(arg0: $BlockState$Type): $Optional<($SoundEvent)>
-get "blockEntityType"(): $BlockEntityType<(any)>
 get "blockEntityClass"(): $Class<(BE)>
+get "blockEntityType"(): $BlockEntityType<(any)>
 get "pickupSound"(): $Optional<($SoundEvent)>
 }
 /**
@@ -2941,9 +2941,9 @@ constructor(block: $Block$Type, properties: $Item$Properties$Type, type: $EdgePo
 
 public static "ofType"<T extends $Block>(type: $EdgePointType$Type<(any)>): $NonNullBiFunction<(any), ($Item$Properties), ($TrackTargetingBlockItem)>
 public "useOnCurve"(selection: $TrackBlockOutline$BezierPointSelection$Type, stack: $ItemStack$Type): boolean
-public "moonlight$getClientAnimationExtension"(): any
-public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
 public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
+public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$setClientAnimationExtension"(arg0: any): void
 }
 /**
@@ -2999,15 +2999,15 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(props: $BlockBehaviour$Properties$Type)
 
-public "getWheelPointSpacing"(): double
 public "getConnectorAnchorOffset"(): $Vec3
+public "getWheelPointSpacing"(): double
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 public "getRequiredItems"(arg0: $BlockState$Type, arg1: $BlockEntity$Type): $ItemRequirement
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-get "wheelPointSpacing"(): double
 get "connectorAnchorOffset"(): $Vec3
+get "wheelPointSpacing"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3065,8 +3065,8 @@ export class $DyeableBlockEntity extends $SmartBlockEntity implements $IDyedBuff
 
 constructor(type: $BlockEntityType$Type<(any)>, pos: $BlockPos$Type, state: $BlockState$Type)
 
-public "applyDyeIfValid"(stack: $ItemStack$Type): $InteractionResult
 public "addBehaviours"(behaviours: $List$Type<($BlockEntityBehaviour$Type)>): void
+public "applyDyeIfValid"(stack: $ItemStack$Type): $InteractionResult
 public "getColor"(): $DyeColor
 get "color"(): $DyeColor
 }
@@ -3191,28 +3191,28 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
-public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getBlockEntityClass"(): $Class<($SemaphoreBlockEntity)>
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
+public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "onPlace"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, oldState: $BlockState$Type, isMoving: boolean): void
 public "use"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, ray: $BlockHitResult$Type): $InteractionResult
 public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public "onWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($SemaphoreBlockEntity$Type)>): void
 public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($SemaphoreBlockEntity)>
 public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($SemaphoreBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
-public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($SemaphoreBlockEntity$Type)>): void
 public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $SemaphoreBlockEntity
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
-public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
-public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
+public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
+public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
-get "blockEntityType"(): $BlockEntityType<(any)>
 get "blockEntityClass"(): $Class<($SemaphoreBlockEntity)>
+get "blockEntityType"(): $BlockEntityType<(any)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3338,10 +3338,9 @@ constructor(properties: $BlockBehaviour$Properties$Type)
 
 public "getRotatedBlockState"(originalState: $BlockState$Type, targetedFace: $Direction$Type): $BlockState
 public "initializeClient"(consumer: $Consumer$Type<(any)>): void
-public "getShapeForState"(state: $BlockState$Type): $VoxelShape
 public "matrixRotation"(poseStack: $PoseStack$Type, state: $BlockState$Type): void
 public "customOutline"(poseStack: $PoseStack$Type, consumer: $VertexConsumer$Type, state: $BlockState$Type): void
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
+public "getShapeForState"(state: $BlockState$Type): $VoxelShape
 public "skipRendering"(state: $BlockState$Type, adjacentBlockState: $BlockState$Type, direction: $Direction$Type): boolean
 public "use"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
 public "rotate"(state: $BlockState$Type, rotation: $Rotation$Type): $BlockState
@@ -3350,10 +3349,11 @@ public "getCollisionShape"(state: $BlockState$Type, level: $BlockGetter$Type, po
 public "getInteractionShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type): $VoxelShape
 public "getShadeBrightness"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type): float
 public "getShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
-public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
+public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "onWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "drawLineWithAxisOffset"(vb: $VertexConsumer$Type, ms: $PoseStack$Type, x1: double, y1: double, z1: double, x2: double, y2: double, z2: double, offset: double, axis: $Direction$Axis$Type): void
 public "drawLine"(vb: $VertexConsumer$Type, ms: $PoseStack$Type, x1: double, y1: double, z1: double, x2: double, y2: double, z2: double): void
@@ -3377,16 +3377,16 @@ import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 
 export interface $IHasTrackCasing {
 
- "isAlternate"(): boolean
- "getTrackCasing"(): $SlabBlock
- "setTrackCasing"(arg0: $SlabBlock$Type): void
  "setAlternate"(alternate: boolean): void
+ "setTrackCasing"(arg0: $SlabBlock$Type): void
+ "getTrackCasing"(): $SlabBlock
+ "isAlternate"(): boolean
 }
 
 export namespace $IHasTrackCasing {
-function isAlternate(world: $Level$Type, pos: $BlockPos$Type): boolean
-function getTrackCasing(world: $Level$Type, pos: $BlockPos$Type): $SlabBlock
 function setTrackCasing(world: $Level$Type, pos: $BlockPos$Type, trackCasing: $SlabBlock$Type): void
+function getTrackCasing(world: $Level$Type, pos: $BlockPos$Type): $SlabBlock
+function isAlternate(world: $Level$Type, pos: $BlockPos$Type): boolean
 function setAlternateModel(world: $Level$Type, pos: $BlockPos$Type, useAlternateModel: boolean): boolean
 }
 /**
@@ -3556,10 +3556,10 @@ public "randomTick"(state: $BlockState$Type, level: $ServerLevel$Type, pos: $Blo
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-public static "walkConnectedTracks"(arg0: $BlockGetter$Type, arg1: $TrackNodeLocation$Type, arg2: boolean): $Collection<($TrackNodeLocation$DiscoveredLocation)>
 public static "addToListIfConnected"(arg0: $TrackNodeLocation$Type, arg1: $Collection$Type<($TrackNodeLocation$DiscoveredLocation$Type)>, arg2: $BiFunction$Type<(double), (boolean), ($Vec3$Type)>, arg3: $Function$Type<(boolean), ($Vec3$Type)>, arg4: $Function$Type<(boolean), ($ResourceKey$Type<($Level$Type)>)>, arg5: $Function$Type<($Vec3$Type), (integer)>, arg6: $Vec3$Type, arg7: $BezierConnection$Type, arg8: $BiFunction$Type<(boolean), ($Vec3$Type), ($TrackMaterial$Type)>): void
 public static "getMaterialSimple"(arg0: $BlockGetter$Type, arg1: $Vec3$Type): $TrackMaterial
 public static "getMaterialSimple"(arg0: $BlockGetter$Type, arg1: $Vec3$Type, arg2: $TrackMaterial$Type): $TrackMaterial
+public static "walkConnectedTracks"(arg0: $BlockGetter$Type, arg1: $TrackNodeLocation$Type, arg2: boolean): $Collection<($TrackNodeLocation$DiscoveredLocation)>
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 }
 /**
@@ -3610,9 +3610,9 @@ static readonly "MAX_BAR_WIDTH": integer
 
 
 public static "create"(props: $Item$Properties$Type, color: $DyeColor$Type): $ConductorCapItem
-public "initializeClient"(consumer: $Consumer$Type<($IClientItemExtensions$Type)>): void
 public "getArmorTexture"(stack: $ItemStack$Type, entity: $Entity$Type, slot: $EquipmentSlot$Type, type: string): string
 public "isEnderMask"(stack: $ItemStack$Type, player: $Player$Type, endermanEntity: $EnderMan$Type): boolean
+public "initializeClient"(consumer: $Consumer$Type<($IClientItemExtensions$Type)>): void
 public static "get"(arg0: $ItemStack$Type): $Equipable
 }
 /**
@@ -3652,10 +3652,10 @@ static readonly "WHITESPACE": $MutableComponent
 constructor()
 
 public static "getState"(text: $MutableComponent$Type): $Optional<($SignalBlockEntity$SignalState)>
+public "getPassiveRefreshTicks"(): integer
 public static "getSignalState"(context: $DisplayLinkContext$Type, text: $MutableComponent$Type): $Pair<($SignalBlockEntity$SignalState), ($Optional<($SignalBlockEntity)>)>
 public static "hasSignalSource"(context: $DisplayLinkContext$Type): boolean
 public static "isSignalTarget"(context: $DisplayLinkContext$Type): boolean
-public "getPassiveRefreshTicks"(): integer
 public "updateState"(be: $DisplayLinkBlockEntity$Type): void
 get "passiveRefreshTicks"(): integer
 }
@@ -3694,10 +3694,10 @@ readonly "armPosition": $LerpedFloat
 constructor(type: $BlockEntityType$Type<(any)>, pos: $BlockPos$Type, state: $BlockState$Type)
 
 public "tick"(): void
-public "railways$refresh"(signalBE: $SignalBlockEntity$Type, state: $SignalBlockEntity$SignalState$Type, ticks: integer, distantSignal: boolean): void
-public "addBehaviours"(behaviours: $List$Type<($BlockEntityBehaviour$Type)>): void
-public "wasCachedSearchingUpsideDown"(): boolean
 public "railways$getOverriddenState"(): $Optional<($SignalBlockEntity$SignalState)>
+public "wasCachedSearchingUpsideDown"(): boolean
+public "addBehaviours"(behaviours: $List$Type<($BlockEntityBehaviour$Type)>): void
+public "railways$refresh"(signalBE: $SignalBlockEntity$Type, state: $SignalBlockEntity$SignalState$Type, ticks: integer, distantSignal: boolean): void
 public "lazyTick"(): void
 public "railways$refresh"(signalBE: $SignalBlockEntity$Type, state: $SignalBlockEntity$SignalState$Type, ticks: integer): void
 }
@@ -3820,16 +3820,16 @@ readonly "properties": $BlockBehaviour$Properties
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
 public "getDefaultStyle"(): $BogeyStyle
-public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getBlockEntityClass"(): $Class<($MonoBogeyBlockEntity)>
+public "getBlockEntityType"(): $BlockEntityType<(any)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 public "getRequiredItems"(arg0: $BlockState$Type, arg1: $BlockEntity$Type): $ItemRequirement
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 get "defaultStyle"(): $BogeyStyle
-get "blockEntityType"(): $BlockEntityType<(any)>
 get "blockEntityClass"(): $Class<($MonoBogeyBlockEntity)>
+get "blockEntityType"(): $BlockEntityType<(any)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3994,27 +3994,27 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
-public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getBlockEntityClass"(): $Class<($HeadstockBlockEntity)>
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
-public "getCloneItemStack"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type): $ItemStack
+public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "updateShape"(state: $BlockState$Type, direction: $Direction$Type, neighborState: $BlockState$Type, level: $LevelAccessor$Type, currentPos: $BlockPos$Type, neighborPos: $BlockPos$Type): $BlockState
 public "onRemove"(state: $BlockState$Type, worldIn: $Level$Type, pos: $BlockPos$Type, newState: $BlockState$Type, isMoving: boolean): void
 public "use"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
 public "getFluidState"(state: $BlockState$Type): $FluidState
 public "getShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
+public "getCloneItemStack"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type): $ItemStack
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($HeadstockBlockEntity$Type)>): void
 public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($HeadstockBlockEntity)>
 public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($HeadstockBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
-public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($HeadstockBlockEntity$Type)>): void
 public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $HeadstockBlockEntity
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
-public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
-public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
+public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
+public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "onWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "updateWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): void
 public "fluidState"(arg0: $BlockState$Type): $FluidState
@@ -4026,8 +4026,8 @@ public "placeLiquid"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $Blo
 public "pickupBlock"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
 public "getPickupSound"(): $Optional<($SoundEvent)>
 public "getPickupSound"(arg0: $BlockState$Type): $Optional<($SoundEvent)>
-get "blockEntityType"(): $BlockEntityType<(any)>
 get "blockEntityClass"(): $Class<($HeadstockBlockEntity)>
+get "blockEntityType"(): $BlockEntityType<(any)>
 get "pickupSound"(): $Optional<($SoundEvent)>
 }
 /**
@@ -4096,14 +4096,14 @@ constructor(properties: $BlockBehaviour$Properties$Type)
 
 public static "create"(properties: $BlockBehaviour$Properties$Type): $CasingCollisionBlock
 public static "keepAlive"(level: $LevelAccessor$Type, pos: $BlockPos$Type): void
-public "newBlockEntity"(pPos: $BlockPos$Type, pState: $BlockState$Type): $BlockEntity
-public "getStateForPlacement"(pContext: $BlockPlaceContext$Type): $BlockState
 public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
 public "getRenderShape"(pState: $BlockState$Type): $RenderShape
 public "getFluidState"(pState: $BlockState$Type): $FluidState
 public "getCollisionShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
 public "getShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
 public "randomTick"(pState: $BlockState$Type, pLevel: $ServerLevel$Type, pPos: $BlockPos$Type, pRandom: $RandomSource$Type): void
+public "newBlockEntity"(pPos: $BlockPos$Type, pState: $BlockState$Type): $BlockEntity
+public "getStateForPlacement"(pContext: $BlockPlaceContext$Type): $BlockState
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
 public "getTicker"<T extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
 public "updateWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): void
@@ -4182,22 +4182,22 @@ readonly "properties": $BlockBehaviour$Properties
 
 
 public static "create"(properties: $BlockBehaviour$Properties$Type): $VentBlock
+public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
+public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
 public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
 public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
 public "teleportConductor"(level: $Level$Type, pos: $BlockPos$Type, entity: $Entity$Type, direction: $Direction$Type): void
-public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
-public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
 public "use"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
 public "getCollisionShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
 public "getShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
 public "entityInside"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, entity: $Entity$Type): void
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "onWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public static "getRequiredItemsForLayer"(state: $BlockState$Type, property: $IntegerProperty$Type): $ItemRequirement
 public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public static "getRequiredItemsForLayer"(state: $BlockState$Type, property: $IntegerProperty$Type): $ItemRequirement
 public "rotate"(pState: $BlockState$Type, pRot: $Rotation$Type): $BlockState
 public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
 }
@@ -4252,19 +4252,19 @@ export interface $AccessorTrackTargetingBehavior {
  "setId"(arg0: $UUID$Type): void
  "isOrthogonal"(): boolean
  "getTargetDirection"(): $Direction$AxisDirection
+ "getPrevDirection"(): $Vec3
+ "getMigrationData"(): $CompoundTag
+ "getTargetBezier"(): $BezierTrackPointLocation
+ "getRotatedDirection"(): $Vec3
+ "setTargetBezier"(arg0: $BezierTrackPointLocation$Type): void
+ "setPrevDirection"(arg0: $Vec3$Type): void
+ "setMigrationData"(arg0: $CompoundTag$Type): void
+ "setRotatedDirection"(arg0: $Vec3$Type): void
+ "setOrthogonal"(arg0: boolean): void
  "getTargetTrack"(): $BlockPos
  "setTargetTrack"(arg0: $BlockPos$Type): void
  "setEdgePoint"(arg0: $TrackEdgePoint$Type): void
  "setTargetDirection"(arg0: $Direction$AxisDirection$Type): void
- "setOrthogonal"(arg0: boolean): void
- "getRotatedDirection"(): $Vec3
- "setRotatedDirection"(arg0: $Vec3$Type): void
- "getPrevDirection"(): $Vec3
- "setPrevDirection"(arg0: $Vec3$Type): void
- "getMigrationData"(): $CompoundTag
- "setMigrationData"(arg0: $CompoundTag$Type): void
- "getTargetBezier"(): $BezierTrackPointLocation
- "setTargetBezier"(arg0: $BezierTrackPointLocation$Type): void
 }
 
 export namespace $AccessorTrackTargetingBehavior {
@@ -4287,8 +4287,8 @@ import {$StructureTransform, $StructureTransform$Type} from "packages/com/simibu
 
 export interface $AccessorAbstractContraptionEntity {
 
- "railways$setSkipActorStop"(arg0: boolean): void
  "railways$moveCollidedEntitiesOnDisassembly"(arg0: $StructureTransform$Type): void
+ "railways$setSkipActorStop"(arg0: boolean): void
 }
 
 export namespace $AccessorAbstractContraptionEntity {
@@ -4347,15 +4347,15 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(props: $BlockBehaviour$Properties$Type)
 
-public "getWheelPointSpacing"(): double
 public "getConnectorAnchorOffset"(): $Vec3
+public "getWheelPointSpacing"(): double
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 public "getRequiredItems"(arg0: $BlockState$Type, arg1: $BlockEntity$Type): $ItemRequirement
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-get "wheelPointSpacing"(): double
 get "connectorAnchorOffset"(): $Vec3
+get "wheelPointSpacing"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4482,9 +4482,8 @@ readonly "properties": $BlockBehaviour$Properties
 
 
 public static "automatic"(properties: $BlockBehaviour$Properties$Type): $TrackSwitchBlock
-public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getBlockEntityClass"(): $Class<($TrackSwitchBlockEntity)>
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
+public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "neighborChanged"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, block: $Block$Type, fromPos: $BlockPos$Type, isMoving: boolean): void
 public "onRemove"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, newState: $BlockState$Type, isMoving: boolean): void
 public "use"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
@@ -4501,23 +4500,24 @@ public "getCollisionShape"(state: $BlockState$Type, level: $BlockGetter$Type, po
 public "getAnalogOutputSignal"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type): integer
 public "getShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
 public "onProjectileHit"(level: $Level$Type, state: $BlockState$Type, hit: $BlockHitResult$Type, projectile: $Projectile$Type): void
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public static "manual"(properties: $BlockBehaviour$Properties$Type): $TrackSwitchBlock
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($TrackSwitchBlockEntity$Type)>): void
 public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($TrackSwitchBlockEntity)>
 public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($TrackSwitchBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
-public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($TrackSwitchBlockEntity$Type)>): void
 public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $TrackSwitchBlockEntity
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
-public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
-public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
+public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
+public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "onWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
-get "blockEntityType"(): $BlockEntityType<(any)>
 get "blockEntityClass"(): $Class<($TrackSwitchBlockEntity)>
+get "blockEntityType"(): $BlockEntityType<(any)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4561,8 +4561,8 @@ declare module "packages/com/railwayteam/railways/mixin_interfaces/$IHandcarTrai
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $IHandcarTrain {
 
- "railways$setHandcar"(arg0: boolean): void
  "railways$isHandcar"(): boolean
+ "railways$setHandcar"(arg0: boolean): void
 }
 
 export namespace $IHandcarTrain {
@@ -4679,8 +4679,8 @@ import {$TrackMaterial, $TrackMaterial$Type} from "packages/com/simibubi/create/
 import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
 import {$EnumProperty, $EnumProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$EnumProperty"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
-import {$TrackTargetingBehaviour$RenderedTrackOverlayType, $TrackTargetingBehaviour$RenderedTrackOverlayType$Type} from "packages/com/simibubi/create/content/trains/track/$TrackTargetingBehaviour$RenderedTrackOverlayType"
 import {$GenericCrossingBlockEntity, $GenericCrossingBlockEntity$Type} from "packages/com/railwayteam/railways/content/custom_tracks/generic_crossing/$GenericCrossingBlockEntity"
+import {$TrackTargetingBehaviour$RenderedTrackOverlayType, $TrackTargetingBehaviour$RenderedTrackOverlayType$Type} from "packages/com/simibubi/create/content/trains/track/$TrackTargetingBehaviour$RenderedTrackOverlayType"
 import {$GameEventListener, $GameEventListener$Type} from "packages/net/minecraft/world/level/gameevent/$GameEventListener"
 import {$Fluid, $Fluid$Type} from "packages/net/minecraft/world/level/material/$Fluid"
 import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
@@ -4730,6 +4730,10 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
+public "getMaterial"(): $TrackMaterial
+public "getBlockEntityClass"(): $Class<($GenericCrossingBlockEntity)>
+public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "getRequiredItems"(state: $BlockState$Type, be: $BlockEntity$Type): $ItemRequirement
 public "getTrackAxes"(world: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type): $List<($Vec3)>
 public "getUpNormal"(world: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type): $Vec3
 public "getCurveStart"(world: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, axis: $Vec3$Type): $Vec3
@@ -4737,14 +4741,8 @@ public "getBogeyAnchor"(world: $BlockGetter$Type, pos: $BlockPos$Type, state: $B
 public "prepareAssemblyOverlay"(world: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, direction: $Direction$Type, ms: $PoseStack$Type): $PartialModel
 public "prepareTrackOverlay"<Self extends $Affine<(Self)>>(affine: $Affine$Type<(Self)>, blockGetter: $BlockGetter$Type, blockPos: $BlockPos$Type, blockState: $BlockState$Type, bezierTrackPointLocation: $BezierTrackPointLocation$Type, axisDirection: $Direction$AxisDirection$Type, renderedTrackOverlayType: $TrackTargetingBehaviour$RenderedTrackOverlayType$Type): $PartialModel
 public "trackEquals"(state1: $BlockState$Type, state2: $BlockState$Type): boolean
-public "getRequiredItems"(state: $BlockState$Type, be: $BlockEntity$Type): $ItemRequirement
-public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
-public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getConnected"(worldIn: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, linear: boolean, connectedTo: $TrackNodeLocation$Type): $Collection<($TrackNodeLocation$DiscoveredLocation)>
-public "getBlockEntityClass"(): $Class<($GenericCrossingBlockEntity)>
-public "getMaterial"(): $TrackMaterial
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
-public "playerWillDestroy"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type): void
+public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "updateShape"(state: $BlockState$Type, direction: $Direction$Type, neighborState: $BlockState$Type, level: $LevelAccessor$Type, currentPos: $BlockPos$Type, neighborPos: $BlockPos$Type): $BlockState
 public "onPlace"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pOldState: $BlockState$Type, pIsMoving: boolean): void
 public "onRemove"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, newState: $BlockState$Type, isMoving: boolean): void
@@ -4753,27 +4751,29 @@ public "getCollisionShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, 
 public "getInteractionShape"(state: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type): $VoxelShape
 public "getShape"(state: $BlockState$Type, p_60556_: $BlockGetter$Type, p_60557_: $BlockPos$Type, p_60558_: $CollisionContext$Type): $VoxelShape
 public "tick"(state: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, p_60465_: $RandomSource$Type): void
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
+public "playerWillDestroy"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type): void
 public "onWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($GenericCrossingBlockEntity$Type)>): void
 public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($GenericCrossingBlockEntity)>
 public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($GenericCrossingBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
-public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($GenericCrossingBlockEntity$Type)>): void
 public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $GenericCrossingBlockEntity
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "overlay"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $BlockState$Type): $BlockState
-public "getNearestTrackAxis"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Vec3$Type): $Pair<($Vec3), ($Direction$AxisDirection)>
-public static "walkConnectedTracks"(arg0: $BlockGetter$Type, arg1: $TrackNodeLocation$Type, arg2: boolean): $Collection<($TrackNodeLocation$DiscoveredLocation)>
-public "getElevationAtCenter"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): double
 public "getYOffsetAt"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Vec3$Type): integer
+public "getElevationAtCenter"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): double
 public static "addToListIfConnected"(arg0: $TrackNodeLocation$Type, arg1: $Collection$Type<($TrackNodeLocation$DiscoveredLocation$Type)>, arg2: $BiFunction$Type<(double), (boolean), ($Vec3$Type)>, arg3: $Function$Type<(boolean), ($Vec3$Type)>, arg4: $Function$Type<(boolean), ($ResourceKey$Type<($Level$Type)>)>, arg5: $Function$Type<($Vec3$Type), (integer)>, arg6: $Vec3$Type, arg7: $BezierConnection$Type, arg8: $BiFunction$Type<(boolean), ($Vec3$Type), ($TrackMaterial$Type)>): void
 public static "getMaterialSimple"(arg0: $BlockGetter$Type, arg1: $Vec3$Type): $TrackMaterial
 public static "getMaterialSimple"(arg0: $BlockGetter$Type, arg1: $Vec3$Type, arg2: $TrackMaterial$Type): $TrackMaterial
+public static "walkConnectedTracks"(arg0: $BlockGetter$Type, arg1: $TrackNodeLocation$Type, arg2: boolean): $Collection<($TrackNodeLocation$DiscoveredLocation)>
+public "getNearestTrackAxis"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Vec3$Type): $Pair<($Vec3), ($Direction$AxisDirection)>
 public "isSlope"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): boolean
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
-public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
+public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
 public "updateWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): void
 public "fluidState"(arg0: $BlockState$Type): $FluidState
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
@@ -4784,9 +4784,9 @@ public "placeLiquid"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $Blo
 public "pickupBlock"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
 public "getPickupSound"(): $Optional<($SoundEvent)>
 public "getPickupSound"(arg0: $BlockState$Type): $Optional<($SoundEvent)>
-get "blockEntityType"(): $BlockEntityType<(any)>
-get "blockEntityClass"(): $Class<($GenericCrossingBlockEntity)>
 get "material"(): $TrackMaterial
+get "blockEntityClass"(): $Class<($GenericCrossingBlockEntity)>
+get "blockEntityType"(): $BlockEntityType<(any)>
 get "pickupSound"(): $Optional<($SoundEvent)>
 }
 /**
@@ -4805,8 +4805,8 @@ declare module "packages/com/railwayteam/railways/mixin_interfaces/$IIndexedSche
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $IIndexedSchedule {
 
- "railways$setIndex"(arg0: integer): void
  "railways$getIndex"(): integer
+ "railways$setIndex"(arg0: integer): void
 }
 
 export namespace $IIndexedSchedule {
@@ -4877,17 +4877,17 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
-public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getBlockEntityClass"(): $Class<($PortableFuelInterfaceBlockEntity)>
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
-public "setPlacedBy"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlacer: $LivingEntity$Type, pStack: $ItemStack$Type): void
+public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "neighborChanged"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, block: $Block$Type, fromPos: $BlockPos$Type, isMoving: boolean): void
 public "hasAnalogOutputSignal"(state: $BlockState$Type): boolean
 public "getAnalogOutputSignal"(blockState: $BlockState$Type, worldIn: $Level$Type, pos: $BlockPos$Type): integer
 public "getShape"(state: $BlockState$Type, worldIn: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
+public "setPlacedBy"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlacer: $LivingEntity$Type, pStack: $ItemStack$Type): void
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($PortableFuelInterfaceBlockEntity$Type)>): void
 public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($PortableFuelInterfaceBlockEntity)>
 public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($PortableFuelInterfaceBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
-public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($PortableFuelInterfaceBlockEntity$Type)>): void
 public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $PortableFuelInterfaceBlockEntity
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
@@ -4895,8 +4895,8 @@ public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $Block
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-get "blockEntityType"(): $BlockEntityType<(any)>
 get "blockEntityClass"(): $Class<($PortableFuelInterfaceBlockEntity)>
+get "blockEntityType"(): $BlockEntityType<(any)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -5055,15 +5055,15 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(props: $BlockBehaviour$Properties$Type)
 
-public "getWheelPointSpacing"(): double
 public "getConnectorAnchorOffset"(): $Vec3
+public "getWheelPointSpacing"(): double
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 public "getRequiredItems"(arg0: $BlockState$Type, arg1: $BlockEntity$Type): $ItemRequirement
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-get "wheelPointSpacing"(): double
 get "connectorAnchorOffset"(): $Vec3
+get "wheelPointSpacing"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -5228,8 +5228,8 @@ import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 
 export interface $ILimited {
 
- "setLimitEnabled"(arg0: boolean): void
  "isLimitEnabled"(): boolean
+ "setLimitEnabled"(arg0: boolean): void
 }
 
 export namespace $ILimited {
@@ -5336,10 +5336,10 @@ declare module "packages/com/railwayteam/railways/mixin_interfaces/$ICarriageBuf
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $ICarriageBufferDistanceTracker {
 
- "railways$setLeadingDistance"(arg0: integer): void
- "railways$getTrailingDistance"(): integer
- "railways$setTrailingDistance"(arg0: integer): void
  "railways$getLeadingDistance"(): integer
+ "railways$getTrailingDistance"(): integer
+ "railways$setLeadingDistance"(arg0: integer): void
+ "railways$setTrailingDistance"(arg0: integer): void
 }
 
 export namespace $ICarriageBufferDistanceTracker {
@@ -5398,15 +5398,15 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(props: $BlockBehaviour$Properties$Type)
 
-public "getWheelPointSpacing"(): double
 public "getConnectorAnchorOffset"(): $Vec3
+public "getWheelPointSpacing"(): double
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 public "getRequiredItems"(arg0: $BlockState$Type, arg1: $BlockEntity$Type): $ItemRequirement
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-get "wheelPointSpacing"(): double
 get "connectorAnchorOffset"(): $Vec3
+get "wheelPointSpacing"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -5503,25 +5503,25 @@ readonly "properties": $BlockBehaviour$Properties
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
 public "getVersion"(base: $BlockState$Type, upsideDown: boolean): $BlockState
+public "getRotatedBlockState"(state: $BlockState$Type, targetedFace: $Direction$Type): $BlockState
+public "propertiesToCopy"(): $List<($Property<(any)>)>
+public "isUpsideDown"(state: $BlockState$Type): boolean
 public "getTrackType"(style: $BogeyStyle$Type): $TrackMaterial$TrackType
-public "getWheelPointSpacing"(): double
-public "getWheelRadius"(): double
 public "getConnectorAnchorOffset"(): $Vec3
 public "getConnectorAnchorOffset"(upsideDown: boolean): $Vec3
+public "getWheelPointSpacing"(): double
+public "getWheelRadius"(): double
 public "allowsSingleBogeyCarriage"(): boolean
-public "propertiesToCopy"(): $List<($Property<(any)>)>
 public "canBeUpsideDown"(): boolean
-public "isUpsideDown"(state: $BlockState$Type): boolean
-public "getRotatedBlockState"(state: $BlockState$Type, targetedFace: $Direction$Type): $BlockState
 public "getCloneItemStack"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type): $ItemStack
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 public "getRequiredItems"(arg0: $BlockState$Type, arg1: $BlockEntity$Type): $ItemRequirement
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+get "connectorAnchorOffset"(): $Vec3
 get "wheelPointSpacing"(): double
 get "wheelRadius"(): double
-get "connectorAnchorOffset"(): $Vec3
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -5600,15 +5600,15 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(props: $BlockBehaviour$Properties$Type)
 
-public "getWheelRadius"(): double
 public "getConnectorAnchorOffset"(): $Vec3
+public "getWheelRadius"(): double
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 public "getRequiredItems"(arg0: $BlockState$Type, arg1: $BlockEntity$Type): $ItemRequirement
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-get "wheelRadius"(): double
 get "connectorAnchorOffset"(): $Vec3
+get "wheelRadius"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -5706,9 +5706,9 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type, type: $SmokeStackBlock$SmokeStackType$Type, shape: $ShapeWrapper$Type, createsStationarySmoke: boolean, variant: string)
 
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public "rotate"(state: $BlockState$Type, rot: $Rotation$Type): $BlockState
 public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
@@ -5734,11 +5734,11 @@ import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 
 export interface $ILimitedGlobalStation extends $ILimited {
 
+ "orDisablingTrain"(arg0: $Train$Type, arg1: $Train$Type): $Train
  "isStationEnabled"(): boolean
  "getDisablingTrain"(): $Train
- "orDisablingTrain"(arg0: $Train$Type, arg1: $Train$Type): $Train
- "setLimitEnabled"(arg0: boolean): void
  "isLimitEnabled"(): boolean
+ "setLimitEnabled"(arg0: boolean): void
 }
 
 export namespace $ILimitedGlobalStation {
@@ -5864,9 +5864,9 @@ readonly "properties": $BlockBehaviour$Properties
 constructor(properties: $BlockBehaviour$Properties$Type, type: $SmokeStackBlock$SmokeStackType$Type, shape: $ShapeWrapper$Type, createsStationarySmoke: boolean, variant: string)
 
 public "getRotatedBlockState"(originalState: $BlockState$Type, targetedFace: $Direction$Type): $BlockState
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public "rotate"(state: $BlockState$Type, rot: $Rotation$Type): $BlockState
 public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
@@ -5907,9 +5907,9 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(block: $Block$Type, properties: $Item$Properties$Type)
 
 public "place"(ctx: $BlockPlaceContext$Type): $InteractionResult
-public "moonlight$getClientAnimationExtension"(): any
-public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
 public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
+public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$setClientAnimationExtension"(arg0: any): void
 }
 /**
@@ -5932,8 +5932,8 @@ import {$HeadstockStyle, $HeadstockStyle$Type} from "packages/com/railwayteam/ra
 import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
@@ -5984,29 +5984,29 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
-public "isAcceptedRegardless"(material: $BlockState$Type): boolean
-public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
 public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
+public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
+public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "isAcceptedRegardless"(material: $BlockState$Type): boolean
+public "getBlockEntityType"(): $BlockEntityType<(any)>
 public static "wrappedItemColor"(): $ItemColor
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
-public "getCloneItemStack"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type): $ItemStack
 public "use"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
 public "rotate"(state: $BlockState$Type, rotation: $Rotation$Type): $BlockState
 public "mirror"(state: $BlockState$Type, mirror: $Mirror$Type): $BlockState
 public "getShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
+public "getCloneItemStack"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type): $ItemStack
 public "onWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-public static "getRequiredItemsForLayer"(state: $BlockState$Type, property: $IntegerProperty$Type): $ItemRequirement
 public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public static "getRequiredItemsForLayer"(state: $BlockState$Type, property: $IntegerProperty$Type): $ItemRequirement
 get "blockEntityType"(): $BlockEntityType<(any)>
 }
 /**
@@ -6063,8 +6063,8 @@ static readonly "BY_BLOCK_ENTITY": $SimpleRegistry<($BlockEntityType<(any)>), ($
 
 constructor()
 
-public "getLineOptionText"(line: integer): $Component
 public "provideStats"(context: $DisplayLinkContext$Type): $DisplayTargetStats
+public "getLineOptionText"(line: integer): $Component
 public "acceptText"(line: integer, text: $List$Type<($MutableComponent$Type)>, context: $DisplayLinkContext$Type): void
 }
 /**
@@ -6117,9 +6117,9 @@ public "interactLivingEntity"(pStack: $ItemStack$Type, pPlayer: $Player$Type, pI
 public "inventoryTick"(stack: $ItemStack$Type, level: $Level$Type, entity: $Entity$Type, slotId: integer, isSelected: boolean): void
 public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltip: $List$Type<($Component$Type)>, flag: $TooltipFlag$Type): void
 public "useOnCurve"(selection: $TrackBlockOutline$BezierPointSelection$Type, stack: $ItemStack$Type): boolean
-public "moonlight$getClientAnimationExtension"(): any
-public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
 public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
+public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$setClientAnimationExtension"(arg0: any): void
 }
 /**
@@ -6199,9 +6199,9 @@ import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/
 
 export interface $IHasCustomOutline {
 
- "drawLineWithAxisOffset"(vb: $VertexConsumer$Type, ms: $PoseStack$Type, x1: double, y1: double, z1: double, x2: double, y2: double, z2: double, offset: double, axis: $Direction$Axis$Type): void
  "matrixRotation"(arg0: $PoseStack$Type, arg1: $BlockState$Type): void
  "customOutline"(arg0: $PoseStack$Type, arg1: $VertexConsumer$Type, arg2: $BlockState$Type): void
+ "drawLineWithAxisOffset"(vb: $VertexConsumer$Type, ms: $PoseStack$Type, x1: double, y1: double, z1: double, x2: double, y2: double, z2: double, offset: double, axis: $Direction$Axis$Type): void
  "drawLine"(vb: $VertexConsumer$Type, ms: $PoseStack$Type, x1: double, y1: double, z1: double, x2: double, y2: double, z2: double): void
 }
 
@@ -6246,9 +6246,9 @@ constructor(pBlock: $Block$Type, pProperties: $Item$Properties$Type, type: $Edge
 
 public static "ofType"<T extends $Block>(type: $EdgePointType$Type<(any)>): $NonNullBiFunction<(any), ($Item$Properties), ($TrackTargetingBlockItem)>
 public "useOnCurve"(selection: $TrackBlockOutline$BezierPointSelection$Type, stack: $ItemStack$Type): boolean
-public "moonlight$getClientAnimationExtension"(): any
-public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
 public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
+public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$setClientAnimationExtension"(arg0: any): void
 }
 /**
@@ -6298,8 +6298,8 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public "rotate"(state: $BlockState$Type, rotation: $Rotation$Type): $BlockState
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -6341,26 +6341,26 @@ import {$TrackTargetingBehaviour$RenderedTrackOverlayType, $TrackTargetingBehavi
 export interface $TransparentSegmentTrackBlock extends $ITrackBlock {
 
  "overlay"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $BlockState$Type): $BlockState
- "getNearestTrackAxis"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Vec3$Type): $Pair<($Vec3), ($Direction$AxisDirection)>
+ "getMaterial"(): $TrackMaterial
+ "getYOffsetAt"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Vec3$Type): integer
  "getTrackAxes"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $List<($Vec3)>
  "getElevationAtCenter"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): double
- "getYOffsetAt"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Vec3$Type): integer
  "getUpNormal"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $Vec3
  "getCurveStart"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Vec3$Type): $Vec3
  "getBogeyAnchor"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $BlockState
  "prepareAssemblyOverlay"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Direction$Type, arg4: $PoseStack$Type): $PartialModel
  "prepareTrackOverlay"<Self extends $Affine<(Self)>>(arg0: $Affine$Type<(Self)>, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: $BezierTrackPointLocation$Type, arg5: $Direction$AxisDirection$Type, arg6: $TrackTargetingBehaviour$RenderedTrackOverlayType$Type): $PartialModel
  "trackEquals"(arg0: $BlockState$Type, arg1: $BlockState$Type): boolean
+ "getNearestTrackAxis"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Vec3$Type): $Pair<($Vec3), ($Direction$AxisDirection)>
  "getConnected"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: boolean, arg4: $TrackNodeLocation$Type): $Collection<($TrackNodeLocation$DiscoveredLocation)>
- "getMaterial"(): $TrackMaterial
  "isSlope"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): boolean
 }
 
 export namespace $TransparentSegmentTrackBlock {
-function walkConnectedTracks(arg0: $BlockGetter$Type, arg1: $TrackNodeLocation$Type, arg2: boolean): $Collection<($TrackNodeLocation$DiscoveredLocation)>
 function addToListIfConnected(arg0: $TrackNodeLocation$Type, arg1: $Collection$Type<($TrackNodeLocation$DiscoveredLocation$Type)>, arg2: $BiFunction$Type<(double), (boolean), ($Vec3$Type)>, arg3: $Function$Type<(boolean), ($Vec3$Type)>, arg4: $Function$Type<(boolean), ($ResourceKey$Type<($Level$Type)>)>, arg5: $Function$Type<($Vec3$Type), (integer)>, arg6: $Vec3$Type, arg7: $BezierConnection$Type, arg8: $BiFunction$Type<(boolean), ($Vec3$Type), ($TrackMaterial$Type)>): void
 function getMaterialSimple(arg0: $BlockGetter$Type, arg1: $Vec3$Type): $TrackMaterial
 function getMaterialSimple(arg0: $BlockGetter$Type, arg1: $Vec3$Type, arg2: $TrackMaterial$Type): $TrackMaterial
+function walkConnectedTracks(arg0: $BlockGetter$Type, arg1: $TrackNodeLocation$Type, arg2: boolean): $Collection<($TrackNodeLocation$DiscoveredLocation)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -6467,8 +6467,8 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(props: $BlockBehaviour$Properties$Type)
 
-public "getWheelRadius"(): double
 public "getConnectorAnchorOffset"(): $Vec3
+public "getWheelRadius"(): double
 public "getRenderShape"(state: $BlockState$Type): $RenderShape
 public "getCollisionShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
@@ -6476,8 +6476,8 @@ public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg
 public "getRequiredItems"(arg0: $BlockState$Type, arg1: $BlockEntity$Type): $ItemRequirement
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-get "wheelRadius"(): double
 get "connectorAnchorOffset"(): $Vec3
+get "wheelRadius"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -6498,8 +6498,8 @@ import {$LazyOptional, $LazyOptional$Type} from "packages/net/minecraftforge/com
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
 import {$LerpedFloat, $LerpedFloat$Type} from "packages/net/createmod/catnip/animation/$LerpedFloat"
 import {$IHaveGoggleInformation, $IHaveGoggleInformation$Type} from "packages/com/simibubi/create/api/equipment/goggles/$IHaveGoggleInformation"
-import {$FluidStack, $FluidStack$Type} from "packages/net/minecraftforge/fluids/$FluidStack"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
+import {$FluidStack, $FluidStack$Type} from "packages/net/minecraftforge/fluids/$FluidStack"
 import {$BlockEntityBehaviour, $BlockEntityBehaviour$Type} from "packages/com/simibubi/create/foundation/blockEntity/behaviour/$BlockEntityBehaviour"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
@@ -6522,69 +6522,69 @@ constructor(type: $BlockEntityType$Type<(any)>, pos: $BlockPos$Type, state: $Blo
 public "initialize"(): void
 public "write"(compound: $CompoundTag$Type, clientPacket: boolean): void
 public "tick"(): void
-public "getFluid"(tank: integer): $FluidStack
 public "getMaxLength"(longAxis: $Direction$Axis$Type, width: integer): integer
 public "getMaxWidth"(): integer
-public "getTankSize"(tank: integer): integer
-public "setTankSize"(tank: integer, blocks: integer): void
-public "getController"(): $BlockPos
+public "getCapability"<T>(cap: $Capability$Type<(T)>, side: $Direction$Type): $LazyOptional<(T)>
 public "getExtraData"(): any
 public "addToGoggleTooltip"(tooltip: $List$Type<($Component$Type)>, isPlayerSneaking: boolean): boolean
+public "addBehaviours"(behaviours: $List$Type<($BlockEntityBehaviour$Type)>): void
+public "getController"(): $BlockPos
 public "isController"(): boolean
-public "getCapability"<T>(cap: $Capability$Type<(T)>, side: $Direction$Type): $LazyOptional<(T)>
 public static "getMaxHeight"(): integer
-public "sendDataImmediately"(): void
+public "toggleWindows"(): void
 public "getTankInventory"(): $FluidTank
 public "setFluidLevel"(fluidLevel: $LerpedFloat$Type): void
-public "toggleWindows"(): void
-public "getFillState"(): float
-public "applyFluidTankSize"(blocks: integer): void
-public "getFluidLevel"(): $LerpedFloat
-public "getTotalTankSize"(): integer
-public static "getCapacityMultiplier"(): integer
-public "addBehaviours"(behaviours: $List$Type<($BlockEntityBehaviour$Type)>): void
 public "setController"(controller: $BlockPos$Type): void
 public "removeController"(keepFluids: boolean): void
 public "getLastKnownPos"(): $BlockPos
 public "preventConnectivityUpdate"(): void
 public "notifyMultiUpdated"(): void
 public "getMainConnectionAxis"(): $Direction$Axis
+public "getTankSize"(tank: integer): integer
+public "setTankSize"(tank: integer, blocks: integer): void
 public "setExtraData"(data: any): void
 public "modifyExtraData"(data: any): any
+public "applyFluidTankSize"(blocks: integer): void
+public "getFillState"(): float
+public static "getCapacityMultiplier"(): integer
+public "getTotalTankSize"(): integer
+public "getFluidLevel"(): $LerpedFloat
+public "sendDataImmediately"(): void
+public "getFluid"(tank: integer): $FluidStack
 public "setHeight"(height: integer): void
 public "setWindows"(window: boolean): void
-public "setWidth"(width: integer): void
-public "hasTank"(): boolean
-public "getTank"(tank: integer): $IFluidTank
 public "sendData"(): void
+public "setWidth"(width: integer): void
+public "getTank"(tank: integer): $IFluidTank
+public "hasTank"(): boolean
 public "invalidate"(): void
-public static "getMaxSize"(): integer
 public "getWidth"(): integer
 public "getHeight"(): integer
+public static "getMaxSize"(): integer
 public "containedFluidTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean, arg2: $LazyOptional$Type<($IFluidHandler$Type)>): boolean
 public "getIcon"(arg0: boolean): $ItemStack
 public "getMainAxisOf"(arg0: $BlockEntity$Type): $Direction$Axis
 get "maxWidth"(): integer
-get "controller"(): $BlockPos
 get "extraData"(): any
+get "controller"(): $BlockPos
 get "controller"(): boolean
 get "maxHeight"(): integer
 get "tankInventory"(): $FluidTank
 set "fluidLevel"(value: $LerpedFloat$Type)
-get "fillState"(): float
-get "fluidLevel"(): $LerpedFloat
-get "totalTankSize"(): integer
-get "capacityMultiplier"(): integer
 set "controller"(value: $BlockPos$Type)
 get "lastKnownPos"(): $BlockPos
 get "mainConnectionAxis"(): $Direction$Axis
 set "extraData"(value: any)
+get "fillState"(): float
+get "capacityMultiplier"(): integer
+get "totalTankSize"(): integer
+get "fluidLevel"(): $LerpedFloat
 set "height"(value: integer)
 set "windows"(value: boolean)
 set "width"(value: integer)
-get "maxSize"(): integer
 get "width"(): integer
 get "height"(): integer
+get "maxSize"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -6639,15 +6639,15 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(props: $BlockBehaviour$Properties$Type)
 
-public "getWheelPointSpacing"(): double
 public "getConnectorAnchorOffset"(): $Vec3
+public "getWheelPointSpacing"(): double
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 public "getRequiredItems"(arg0: $BlockState$Type, arg1: $BlockEntity$Type): $ItemRequirement
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-get "wheelPointSpacing"(): double
 get "connectorAnchorOffset"(): $Vec3
+get "wheelPointSpacing"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -6709,15 +6709,15 @@ constructor(props: $BlockBehaviour$Properties$Type, style: $NarrowGaugeBogeyBloc
 
 public static "create"(style: $NarrowGaugeBogeyBlock$NarrowGaugeStandardStyle$Type): $NonNullFunction<($BlockBehaviour$Properties), ($NarrowGaugeBogeyBlock)>
 public "getTrackType"(style: $BogeyStyle$Type): $TrackMaterial$TrackType
-public "getWheelRadius"(): double
 public "getConnectorAnchorOffset"(): $Vec3
+public "getWheelRadius"(): double
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 public "getRequiredItems"(arg0: $BlockState$Type, arg1: $BlockEntity$Type): $ItemRequirement
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-get "wheelRadius"(): double
 get "connectorAnchorOffset"(): $Vec3
+get "wheelRadius"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -6821,9 +6821,9 @@ import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 
 export interface $IOverridableSignal {
 
- "railways$refresh"(signalBE: $SignalBlockEntity$Type, state: $SignalBlockEntity$SignalState$Type, ticks: integer): void
- "railways$refresh"(arg0: $SignalBlockEntity$Type, arg1: $SignalBlockEntity$SignalState$Type, arg2: integer, arg3: boolean): void
  "railways$getOverriddenState"(): $Optional<($SignalBlockEntity$SignalState)>
+ "railways$refresh"(arg0: $SignalBlockEntity$Type, arg1: $SignalBlockEntity$SignalState$Type, arg2: integer, arg3: boolean): void
+ "railways$refresh"(signalBE: $SignalBlockEntity$Type, state: $SignalBlockEntity$SignalState$Type, ticks: integer): void
 }
 
 export namespace $IOverridableSignal {
@@ -6882,15 +6882,15 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(props: $BlockBehaviour$Properties$Type)
 
-public "getWheelPointSpacing"(): double
 public "getConnectorAnchorOffset"(): $Vec3
+public "getWheelPointSpacing"(): double
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 public "getRequiredItems"(arg0: $BlockState$Type, arg1: $BlockEntity$Type): $ItemRequirement
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-get "wheelPointSpacing"(): double
 get "connectorAnchorOffset"(): $Vec3
+get "wheelPointSpacing"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -7044,9 +7044,9 @@ constructor(properties: $BlockBehaviour$Properties$Type, material: $TrackMateria
 
 public "prepareTrackOverlay"<Self extends $Affine<(Self)>>(affine: $Affine$Type<(Self)>, world: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, bezierPoint: $BezierTrackPointLocation$Type, direction: $Direction$AxisDirection$Type, type: $TrackTargetingBehaviour$RenderedTrackOverlayType$Type): $PartialModel
 public "overlay"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $BlockState$Type): $BlockState
-public static "walkConnectedTracks"(arg0: $BlockGetter$Type, arg1: $TrackNodeLocation$Type, arg2: boolean): $Collection<($TrackNodeLocation$DiscoveredLocation)>
-public "getTrackAxes"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $List<($Vec3)>
+public "getMaterial"(): $TrackMaterial
 public "getYOffsetAt"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Vec3$Type): integer
+public "getTrackAxes"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $List<($Vec3)>
 public static "addToListIfConnected"(arg0: $TrackNodeLocation$Type, arg1: $Collection$Type<($TrackNodeLocation$DiscoveredLocation$Type)>, arg2: $BiFunction$Type<(double), (boolean), ($Vec3$Type)>, arg3: $Function$Type<(boolean), ($Vec3$Type)>, arg4: $Function$Type<(boolean), ($ResourceKey$Type<($Level$Type)>)>, arg5: $Function$Type<($Vec3$Type), (integer)>, arg6: $Vec3$Type, arg7: $BezierConnection$Type, arg8: $BiFunction$Type<(boolean), ($Vec3$Type), ($TrackMaterial$Type)>): void
 public "getUpNormal"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $Vec3
 public "getCurveStart"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Vec3$Type): $Vec3
@@ -7055,8 +7055,8 @@ public "prepareAssemblyOverlay"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, a
 public "trackEquals"(arg0: $BlockState$Type, arg1: $BlockState$Type): boolean
 public static "getMaterialSimple"(arg0: $BlockGetter$Type, arg1: $Vec3$Type): $TrackMaterial
 public static "getMaterialSimple"(arg0: $BlockGetter$Type, arg1: $Vec3$Type, arg2: $TrackMaterial$Type): $TrackMaterial
+public static "walkConnectedTracks"(arg0: $BlockGetter$Type, arg1: $TrackNodeLocation$Type, arg2: boolean): $Collection<($TrackNodeLocation$DiscoveredLocation)>
 public "getConnected"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: boolean, arg4: $TrackNodeLocation$Type): $Collection<($TrackNodeLocation$DiscoveredLocation)>
-public "getMaterial"(): $TrackMaterial
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
@@ -7098,9 +7098,9 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(pBlock: $Block$Type, pProperties: $Item$Properties$Type)
 
 public "place"(pContext: $BlockPlaceContext$Type): $InteractionResult
-public "moonlight$getClientAnimationExtension"(): any
-public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
 public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
+public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$setClientAnimationExtension"(arg0: any): void
 }
 /**
@@ -7195,12 +7195,12 @@ public static "create"(properties: $BlockBehaviour$Properties$Type): $VentBlock
 public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
 public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "onWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public static "getRequiredItemsForLayer"(state: $BlockState$Type, property: $IntegerProperty$Type): $ItemRequirement
 public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public static "getRequiredItemsForLayer"(state: $BlockState$Type, property: $IntegerProperty$Type): $ItemRequirement
 public "rotate"(pState: $BlockState$Type, pRot: $Rotation$Type): $BlockState
 public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
 }
@@ -7255,8 +7255,8 @@ readonly "properties": $BlockBehaviour$Properties
 
 
 public static "automatic"(properties: $BlockBehaviour$Properties$Type): $TrackSwitchBlock
-public "shouldCheckWeakPower"(state: $BlockState$Type, level: $SignalGetter$Type, pos: $BlockPos$Type, side: $Direction$Type): boolean
 public "canConnectRedstone"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, direction: $Direction$Type): boolean
+public "shouldCheckWeakPower"(state: $BlockState$Type, level: $SignalGetter$Type, pos: $BlockPos$Type, side: $Direction$Type): boolean
 public static "manual"(properties: $BlockBehaviour$Properties$Type): $TrackSwitchBlock
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
@@ -7396,8 +7396,8 @@ import {$ParticleOptions, $ParticleOptions$Type} from "packages/net/minecraft/co
 
 export interface $AccessorLevelRenderer {
 
- "railways$getRenderBuffers"(): $RenderBuffers
  "callAddParticleInternal"(arg0: $ParticleOptions$Type, arg1: boolean, arg2: boolean, arg3: double, arg4: double, arg5: double, arg6: double, arg7: double, arg8: double): $Particle
+ "railways$getRenderBuffers"(): $RenderBuffers
 }
 
 export namespace $AccessorLevelRenderer {
@@ -7502,8 +7502,8 @@ static readonly "BRASS_CAP_COPPER": $SmokestackStyle
 public static "values"(): ($SmokestackStyle)[]
 public static "valueOf"(name: string): $SmokestackStyle
 public "getTexture"(variant: string): $ResourceLocation
-public "getLangName"(context: $Couple$Type<(string)>): string
 public static "variantToTagKey"(variant: string): $TagKey<($Item)>
+public "getLangName"(context: $Couple$Type<(string)>): string
 public "getModel"(context: $Couple$Type<(string)>): $ResourceLocation
 public "getSerializedName"(): string
 public "getBlockId"(context: $Couple$Type<(string)>): string
@@ -7569,10 +7569,10 @@ export interface $IGenericCrossingTrackBE {
 }
 
 export namespace $IGenericCrossingTrackBE {
-function getQuads(material: $TrackMaterial$Type, shape: $TrackShape$Type, side: $Direction$Type, rand: $RandomSource$Type): $List<($BakedQuad)>
-function getQuads(data: $Pair$Type<($TrackMaterial$Type), ($TrackShape$Type)>, side: $Direction$Type, rand: $RandomSource$Type): $List<($BakedQuad)>
-function getModel(data: $Pair$Type<($TrackMaterial$Type), ($TrackShape$Type)>): $BakedModel
 function getModel(material: $TrackMaterial$Type, shape: $TrackShape$Type): $BakedModel
+function getModel(data: $Pair$Type<($TrackMaterial$Type), ($TrackShape$Type)>): $BakedModel
+function getQuads(data: $Pair$Type<($TrackMaterial$Type), ($TrackShape$Type)>, side: $Direction$Type, rand: $RandomSource$Type): $List<($BakedQuad)>
+function getQuads(material: $TrackMaterial$Type, shape: $TrackShape$Type, side: $Direction$Type, rand: $RandomSource$Type): $List<($BakedQuad)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -7685,12 +7685,12 @@ readonly "properties": $BlockBehaviour$Properties
 
 
 public "getDefaultStyle"(): $BogeyStyle
+public "getBlockEntityClass"(): $Class<($CRBogeyBlockEntity)>
 public "getTrackType"(style: $BogeyStyle$Type): $TrackMaterial$TrackType
+public "getConnectorAnchorOffset"(): $Vec3
 public "getWheelPointSpacing"(): double
 public "getWheelRadius"(): double
-public "getConnectorAnchorOffset"(): $Vec3
 public "getBlockEntityType"(): $BlockEntityType<(any)>
-public "getBlockEntityClass"(): $Class<($CRBogeyBlockEntity)>
 public "getCloneItemStack"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type): $ItemStack
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
@@ -7698,11 +7698,11 @@ public "getRequiredItems"(arg0: $BlockState$Type, arg1: $BlockEntity$Type): $Ite
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 get "defaultStyle"(): $BogeyStyle
+get "blockEntityClass"(): $Class<($CRBogeyBlockEntity)>
+get "connectorAnchorOffset"(): $Vec3
 get "wheelPointSpacing"(): double
 get "wheelRadius"(): double
-get "connectorAnchorOffset"(): $Vec3
 get "blockEntityType"(): $BlockEntityType<(any)>
-get "blockEntityClass"(): $Class<($CRBogeyBlockEntity)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -7848,15 +7848,15 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(props: $BlockBehaviour$Properties$Type)
 
-public "getWheelPointSpacing"(): double
 public "getConnectorAnchorOffset"(): $Vec3
+public "getWheelPointSpacing"(): double
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 public "getRequiredItems"(arg0: $BlockState$Type, arg1: $BlockEntity$Type): $ItemRequirement
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-get "wheelPointSpacing"(): double
 get "connectorAnchorOffset"(): $Vec3
+get "wheelPointSpacing"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -7911,15 +7911,15 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(props: $BlockBehaviour$Properties$Type)
 
-public "getWheelPointSpacing"(): double
 public "getConnectorAnchorOffset"(): $Vec3
+public "getWheelPointSpacing"(): double
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 public "getRequiredItems"(arg0: $BlockState$Type, arg1: $BlockEntity$Type): $ItemRequirement
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-get "wheelPointSpacing"(): double
 get "connectorAnchorOffset"(): $Vec3
+get "wheelPointSpacing"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -8012,9 +8012,9 @@ constructor(pBlock: $Block$Type, pProperties: $Item$Properties$Type, type: $Edge
 public static "ofType"<T extends $Block>(type: $EdgePointType$Type<(any)>): $NonNullBiFunction<(any), ($Item$Properties), ($TrackTargetingBlockItem)>
 public "useOn"(context: $UseOnContext$Type): $InteractionResult
 public "useOnCurve"(selection: $TrackBlockOutline$BezierPointSelection$Type, stack: $ItemStack$Type): boolean
-public "moonlight$getClientAnimationExtension"(): any
-public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
 public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
+public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$setClientAnimationExtension"(arg0: any): void
 }
 /**
@@ -8084,9 +8084,9 @@ export class $TrackBuffer extends $SingleBlockEntityEdgePoint {
 
 constructor()
 
+public "canNavigateVia"(side: $TrackNode$Type): boolean
 public static "getBufferRoom"(train: $Train$Type, backwards: boolean): integer
 public static "getBufferRoom"(train: $Train$Type): integer
-public "canNavigateVia"(side: $TrackNode$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -8116,10 +8116,10 @@ static readonly "SPECIAL_INVERTED": $SlidingDoorMode
 public static "values"(): ($SlidingDoorMode)[]
 public static "valueOf"(name: string): $SlidingDoorMode
 public "canOpenManually"(): boolean
-public "getTranslationKey"(): string
 public "canOpenSpecially"(): boolean
-public static "fromNbt"(nbt: $CompoundTag$Type): $SlidingDoorMode
+public "getTranslationKey"(): string
 public "getIcon"(): $AllIcons
+public static "fromNbt"(nbt: $CompoundTag$Type): $SlidingDoorMode
 get "translationKey"(): string
 get "icon"(): $AllIcons
 }
@@ -8139,9 +8139,9 @@ declare module "packages/com/railwayteam/railways/mixin_interfaces/$IBufferBlock
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $IBufferBlockedTrain {
 
+ "railways$setControlBlocked"(arg0: boolean, arg1: boolean): void
  "railways$isControlBlocked"(): boolean
  "railways$getBlockedSign"(): integer
- "railways$setControlBlocked"(arg0: boolean, arg1: boolean): void
 }
 
 export namespace $IBufferBlockedTrain {
@@ -8219,13 +8219,13 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(block: $Block$Type, properties: $Item$Properties$Type)
 
-public "placeHandcar"(trackGraphLocation: $TrackGraphLocation$Type, level: $Level$Type, player: $Player$Type, soundPos: $BlockPos$Type): boolean
 public static "withGraphLocation"(level: $Level$Type, pos: $BlockPos$Type, front: boolean, targetBezier: $BezierTrackPointLocation$Type, callback: $BiConsumer$Type<($TrackTargetingBlockItem$OverlapResult$Type), ($TrackGraphLocation$Type)>): void
+public "placeHandcar"(trackGraphLocation: $TrackGraphLocation$Type, level: $Level$Type, player: $Player$Type, soundPos: $BlockPos$Type): boolean
 public "useOn"(context: $UseOnContext$Type): $InteractionResult
 public "useOnCurve"(selection: $TrackBlockOutline$BezierPointSelection$Type, stack: $ItemStack$Type): boolean
-public "moonlight$getClientAnimationExtension"(): any
-public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
 public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
+public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$setClientAnimationExtension"(arg0: any): void
 }
 /**
@@ -8309,11 +8309,11 @@ static readonly "MAX_BAR_WIDTH": integer
 
 public static "create"<T extends $Comparable<(T)>>(blockSupplier: $NonNullSupplier$Type<($Block$Type)>, property: $Property$Type<(T)>, value: T, primary: boolean): $NonNullFunction<($Item$Properties), ($BlockStateBlockItem<(T)>)>
 public static "create"<T extends $Comparable<(T)>>(property: $Property$Type<(T)>, value: T, primary: boolean): $NonNullBiFunction<($Block), ($Item$Properties), ($BlockStateBlockItem<(T)>)>
-public "registerBlocks"(blockToItemMap: $Map$Type<($Block$Type), ($Item$Type)>, item: $Item$Type): void
 public "getDescriptionId"(): string
-public "moonlight$getClientAnimationExtension"(): any
-public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "registerBlocks"(blockToItemMap: $Map$Type<($Block$Type), ($Item$Type)>, item: $Item$Type): void
 public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
+public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$setClientAnimationExtension"(arg0: any): void
 get "descriptionId"(): string
 }
@@ -8400,8 +8400,8 @@ import {$ShapeWrapper, $ShapeWrapper$Type} from "packages/com/railwayteam/railwa
 import {$FluidState, $FluidState$Type} from "packages/net/minecraft/world/level/material/$FluidState"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$Function, $Function$Type} from "packages/java/util/function/$Function"
-import {$SmartBlockEntity, $SmartBlockEntity$Type} from "packages/com/simibubi/create/foundation/blockEntity/$SmartBlockEntity"
 import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
+import {$SmartBlockEntity, $SmartBlockEntity$Type} from "packages/com/simibubi/create/foundation/blockEntity/$SmartBlockEntity"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
 import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
@@ -8453,30 +8453,30 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type, shape: $ShapeWrapper$Type, variant: string)
 
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
-public "getCloneItemStack"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type): $ItemStack
 public "updateShape"(state: $BlockState$Type, direction: $Direction$Type, neighborState: $BlockState$Type, level: $LevelAccessor$Type, currentPos: $BlockPos$Type, neighborPos: $BlockPos$Type): $BlockState
 public "neighborChanged"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, block: $Block$Type, fromPos: $BlockPos$Type, isMoving: boolean): void
 public "use"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
 public "getFluidState"(state: $BlockState$Type): $FluidState
 public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
 public "asItem"(): $Item
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
+public "getCloneItemStack"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type): $ItemStack
 public "updateWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): void
 public "fluidState"(arg0: $BlockState$Type): $FluidState
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 public "withWater"(arg0: $BlockState$Type, arg1: $BlockPlaceContext$Type): $BlockState
 public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
-public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
-public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
+public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
+public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "onWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<(T)>): void
 public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<(T)>
 public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<(T), ($InteractionResult$Type)>): $InteractionResult
-public "getBlockEntityType"(): $BlockEntityType<(any)>
-public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<(T)>): void
-public "getBlockEntityClass"(): $Class<(T)>
 public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): T
+public "getBlockEntityClass"(): $Class<(T)>
+public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
@@ -8486,8 +8486,8 @@ public "pickupBlock"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $Blo
 public "getPickupSound"(): $Optional<($SoundEvent)>
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
 public "getPickupSound"(arg0: $BlockState$Type): $Optional<($SoundEvent)>
-get "blockEntityType"(): $BlockEntityType<(any)>
 get "blockEntityClass"(): $Class<(T)>
+get "blockEntityType"(): $BlockEntityType<(any)>
 get "pickupSound"(): $Optional<($SoundEvent)>
 }
 /**

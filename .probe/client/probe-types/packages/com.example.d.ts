@@ -40,24 +40,34 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public "getLinkedGrid"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $Player$Type): $IGrid
 public "getMenuHost"(arg0: $Player$Type, arg1: integer, arg2: $ItemStack$Type, arg3: $BlockPos$Type): $ItemMenuHost
+public "getLinkedGrid"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $Player$Type): $IGrid
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "canEquip"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): boolean
-public "usePower"(arg0: $Player$Type, arg1: double, arg2: $ItemStack$Type): boolean
 public "hasPower"(arg0: $Player$Type, arg1: double, arg2: $ItemStack$Type): boolean
+public "usePower"(arg0: $Player$Type, arg1: double, arg2: $ItemStack$Type): boolean
 public "canUnequip"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): boolean
 public "getFortuneLevel"(arg0: $SlotContext$Type, arg1: $LootContext$Type, arg2: $ItemStack$Type): integer
-public "getAttributeModifiers"(arg0: $SlotContext$Type, arg1: $UUID$Type, arg2: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "getLootingLevel"(arg0: $SlotContext$Type, arg1: $DamageSource$Type, arg2: $LivingEntity$Type, arg3: integer, arg4: $ItemStack$Type): integer
+public "makesPiglinsNeutral"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): boolean
 /**
  * 
  * @deprecated
  */
 public "getAttributeModifiers"(arg0: string, arg1: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
-public "makesPiglinsNeutral"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): boolean
+public "getAttributeModifiers"(arg0: $SlotContext$Type, arg1: $UUID$Type, arg2: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
 public "canWalkOnPowderedSnow"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): boolean
 public "isEnderMask"(arg0: $SlotContext$Type, arg1: $EnderMan$Type, arg2: $ItemStack$Type): boolean
-public "getLootingLevel"(arg0: $SlotContext$Type, arg1: $DamageSource$Type, arg2: $LivingEntity$Type, arg3: integer, arg4: $ItemStack$Type): integer
+/**
+ * 
+ * @deprecated
+ */
+public "getFortuneBonus"(arg0: string, arg1: $LivingEntity$Type, arg2: $ItemStack$Type, arg3: integer): integer
+/**
+ * 
+ * @deprecated
+ */
+public "getLootingBonus"(arg0: string, arg1: $LivingEntity$Type, arg2: $ItemStack$Type, arg3: integer): integer
 public "hasCurioCapability"(arg0: $ItemStack$Type): boolean
 public "getSlotsTooltip"(arg0: $List$Type<($Component$Type)>, arg1: $ItemStack$Type): $List<($Component)>
 /**
@@ -78,40 +88,30 @@ public "canEquipFromUse"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): boolea
  * @deprecated
  */
 public "canRightClickEquip"(arg0: $ItemStack$Type): boolean
-/**
- * 
- * @deprecated
- */
-public "writeSyncData"(arg0: $ItemStack$Type): $CompoundTag
 public "writeSyncData"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): $CompoundTag
 /**
  * 
  * @deprecated
  */
-public "readSyncData"(arg0: $CompoundTag$Type, arg1: $ItemStack$Type): void
+public "writeSyncData"(arg0: $ItemStack$Type): $CompoundTag
 public "readSyncData"(arg0: $SlotContext$Type, arg1: $CompoundTag$Type, arg2: $ItemStack$Type): void
 /**
  * 
  * @deprecated
  */
-public "getDropRule"(arg0: $LivingEntity$Type, arg1: $ItemStack$Type): $ICurio$DropRule
+public "readSyncData"(arg0: $CompoundTag$Type, arg1: $ItemStack$Type): void
 public "getDropRule"(arg0: $SlotContext$Type, arg1: $DamageSource$Type, arg2: integer, arg3: boolean, arg4: $ItemStack$Type): $ICurio$DropRule
+/**
+ * 
+ * @deprecated
+ */
+public "getDropRule"(arg0: $LivingEntity$Type, arg1: $ItemStack$Type): $ICurio$DropRule
 public "getAttributesTooltip"(arg0: $List$Type<($Component$Type)>, arg1: $ItemStack$Type): $List<($Component)>
 /**
  * 
  * @deprecated
  */
 public "showAttributesTooltip"(arg0: string, arg1: $ItemStack$Type): boolean
-/**
- * 
- * @deprecated
- */
-public "getFortuneBonus"(arg0: string, arg1: $LivingEntity$Type, arg2: $ItemStack$Type, arg3: integer): integer
-/**
- * 
- * @deprecated
- */
-public "getLootingBonus"(arg0: string, arg1: $LivingEntity$Type, arg2: $ItemStack$Type, arg3: integer): integer
 /**
  * 
  * @deprecated
@@ -127,36 +127,36 @@ public "canEquip"(arg0: string, arg1: $LivingEntity$Type, arg2: $ItemStack$Type)
  * @deprecated
  */
 public "canUnequip"(arg0: string, arg1: $LivingEntity$Type, arg2: $ItemStack$Type): boolean
+public "curioTick"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): void
 /**
  * 
  * @deprecated
  */
 public "curioTick"(arg0: string, arg1: integer, arg2: $LivingEntity$Type, arg3: $ItemStack$Type): void
-public "curioTick"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): void
-public "onEquip"(arg0: $SlotContext$Type, arg1: $ItemStack$Type, arg2: $ItemStack$Type): void
 /**
  * 
  * @deprecated
  */
 public "onEquip"(arg0: string, arg1: integer, arg2: $LivingEntity$Type, arg3: $ItemStack$Type): void
-/**
- * 
- * @deprecated
- */
-public "onUnequip"(arg0: string, arg1: integer, arg2: $LivingEntity$Type, arg3: $ItemStack$Type): void
+public "onEquip"(arg0: $SlotContext$Type, arg1: $ItemStack$Type, arg2: $ItemStack$Type): void
 public "onUnequip"(arg0: $SlotContext$Type, arg1: $ItemStack$Type, arg2: $ItemStack$Type): void
 /**
  * 
  * @deprecated
  */
-public "curioBreak"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type): void
+public "onUnequip"(arg0: string, arg1: integer, arg2: $LivingEntity$Type, arg3: $ItemStack$Type): void
 public "curioBreak"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): void
 /**
  * 
  * @deprecated
  */
-public "canSync"(arg0: string, arg1: integer, arg2: $LivingEntity$Type, arg3: $ItemStack$Type): boolean
+public "curioBreak"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type): void
 public "canSync"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): boolean
+/**
+ * 
+ * @deprecated
+ */
+public "canSync"(arg0: string, arg1: integer, arg2: $LivingEntity$Type, arg3: $ItemStack$Type): boolean
 public "asItem"(): $Item
 }
 /**

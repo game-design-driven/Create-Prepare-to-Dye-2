@@ -29,6 +29,7 @@ import {$GiftLootEventJS, $GiftLootEventJS$Type} from "packages/dev/latvian/mods
 import {$ProxyEventJS, $ProxyEventJS$Type} from "packages/pie/ilikepiefoo/events/$ProxyEventJS"
 import {$SimpleLevelEventJS, $SimpleLevelEventJS$Type} from "packages/dev/latvian/mods/kubejs/level/$SimpleLevelEventJS"
 import {$ExplosionEventJS$Before, $ExplosionEventJS$Before$Type} from "packages/dev/latvian/mods/kubejs/level/$ExplosionEventJS$Before"
+import {$DeliveryEventJS, $DeliveryEventJS$Type} from "packages/io/github/mortuusars/wares/integration/kubejs/event/$DeliveryEventJS"
 import {$CompostableRecipesEventJS, $CompostableRecipesEventJS$Type} from "packages/dev/latvian/mods/kubejs/recipe/$CompostableRecipesEventJS"
 import {$ItemDroppedEventJS, $ItemDroppedEventJS$Type} from "packages/dev/latvian/mods/kubejs/item/$ItemDroppedEventJS"
 import {$CommandRegistryEventJS, $CommandRegistryEventJS$Type} from "packages/dev/latvian/mods/kubejs/command/$CommandRegistryEventJS"
@@ -150,6 +151,11 @@ function beforeExplosion(handler: (event: $ExplosionEventJS$Before) => void): vo
 function tick(extra: string, handler: (event: $SimpleLevelEventJS) => void): void
 function tick(handler: (event: $SimpleLevelEventJS) => void): void
 function afterExplosion(handler: (event: $ExplosionEventJS$After) => void): void
+}
+export namespace WaresEvents {
+function agreementCompleted(handler: (event: $DeliveryEventJS) => void): void
+function batchDelivered(handler: (event: $DeliveryEventJS) => void): void
+function agreementExpired(handler: (event: $DeliveryEventJS) => void): void
 }
 export namespace EntityEvents {
 function spawned(extra: $EntityType$Type, handler: (event: $EntitySpawnedEventJS) => void): void

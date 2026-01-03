@@ -175,10 +175,10 @@ public "setLength"(arg0: integer): void
 public "getAddress"(): $InetAddress
 public "getPort"(): integer
 public "getOffset"(): integer
+public "getData"(): (byte)[]
 public "setPort"(arg0: integer): void
 public "setData"(arg0: (byte)[]): void
 public "setData"(arg0: (byte)[], arg1: integer, arg2: integer): void
-public "getData"(): (byte)[]
 public "getSocketAddress"(): $SocketAddress
 public "setSocketAddress"(arg0: $SocketAddress$Type): void
 public "setAddress"(arg0: $InetAddress$Type): void
@@ -187,9 +187,9 @@ set "length"(value: integer)
 get "address"(): $InetAddress
 get "port"(): integer
 get "offset"(): integer
+get "data"(): (byte)[]
 set "port"(value: integer)
 set "data"(value: (byte)[])
-get "data"(): (byte)[]
 get "socketAddress"(): $SocketAddress
 set "socketAddress"(value: $SocketAddress$Type)
 set "address"(value: $InetAddress$Type)
@@ -518,6 +518,7 @@ public "getChannel"(): $DatagramChannel
 public "getBroadcast"(): boolean
 public "send"(arg0: $DatagramPacket$Type): void
 public "disconnect"(): void
+public "receive"(arg0: $DatagramPacket$Type): void
 public "isClosed"(): boolean
 public "isConnected"(): boolean
 public "isBound"(): boolean
@@ -539,7 +540,6 @@ public "setTrafficClass"(arg0: integer): void
 public "getTrafficClass"(): integer
 public "setReuseAddress"(arg0: boolean): void
 public "getReuseAddress"(): boolean
-public "receive"(arg0: $DatagramPacket$Type): void
 public "setBroadcast"(arg0: boolean): void
 public "joinGroup"(arg0: $SocketAddress$Type, arg1: $NetworkInterface$Type): void
 public "leaveGroup"(arg0: $SocketAddress$Type, arg1: $NetworkInterface$Type): void

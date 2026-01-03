@@ -15,38 +15,38 @@ import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/
 import {$Enchantment, $Enchantment$Type} from "packages/net/minecraft/world/item/enchantment/$Enchantment"
 import {$IGridTickable, $IGridTickable$Type} from "packages/appeng/api/networking/ticking/$IGridTickable"
 import {$List, $List$Type} from "packages/java/util/$List"
-import {$PlaneConnections, $PlaneConnections$Type} from "packages/appeng/parts/automation/$PlaneConnections"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$PlaneConnections, $PlaneConnections$Type} from "packages/appeng/parts/automation/$PlaneConnections"
 import {$AEBasePart, $AEBasePart$Type} from "packages/appeng/parts/$AEBasePart"
-import {$Map, $Map$Type} from "packages/java/util/$Map"
 import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
+import {$Map, $Map$Type} from "packages/java/util/$Map"
 
 export class $AnnihilationPlanePart extends $AEBasePart implements $IGridTickable {
 
 constructor(arg0: $IPartItem$Type<(any)>)
 
-public "getEnchantments"(): $Map<($Enchantment), (integer)>
-public "getTickingRequest"(arg0: $IGridNode$Type): $TickingRequest
-public "tickingRequest"(arg0: $IGridNode$Type, arg1: integer): $TickRateModulation
-public "getConnections"(): $PlaneConnections
-public "onNeighborChanged"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): void
-public "onUpdateShape"(arg0: $Direction$Type): void
+public "onEntityCollision"(arg0: $Entity$Type): void
 public "readFromNBT"(arg0: $CompoundTag$Type): void
 public "getCableConnectionLength"(arg0: $AECableType$Type): float
 public "importSettings"(arg0: $SettingsFrom$Type, arg1: $CompoundTag$Type, arg2: $Player$Type): void
 public "exportSettings"(arg0: $SettingsFrom$Type, arg1: $CompoundTag$Type): void
-public "getStaticModels"(): $IPartModel
-public "onEntityCollision"(arg0: $Entity$Type): void
 public "getModelData"(): $ModelData
-public static "getModels"(): $List<($IPartModel)>
+public "getTickingRequest"(arg0: $IGridNode$Type): $TickingRequest
+public "tickingRequest"(arg0: $IGridNode$Type, arg1: integer): $TickRateModulation
+public "onNeighborChanged"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): void
+public "onUpdateShape"(arg0: $Direction$Type): void
+public "getStaticModels"(): $IPartModel
+public "getConnections"(): $PlaneConnections
+public "getEnchantments"(): $Map<($Enchantment), (integer)>
 public "writeToNBT"(arg0: $CompoundTag$Type): void
 public "addToWorld"(): void
 public "getBoxes"(arg0: $IPartCollisionHelper$Type): void
+public static "getModels"(): $List<($IPartModel)>
 public static "tryClear"(arg0: any): void
-get "enchantments"(): $Map<($Enchantment), (integer)>
-get "connections"(): $PlaneConnections
-get "staticModels"(): $IPartModel
 get "modelData"(): $ModelData
+get "staticModels"(): $IPartModel
+get "connections"(): $PlaneConnections
+get "enchantments"(): $Map<($Enchantment), (integer)>
 get "models"(): $List<($IPartModel)>
 }
 /**
@@ -91,9 +91,9 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $Item$Properties$Type)
 
 public "addToMainCreativeTab"(arg0: $CreativeModeTab$Output$Type): void
-public "getMaxDamage"(arg0: $ItemStack$Type): integer
-public "isBookEnchantable"(arg0: $ItemStack$Type, arg1: $ItemStack$Type): boolean
 public "canApplyAtEnchantingTable"(arg0: $ItemStack$Type, arg1: $Enchantment$Type): boolean
+public "isBookEnchantable"(arg0: $ItemStack$Type, arg1: $ItemStack$Type): boolean
+public "getMaxDamage"(arg0: $ItemStack$Type): integer
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "isEnchantable"(arg0: $ItemStack$Type): boolean
 public "getEnchantmentValue"(): integer
@@ -136,7 +136,9 @@ export interface $ICableBusContainer {
 
  "isEmpty"(): boolean
  "activate"(arg0: $Player$Type, arg1: $InteractionHand$Type, arg2: $Vec3$Type): boolean
+ "onEntityCollision"(arg0: $Entity$Type): void
  "animateTick"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $RandomSource$Type): void
+ "canConnectRedstone"(arg0: $Direction$Type): boolean
  "selectPartLocal"(arg0: $Vec3$Type): $SelectedPart
  "getLightValue"(): integer
  "getRenderState"(): $CableBusRenderState
@@ -144,9 +146,7 @@ export interface $ICableBusContainer {
  "onUpdateShape"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $Direction$Type): void
  "isProvidingStrongPower"(arg0: $Direction$Type): integer
  "isProvidingWeakPower"(arg0: $Direction$Type): integer
- "onEntityCollision"(arg0: $Entity$Type): void
  "recolourBlock"(arg0: $Direction$Type, arg1: $AEColor$Type, arg2: $Player$Type): boolean
- "canConnectRedstone"(arg0: $Direction$Type): boolean
  "isLadder"(arg0: $LivingEntity$Type): boolean
 }
 
@@ -206,11 +206,18 @@ public "getLocation"(): $DimensionalBlockPos
 public "cleanup"(): void
 public "activate"(arg0: $Player$Type, arg1: $InteractionHand$Type, arg2: $Vec3$Type): boolean
 public "setHost"(arg0: $IPartHost$Type): void
+public "isRequiresDynamicRender"(): boolean
+public "markForUpdate"(): void
+public "onEntityCollision"(arg0: $Entity$Type): void
+public "removeFromWorld"(): void
+public "readFromNBT"(arg0: $CompoundTag$Type): void
+public "getBlockEntity"(): $BlockEntity
+public "writeToStream"(arg0: $FriendlyByteBuf$Type): void
+public "getCableConnectionLength"(arg0: $AECableType$Type): float
+public "readFromStream"(arg0: $FriendlyByteBuf$Type): boolean
 public "animateTick"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $RandomSource$Type): void
+public "canConnectRedstone"(arg0: $Direction$Type): boolean
 public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
-public "clearContent"(): void
-public "notifyNeighbors"(): void
-public "updateConnections"(): void
 public "addPartDrops"(arg0: $List$Type<($ItemStack$Type)>): $List<($ItemStack)>
 public "selectPartLocal"(arg0: $Vec3$Type): $SelectedPart
 public "getCollisionShape"(arg0: $CollisionContext$Type): $VoxelShape
@@ -220,52 +227,45 @@ public "removePartFromSide"(arg0: $Direction$Type): void
 public "clearContainer"(): void
 public "partChanged"(): void
 public "notifyNeighborNow"(arg0: $Direction$Type): void
-public "hasRedstone"(): boolean
-public "markForSave"(): void
 public "onNeighborChanged"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): void
 public "onUpdateShape"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $Direction$Type): void
 public "isProvidingStrongPower"(arg0: $Direction$Type): integer
 public "isProvidingWeakPower"(arg0: $Direction$Type): integer
-public "replacePart"<T extends $IPart>(arg0: $IPartItem$Type<(T)>, arg1: $Direction$Type, arg2: $Player$Type, arg3: $InteractionHand$Type): T
-public "getFacadeContainer"(): $IFacadeContainer
-public "getBlockEntity"(): $BlockEntity
-public "readFromNBT"(arg0: $CompoundTag$Type): void
-public "writeToStream"(arg0: $FriendlyByteBuf$Type): void
-public "readFromStream"(arg0: $FriendlyByteBuf$Type): boolean
-public "removeFromWorld"(): void
-public "getCableConnectionLength"(arg0: $AECableType$Type): float
-public "markForUpdate"(): void
-public "getGridNode"(arg0: $Direction$Type): $IGridNode
 public "addAdditionalDrops"(arg0: $List$Type<($ItemStack$Type)>): void
-public "onEntityCollision"(arg0: $Entity$Type): void
+public "getGridNode"(arg0: $Direction$Type): $IGridNode
+public "replacePart"<T extends $IPart>(arg0: $IPartItem$Type<(T)>, arg1: $Direction$Type, arg2: $Player$Type, arg3: $InteractionHand$Type): T
+public "markForSave"(): void
 public "recolourBlock"(arg0: $Direction$Type, arg1: $AEColor$Type, arg2: $Player$Type): boolean
-public "canConnectRedstone"(arg0: $Direction$Type): boolean
-public "isRequiresDynamicRender"(): boolean
+public "getFacadeContainer"(): $IFacadeContainer
+public "hasRedstone"(): boolean
+public "notifyNeighbors"(): void
+public "clearContent"(): void
+public "updateConnections"(): void
 public "isLadder"(arg0: $LivingEntity$Type): boolean
+public "getPart"(arg0: $Direction$Type): $IPart
 public "canAddPart"(arg0: $ItemStack$Type, arg1: $Direction$Type): boolean
 public "addPart"<T extends $IPart>(arg0: $IPartItem$Type<(T)>, arg1: $Direction$Type, arg2: $Player$Type): T
 public "removePart"(arg0: $IPart$Type): boolean
 public "isBlocked"(arg0: $Direction$Type): boolean
-public "getPart"(arg0: $Direction$Type): $IPart
 public "writeToNBT"(arg0: $CompoundTag$Type): void
 public "addToWorld"(): void
 public "isInWorld"(): boolean
+public "getColor"(): $AEColor
 public "getShape"(): $VoxelShape
 public static "isLoading"(): boolean
-public "getColor"(): $AEColor
 public "selectPartWorld"(arg0: $Vec3$Type): $SelectedPart
 get "empty"(): boolean
 get "location"(): $DimensionalBlockPos
 set "host"(value: $IPartHost$Type)
+get "requiresDynamicRender"(): boolean
+get "blockEntity"(): $BlockEntity
 get "lightValue"(): integer
 get "renderState"(): $CableBusRenderState
 get "facadeContainer"(): $IFacadeContainer
-get "blockEntity"(): $BlockEntity
-get "requiresDynamicRender"(): boolean
 get "inWorld"(): boolean
+get "color"(): $AEColor
 get "shape"(): $VoxelShape
 get "loading"(): boolean
-get "color"(): $AEColor
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -345,8 +345,8 @@ import {$IPartItem, $IPartItem$Type} from "packages/appeng/api/parts/$IPartItem"
 import {$AECableType, $AECableType$Type} from "packages/appeng/api/util/$AECableType"
 import {$IPartModel, $IPartModel$Type} from "packages/appeng/api/parts/$IPartModel"
 import {$IManagedGridNode, $IManagedGridNode$Type} from "packages/appeng/api/networking/$IManagedGridNode"
-import {$FriendlyByteBuf, $FriendlyByteBuf$Type} from "packages/net/minecraft/network/$FriendlyByteBuf"
 import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
+import {$FriendlyByteBuf, $FriendlyByteBuf$Type} from "packages/net/minecraft/network/$FriendlyByteBuf"
 import {$IPowerChannelState, $IPowerChannelState$Type} from "packages/appeng/api/implementations/$IPowerChannelState"
 import {$IPartHost, $IPartHost$Type} from "packages/appeng/api/parts/$IPartHost"
 import {$MultiBufferSource, $MultiBufferSource$Type} from "packages/net/minecraft/client/renderer/$MultiBufferSource"
@@ -360,86 +360,86 @@ public "getHost"(): $IPartHost
 public "isActive"(): boolean
 public "getLevel"(): $Level
 public "getSide"(): $Direction
-public "addEntityCrashInfo"(arg0: $CrashReportCategory$Type): void
-public "isClientSide"(): boolean
-public "getMainNode"(): $IManagedGridNode
-public "getActionableNode"(): $IGridNode
-public "getBlockEntity"(): $BlockEntity
-public "getPartItem"(): $IPartItem<(any)>
-public "readFromNBT"(arg0: $CompoundTag$Type): void
-public "readVisualStateFromNBT"(arg0: $CompoundTag$Type): void
-public "writeToStream"(arg0: $FriendlyByteBuf$Type): void
-public "isMissingChannel"(): boolean
-public "readFromStream"(arg0: $FriendlyByteBuf$Type): boolean
-public "writeVisualStateToNBT"(arg0: $CompoundTag$Type): void
-public "removeFromWorld"(): void
-public "setPartHostInfo"(arg0: $Direction$Type, arg1: $IPartHost$Type, arg2: $BlockEntity$Type): void
-public "getCableConnectionLength"(arg0: $AECableType$Type): float
-public "importSettings"(arg0: $SettingsFrom$Type, arg1: $CompoundTag$Type, arg2: $Player$Type): void
-public "exportSettings"(arg0: $SettingsFrom$Type, arg1: $CompoundTag$Type): void
-public "useStandardMemoryCard"(): boolean
 public "onPartActivate"(arg0: $Player$Type, arg1: $InteractionHand$Type, arg2: $Vec3$Type): boolean
+public "onPlacement"(arg0: $Player$Type): void
 public "onShiftActivate"(arg0: $Player$Type, arg1: $InteractionHand$Type, arg2: $Vec3$Type): boolean
 public "onPartShiftActivate"(arg0: $Player$Type, arg1: $InteractionHand$Type, arg2: $Vec3$Type): boolean
-public "onPlacement"(arg0: $Player$Type): void
+public "useStandardMemoryCard"(): boolean
 public "getSubInventory"(arg0: $ResourceLocation$Type): $InternalInventory
+public "setPartHostInfo"(arg0: $Direction$Type, arg1: $IPartHost$Type, arg2: $BlockEntity$Type): void
+public "removeFromWorld"(): void
+public "getActionableNode"(): $IGridNode
+public "writeVisualStateToNBT"(arg0: $CompoundTag$Type): void
+public "getMainNode"(): $IManagedGridNode
+public "readFromNBT"(arg0: $CompoundTag$Type): void
+public "getBlockEntity"(): $BlockEntity
+public "isMissingChannel"(): boolean
+public "isClientSide"(): boolean
+public "writeToStream"(arg0: $FriendlyByteBuf$Type): void
+public "getPartItem"(): $IPartItem<(any)>
+public "readVisualStateFromNBT"(arg0: $CompoundTag$Type): void
+public "getCableConnectionLength"(arg0: $AECableType$Type): float
+public "importSettings"(arg0: $SettingsFrom$Type, arg1: $CompoundTag$Type, arg2: $Player$Type): void
+public "readFromStream"(arg0: $FriendlyByteBuf$Type): boolean
+public "exportSettings"(arg0: $SettingsFrom$Type, arg1: $CompoundTag$Type): void
+public "addEntityCrashInfo"(arg0: $CrashReportCategory$Type): void
 public "getGridNode"(): $IGridNode
-public "getCustomName"(): $Component
 public "getName"(): $Component
-public "isPowered"(): boolean
+public "getCustomName"(): $Component
 public "writeToNBT"(arg0: $CompoundTag$Type): void
 public "addToWorld"(): void
 public "onActivate"(arg0: $Player$Type, arg1: $InteractionHand$Type, arg2: $Vec3$Type): boolean
+public "isPowered"(): boolean
+public "getExternalCableConnectionType"(): $AECableType
+public "onEntityCollision"(arg0: $Entity$Type): void
 public "animateTick"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $RandomSource$Type): void
+public "canConnectRedstone"(): boolean
+public "getModelData"(): $ModelData
+public "getLightLevel"(): integer
+public "getCapability"<T>(arg0: $Capability$Type<(T)>): $LazyOptional<(T)>
 public "renderDynamic"(arg0: float, arg1: $PoseStack$Type, arg2: $MultiBufferSource$Type, arg3: integer, arg4: integer): void
-public "requireDynamicRender"(): boolean
 public "onNeighborChanged"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): void
+public "requireDynamicRender"(): boolean
 public "onUpdateShape"(arg0: $Direction$Type): void
 public "isProvidingStrongPower"(): integer
 public "isProvidingWeakPower"(): integer
 public "getExternalFacingNode"(): $IGridNode
 public "onShiftClicked"(arg0: $Player$Type, arg1: $Vec3$Type): boolean
 public "addPartDrop"(arg0: $List$Type<($ItemStack$Type)>, arg1: boolean): void
-public "getDesiredConnectionType"(): $AECableType
-public "getStaticModels"(): $IPartModel
-public "canBePlacedOn"(arg0: $BusSupport$Type): boolean
 public "addAdditionalDrops"(arg0: $List$Type<($ItemStack$Type)>, arg1: boolean): void
-public "onEntityCollision"(arg0: $Entity$Type): void
-public "getModelData"(): $ModelData
-public "getLightLevel"(): integer
-public "canConnectRedstone"(): boolean
-public "getCapability"<T>(arg0: $Capability$Type<(T)>): $LazyOptional<(T)>
-public "getExternalCableConnectionType"(): $AECableType
+public "canBePlacedOn"(arg0: $BusSupport$Type): boolean
+public "getStaticModels"(): $IPartModel
+public "getDesiredConnectionType"(): $AECableType
 public "clearContent"(): void
 public "isLadder"(arg0: $LivingEntity$Type): boolean
-public "isSolid"(): boolean
 public "onClicked"(arg0: $Player$Type, arg1: $Vec3$Type): boolean
+public "isSolid"(): boolean
 public "getBoxes"(arg0: $IPartCollisionHelper$Type): void
-public "getDisplayName"(): $Component
 public "hasCustomName"(): boolean
+public "getDisplayName"(): $Component
 public static "tryClear"(arg0: any): void
 get "host"(): $IPartHost
 get "active"(): boolean
 get "level"(): $Level
 get "side"(): $Direction
-get "clientSide"(): boolean
-get "mainNode"(): $IManagedGridNode
 get "actionableNode"(): $IGridNode
+get "mainNode"(): $IManagedGridNode
 get "blockEntity"(): $BlockEntity
-get "partItem"(): $IPartItem<(any)>
 get "missingChannel"(): boolean
+get "clientSide"(): boolean
+get "partItem"(): $IPartItem<(any)>
 get "gridNode"(): $IGridNode
-get "customName"(): $Component
 get "name"(): $Component
+get "customName"(): $Component
 get "powered"(): boolean
+get "externalCableConnectionType"(): $AECableType
+get "modelData"(): $ModelData
+get "lightLevel"(): integer
 get "providingStrongPower"(): boolean
 get "providingWeakPower"(): boolean
 get "externalFacingNode"(): $IGridNode
-get "desiredConnectionType"(): $AECableType
 get "staticModels"(): $IPartModel
-get "modelData"(): $ModelData
-get "lightLevel"(): integer
-get "externalCableConnectionType"(): $AECableType
+get "desiredConnectionType"(): $AECableType
 get "solid"(): boolean
 get "displayName"(): $Component
 }

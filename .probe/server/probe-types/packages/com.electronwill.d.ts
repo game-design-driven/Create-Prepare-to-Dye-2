@@ -129,10 +129,11 @@ function ofConcurrent(arg0: $Path$Type): $FileConfig
 function wrap(arg0: $Map$Type<(string), (any)>, arg1: $ConfigFormat$Type<(any)>): $Config
 function of(arg0: $ConfigFormat$Type<(any)>): $Config
 function of(arg0: $Supplier$Type<($Map$Type<(string), (any)>)>, arg1: $ConfigFormat$Type<(any)>): $Config
-function copy(arg0: $UnmodifiableConfig$Type, arg1: $Supplier$Type<($Map$Type<(string), (any)>)>, arg2: $ConfigFormat$Type<(any)>): $Config
-function copy(arg0: $UnmodifiableConfig$Type, arg1: $ConfigFormat$Type<(any)>): $Config
 function copy(arg0: $UnmodifiableConfig$Type, arg1: $Supplier$Type<($Map$Type<(string), (any)>)>): $Config
+function copy(arg0: $UnmodifiableConfig$Type, arg1: $ConfigFormat$Type<(any)>): $Config
+function copy(arg0: $UnmodifiableConfig$Type, arg1: $Supplier$Type<($Map$Type<(string), (any)>)>, arg2: $ConfigFormat$Type<(any)>): $Config
 function copy(arg0: $UnmodifiableConfig$Type): $Config
+function inMemoryUniversalConcurrent(): $Config
 function inMemory(): $Config
 function ofConcurrent(arg0: $ConfigFormat$Type<(any)>): $Config
 function inMemoryUniversal(): $Config
@@ -143,7 +144,6 @@ function isInsertionOrderPreserved(): boolean
 function setInsertionOrderPreserved(arg0: boolean): void
 function getDefaultMapCreator<T>(arg0: boolean): $Supplier<($Map<(string), (T)>)>
 function getDefaultMapCreator<T>(arg0: boolean, arg1: boolean): $Supplier<($Map<(string), (T)>)>
-function inMemoryUniversalConcurrent(): $Config
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -407,8 +407,8 @@ const READ_NOTHING: $FileNotFoundAction
 const THROW_ERROR: $FileNotFoundAction
 function copyData(arg0: $URL$Type): $FileNotFoundAction
 function copyData(arg0: $File$Type): $FileNotFoundAction
-function copyData(arg0: $Path$Type): $FileNotFoundAction
 function copyData(arg0: $InputStream$Type): $FileNotFoundAction
+function copyData(arg0: $Path$Type): $FileNotFoundAction
 function copyResource(arg0: string): $FileNotFoundAction
 }
 /**
@@ -442,18 +442,18 @@ export class $GenericBuilder<Base extends $Config, Result extends $FileConfig> {
 public "charset"(arg0: $Charset$Type): $GenericBuilder<(Base), (Result)>
 public "build"(): Result
 public "sync"(): $GenericBuilder<(Base), (Result)>
-public "concurrent"(): $GenericBuilder<(Base), (Result)>
 public "autosave"(): $GenericBuilder<(Base), (Result)>
 public "autoreload"(): $GenericBuilder<(Base), (Result)>
-public "parsingMode"(arg0: $ParsingMode$Type): $GenericBuilder<(Base), (Result)>
-public "onFileNotFound"(arg0: $FileNotFoundAction$Type): $GenericBuilder<(Base), (Result)>
-public "writingMode"(arg0: $WritingMode$Type): $GenericBuilder<(Base), (Result)>
+public "concurrent"(): $GenericBuilder<(Base), (Result)>
 public "defaultResource"(arg0: string): $GenericBuilder<(Base), (Result)>
-public "defaultData"(arg0: $File$Type): $GenericBuilder<(Base), (Result)>
 public "defaultData"(arg0: $URL$Type): $GenericBuilder<(Base), (Result)>
+public "defaultData"(arg0: $File$Type): $GenericBuilder<(Base), (Result)>
 public "defaultData"(arg0: $Path$Type): $GenericBuilder<(Base), (Result)>
 public "preserveInsertionOrder"(): $GenericBuilder<(Base), (Result)>
 public "backingMapCreator"(arg0: $Supplier$Type<($Map$Type<(string), (any)>)>): $GenericBuilder<(Base), (Result)>
+public "onFileNotFound"(arg0: $FileNotFoundAction$Type): $GenericBuilder<(Base), (Result)>
+public "writingMode"(arg0: $WritingMode$Type): $GenericBuilder<(Base), (Result)>
+public "parsingMode"(arg0: $ParsingMode$Type): $GenericBuilder<(Base), (Result)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -657,12 +657,11 @@ export interface $CommentedConfig extends $UnmodifiableCommentedConfig, $Config 
  "setComment"(arg0: string, arg1: string): string
  "setComment"(arg0: $List$Type<(string)>, arg1: string): string
  "commentMap"(): $Map<(string), (string)>
- "unmodifiable"(): $UnmodifiableCommentedConfig
- "removeComment"(arg0: $List$Type<(string)>): string
- "removeComment"(arg0: string): string
- "clearComments"(): void
  "putAllComments"(arg0: $UnmodifiableCommentedConfig$Type): void
  "putAllComments"(arg0: $Map$Type<(string), ($UnmodifiableCommentedConfig$CommentNode$Type)>): void
+ "removeComment"(arg0: string): string
+ "removeComment"(arg0: $List$Type<(string)>): string
+ "clearComments"(): void
  "getComment"(arg0: string): string
  "getComment"(arg0: $List$Type<(string)>): string
  "getOptionalComment"(arg0: string): $Optional<(string)>
@@ -764,18 +763,18 @@ function copy(arg0: $UnmodifiableCommentedConfig$Type): $CommentedConfig
 function inMemory(): $CommentedConfig
 function ofConcurrent(arg0: $ConfigFormat$Type<(any)>): $CommentedConfig
 function inMemoryConcurrent(): $CommentedConfig
+function concurrentCopy(arg0: $UnmodifiableCommentedConfig$Type, arg1: $ConfigFormat$Type<(any)>): $CommentedConfig
 function concurrentCopy(arg0: $UnmodifiableCommentedConfig$Type): $CommentedConfig
 function concurrentCopy(arg0: $UnmodifiableConfig$Type, arg1: $ConfigFormat$Type<(any)>): $CommentedConfig
-function concurrentCopy(arg0: $UnmodifiableCommentedConfig$Type, arg1: $ConfigFormat$Type<(any)>): $CommentedConfig
 function concurrentCopy(arg0: $UnmodifiableConfig$Type): $CommentedConfig
 function fake(arg0: $Config$Type): $CommentedConfig
 function fake(arg0: $UnmodifiableConfig$Type): $UnmodifiableCommentedConfig
+function inMemoryUniversalConcurrent(): $Config
 function inMemoryUniversal(): $Config
 function isInsertionOrderPreserved(): boolean
 function setInsertionOrderPreserved(arg0: boolean): void
 function getDefaultMapCreator<T>(arg0: boolean): $Supplier<($Map<(string), (T)>)>
 function getDefaultMapCreator<T>(arg0: boolean, arg1: boolean): $Supplier<($Map<(string), (T)>)>
-function inMemoryUniversalConcurrent(): $Config
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -997,12 +996,11 @@ export interface $CommentedFileConfig extends $CommentedConfig, $FileConfig {
  "setComment"(arg0: string, arg1: string): string
  "setComment"(arg0: $List$Type<(string)>, arg1: string): string
  "commentMap"(): $Map<(string), (string)>
- "unmodifiable"(): $UnmodifiableCommentedConfig
- "removeComment"(arg0: $List$Type<(string)>): string
- "removeComment"(arg0: string): string
- "clearComments"(): void
  "putAllComments"(arg0: $UnmodifiableCommentedConfig$Type): void
  "putAllComments"(arg0: $Map$Type<(string), ($UnmodifiableCommentedConfig$CommentNode$Type)>): void
+ "removeComment"(arg0: string): string
+ "removeComment"(arg0: $List$Type<(string)>): string
+ "clearComments"(): void
  "load"(): void
  "close"(): void
  "save"(): void
@@ -1127,18 +1125,18 @@ function copy(arg0: $UnmodifiableCommentedConfig$Type): $CommentedConfig
 function inMemory(): $CommentedConfig
 function ofConcurrent(arg0: $ConfigFormat$Type<(any)>): $CommentedConfig
 function inMemoryConcurrent(): $CommentedConfig
+function concurrentCopy(arg0: $UnmodifiableCommentedConfig$Type, arg1: $ConfigFormat$Type<(any)>): $CommentedConfig
 function concurrentCopy(arg0: $UnmodifiableCommentedConfig$Type): $CommentedConfig
 function concurrentCopy(arg0: $UnmodifiableConfig$Type, arg1: $ConfigFormat$Type<(any)>): $CommentedConfig
-function concurrentCopy(arg0: $UnmodifiableCommentedConfig$Type, arg1: $ConfigFormat$Type<(any)>): $CommentedConfig
 function concurrentCopy(arg0: $UnmodifiableConfig$Type): $CommentedConfig
 function fake(arg0: $Config$Type): $CommentedConfig
 function fake(arg0: $UnmodifiableConfig$Type): $UnmodifiableCommentedConfig
+function inMemoryUniversalConcurrent(): $Config
 function inMemoryUniversal(): $Config
 function isInsertionOrderPreserved(): boolean
 function setInsertionOrderPreserved(arg0: boolean): void
 function getDefaultMapCreator<T>(arg0: boolean): $Supplier<($Map<(string), (T)>)>
 function getDefaultMapCreator<T>(arg0: boolean, arg1: boolean): $Supplier<($Map<(string), (T)>)>
-function inMemoryUniversalConcurrent(): $Config
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1350,10 +1348,11 @@ export namespace $Config {
 function wrap(arg0: $Map$Type<(string), (any)>, arg1: $ConfigFormat$Type<(any)>): $Config
 function of(arg0: $ConfigFormat$Type<(any)>): $Config
 function of(arg0: $Supplier$Type<($Map$Type<(string), (any)>)>, arg1: $ConfigFormat$Type<(any)>): $Config
-function copy(arg0: $UnmodifiableConfig$Type, arg1: $Supplier$Type<($Map$Type<(string), (any)>)>, arg2: $ConfigFormat$Type<(any)>): $Config
-function copy(arg0: $UnmodifiableConfig$Type, arg1: $ConfigFormat$Type<(any)>): $Config
 function copy(arg0: $UnmodifiableConfig$Type, arg1: $Supplier$Type<($Map$Type<(string), (any)>)>): $Config
+function copy(arg0: $UnmodifiableConfig$Type, arg1: $ConfigFormat$Type<(any)>): $Config
+function copy(arg0: $UnmodifiableConfig$Type, arg1: $Supplier$Type<($Map$Type<(string), (any)>)>, arg2: $ConfigFormat$Type<(any)>): $Config
 function copy(arg0: $UnmodifiableConfig$Type): $Config
+function inMemoryUniversalConcurrent(): $Config
 function inMemory(): $Config
 function ofConcurrent(arg0: $ConfigFormat$Type<(any)>): $Config
 function inMemoryUniversal(): $Config
@@ -1364,7 +1363,6 @@ function isInsertionOrderPreserved(): boolean
 function setInsertionOrderPreserved(arg0: boolean): void
 function getDefaultMapCreator<T>(arg0: boolean): $Supplier<($Map<(string), (T)>)>
 function getDefaultMapCreator<T>(arg0: boolean, arg1: boolean): $Supplier<($Map<(string), (T)>)>
-function inMemoryUniversalConcurrent(): $Config
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

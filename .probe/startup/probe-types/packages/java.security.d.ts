@@ -203,19 +203,19 @@ public "nextBytes"(arg0: (byte)[]): void
 public "setSeed"(arg0: (byte)[]): void
 public "setSeed"(arg0: long): void
 public static "getSeed"(arg0: integer): (byte)[]
-public "getAlgorithm"(): string
 public "generateSeed"(arg0: integer): (byte)[]
 public static "getInstanceStrong"(): $SecureRandom
-public "reseed"(): void
 public "reseed"(arg0: $SecureRandomParameters$Type): void
+public "reseed"(): void
+public "getAlgorithm"(): string
 public static "getDefault"(): $RandomGenerator
 public static "of"(arg0: string): $RandomGenerator
 get "parameters"(): $SecureRandomParameters
 get "provider"(): $Provider
 set "seed"(value: (byte)[])
 set "seed"(value: long)
-get "algorithm"(): string
 get "instanceStrong"(): $SecureRandom
+get "algorithm"(): string
 get "default"(): $RandomGenerator
 }
 /**
