@@ -34,8 +34,8 @@ import {$TransformStack, $TransformStack$Type} from "packages/dev/engine_room/fl
 import {$PoseStack, $PoseStack$Type} from "packages/com/mojang/blaze3d/vertex/$PoseStack"
 import {$Direction$Axis, $Direction$Axis$Type} from "packages/net/minecraft/core/$Direction$Axis"
 import {$Quaternionfc, $Quaternionfc$Type} from "packages/org/joml/$Quaternionfc"
-import {$Matrix4fc, $Matrix4fc$Type} from "packages/org/joml/$Matrix4fc"
 import {$PoseStack$Pose, $PoseStack$Pose$Type} from "packages/com/mojang/blaze3d/vertex/$PoseStack$Pose"
+import {$Matrix4fc, $Matrix4fc$Type} from "packages/org/joml/$Matrix4fc"
 import {$Matrix3fc, $Matrix3fc$Type} from "packages/org/joml/$Matrix3fc"
 import {$Axis, $Axis$Type} from "packages/com/mojang/math/$Axis"
 
@@ -45,44 +45,41 @@ constructor(stack: $PoseStack$Type)
 
 public "unwrap"(): $PoseStack
 public "rotate"(quaternion: $Quaternionfc$Type): $PoseTransformStack
-public "pushPose"(): $PoseTransformStack
-public "popPose"(): $PoseTransformStack
-public "mulPose"(pose: $Matrix4fc$Type): $PoseTransformStack
 public "mulNormal"(normal: $Matrix3fc$Type): $PoseTransformStack
 public static "of"(stack: $PoseStack$Type): $PoseTransformStack
 public "transform"(pose: $PoseStack$Pose$Type): $PoseTransformStack
 public "transform"(stack: $PoseStack$Type): $PoseTransformStack
 public "transform"(pose: $Matrix4fc$Type, normal: $Matrix3fc$Type): $PoseTransformStack
-public "rotateAround"(quaternion: $Quaternionfc$Type, vec: $Vector3fc$Type): $PoseTransformStack
-public "rotateCentered"(radians: float, axis: $Direction$Axis$Type): $PoseTransformStack
 public "rotateCentered"(radians: float, axis: $Vector3fc$Type): $PoseTransformStack
-public "rotateCentered"(radians: float, axis: $Direction$Type): $PoseTransformStack
-public "rotateCentered"(q: $Quaternionfc$Type): $PoseTransformStack
+public "rotateCentered"(radians: float, axis: $Direction$Axis$Type): $PoseTransformStack
 public "rotateCentered"(radians: float, axisX: float, axisY: float, axisZ: float): $PoseTransformStack
+public "rotateCentered"(q: $Quaternionfc$Type): $PoseTransformStack
+public "rotateCentered"(radians: float, axis: $Direction$Type): $PoseTransformStack
 public "rotateCentered"(radians: float, axis: $Axis$Type): $PoseTransformStack
-public "rotateXCenteredDegrees"(degrees: float): $PoseTransformStack
+public "rotateAround"(quaternion: $Quaternionfc$Type, vec: $Vector3fc$Type): $PoseTransformStack
 public "rotateZCenteredDegrees"(degrees: float): $PoseTransformStack
 public "rotateYCenteredDegrees"(degrees: float): $PoseTransformStack
-public "rotateCenteredDegrees"(degrees: float, axisX: float, axisY: float, axisZ: float): $PoseTransformStack
-public "rotateCenteredDegrees"(degrees: float, axis: $Axis$Type): $PoseTransformStack
-public "rotateCenteredDegrees"(degrees: float, axis: $Vector3fc$Type): $PoseTransformStack
-public "rotateCenteredDegrees"(degrees: float, axis: $Direction$Axis$Type): $PoseTransformStack
-public "rotateCenteredDegrees"(degrees: float, axis: $Direction$Type): $PoseTransformStack
+public "rotateZCentered"(radians: float): $PoseTransformStack
 public "rotateXCentered"(radians: float): $PoseTransformStack
 public "rotateYCentered"(radians: float): $PoseTransformStack
-public "rotateZCentered"(radians: float): $PoseTransformStack
+public "rotateCenteredDegrees"(degrees: float, axis: $Axis$Type): $PoseTransformStack
+public "rotateCenteredDegrees"(degrees: float, axisX: float, axisY: float, axisZ: float): $PoseTransformStack
+public "rotateCenteredDegrees"(degrees: float, axis: $Vector3fc$Type): $PoseTransformStack
+public "rotateCenteredDegrees"(degrees: float, axis: $Direction$Type): $PoseTransformStack
+public "rotateCenteredDegrees"(degrees: float, axis: $Direction$Axis$Type): $PoseTransformStack
+public "rotateXCenteredDegrees"(degrees: float): $PoseTransformStack
+public "center"(): $PoseTransformStack
 public "translate"(vec: $Vec3i$Type): $PoseTransformStack
 public "translate"(vec: $Vector3ic$Type): $PoseTransformStack
 public "translate"(vec: $Vector3fc$Type): $PoseTransformStack
 public "translate"(vec: $Vec3$Type): $PoseTransformStack
-public "translate"(v: float): $PoseTransformStack
 public "translate"(x: double, y: double, z: double): $PoseTransformStack
-public "center"(): $PoseTransformStack
+public "translate"(v: float): $PoseTransformStack
 public "translateBack"(vec: $Vector3ic$Type): $PoseTransformStack
 public "translateBack"(vec: $Vec3i$Type): $PoseTransformStack
 public "translateBack"(v: float): $PoseTransformStack
-public "translateBack"(vec: $Vec3$Type): $PoseTransformStack
 public "translateBack"(vec: $Vector3fc$Type): $PoseTransformStack
+public "translateBack"(vec: $Vec3$Type): $PoseTransformStack
 public "translateBack"(x: double, y: double, z: double): $PoseTransformStack
 public "translateBack"(x: float, y: float, z: float): $PoseTransformStack
 public "uncenter"(): $PoseTransformStack
@@ -97,18 +94,18 @@ public "rotate"(radians: float, axis: $Direction$Axis$Type): $PoseTransformStack
 public "rotate"(axisAngle: $AxisAngle4f$Type): $PoseTransformStack
 public "rotate"(radians: float, axisX: float, axisY: float, axisZ: float): $PoseTransformStack
 public "self"(): $PoseTransformStack
+public "rotateXDegrees"(degrees: float): $PoseTransformStack
 public "rotateZDegrees"(degrees: float): $PoseTransformStack
 public "rotateYDegrees"(degrees: float): $PoseTransformStack
-public "rotateXDegrees"(degrees: float): $PoseTransformStack
-public "rotateToFace"(facing: $Direction$Type): $PoseTransformStack
 public "rotateDegrees"(degrees: float, axis: $Direction$Axis$Type): $PoseTransformStack
 public "rotateDegrees"(degrees: float, axis: $Axis$Type): $PoseTransformStack
-public "rotateDegrees"(degrees: float, axis: $Vector3fc$Type): $PoseTransformStack
 public "rotateDegrees"(degrees: float, axisX: float, axisY: float, axisZ: float): $PoseTransformStack
 public "rotateDegrees"(degrees: float, axis: $Direction$Type): $PoseTransformStack
-public "rotateTo"(from: $Vector3fc$Type, to: $Vector3fc$Type): $PoseTransformStack
+public "rotateDegrees"(degrees: float, axis: $Vector3fc$Type): $PoseTransformStack
+public "rotateToFace"(facing: $Direction$Type): $PoseTransformStack
 public "rotateTo"(fromX: float, fromY: float, fromZ: float, toX: float, toY: float, toZ: float): $PoseTransformStack
 public "rotateTo"(from: $Direction$Type, to: $Direction$Type): $PoseTransformStack
+public "rotateTo"(from: $Vector3fc$Type, to: $Vector3fc$Type): $PoseTransformStack
 public "rotateX"(radians: float): $PoseTransformStack
 public "rotateY"(radians: float): $PoseTransformStack
 public "rotateZ"(radians: float): $PoseTransformStack
@@ -228,8 +225,8 @@ import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Directio
 import {$LevelTickAccess, $LevelTickAccess$Type} from "packages/net/minecraft/world/ticks/$LevelTickAccess"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$Function, $Function$Type} from "packages/java/util/function/$Function"
-import {$Biome, $Biome$Type} from "packages/net/minecraft/world/level/biome/$Biome"
 import {$Stream, $Stream$Type} from "packages/java/util/stream/$Stream"
+import {$Biome, $Biome$Type} from "packages/net/minecraft/world/level/biome/$Biome"
 import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
 import {$MinecraftServer, $MinecraftServer$Type} from "packages/net/minecraft/server/$MinecraftServer"
 import {$ColorResolver, $ColorResolver$Type} from "packages/net/minecraft/world/level/$ColorResolver"
@@ -252,46 +249,45 @@ import {$LevelData, $LevelData$Type} from "packages/net/minecraft/world/level/st
 export interface $VisualizationLevel extends $LevelAccessor {
 
  "supportsVisualization"(): boolean
+ "getServer"(): $MinecraftServer
  "addParticle"(arg0: $ParticleOptions$Type, arg1: double, arg2: double, arg3: double, arg4: double, arg5: double, arg6: double): void
  "getDifficulty"(): $Difficulty
  "gameEvent"(arg0: $GameEvent$Type, arg1: $Vec3$Type, arg2: $GameEvent$Context$Type): void
- "getServer"(): $MinecraftServer
  "getChunkSource"(): $ChunkSource
- "hasChunk"(arg0: integer, arg1: integer): boolean
  "levelEvent"(arg0: $Player$Type, arg1: integer, arg2: $BlockPos$Type, arg3: integer): void
  "gameEvent"(arg0: $Entity$Type, arg1: $GameEvent$Type, arg2: $Vec3$Type): void
- "dayTime"(): long
+ "blockUpdated"(arg0: $BlockPos$Type, arg1: $Block$Type): void
+ "levelEvent"(arg0: integer, arg1: $BlockPos$Type, arg2: integer): void
+ "gameEvent"(arg0: $GameEvent$Type, arg1: $BlockPos$Type, arg2: $GameEvent$Context$Type): void
+ "neighborShapeChanged"(arg0: $Direction$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type, arg3: $BlockPos$Type, arg4: integer, arg5: integer): void
+ "hasChunk"(arg0: integer, arg1: integer): boolean
+ "playSound"(arg0: $Player$Type, arg1: $BlockPos$Type, arg2: $SoundEvent$Type, arg3: $SoundSource$Type, arg4: float, arg5: float): void
+ "getCurrentDifficultyAt"(arg0: $BlockPos$Type): $DifficultyInstance
+ "getRandom"(): $RandomSource
  "nextSubTickCount"(): long
+ "dayTime"(): long
  "getBlockTicks"(): $LevelTickAccess<($Block)>
  "scheduleTick"(arg0: $BlockPos$Type, arg1: $Block$Type, arg2: integer, arg3: $TickPriority$Type): void
  "scheduleTick"(arg0: $BlockPos$Type, arg1: $Block$Type, arg2: integer): void
  "getFluidTicks"(): $LevelTickAccess<($Fluid)>
  "scheduleTick"(arg0: $BlockPos$Type, arg1: $Fluid$Type, arg2: integer, arg3: $TickPriority$Type): void
  "scheduleTick"(arg0: $BlockPos$Type, arg1: $Fluid$Type, arg2: integer): void
- "getCurrentDifficultyAt"(arg0: $BlockPos$Type): $DifficultyInstance
- "getRandom"(): $RandomSource
- "blockUpdated"(arg0: $BlockPos$Type, arg1: $Block$Type): void
- "neighborShapeChanged"(arg0: $Direction$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type, arg3: $BlockPos$Type, arg4: integer, arg5: integer): void
  "playSound"(arg0: $Player$Type, arg1: $BlockPos$Type, arg2: $SoundEvent$Type, arg3: $SoundSource$Type): void
- "playSound"(arg0: $Player$Type, arg1: $BlockPos$Type, arg2: $SoundEvent$Type, arg3: $SoundSource$Type, arg4: float, arg5: float): void
- "levelEvent"(arg0: integer, arg1: $BlockPos$Type, arg2: integer): void
  "gameEvent"(arg0: $Entity$Type, arg1: $GameEvent$Type, arg2: $BlockPos$Type): void
- "gameEvent"(arg0: $GameEvent$Type, arg1: $BlockPos$Type, arg2: $GameEvent$Context$Type): void
  "getLevelData"(): $LevelData
- "getBlockEntity"<T extends $BlockEntity>(arg0: $BlockPos$Type, arg1: $BlockEntityType$Type<(T)>): $Optional<(T)>
  "getEntityCollisions"(arg0: $Entity$Type, arg1: $AABB$Type): $List<($VoxelShape)>
  "getHeightmapPos"(arg0: $Heightmap$Types$Type, arg1: $BlockPos$Type): $BlockPos
+ "getBlockEntity"<T extends $BlockEntity>(arg0: $BlockPos$Type, arg1: $BlockEntityType$Type<(T)>): $Optional<(T)>
  "isUnobstructed"(arg0: $Entity$Type, arg1: $VoxelShape$Type): boolean
- "getMoonBrightness"(): float
  "getTimeOfDay"(arg0: float): float
+ "getMoonBrightness"(): float
  "getMoonPhase"(): integer
  "getEntities"(arg0: $Entity$Type, arg1: $AABB$Type): $List<($Entity)>
  "getEntitiesOfClass"<T extends $Entity>(arg0: $Class$Type<(T)>, arg1: $AABB$Type): $List<(T)>
  "getEntities"<T extends $Entity>(arg0: $EntityTypeTest$Type<($Entity$Type), (T)>, arg1: $AABB$Type, arg2: $Predicate$Type<(any)>): $List<(T)>
  "getEntities"(arg0: $Entity$Type, arg1: $AABB$Type, arg2: $Predicate$Type<(any)>): $List<($Entity)>
- "getPlayerByUUID"(arg0: $UUID$Type): $Player
- "getEntitiesOfClass"<T extends $Entity>(arg0: $Class$Type<(T)>, arg1: $AABB$Type, arg2: $Predicate$Type<(any)>): $List<(T)>
  "players"(): $List<(any)>
+ "getEntitiesOfClass"<T extends $Entity>(arg0: $Class$Type<(T)>, arg1: $AABB$Type, arg2: $Predicate$Type<(any)>): $List<(T)>
  "getNearestPlayer"(arg0: double, arg1: double, arg2: double, arg3: double, arg4: $Predicate$Type<($Entity$Type)>): $Player
  "getNearestPlayer"(arg0: $Entity$Type, arg1: double): $Player
  "getNearestPlayer"(arg0: double, arg1: double, arg2: double, arg3: double, arg4: boolean): $Player
@@ -303,41 +299,18 @@ export interface $VisualizationLevel extends $LevelAccessor {
  "getNearestEntity"<T extends $LivingEntity>(arg0: $Class$Type<(any)>, arg1: $TargetingConditions$Type, arg2: $LivingEntity$Type, arg3: double, arg4: double, arg5: double, arg6: $AABB$Type): T
  "getNearbyPlayers"(arg0: $TargetingConditions$Type, arg1: $LivingEntity$Type, arg2: $AABB$Type): $List<($Player)>
  "getNearbyEntities"<T extends $LivingEntity>(arg0: $Class$Type<(T)>, arg1: $TargetingConditions$Type, arg2: $LivingEntity$Type, arg3: $AABB$Type): $List<(T)>
+ "getPlayerByUUID"(arg0: $UUID$Type): $Player
  "isAreaLoaded"(arg0: $BlockPos$Type, arg1: integer): boolean
+ "getBiomeManager"(): $BiomeManager
  "registryAccess"(): $RegistryAccess
- "isClientSide"(): boolean
  "getMinBuildHeight"(): integer
+ "isClientSide"(): boolean
 /**
  * 
  * @deprecated
  */
  "hasChunkAt"(arg0: $BlockPos$Type): boolean
  "containsAnyLiquid"(arg0: $AABB$Type): boolean
- "getChunk"(arg0: integer, arg1: integer, arg2: $ChunkStatus$Type, arg3: boolean): $ChunkAccess
- "getHeight"(arg0: $Heightmap$Types$Type, arg1: integer, arg2: integer): integer
- "getSkyDarken"(): integer
-/**
- * 
- * @deprecated
- */
- "hasChunksAt"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): boolean
- "getBlockTint"(arg0: $BlockPos$Type, arg1: $ColorResolver$Type): integer
- "getNoiseBiome"(arg0: integer, arg1: integer, arg2: integer): $Holder<($Biome)>
- "getUncachedNoiseBiome"(arg0: integer, arg1: integer, arg2: integer): $Holder<($Biome)>
-/**
- * 
- * @deprecated
- */
- "getSeaLevel"(): integer
- "canSeeSkyFromBelowWater"(arg0: $BlockPos$Type): boolean
- "getPathfindingCostFromLightLevels"(arg0: $BlockPos$Type): float
- "getChunk"(arg0: integer, arg1: integer, arg2: $ChunkStatus$Type): $ChunkAccess
- "getChunkForCollisions"(arg0: integer, arg1: integer): $BlockGetter
- "isWaterAt"(arg0: $BlockPos$Type): boolean
- "getMaxLocalRawBrightness"(arg0: $BlockPos$Type, arg1: integer): integer
- "holderLookup"<T>(arg0: $ResourceKey$Type<(any)>): $HolderLookup<(T)>
- "getHeight"(): integer
- "getChunk"(arg0: $BlockPos$Type): $ChunkAccess
  "getBlockStatesIfLoaded"(arg0: $AABB$Type): $Stream<($BlockState)>
 /**
  * 
@@ -354,7 +327,6 @@ export interface $VisualizationLevel extends $LevelAccessor {
  * @deprecated
  */
  "getLightLevelDependentMagicValue"(arg0: $BlockPos$Type): float
- "getBiomeManager"(): $BiomeManager
  "dimensionType"(): $DimensionType
  "getChunk"(arg0: integer, arg1: integer): $ChunkAccess
 /**
@@ -363,24 +335,49 @@ export interface $VisualizationLevel extends $LevelAccessor {
  */
  "hasChunksAt"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): boolean
  "getMaxLocalRawBrightness"(arg0: $BlockPos$Type): integer
+ "getChunk"(arg0: integer, arg1: integer, arg2: $ChunkStatus$Type): $ChunkAccess
+ "getChunk"(arg0: integer, arg1: integer, arg2: $ChunkStatus$Type, arg3: boolean): $ChunkAccess
+ "getHeight"(arg0: $Heightmap$Types$Type, arg1: integer, arg2: integer): integer
+/**
+ * 
+ * @deprecated
+ */
+ "getSeaLevel"(): integer
+ "getChunkForCollisions"(arg0: integer, arg1: integer): $BlockGetter
+ "getSkyDarken"(): integer
+/**
+ * 
+ * @deprecated
+ */
+ "hasChunksAt"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): boolean
+ "getBlockTint"(arg0: $BlockPos$Type, arg1: $ColorResolver$Type): integer
+ "getNoiseBiome"(arg0: integer, arg1: integer, arg2: integer): $Holder<($Biome)>
+ "getUncachedNoiseBiome"(arg0: integer, arg1: integer, arg2: integer): $Holder<($Biome)>
+ "getHeight"(): integer
+ "canSeeSkyFromBelowWater"(arg0: $BlockPos$Type): boolean
+ "getPathfindingCostFromLightLevels"(arg0: $BlockPos$Type): float
+ "getChunk"(arg0: $BlockPos$Type): $ChunkAccess
+ "isWaterAt"(arg0: $BlockPos$Type): boolean
+ "getMaxLocalRawBrightness"(arg0: $BlockPos$Type, arg1: integer): integer
+ "holderLookup"<T>(arg0: $ResourceKey$Type<(any)>): $HolderLookup<(T)>
+ "isEmptyBlock"(arg0: $BlockPos$Type): boolean
  "enabledFeatures"(): $FeatureFlagSet
  "getBiome"(arg0: $BlockPos$Type): $Holder<($Biome)>
- "isEmptyBlock"(arg0: $BlockPos$Type): boolean
+ "canSeeSky"(arg0: $BlockPos$Type): boolean
+ "getLightEngine"(): $LevelLightEngine
  "getRawBrightness"(arg0: $BlockPos$Type, arg1: integer): integer
  "getShade"(arg0: $Direction$Type, arg1: boolean): float
- "getLightEngine"(): $LevelLightEngine
  "getBrightness"(arg0: $LightLayer$Type, arg1: $BlockPos$Type): integer
- "canSeeSky"(arg0: $BlockPos$Type): boolean
+ "isUnobstructed"(arg0: $BlockState$Type, arg1: $BlockPos$Type, arg2: $CollisionContext$Type): boolean
+ "collidesWithSuffocatingBlock"(arg0: $Entity$Type, arg1: $AABB$Type): boolean
  "noCollision"(arg0: $Entity$Type, arg1: $AABB$Type): boolean
  "noCollision"(arg0: $Entity$Type): boolean
- "isUnobstructed"(arg0: $BlockState$Type, arg1: $BlockPos$Type, arg2: $CollisionContext$Type): boolean
- "isUnobstructed"(arg0: $Entity$Type): boolean
- "noCollision"(arg0: $AABB$Type): boolean
  "findSupportingBlock"(arg0: $Entity$Type, arg1: $AABB$Type): $Optional<($BlockPos)>
  "getBlockCollisions"(arg0: $Entity$Type, arg1: $AABB$Type): $Iterable<($VoxelShape)>
- "collidesWithSuffocatingBlock"(arg0: $Entity$Type, arg1: $AABB$Type): boolean
- "getCollisions"(arg0: $Entity$Type, arg1: $AABB$Type): $Iterable<($VoxelShape)>
  "findFreePosition"(arg0: $Entity$Type, arg1: $VoxelShape$Type, arg2: $Vec3$Type, arg3: double, arg4: double, arg5: double): $Optional<($Vec3)>
+ "getCollisions"(arg0: $Entity$Type, arg1: $AABB$Type): $Iterable<($VoxelShape)>
+ "isUnobstructed"(arg0: $Entity$Type): boolean
+ "noCollision"(arg0: $AABB$Type): boolean
  "getWorldBorder"(): $WorldBorder
  "getDirectSignal"(arg0: $BlockPos$Type, arg1: $Direction$Type): integer
  "getDirectSignalTo"(arg0: $BlockPos$Type): integer
@@ -391,18 +388,18 @@ export interface $VisualizationLevel extends $LevelAccessor {
  "getBestNeighborSignal"(arg0: $BlockPos$Type): integer
  "isStateAtPosition"(arg0: $BlockPos$Type, arg1: $Predicate$Type<($BlockState$Type)>): boolean
  "isFluidAtPosition"(arg0: $BlockPos$Type, arg1: $Predicate$Type<($FluidState$Type)>): boolean
+ "destroyBlock"(arg0: $BlockPos$Type, arg1: boolean): boolean
+ "destroyBlock"(arg0: $BlockPos$Type, arg1: boolean, arg2: $Entity$Type): boolean
  "setBlock"(arg0: $BlockPos$Type, arg1: $BlockState$Type, arg2: integer): boolean
  "addFreshEntity"(arg0: $Entity$Type): boolean
  "setBlock"(arg0: $BlockPos$Type, arg1: $BlockState$Type, arg2: integer, arg3: integer): boolean
  "removeBlock"(arg0: $BlockPos$Type, arg1: boolean): boolean
- "destroyBlock"(arg0: $BlockPos$Type, arg1: boolean): boolean
- "destroyBlock"(arg0: $BlockPos$Type, arg1: boolean, arg2: $Entity$Type): boolean
  "destroyBlock"(arg0: $BlockPos$Type, arg1: boolean, arg2: $Entity$Type, arg3: integer): boolean
  "getFluidState"(arg0: $BlockPos$Type): $FluidState
  "clip"(arg0: $ClipContext$Type): $BlockHitResult
- "getLightEmission"(arg0: $BlockPos$Type): integer
- "getMaxLightLevel"(): integer
  "getBlockStates"(arg0: $AABB$Type): $Stream<($BlockState)>
+ "getMaxLightLevel"(): integer
+ "getLightEmission"(arg0: $BlockPos$Type): integer
  "isBlockInLine"(arg0: $ClipBlockStateContext$Type): $BlockHitResult
  "clipWithInteractionOverride"(arg0: $Vec3$Type, arg1: $Vec3$Type, arg2: $BlockPos$Type, arg3: $VoxelShape$Type, arg4: $BlockState$Type): $BlockHitResult
  "getBlockFloorHeight"(arg0: $VoxelShape$Type, arg1: $Supplier$Type<($VoxelShape$Type)>): double
@@ -410,17 +407,17 @@ export interface $VisualizationLevel extends $LevelAccessor {
  "getBlockState"(arg0: $BlockPos$Type): $BlockState
  "getBlockEntity"(arg0: $BlockPos$Type): $BlockEntity
  "getShade"(arg0: float, arg1: float, arg2: float, arg3: boolean): float
+ "getMaxBuildHeight"(): integer
+ "isOutsideBuildHeight"(arg0: $BlockPos$Type): boolean
  "getSectionsCount"(): integer
  "getMaxSection"(): integer
  "getMinSection"(): integer
- "isOutsideBuildHeight"(arg0: $BlockPos$Type): boolean
  "isOutsideBuildHeight"(arg0: integer): boolean
  "getSectionIndex"(arg0: integer): integer
  "getSectionIndexFromSectionY"(arg0: integer): integer
  "getSectionYFromSectionIndex"(arg0: integer): integer
- "getMaxBuildHeight"(): integer
- "getModelDataManager"(): $ModelDataManager
  "getExistingBlockEntity"(arg0: $BlockPos$Type): $BlockEntity
+ "getModelDataManager"(): $ModelDataManager
 }
 
 export namespace $VisualizationLevel {
@@ -444,8 +441,8 @@ import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/
 
 export interface $MaterialShaders {
 
- "vertexSource"(): $ResourceLocation
  "fragmentSource"(): $ResourceLocation
+ "vertexSource"(): $ResourceLocation
 }
 
 export namespace $MaterialShaders {
@@ -548,8 +545,8 @@ import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity
 
 export interface $EntityVisualizer<T extends $Entity> {
 
- "skipVanillaRender"(arg0: T): boolean
  "createVisual"(arg0: $VisualizationContext$Type, arg1: T, arg2: float): $EntityVisual<(any)>
+ "skipVanillaRender"(arg0: T): boolean
 }
 
 export namespace $EntityVisualizer {
@@ -575,8 +572,8 @@ export interface $Layout$Element {
  "name"(): string
  "type"(): $ElementType
  "byteOffset"(): integer
- "paddingByteSize"(): integer
  "paddedByteSize"(): integer
+ "paddingByteSize"(): integer
 }
 
 export namespace $Layout$Element {
@@ -627,8 +624,8 @@ export interface $MutableVertexList extends $VertexList {
  "y"(arg0: integer): float
  "normalX"(arg0: integer): float
  "normalY"(arg0: integer): float
- "vertexCount"(): integer
  "overlay"(arg0: integer): integer
+ "vertexCount"(): integer
  "normalZ"(arg0: integer): float
  "light"(arg0: integer): integer
  "writeAll"(dst: $MutableVertexList$Type): void
@@ -662,15 +659,15 @@ import {$WriteMask, $WriteMask$Type} from "packages/dev/engine_room/flywheel/api
 
 export interface $Material {
 
- "cardinalLightingMode"(): $CardinalLightingMode
- "backfaceCulling"(): boolean
- "shaders"(): $MaterialShaders
- "texture"(): $ResourceLocation
- "polygonOffset"(): boolean
- "transparency"(): $Transparency
- "depthTest"(): $DepthTest
  "blur"(): boolean
  "mipmap"(): boolean
+ "texture"(): $ResourceLocation
+ "shaders"(): $MaterialShaders
+ "polygonOffset"(): boolean
+ "transparency"(): $Transparency
+ "backfaceCulling"(): boolean
+ "cardinalLightingMode"(): $CardinalLightingMode
+ "depthTest"(): $DepthTest
  "light"(): $LightShader
  "cutout"(): $CutoutShader
  "fog"(): $FogShader
@@ -764,45 +761,45 @@ import {$Axis, $Axis$Type} from "packages/com/mojang/math/$Axis"
 
 export interface $TransformStack<Self extends $TransformStack<(Self)>> extends $Transform<(Self)> {
 
- "pushPose"(): Self
  "popPose"(): Self
+ "pushPose"(): Self
  "transform"(pose: $PoseStack$Pose$Type): Self
  "transform"(stack: $PoseStack$Type): Self
  "transform"(pose: $Matrix4fc$Type, normal: $Matrix3fc$Type): Self
  "mulPose"(arg0: $Matrix4fc$Type): Self
  "mulNormal"(arg0: $Matrix3fc$Type): Self
+ "rotateCentered"(radians: float, axis: $Vector3fc$Type): Self
+ "rotateCentered"(radians: float, axis: $Direction$Axis$Type): Self
+ "rotateCentered"(radians: float, axisX: float, axisY: float, axisZ: float): Self
+ "rotateCentered"(q: $Quaternionfc$Type): Self
+ "rotateCentered"(radians: float, axis: $Direction$Type): Self
+ "rotateCentered"(radians: float, axis: $Axis$Type): Self
  "rotateAround"(quaternion: $Quaternionfc$Type, x: float, y: float, z: float): Self
  "rotateAround"(quaternion: $Quaternionfc$Type, vec: $Vector3fc$Type): Self
- "rotateCentered"(radians: float, axis: $Direction$Axis$Type): Self
- "rotateCentered"(radians: float, axis: $Vector3fc$Type): Self
- "rotateCentered"(radians: float, axis: $Direction$Type): Self
- "rotateCentered"(q: $Quaternionfc$Type): Self
- "rotateCentered"(radians: float, axisX: float, axisY: float, axisZ: float): Self
- "rotateCentered"(radians: float, axis: $Axis$Type): Self
- "rotateXCenteredDegrees"(degrees: float): Self
  "rotateZCenteredDegrees"(degrees: float): Self
  "rotateYCenteredDegrees"(degrees: float): Self
- "rotateCenteredDegrees"(degrees: float, axisX: float, axisY: float, axisZ: float): Self
- "rotateCenteredDegrees"(degrees: float, axis: $Axis$Type): Self
- "rotateCenteredDegrees"(degrees: float, axis: $Vector3fc$Type): Self
- "rotateCenteredDegrees"(degrees: float, axis: $Direction$Axis$Type): Self
- "rotateCenteredDegrees"(degrees: float, axis: $Direction$Type): Self
+ "rotateZCentered"(radians: float): Self
  "rotateXCentered"(radians: float): Self
  "rotateYCentered"(radians: float): Self
- "rotateZCentered"(radians: float): Self
+ "rotateCenteredDegrees"(degrees: float, axis: $Axis$Type): Self
+ "rotateCenteredDegrees"(degrees: float, axisX: float, axisY: float, axisZ: float): Self
+ "rotateCenteredDegrees"(degrees: float, axis: $Vector3fc$Type): Self
+ "rotateCenteredDegrees"(degrees: float, axis: $Direction$Type): Self
+ "rotateCenteredDegrees"(degrees: float, axis: $Direction$Axis$Type): Self
+ "rotateXCenteredDegrees"(degrees: float): Self
+ "center"(): Self
  "translate"(vec: $Vec3i$Type): Self
  "translate"(vec: $Vector3ic$Type): Self
  "translate"(vec: $Vector3fc$Type): Self
  "translate"(vec: $Vec3$Type): Self
- "translate"(arg0: float, arg1: float, arg2: float): Self
- "translate"(v: float): Self
  "translate"(x: double, y: double, z: double): Self
- "center"(): Self
+ "translate"(v: float): Self
+ "translate"(arg0: float, arg1: float, arg2: float): Self
  "translateBack"(vec: $Vector3ic$Type): Self
  "translateBack"(vec: $Vec3i$Type): Self
  "translateBack"(v: float): Self
- "translateBack"(vec: $Vec3$Type): Self
  "translateBack"(vec: $Vector3fc$Type): Self
+ "translateBack"(vec: $Vec3$Type): Self
  "translateBack"(x: double, y: double, z: double): Self
  "translateBack"(x: float, y: float, z: float): Self
  "uncenter"(): Self
@@ -818,18 +815,18 @@ export interface $TransformStack<Self extends $TransformStack<(Self)>> extends $
  "rotate"(axisAngle: $AxisAngle4f$Type): Self
  "rotate"(radians: float, axisX: float, axisY: float, axisZ: float): Self
  "self"(): Self
+ "rotateXDegrees"(degrees: float): Self
  "rotateZDegrees"(degrees: float): Self
  "rotateYDegrees"(degrees: float): Self
- "rotateXDegrees"(degrees: float): Self
- "rotateToFace"(facing: $Direction$Type): Self
  "rotateDegrees"(degrees: float, axis: $Direction$Axis$Type): Self
  "rotateDegrees"(degrees: float, axis: $Axis$Type): Self
- "rotateDegrees"(degrees: float, axis: $Vector3fc$Type): Self
  "rotateDegrees"(degrees: float, axisX: float, axisY: float, axisZ: float): Self
  "rotateDegrees"(degrees: float, axis: $Direction$Type): Self
- "rotateTo"(from: $Vector3fc$Type, to: $Vector3fc$Type): Self
+ "rotateDegrees"(degrees: float, axis: $Vector3fc$Type): Self
+ "rotateToFace"(facing: $Direction$Type): Self
  "rotateTo"(fromX: float, fromY: float, fromZ: float, toX: float, toY: float, toZ: float): Self
  "rotateTo"(from: $Direction$Type, to: $Direction$Type): Self
+ "rotateTo"(from: $Vector3fc$Type, to: $Vector3fc$Type): Self
  "rotateX"(radians: float): Self
  "rotateY"(radians: float): Self
  "rotateZ"(radians: float): Self
@@ -864,8 +861,8 @@ import {$Vector4fc, $Vector4fc$Type} from "packages/org/joml/$Vector4fc"
 export interface $Mesh {
 
  "write"(arg0: $MutableVertexList$Type): void
- "vertexCount"(): integer
  "boundingSphere"(): $Vector4fc
+ "vertexCount"(): integer
  "indexSequence"(): $IndexSequence
  "indexCount"(): integer
 }
@@ -1023,8 +1020,8 @@ import {$VisualizationContext, $VisualizationContext$Type} from "packages/dev/en
 
 export interface $BlockEntityVisualizer<T extends $BlockEntity> {
 
- "skipVanillaRender"(arg0: T): boolean
  "createVisual"(arg0: $VisualizationContext$Type, arg1: T, arg2: float): $BlockEntityVisual<(any)>
+ "skipVanillaRender"(arg0: T): boolean
 }
 
 export namespace $BlockEntityVisualizer {
@@ -1083,18 +1080,18 @@ export interface $Rotate<Self extends $Rotate<(Self)>> {
  "rotate"(axisAngle: $AxisAngle4f$Type): Self
  "rotate"(radians: float, axisX: float, axisY: float, axisZ: float): Self
  "self"(): Self
+ "rotateXDegrees"(degrees: float): Self
  "rotateZDegrees"(degrees: float): Self
  "rotateYDegrees"(degrees: float): Self
- "rotateXDegrees"(degrees: float): Self
- "rotateToFace"(facing: $Direction$Type): Self
  "rotateDegrees"(degrees: float, axis: $Direction$Axis$Type): Self
  "rotateDegrees"(degrees: float, axis: $Axis$Type): Self
- "rotateDegrees"(degrees: float, axis: $Vector3fc$Type): Self
  "rotateDegrees"(degrees: float, axisX: float, axisY: float, axisZ: float): Self
  "rotateDegrees"(degrees: float, axis: $Direction$Type): Self
- "rotateTo"(from: $Vector3fc$Type, to: $Vector3fc$Type): Self
+ "rotateDegrees"(degrees: float, axis: $Vector3fc$Type): Self
+ "rotateToFace"(facing: $Direction$Type): Self
  "rotateTo"(fromX: float, fromY: float, fromZ: float, toX: float, toY: float, toZ: float): Self
  "rotateTo"(from: $Direction$Type, to: $Direction$Type): Self
+ "rotateTo"(from: $Vector3fc$Type, to: $Vector3fc$Type): Self
  "rotateX"(radians: float): Self
  "rotateY"(radians: float): Self
  "rotateZ"(radians: float): Self
@@ -1203,7 +1200,7 @@ export interface $LevelExtension {
 
  "flywheel$getAllLoadedEntities"(): $Iterable<($Entity)>
 
-(): $Iterable<($Entity)>
+(level: $Level$Type): $Iterable<($Entity)>
 }
 
 export namespace $LevelExtension {
@@ -1329,19 +1326,19 @@ import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
 
 export interface $Translate<Self extends $Translate<(Self)>> {
 
+ "center"(): Self
  "translate"(vec: $Vec3i$Type): Self
  "translate"(vec: $Vector3ic$Type): Self
  "translate"(vec: $Vector3fc$Type): Self
  "translate"(vec: $Vec3$Type): Self
- "translate"(arg0: float, arg1: float, arg2: float): Self
- "translate"(v: float): Self
  "translate"(x: double, y: double, z: double): Self
- "center"(): Self
+ "translate"(v: float): Self
+ "translate"(arg0: float, arg1: float, arg2: float): Self
  "translateBack"(vec: $Vector3ic$Type): Self
  "translateBack"(vec: $Vec3i$Type): Self
  "translateBack"(v: float): Self
- "translateBack"(vec: $Vec3$Type): Self
  "translateBack"(vec: $Vector3fc$Type): Self
+ "translateBack"(vec: $Vec3$Type): Self
  "translateBack"(x: double, y: double, z: double): Self
  "translateBack"(x: float, y: float, z: float): Self
  "uncenter"(): Self
@@ -1350,7 +1347,7 @@ export interface $Translate<Self extends $Translate<(Self)>> {
  "nudge"(seed: integer): Self
  "translateX"(x: float): Self
 
-(vec: $Vec3i$Type): Self
+(): Self
 }
 
 export namespace $Translate {
@@ -1467,38 +1464,38 @@ export interface $Transform<Self extends $Transform<(Self)>> extends $Affine<(Se
  "transform"(pose: $Matrix4fc$Type, normal: $Matrix3fc$Type): Self
  "mulPose"(arg0: $Matrix4fc$Type): Self
  "mulNormal"(arg0: $Matrix3fc$Type): Self
+ "rotateCentered"(radians: float, axis: $Vector3fc$Type): Self
+ "rotateCentered"(radians: float, axis: $Direction$Axis$Type): Self
+ "rotateCentered"(radians: float, axisX: float, axisY: float, axisZ: float): Self
+ "rotateCentered"(q: $Quaternionfc$Type): Self
+ "rotateCentered"(radians: float, axis: $Direction$Type): Self
+ "rotateCentered"(radians: float, axis: $Axis$Type): Self
  "rotateAround"(quaternion: $Quaternionfc$Type, x: float, y: float, z: float): Self
  "rotateAround"(quaternion: $Quaternionfc$Type, vec: $Vector3fc$Type): Self
- "rotateCentered"(radians: float, axis: $Direction$Axis$Type): Self
- "rotateCentered"(radians: float, axis: $Vector3fc$Type): Self
- "rotateCentered"(radians: float, axis: $Direction$Type): Self
- "rotateCentered"(q: $Quaternionfc$Type): Self
- "rotateCentered"(radians: float, axisX: float, axisY: float, axisZ: float): Self
- "rotateCentered"(radians: float, axis: $Axis$Type): Self
- "rotateXCenteredDegrees"(degrees: float): Self
  "rotateZCenteredDegrees"(degrees: float): Self
  "rotateYCenteredDegrees"(degrees: float): Self
- "rotateCenteredDegrees"(degrees: float, axisX: float, axisY: float, axisZ: float): Self
- "rotateCenteredDegrees"(degrees: float, axis: $Axis$Type): Self
- "rotateCenteredDegrees"(degrees: float, axis: $Vector3fc$Type): Self
- "rotateCenteredDegrees"(degrees: float, axis: $Direction$Axis$Type): Self
- "rotateCenteredDegrees"(degrees: float, axis: $Direction$Type): Self
+ "rotateZCentered"(radians: float): Self
  "rotateXCentered"(radians: float): Self
  "rotateYCentered"(radians: float): Self
- "rotateZCentered"(radians: float): Self
+ "rotateCenteredDegrees"(degrees: float, axis: $Axis$Type): Self
+ "rotateCenteredDegrees"(degrees: float, axisX: float, axisY: float, axisZ: float): Self
+ "rotateCenteredDegrees"(degrees: float, axis: $Vector3fc$Type): Self
+ "rotateCenteredDegrees"(degrees: float, axis: $Direction$Type): Self
+ "rotateCenteredDegrees"(degrees: float, axis: $Direction$Axis$Type): Self
+ "rotateXCenteredDegrees"(degrees: float): Self
+ "center"(): Self
  "translate"(vec: $Vec3i$Type): Self
  "translate"(vec: $Vector3ic$Type): Self
  "translate"(vec: $Vector3fc$Type): Self
  "translate"(vec: $Vec3$Type): Self
- "translate"(arg0: float, arg1: float, arg2: float): Self
- "translate"(v: float): Self
  "translate"(x: double, y: double, z: double): Self
- "center"(): Self
+ "translate"(v: float): Self
+ "translate"(arg0: float, arg1: float, arg2: float): Self
  "translateBack"(vec: $Vector3ic$Type): Self
  "translateBack"(vec: $Vec3i$Type): Self
  "translateBack"(v: float): Self
- "translateBack"(vec: $Vec3$Type): Self
  "translateBack"(vec: $Vector3fc$Type): Self
+ "translateBack"(vec: $Vec3$Type): Self
  "translateBack"(x: double, y: double, z: double): Self
  "translateBack"(x: float, y: float, z: float): Self
  "uncenter"(): Self
@@ -1514,18 +1511,18 @@ export interface $Transform<Self extends $Transform<(Self)>> extends $Affine<(Se
  "rotate"(axisAngle: $AxisAngle4f$Type): Self
  "rotate"(radians: float, axisX: float, axisY: float, axisZ: float): Self
  "self"(): Self
+ "rotateXDegrees"(degrees: float): Self
  "rotateZDegrees"(degrees: float): Self
  "rotateYDegrees"(degrees: float): Self
- "rotateXDegrees"(degrees: float): Self
- "rotateToFace"(facing: $Direction$Type): Self
  "rotateDegrees"(degrees: float, axis: $Direction$Axis$Type): Self
  "rotateDegrees"(degrees: float, axis: $Axis$Type): Self
- "rotateDegrees"(degrees: float, axis: $Vector3fc$Type): Self
  "rotateDegrees"(degrees: float, axisX: float, axisY: float, axisZ: float): Self
  "rotateDegrees"(degrees: float, axis: $Direction$Type): Self
- "rotateTo"(from: $Vector3fc$Type, to: $Vector3fc$Type): Self
+ "rotateDegrees"(degrees: float, axis: $Vector3fc$Type): Self
+ "rotateToFace"(facing: $Direction$Type): Self
  "rotateTo"(fromX: float, fromY: float, fromZ: float, toX: float, toY: float, toZ: float): Self
  "rotateTo"(from: $Direction$Type, to: $Direction$Type): Self
+ "rotateTo"(from: $Vector3fc$Type, to: $Vector3fc$Type): Self
  "rotateX"(radians: float): Self
  "rotateY"(radians: float): Self
  "rotateZ"(radians: float): Self
@@ -1627,8 +1624,8 @@ export interface $VertexList {
  "y"(arg0: integer): float
  "normalX"(arg0: integer): float
  "normalY"(arg0: integer): float
- "vertexCount"(): integer
  "overlay"(arg0: integer): integer
+ "vertexCount"(): integer
  "normalZ"(arg0: integer): float
  "light"(arg0: integer): integer
  "writeAll"(dst: $MutableVertexList$Type): void
@@ -1660,9 +1657,9 @@ export interface $VisualEmbedding extends $VisualizationContext {
 
  "delete"(): void
  "transforms"(arg0: $Matrix4fc$Type, arg1: $Matrix3fc$Type): void
+ "createEmbedding"(arg0: $Vec3i$Type): $VisualEmbedding
  "renderOrigin"(): $Vec3i
  "instancerProvider"(): $InstancerProvider
- "createEmbedding"(arg0: $Vec3i$Type): $VisualEmbedding
 }
 
 export namespace $VisualEmbedding {
@@ -1767,9 +1764,9 @@ import {$VisualEmbedding, $VisualEmbedding$Type} from "packages/dev/engine_room/
 
 export interface $VisualizationContext {
 
+ "createEmbedding"(arg0: $Vec3i$Type): $VisualEmbedding
  "renderOrigin"(): $Vec3i
  "instancerProvider"(): $InstancerProvider
- "createEmbedding"(arg0: $Vec3i$Type): $VisualEmbedding
 }
 
 export namespace $VisualizationContext {
@@ -1832,38 +1829,38 @@ import {$Translate, $Translate$Type} from "packages/dev/engine_room/flywheel/lib
 
 export interface $Affine<Self extends $Affine<(Self)>> extends $Translate<(Self)>, $Rotate<(Self)>, $Scale<(Self)> {
 
+ "rotateCentered"(radians: float, axis: $Vector3fc$Type): Self
+ "rotateCentered"(radians: float, axis: $Direction$Axis$Type): Self
+ "rotateCentered"(radians: float, axisX: float, axisY: float, axisZ: float): Self
+ "rotateCentered"(q: $Quaternionfc$Type): Self
+ "rotateCentered"(radians: float, axis: $Direction$Type): Self
+ "rotateCentered"(radians: float, axis: $Axis$Type): Self
  "rotateAround"(quaternion: $Quaternionfc$Type, x: float, y: float, z: float): Self
  "rotateAround"(quaternion: $Quaternionfc$Type, vec: $Vector3fc$Type): Self
- "rotateCentered"(radians: float, axis: $Direction$Axis$Type): Self
- "rotateCentered"(radians: float, axis: $Vector3fc$Type): Self
- "rotateCentered"(radians: float, axis: $Direction$Type): Self
- "rotateCentered"(q: $Quaternionfc$Type): Self
- "rotateCentered"(radians: float, axisX: float, axisY: float, axisZ: float): Self
- "rotateCentered"(radians: float, axis: $Axis$Type): Self
- "rotateXCenteredDegrees"(degrees: float): Self
  "rotateZCenteredDegrees"(degrees: float): Self
  "rotateYCenteredDegrees"(degrees: float): Self
- "rotateCenteredDegrees"(degrees: float, axisX: float, axisY: float, axisZ: float): Self
- "rotateCenteredDegrees"(degrees: float, axis: $Axis$Type): Self
- "rotateCenteredDegrees"(degrees: float, axis: $Vector3fc$Type): Self
- "rotateCenteredDegrees"(degrees: float, axis: $Direction$Axis$Type): Self
- "rotateCenteredDegrees"(degrees: float, axis: $Direction$Type): Self
+ "rotateZCentered"(radians: float): Self
  "rotateXCentered"(radians: float): Self
  "rotateYCentered"(radians: float): Self
- "rotateZCentered"(radians: float): Self
+ "rotateCenteredDegrees"(degrees: float, axis: $Axis$Type): Self
+ "rotateCenteredDegrees"(degrees: float, axisX: float, axisY: float, axisZ: float): Self
+ "rotateCenteredDegrees"(degrees: float, axis: $Vector3fc$Type): Self
+ "rotateCenteredDegrees"(degrees: float, axis: $Direction$Type): Self
+ "rotateCenteredDegrees"(degrees: float, axis: $Direction$Axis$Type): Self
+ "rotateXCenteredDegrees"(degrees: float): Self
+ "center"(): Self
  "translate"(vec: $Vec3i$Type): Self
  "translate"(vec: $Vector3ic$Type): Self
  "translate"(vec: $Vector3fc$Type): Self
  "translate"(vec: $Vec3$Type): Self
- "translate"(arg0: float, arg1: float, arg2: float): Self
- "translate"(v: float): Self
  "translate"(x: double, y: double, z: double): Self
- "center"(): Self
+ "translate"(v: float): Self
+ "translate"(arg0: float, arg1: float, arg2: float): Self
  "translateBack"(vec: $Vector3ic$Type): Self
  "translateBack"(vec: $Vec3i$Type): Self
  "translateBack"(v: float): Self
- "translateBack"(vec: $Vec3$Type): Self
  "translateBack"(vec: $Vector3fc$Type): Self
+ "translateBack"(vec: $Vec3$Type): Self
  "translateBack"(x: double, y: double, z: double): Self
  "translateBack"(x: float, y: float, z: float): Self
  "uncenter"(): Self
@@ -1879,18 +1876,18 @@ export interface $Affine<Self extends $Affine<(Self)>> extends $Translate<(Self)
  "rotate"(axisAngle: $AxisAngle4f$Type): Self
  "rotate"(radians: float, axisX: float, axisY: float, axisZ: float): Self
  "self"(): Self
+ "rotateXDegrees"(degrees: float): Self
  "rotateZDegrees"(degrees: float): Self
  "rotateYDegrees"(degrees: float): Self
- "rotateXDegrees"(degrees: float): Self
- "rotateToFace"(facing: $Direction$Type): Self
  "rotateDegrees"(degrees: float, axis: $Direction$Axis$Type): Self
  "rotateDegrees"(degrees: float, axis: $Axis$Type): Self
- "rotateDegrees"(degrees: float, axis: $Vector3fc$Type): Self
  "rotateDegrees"(degrees: float, axisX: float, axisY: float, axisZ: float): Self
  "rotateDegrees"(degrees: float, axis: $Direction$Type): Self
- "rotateTo"(from: $Vector3fc$Type, to: $Vector3fc$Type): Self
+ "rotateDegrees"(degrees: float, axis: $Vector3fc$Type): Self
+ "rotateToFace"(facing: $Direction$Type): Self
  "rotateTo"(fromX: float, fromY: float, fromZ: float, toX: float, toY: float, toZ: float): Self
  "rotateTo"(from: $Direction$Type, to: $Direction$Type): Self
+ "rotateTo"(from: $Vector3fc$Type, to: $Vector3fc$Type): Self
  "rotateX"(radians: float): Self
  "rotateY"(radians: float): Self
  "rotateZ"(radians: float): Self

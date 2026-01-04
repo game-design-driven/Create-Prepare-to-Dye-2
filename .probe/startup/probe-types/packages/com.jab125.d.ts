@@ -51,11 +51,11 @@ import {$ModpackInfo, $ModpackInfo$Type} from "packages/com/jab125/mpuc/api/$Mod
 
 export interface $SimpleBrandingVersionExtension extends $ModpackInfo {
 
- "setModpackInfo"(arg0: $ModpackInfo$Type): void
  "getModpackName"(): string
  "getModpackReleaseType"(): string
  "getModpackVersion"(): string
  "getModpackInfo"(): $ModpackInfo
+ "setModpackInfo"(arg0: $ModpackInfo$Type): void
 }
 
 export namespace $SimpleBrandingVersionExtension {

@@ -109,20 +109,20 @@ public static "getInstance"(arg0: string, arg1: $Provider$Type): $Signature
 public "getParameters"(): $AlgorithmParameters
 public "sign"(arg0: (byte)[], arg1: integer, arg2: integer): integer
 public "sign"(): (byte)[]
-public "verify"(arg0: (byte)[], arg1: integer, arg2: integer): boolean
 public "verify"(arg0: (byte)[]): boolean
+public "verify"(arg0: (byte)[], arg1: integer, arg2: integer): boolean
 public "getProvider"(): $Provider
+public "getAlgorithm"(): string
 public "initVerify"(arg0: $PublicKey$Type): void
 public "initVerify"(arg0: $Certificate$Type): void
 public "initSign"(arg0: $PrivateKey$Type): void
 public "initSign"(arg0: $PrivateKey$Type, arg1: $SecureRandom$Type): void
-public "getAlgorithm"(): string
+public "setParameter"(arg0: $AlgorithmParameterSpec$Type): void
 /**
  * 
  * @deprecated
  */
 public "setParameter"(arg0: string, arg1: any): void
-public "setParameter"(arg0: $AlgorithmParameterSpec$Type): void
 /**
  * 
  * @deprecated
@@ -203,19 +203,19 @@ public "nextBytes"(arg0: (byte)[]): void
 public "setSeed"(arg0: (byte)[]): void
 public "setSeed"(arg0: long): void
 public static "getSeed"(arg0: integer): (byte)[]
+public "getAlgorithm"(): string
 public "generateSeed"(arg0: integer): (byte)[]
 public static "getInstanceStrong"(): $SecureRandom
 public "reseed"(arg0: $SecureRandomParameters$Type): void
 public "reseed"(): void
-public "getAlgorithm"(): string
 public static "getDefault"(): $RandomGenerator
 public static "of"(arg0: string): $RandomGenerator
 get "parameters"(): $SecureRandomParameters
 get "provider"(): $Provider
 set "seed"(value: (byte)[])
 set "seed"(value: long)
-get "instanceStrong"(): $SecureRandom
 get "algorithm"(): string
+get "instanceStrong"(): $SecureRandom
 get "default"(): $RandomGenerator
 }
 /**

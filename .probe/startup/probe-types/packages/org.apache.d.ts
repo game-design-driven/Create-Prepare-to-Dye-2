@@ -10,33 +10,33 @@ constructor()
 public "getHost"(): string
 public "getPort"(): integer
 public "getProtocol"(): string
-public "setNtlmHost"(arg0: string): void
-public "setNtlmDomain"(arg0: string): void
-public "getNtlmDomain"(): string
-public "getNtlmHost"(): string
 public "setHost"(arg0: string): void
 public "setPort"(arg0: integer): void
-public "setPassword"(arg0: string): void
 public "setProtocol"(arg0: string): void
+public "setPassword"(arg0: string): void
+public "setNtlmDomain"(arg0: string): void
+public "getNtlmDomain"(): string
+public "setNtlmHost"(arg0: string): void
+public "getNonProxyHosts"(): string
 public "setUserName"(arg0: string): void
 public "setNonProxyHosts"(arg0: string): void
-public "getNonProxyHosts"(): string
+public "getNtlmHost"(): string
 public "getUserName"(): string
 public "getPassword"(): string
 get "host"(): string
 get "port"(): integer
 get "protocol"(): string
-set "ntlmHost"(value: string)
-set "ntlmDomain"(value: string)
-get "ntlmDomain"(): string
-get "ntlmHost"(): string
 set "host"(value: string)
 set "port"(value: integer)
-set "password"(value: string)
 set "protocol"(value: string)
+set "password"(value: string)
+set "ntlmDomain"(value: string)
+get "ntlmDomain"(): string
+set "ntlmHost"(value: string)
+get "nonProxyHosts"(): string
 set "userName"(value: string)
 set "nonProxyHosts"(value: string)
-get "nonProxyHosts"(): string
+get "ntlmHost"(): string
 get "userName"(): string
 get "password"(): string
 }
@@ -170,16 +170,23 @@ export interface $Artifact extends $Comparable<($Artifact)> {
  "setRelease"(arg0: boolean): void
  "getFile"(): $File
  "getVersion"(): string
- "selectVersion"(arg0: string): void
- "setVersionRange"(arg0: $VersionRange$Type): void
- "setDependencyTrail"(arg0: $List$Type<(string)>): void
- "setArtifactId"(arg0: string): void
- "setResolvedVersion"(arg0: string): void
- "setResolved"(arg0: boolean): void
+ "setFile"(arg0: $File$Type): void
+ "getGroupId"(): string
+ "setVersion"(arg0: string): void
+ "getSelectedVersion"(): $ArtifactVersion
+ "isSelectedVersionKnown"(): boolean
+ "getArtifactId"(): string
+ "getClassifier"(): string
+ "getDependencyTrail"(): $List<(string)>
+ "getVersionRange"(): $VersionRange
  "setArtifactHandler"(arg0: $ArtifactHandler$Type): void
- "getArtifactHandler"(): $ArtifactHandler
- "getDependencyConflictId"(): string
- "setDependencyFilter"(arg0: $ArtifactFilter$Type): void
+ "setResolvedVersion"(arg0: string): void
+ "setAvailableVersions"(arg0: $List$Type<($ArtifactVersion$Type)>): void
+ "getAvailableVersions"(): $List<($ArtifactVersion)>
+ "setResolved"(arg0: boolean): void
+ "selectVersion"(arg0: string): void
+ "setArtifactId"(arg0: string): void
+ "setOptional"(arg0: boolean): void
  "getDependencyFilter"(): $ArtifactFilter
  "setDownloadUrl"(arg0: string): void
  "getDownloadUrl"(): string
@@ -187,21 +194,14 @@ export interface $Artifact extends $Comparable<($Artifact)> {
  "setRepository"(arg0: $ArtifactRepository$Type): void
  "getMetadataList"(): $Collection<($ArtifactMetadata)>
  "addMetadata"(arg0: $ArtifactMetadata$Type): void
+ "setDependencyTrail"(arg0: $List$Type<(string)>): void
+ "setVersionRange"(arg0: $VersionRange$Type): void
+ "getArtifactHandler"(): $ArtifactHandler
+ "setDependencyFilter"(arg0: $ArtifactFilter$Type): void
  "setBaseVersion"(arg0: string): void
+ "getDependencyConflictId"(): string
  "getBaseVersion"(): string
  "hasClassifier"(): boolean
- "getAvailableVersions"(): $List<($ArtifactVersion)>
- "setAvailableVersions"(arg0: $List$Type<($ArtifactVersion$Type)>): void
- "setOptional"(arg0: boolean): void
- "setVersion"(arg0: string): void
- "setFile"(arg0: $File$Type): void
- "getGroupId"(): string
- "getSelectedVersion"(): $ArtifactVersion
- "isSelectedVersionKnown"(): boolean
- "getArtifactId"(): string
- "getClassifier"(): string
- "getDependencyTrail"(): $List<(string)>
- "getVersionRange"(): $VersionRange
  "isOptional"(): boolean
  "setScope"(arg0: string): void
  "setGroupId"(arg0: string): void
@@ -246,8 +246,8 @@ import {$Artifact, $Artifact$Type} from "packages/org/apache/maven/artifact/$Art
 export interface $ArtifactRepositoryLayout {
 
  "getId"(): string
- "pathOfRemoteRepositoryMetadata"(arg0: $ArtifactMetadata$Type): string
  "pathOfLocalRepositoryMetadata"(arg0: $ArtifactMetadata$Type, arg1: $ArtifactRepository$Type): string
+ "pathOfRemoteRepositoryMetadata"(arg0: $ArtifactMetadata$Type): string
  "pathOf"(arg0: $Artifact$Type): string
 }
 
@@ -279,15 +279,15 @@ export interface $ArtifactMetadata extends $ArtifactMetadata$0 {
  "merge"(arg0: $ArtifactMetadata$Type): void
  "merge"(arg0: $ArtifactMetadata$0$Type): void
  "getKey"(): any
+ "getGroupId"(): string
+ "getArtifactId"(): string
  "getBaseVersion"(): string
+ "storedInArtifactVersionDirectory"(): boolean
  "storedInGroupDirectory"(): boolean
  "getLocalFilename"(arg0: $ArtifactRepository$Type): string
  "getRemoteFilename"(): string
  "storeInLocalRepository"(arg0: $ArtifactRepository$Type, arg1: $ArtifactRepository$Type): void
  "extendedToString"(): string
- "getGroupId"(): string
- "getArtifactId"(): string
- "storedInArtifactVersionDirectory"(): boolean
 }
 
 export namespace $ArtifactMetadata {
@@ -1017,16 +1017,16 @@ export class $Authentication {
 constructor(arg0: string, arg1: string)
 
 public "setPassword"(arg0: string): void
-public "getUsername"(): string
 public "setUsername"(arg0: string): void
+public "getUsername"(): string
 public "getPassphrase"(): string
 public "setPassphrase"(arg0: string): void
 public "setPrivateKey"(arg0: string): void
 public "getPrivateKey"(): string
 public "getPassword"(): string
 set "password"(value: string)
-get "username"(): string
 set "username"(value: string)
+get "username"(): string
 get "passphrase"(): string
 set "passphrase"(value: string)
 set "privateKey"(value: string)
@@ -1056,11 +1056,11 @@ constructor(arg0: $ArtifactVersion$Type, arg1: boolean, arg2: $ArtifactVersion$T
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
-public "containsVersion"(arg0: $ArtifactVersion$Type): boolean
 public "getLowerBound"(): $ArtifactVersion
 public "getUpperBound"(): $ArtifactVersion
 public "isLowerBoundInclusive"(): boolean
 public "isUpperBoundInclusive"(): boolean
+public "containsVersion"(arg0: $ArtifactVersion$Type): boolean
 get "lowerBound"(): $ArtifactVersion
 get "upperBound"(): $ArtifactVersion
 get "lowerBoundInclusive"(): boolean
@@ -1224,8 +1224,8 @@ import {$ArtifactMetadata, $ArtifactMetadata$Type} from "packages/org/apache/mav
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$ArtifactRepositoryPolicy, $ArtifactRepositoryPolicy$Type} from "packages/org/apache/maven/artifact/repository/$ArtifactRepositoryPolicy"
 import {$Artifact, $Artifact$Type} from "packages/org/apache/maven/artifact/$Artifact"
-import {$Authentication, $Authentication$Type} from "packages/org/apache/maven/artifact/repository/$Authentication"
 import {$ArtifactRepositoryLayout, $ArtifactRepositoryLayout$Type} from "packages/org/apache/maven/artifact/repository/layout/$ArtifactRepositoryLayout"
+import {$Authentication, $Authentication$Type} from "packages/org/apache/maven/artifact/repository/$Authentication"
 import {$Proxy, $Proxy$Type} from "packages/org/apache/maven/repository/$Proxy"
 
 export interface $ArtifactRepository {
@@ -1234,6 +1234,20 @@ export interface $ArtifactRepository {
  "find"(arg0: $Artifact$Type): $Artifact
  "getId"(): string
  "getProtocol"(): string
+ "getProxy"(): $Proxy
+ "setId"(arg0: string): void
+ "getLayout"(): $ArtifactRepositoryLayout
+ "getUrl"(): string
+ "setLayout"(arg0: $ArtifactRepositoryLayout$Type): void
+ "getReleases"(): $ArtifactRepositoryPolicy
+ "getSnapshots"(): $ArtifactRepositoryPolicy
+/**
+ * 
+ * @deprecated
+ */
+ "isBlacklisted"(): boolean
+ "pathOfLocalRepositoryMetadata"(arg0: $ArtifactMetadata$Type, arg1: $ArtifactRepository$Type): string
+ "pathOfRemoteRepositoryMetadata"(arg0: $ArtifactMetadata$Type): string
  "setSnapshotUpdatePolicy"(arg0: $ArtifactRepositoryPolicy$Type): void
  "setReleaseUpdatePolicy"(arg0: $ArtifactRepositoryPolicy$Type): void
 /**
@@ -1252,20 +1266,6 @@ export interface $ArtifactRepository {
  "getAuthentication"(): $Authentication
  "getMirroredRepositories"(): $List<($ArtifactRepository)>
  "setMirroredRepositories"(arg0: $List$Type<($ArtifactRepository$Type)>): void
- "setLayout"(arg0: $ArtifactRepositoryLayout$Type): void
- "setId"(arg0: string): void
- "getUrl"(): string
- "getLayout"(): $ArtifactRepositoryLayout
- "getProxy"(): $Proxy
- "getReleases"(): $ArtifactRepositoryPolicy
- "getSnapshots"(): $ArtifactRepositoryPolicy
-/**
- * 
- * @deprecated
- */
- "isBlacklisted"(): boolean
- "pathOfRemoteRepositoryMetadata"(arg0: $ArtifactMetadata$Type): string
- "pathOfLocalRepositoryMetadata"(arg0: $ArtifactMetadata$Type, arg1: $ArtifactRepository$Type): string
  "isBlocked"(): boolean
  "setProxy"(arg0: $Proxy$Type): void
  "setUrl"(arg0: string): void
@@ -1481,15 +1481,15 @@ export interface $ArtifactMetadata {
 
  "merge"(arg0: $ArtifactMetadata$Type): void
  "getKey"(): any
+ "getGroupId"(): string
+ "getArtifactId"(): string
  "getBaseVersion"(): string
+ "storedInArtifactVersionDirectory"(): boolean
  "storedInGroupDirectory"(): boolean
  "getLocalFilename"(arg0: $ArtifactRepository$Type): string
  "getRemoteFilename"(): string
  "storeInLocalRepository"(arg0: $ArtifactRepository$Type, arg1: $ArtifactRepository$Type): void
  "extendedToString"(): string
- "getGroupId"(): string
- "getArtifactId"(): string
- "storedInArtifactVersionDirectory"(): boolean
 }
 
 export namespace $ArtifactMetadata {
@@ -1542,11 +1542,11 @@ export interface $ArtifactHandler {
 
  "getLanguage"(): string
  "getExtension"(): string
+ "getClassifier"(): string
+ "getDirectory"(): string
  "getPackaging"(): string
  "isIncludesDependencies"(): boolean
  "isAddedToClasspath"(): boolean
- "getClassifier"(): string
- "getDirectory"(): string
 }
 
 export namespace $ArtifactHandler {

@@ -151,8 +151,8 @@ export interface $AbstractContainerScreenAccessor {
 
  "getImageWidth"(): integer
  "getImageHeight"(): integer
- "getHoveredSlot"(): $Slot
  "callIsHovering"(arg0: $Slot$Type, arg1: double, arg2: double): boolean
+ "getHoveredSlot"(): $Slot
  "callRenderSlot"(arg0: $GuiGraphics$Type, arg1: $Slot$Type): void
  "getLeftPos"(): integer
  "getTopPos"(): integer

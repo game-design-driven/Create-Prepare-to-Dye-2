@@ -161,10 +161,10 @@ public "nextString"(arg0: character): string
 public "skipTo"(arg0: character): character
 public "syntaxError"(arg0: string, arg1: $Throwable$Type): $JSONException
 public "syntaxError"(arg0: string): $JSONException
-public "nextClean"(): character
 public static "dehexchar"(arg0: character): integer
 public "nextTo"(arg0: string): string
 public "nextTo"(arg0: character): string
+public "nextClean"(): character
 public "nextValue"(): any
 }
 /**
@@ -271,9 +271,9 @@ public "opt"(arg0: string): any
 public "has"(arg0: string): boolean
 public "getString"(arg0: string): string
 public "getBigDecimal"(arg0: string): $BigDecimal
-public "getEnum"<E extends $Enum<(E)>>(arg0: $Class$Type<(E)>, arg1: string): E
-public static "getNames"(arg0: any): (string)[]
 public static "getNames"(arg0: $JSONObject$Type): (string)[]
+public static "getNames"(arg0: any): (string)[]
+public "getEnum"<E extends $Enum<(E)>>(arg0: $Class$Type<(E)>, arg1: string): E
 public static "valueToString"(arg0: any): string
 public "getJSONObject"(arg0: string): $JSONObject
 public static "doubleToString"(arg0: double): string

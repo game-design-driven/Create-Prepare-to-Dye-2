@@ -229,15 +229,15 @@ function registry(extra: "forge:structure_modifier_serializers", handler: (event
 function registry(extra: "hourglass:time_effect", handler: (event: TimeEffect) => void): void
 function registry(extra: "lychee:contextual", handler: (event: Contextual) => void): void
 function registry(extra: "lychee:post_action", handler: (event: PostAction) => void): void
-function registry(extra: "forge:structure_modifier", handler: (event: StructureModifier) => void): void
-function registry(extra: "libx:surface_rule_set", handler: (event: SurfaceRuleSet) => void): void
-function registry(extra: "moonlight:soft_fluids", handler: (event: SoftFluids) => void): void
-function registry(extra: "moonlight:map_markers", handler: (event: MapMarkers) => void): void
-function registry(extra: "libx:biome_layer", handler: (event: BiomeLayer) => void): void
-function registry(extra: "createdieselgenerators:fuel_type", handler: (event: FuelType) => void): void
 function registry(extra: "forge:biome_modifier", handler: (event: BiomeModifier) => void): void
-function registry(extra: "libx:biome_surface", handler: (event: BiomeSurface) => void): void
+function registry(extra: "libx:surface_rule_set", handler: (event: SurfaceRuleSet) => void): void
+function registry(extra: "forge:structure_modifier", handler: (event: StructureModifier) => void): void
+function registry(extra: "moonlight:soft_fluids", handler: (event: SoftFluids) => void): void
+function registry(extra: "createdieselgenerators:fuel_type", handler: (event: FuelType) => void): void
 function registry(extra: "create:potato_projectile/type", handler: (event: PotatoProjectileType) => void): void
+function registry(extra: "libx:biome_layer", handler: (event: BiomeLayer) => void): void
+function registry(extra: "moonlight:map_markers", handler: (event: MapMarkers) => void): void
 function registry(extra: "libx:template_pool_extension", handler: (event: TemplatePoolExtension) => void): void
+function registry(extra: "libx:biome_surface", handler: (event: BiomeSurface) => void): void
 }
 }

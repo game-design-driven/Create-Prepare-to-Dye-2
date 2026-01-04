@@ -5,8 +5,8 @@ import {$Set, $Set$Type} from "packages/java/util/$Set"
 
 export interface $IMixinOptions {
 
- "invokeProcessOptionsFancyMenu"(arg0: $Options$FieldAccess$Type): void
  "getModelPartsFancyMenu"(): $Set<($PlayerModelPart)>
+ "invokeProcessOptionsFancyMenu"(arg0: $Options$FieldAccess$Type): void
 }
 
 export namespace $IMixinOptions {
@@ -28,9 +28,9 @@ declare module "packages/de/keksuccino/konkrete/mixin/client/$IMixinEditBox" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $IMixinEditBox {
 
+ "getHightlightPosKonkrete"(): integer
  "onValueChangeKonkrete"(arg0: string): void
  "getMaxLengthKonkrete"(): integer
- "getHightlightPosKonkrete"(): integer
  "getIsEditableKonkrete"(): boolean
 }
 
@@ -52,26 +52,26 @@ export type $IMixinEditBox_ = $IMixinEditBox$Type;
 declare module "packages/de/keksuccino/fancymenu/mixin/mixins/common/client/$IMixinEditBox" {
 import {$FormattedCharSequence, $FormattedCharSequence$Type} from "packages/net/minecraft/util/$FormattedCharSequence"
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
-import {$GuiGraphics, $GuiGraphics$Type} from "packages/net/minecraft/client/gui/$GuiGraphics"
 import {$BiFunction, $BiFunction$Type} from "packages/java/util/function/$BiFunction"
+import {$GuiGraphics, $GuiGraphics$Type} from "packages/net/minecraft/client/gui/$GuiGraphics"
 
 export interface $IMixinEditBox {
 
- "getTextColorUneditableFancyMenu"(): integer
- "invokeRenderHighlightFancyMenu"(arg0: $GuiGraphics$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer): void
+ "setDisplayPosFancyMenu"(arg0: integer): void
+ "getDisplayPosFancyMenu"(): integer
+ "getSuggestionFancyMenu"(): string
+ "getHintFancyMenu"(): $Component
+ "getFrameFancyMenu"(): integer
+ "getTextColorFancyMenu"(): integer
  "invokeDeleteTextFancyMenu"(arg0: integer): void
  "getHighlightPosFancyMenu"(): integer
  "setShiftPressedFancyMenu"(arg0: boolean): void
  "getFormatterFancyMenu"(): $BiFunction<(string), (integer), ($FormattedCharSequence)>
- "getTextColorFancyMenu"(): integer
- "getFrameFancyMenu"(): integer
- "getHintFancyMenu"(): $Component
- "getSuggestionFancyMenu"(): string
  "getMaxLengthFancyMenu"(): integer
  "getBorderedFancyMenu"(): boolean
- "setDisplayPosFancyMenu"(arg0: integer): void
- "getDisplayPosFancyMenu"(): integer
  "getIsEditableFancyMenu"(): boolean
+ "getTextColorUneditableFancyMenu"(): integer
+ "invokeRenderHighlightFancyMenu"(arg0: $GuiGraphics$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer): void
 }
 
 export namespace $IMixinEditBox {
@@ -145,10 +145,10 @@ import {$InputStream, $InputStream$Type} from "packages/java/io/$InputStream"
 export interface $Resource extends $Closeable {
 
  "open"(): $InputStream
- "waitForLoadingCompletedOrFailed"(arg0: long): void
  "waitForReady"(arg0: long): void
  "isLoadingCompleted"(): boolean
  "isLoadingFailed"(): boolean
+ "waitForLoadingCompletedOrFailed"(arg0: long): void
  "isReady"(): boolean
  "isClosed"(): boolean
  "close"(): void
@@ -206,6 +206,27 @@ import {$GuiGraphics, $GuiGraphics$Type} from "packages/net/minecraft/client/gui
 
 export interface $CustomizableWidget {
 
+ "getLastHoverStateFancyMenu"(): boolean
+ "setCustomHeightFancyMenu"(arg0: integer): void
+ "setCustomXFancyMenu"(arg0: integer): void
+ "getCustomYFancyMenu"(): integer
+ "getCustomHeightFancyMenu"(): integer
+ "getCustomXFancyMenu"(): integer
+ "setCustomYFancyMenu"(arg0: integer): void
+ "getCustomLabelFancyMenu"(): $Component
+ "getCustomWidthFancyMenu"(): integer
+ "getHoverLabelFancyMenu"(): $Component
+ "getHoverSoundFancyMenu"(): $IAudio
+ "setLastHoverStateFancyMenu"(arg0: boolean): void
+ "getLastFocusStateFancyMenu"(): boolean
+ "setCustomLabelFancyMenu"(arg0: $Component$Type): void
+ "setLastFocusStateFancyMenu"(arg0: boolean): void
+ "setHoverSoundFancyMenu"(arg0: $IAudio$Type): void
+ "setHiddenFancyMenu"(arg0: boolean): void
+ "setHoverLabelFancyMenu"(arg0: $Component$Type): void
+ "setCustomWidthFancyMenu"(arg0: integer): void
+ "stopHoverSoundFancyMenu"(): void
+ "isHiddenFancyMenu"(): boolean
  "tickHoverStateListenersFancyMenu"(arg0: boolean): void
  "tickFocusStateListenersFancyMenu"(arg0: boolean): void
  "tickHoverOrFocusStateListenersFancyMenu"(arg0: boolean): void
@@ -237,27 +258,6 @@ export interface $CustomizableWidget {
  "renderCustomBackgroundFancyMenu"(arg0: $AbstractWidget$Type, arg1: $GuiGraphics$Type, arg2: integer, arg3: integer, arg4: integer, arg5: integer): boolean
  "stopCustomClickSoundFancyMenu"(): void
  "resetWidgetCustomizationsFancyMenu"(): void
- "isHiddenFancyMenu"(): boolean
- "getLastHoverStateFancyMenu"(): boolean
- "setLastHoverStateFancyMenu"(arg0: boolean): void
- "getLastFocusStateFancyMenu"(): boolean
- "setLastFocusStateFancyMenu"(arg0: boolean): void
- "setHoverSoundFancyMenu"(arg0: $IAudio$Type): void
- "setHiddenFancyMenu"(arg0: boolean): void
- "setCustomLabelFancyMenu"(arg0: $Component$Type): void
- "setHoverLabelFancyMenu"(arg0: $Component$Type): void
- "setCustomWidthFancyMenu"(arg0: integer): void
- "setCustomHeightFancyMenu"(arg0: integer): void
- "setCustomXFancyMenu"(arg0: integer): void
- "setCustomYFancyMenu"(arg0: integer): void
- "getCustomLabelFancyMenu"(): $Component
- "getHoverLabelFancyMenu"(): $Component
- "getHoverSoundFancyMenu"(): $IAudio
- "getCustomWidthFancyMenu"(): integer
- "getCustomHeightFancyMenu"(): integer
- "getCustomXFancyMenu"(): integer
- "getCustomYFancyMenu"(): integer
- "stopHoverSoundFancyMenu"(): void
  "isNineSliceCustomBackgroundTexture_FancyMenu"(): boolean
  "getNineSliceCustomBackgroundBorderX_FancyMenu"(): integer
  "getNineSliceCustomBackgroundBorderY_FancyMenu"(): integer
@@ -284,12 +284,12 @@ export class $AspectRatio {
 
 constructor(arg0: integer, arg1: integer)
 
+public "getAspectRatioHeight"(arg0: integer): integer
+public "getAspectRatioWidth"(arg0: integer): integer
 public "getInputWidth"(): integer
 public "getInputHeight"(): integer
 public "getAspectRatioSizeByMinimumSize"(arg0: integer, arg1: integer): (integer)[]
 public "getAspectRatioSizeByMaximumSize"(arg0: integer, arg1: integer): (integer)[]
-public "getAspectRatioHeight"(arg0: integer): integer
-public "getAspectRatioWidth"(arg0: integer): integer
 get "inputWidth"(): integer
 get "inputHeight"(): integer
 }
@@ -443,13 +443,13 @@ import {$NarratableEntry, $NarratableEntry$Type} from "packages/net/minecraft/cl
 
 export interface $IMixinScreen {
 
- "invokeRemoveWidgetFancyMenu"(arg0: $GuiEventListener$Type): void
- "invoke_clearFocus_FancyMenu"(): void
- "get_initialized_FancyMenu"(): boolean
- "invoke_init_FancyMenu"(): void
  "getChildrenFancyMenu"(): $List<($GuiEventListener)>
  "getRenderablesFancyMenu"(): $List<($Renderable)>
  "getNarratablesFancyMenu"(): $List<($NarratableEntry)>
+ "get_initialized_FancyMenu"(): boolean
+ "invoke_init_FancyMenu"(): void
+ "invokeRemoveWidgetFancyMenu"(arg0: $GuiEventListener$Type): void
+ "invoke_clearFocus_FancyMenu"(): void
 }
 
 export namespace $IMixinScreen {
@@ -506,10 +506,10 @@ export interface $RenderableResource extends $Resource {
  "getWidth"(): integer
  "getHeight"(): integer
  "open"(): $InputStream
- "waitForLoadingCompletedOrFailed"(arg0: long): void
  "waitForReady"(arg0: long): void
  "isLoadingCompleted"(): boolean
  "isLoadingFailed"(): boolean
+ "waitForLoadingCompletedOrFailed"(arg0: long): void
  "isReady"(): boolean
  "isClosed"(): boolean
  "close"(): void
@@ -586,9 +586,9 @@ import {$ResourceLoadStateTracker, $ResourceLoadStateTracker$Type} from "package
 
 export interface $IMixinMinecraft {
 
- "getPausePartialTickFancyMenu"(): float
- "getReloadStateTrackerFancyMenu"(): $ResourceLoadStateTracker
  "openChatScreenFancyMenu"(arg0: string): void
+ "getReloadStateTrackerFancyMenu"(): $ResourceLoadStateTracker
+ "getPausePartialTickFancyMenu"(): float
 }
 
 export namespace $IMixinMinecraft {
@@ -620,10 +620,10 @@ export interface $PlayableResourceWithAudio extends $PlayableResource {
  "pause"(): void
  "isPaused"(): boolean
  "open"(): $InputStream
- "waitForLoadingCompletedOrFailed"(arg0: long): void
  "waitForReady"(arg0: long): void
  "isLoadingCompleted"(): boolean
  "isLoadingFailed"(): boolean
+ "waitForLoadingCompletedOrFailed"(arg0: long): void
  "isReady"(): boolean
  "isClosed"(): boolean
  "close"(): void
@@ -680,10 +680,10 @@ export interface $PlayableResource extends $Resource {
  "pause"(): void
  "isPaused"(): boolean
  "open"(): $InputStream
- "waitForLoadingCompletedOrFailed"(arg0: long): void
  "waitForReady"(arg0: long): void
  "isLoadingCompleted"(): boolean
  "isLoadingFailed"(): boolean
+ "waitForLoadingCompletedOrFailed"(arg0: long): void
  "isReady"(): boolean
  "isClosed"(): boolean
  "close"(): void
@@ -712,9 +712,9 @@ import {$SoundSource, $SoundSource$Type} from "packages/net/minecraft/sounds/$So
 export interface $IAudio extends $PlayableResourceWithAudio {
 
  "getDuration"(): float
- "getPlayTime"(): float
  "setSoundChannel"(arg0: $SoundSource$Type): void
  "getSoundChannel"(): $SoundSource
+ "getPlayTime"(): float
  "play"(): void
  "setVolume"(arg0: float): void
  "getVolume"(): float
@@ -723,10 +723,10 @@ export interface $IAudio extends $PlayableResourceWithAudio {
  "pause"(): void
  "isPaused"(): boolean
  "open"(): $InputStream
- "waitForLoadingCompletedOrFailed"(arg0: long): void
  "waitForReady"(arg0: long): void
  "isLoadingCompleted"(): boolean
  "isLoadingFailed"(): boolean
+ "waitForLoadingCompletedOrFailed"(arg0: long): void
  "isReady"(): boolean
  "isClosed"(): boolean
  "close"(): void

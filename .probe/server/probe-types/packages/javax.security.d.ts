@@ -16,8 +16,8 @@ public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public "setReadOnly"(): void
-public "getPrincipals"(): $Set<($Principal)>
 public "getPrincipals"<T extends $Principal>(arg0: $Class$Type<(T)>): $Set<(T)>
+public "getPrincipals"(): $Set<($Principal)>
 public "isReadOnly"(): boolean
 /**
  * 
@@ -38,8 +38,8 @@ public static "doAsPrivileged"<T>(arg0: $Subject$Type, arg1: $PrivilegedAction$T
 public static "doAsPrivileged"<T>(arg0: $Subject$Type, arg1: $PrivilegedExceptionAction$Type<(T)>, arg2: $AccessControlContext$Type): T
 public "getPublicCredentials"(): $Set<(any)>
 public "getPublicCredentials"<T>(arg0: $Class$Type<(T)>): $Set<(T)>
-public "getPrivateCredentials"<T>(arg0: $Class$Type<(T)>): $Set<(T)>
 public "getPrivateCredentials"(): $Set<(any)>
+public "getPrivateCredentials"<T>(arg0: $Class$Type<(T)>): $Set<(T)>
 get "principals"(): $Set<($Principal)>
 get "readOnly"(): boolean
 get "publicCredentials"(): $Set<(any)>

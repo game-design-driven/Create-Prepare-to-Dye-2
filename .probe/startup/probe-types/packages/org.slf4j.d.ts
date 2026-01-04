@@ -63,18 +63,18 @@ export interface $Logger {
  "atWarn"(): $LoggingEventBuilder
  "atError"(): $LoggingEventBuilder
  "atLevel"(arg0: $Level$Type): $LoggingEventBuilder
- "isEnabledForLevel"(arg0: $Level$Type): boolean
- "makeLoggingEventBuilder"(arg0: $Level$Type): $LoggingEventBuilder
- "isDebugEnabled"(arg0: $Marker$Type): boolean
  "isDebugEnabled"(): boolean
+ "isDebugEnabled"(arg0: $Marker$Type): boolean
  "isErrorEnabled"(arg0: $Marker$Type): boolean
  "isErrorEnabled"(): boolean
  "isInfoEnabled"(): boolean
  "isInfoEnabled"(arg0: $Marker$Type): boolean
- "isTraceEnabled"(): boolean
  "isTraceEnabled"(arg0: $Marker$Type): boolean
+ "isTraceEnabled"(): boolean
  "isWarnEnabled"(): boolean
  "isWarnEnabled"(arg0: $Marker$Type): boolean
+ "isEnabledForLevel"(arg0: $Level$Type): boolean
+ "makeLoggingEventBuilder"(arg0: $Level$Type): $LoggingEventBuilder
 }
 
 export namespace $Logger {
@@ -135,13 +135,13 @@ export interface $LoggingEventBuilder {
  "log"(arg0: string, ...arg1: (any)[]): void
  "log"(arg0: string, arg1: any, arg2: any): void
  "setCause"(arg0: $Throwable$Type): $LoggingEventBuilder
+ "addMarker"(arg0: $Marker$Type): $LoggingEventBuilder
  "setMessage"(arg0: $Supplier$Type<(string)>): $LoggingEventBuilder
  "setMessage"(arg0: string): $LoggingEventBuilder
- "addMarker"(arg0: $Marker$Type): $LoggingEventBuilder
  "addArgument"(arg0: $Supplier$Type<(any)>): $LoggingEventBuilder
  "addArgument"(arg0: any): $LoggingEventBuilder
- "addKeyValue"(arg0: string, arg1: any): $LoggingEventBuilder
  "addKeyValue"(arg0: string, arg1: $Supplier$Type<(any)>): $LoggingEventBuilder
+ "addKeyValue"(arg0: string, arg1: any): $LoggingEventBuilder
 }
 
 export namespace $LoggingEventBuilder {
@@ -173,12 +173,12 @@ export interface $Marker extends $Serializable {
  "iterator"(): $Iterator<($Marker)>
  "contains"(arg0: string): boolean
  "contains"(arg0: $Marker$Type): boolean
- "hasReferences"(): boolean
 /**
  * 
  * @deprecated
  */
  "hasChildren"(): boolean
+ "hasReferences"(): boolean
 }
 
 export namespace $Marker {

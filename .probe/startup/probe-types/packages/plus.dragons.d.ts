@@ -25,9 +25,9 @@ constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $Blo
 public "write"(arg0: $CompoundTag$Type, arg1: boolean): void
 public "destroy"(): void
 public "tick"(): void
-public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
 public "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
 public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
+public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
 public "setHeldItem"(arg0: $TransportedItemStack$Type, arg1: $Direction$Type): void
 public "getHeldItemStack"(): $ItemStack
 public "getInternalTank"(): $SmartFluidTankBehaviour
@@ -62,10 +62,10 @@ export class $AbstractTrigger<T extends $AbstractTrigger$Instance> implements $C
 
 constructor(arg0: $ResourceLocation$Type)
 
-public "getId"(): $ResourceLocation
-public "addPlayerListener"(arg0: $PlayerAdvancements$Type, arg1: $CriterionTrigger$Listener$Type<(T)>): void
-public "removePlayerListener"(arg0: $PlayerAdvancements$Type, arg1: $CriterionTrigger$Listener$Type<(T)>): void
 public "removePlayerListeners"(arg0: $PlayerAdvancements$Type): void
+public "removePlayerListener"(arg0: $PlayerAdvancements$Type, arg1: $CriterionTrigger$Listener$Type<(T)>): void
+public "addPlayerListener"(arg0: $PlayerAdvancements$Type, arg1: $CriterionTrigger$Listener$Type<(T)>): void
+public "getId"(): $ResourceLocation
 public "createInstance"(arg0: $JsonObject$Type, arg1: $DeserializationContext$Type): T
 get "id"(): $ResourceLocation
 }
@@ -277,11 +277,11 @@ public "getAnalogOutputSignal"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: 
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
 public "getDrops"(arg0: $BlockState$Type, arg1: $LootContext$Builder$Type): $List<($ItemStack)>
-public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
-public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
 public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
+public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
+public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
+public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public "onWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($DisenchanterBlockEntity$Type)>): void
 public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($DisenchanterBlockEntity)>
@@ -406,12 +406,12 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $Item$Properties$Type)
 
 public static "getEnchantment"(arg0: $ItemStack$Type): $EnchantmentEntry
-public "getDisplayName"(): $Component
 public "useOn"(arg0: $UseOnContext$Type): $InteractionResult
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "isFoil"(arg0: $ItemStack$Type): boolean
 public "createMenu"(arg0: integer, arg1: $Inventory$Type, arg2: $Player$Type): $AbstractContainerMenu
+public "getDisplayName"(): $Component
 get "displayName"(): $Component
 }
 /**
@@ -525,14 +525,14 @@ public "hasAnalogOutputSignal"(arg0: $BlockState$Type): boolean
 public "getDrops"(arg0: $BlockState$Type, arg1: $LootParams$Builder$Type): $List<($ItemStack)>
 public "getAnalogOutputSignal"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): integer
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
-public "asItem"(): $Item
 public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
 public "getCloneItemStack"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
+public "asItem"(): $Item
 public static "getLight"(arg0: $BlockState$Type): integer
-public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
 public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
+public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
+public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public "onWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($BlazeEnchanterBlockEntity$Type)>): void
 public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($BlazeEnchanterBlockEntity)>
@@ -616,23 +616,23 @@ constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $Blo
 public "write"(arg0: $CompoundTag$Type, arg1: boolean): void
 public "destroy"(): void
 public "tick"(): void
-public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
 public "getRequiredItems"(arg0: $BlockState$Type): $ItemRequirement
 public "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
 public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
-public "setHeldItem"(arg0: $TransportedItemStack$Type, arg1: $Direction$Type): void
-public "getHeldItemStack"(): $ItemStack
+public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
 public "setTargetItem"(arg0: $ItemStack$Type): void
 public "updateHeatLevel"(arg0: $BlazeEnchanterBlock$HeatLevel$Type): void
-public "getDisplayName"(): $Component
+public "setHeldItem"(arg0: $TransportedItemStack$Type, arg1: $Direction$Type): void
+public "getHeldItemStack"(): $ItemStack
 public "createMenu"(arg0: integer, arg1: $Inventory$Type, arg2: $Player$Type): $AbstractContainerMenu
+public "getDisplayName"(): $Component
 public "writeSafe"(arg0: $CompoundTag$Type): void
 public "hyper"(): boolean
 public "invalidate"(): void
 public "containedFluidTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean, arg2: $LazyOptional$Type<($IFluidHandler$Type)>): boolean
 public "getIcon"(arg0: boolean): $ItemStack
-get "heldItemStack"(): $ItemStack
 set "targetItem"(value: $ItemStack$Type)
+get "heldItemStack"(): $ItemStack
 get "displayName"(): $Component
 }
 /**
@@ -785,11 +785,11 @@ export interface $PrintEntry {
  "match"(arg0: $ItemStack$Type): boolean
  "print"(arg0: $ItemStack$Type, arg1: $ItemStack$Type): $ItemStack
  "valid"(arg0: $ItemStack$Type, arg1: $ItemStack$Type): boolean
- "requiredInkAmount"(arg0: $ItemStack$Type): integer
- "requiredInkType"(arg0: $ItemStack$Type): $Fluid
  "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean, arg2: $ItemStack$Type): void
  "getDisplaySourceContent"(arg0: $ItemStack$Type): $MutableComponent
  "isTooExpensive"(arg0: $ItemStack$Type, arg1: integer): boolean
+ "requiredInkAmount"(arg0: $ItemStack$Type): integer
+ "requiredInkType"(arg0: $ItemStack$Type): $Fluid
 }
 
 export namespace $PrintEntry {
@@ -891,9 +891,9 @@ constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $Blo
 
 public "destroy"(): void
 public "tick"(): void
-public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
 public "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
 public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
+public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
 public "getCopyTarget"(): $ItemStack
 public "setCopyTarget"(arg0: $ItemStack$Type): void
 public "writeSafe"(arg0: $CompoundTag$Type): void
@@ -933,15 +933,15 @@ static readonly "ENTRIES_MAP": $Map<(string), ($List<($AdvancementHolder)>)>
 public "id"(): $ResourceLocation
 public "save"(arg0: $Consumer$Type<($Advancement$Type)>): void
 public "description"(): string
-public "appendToLang"(arg0: $JsonObject$Type): void
 public "title"(): string
-public "descriptionKey"(): string
+public "asCreateAdvancement"(): $CreateAdvancement
 public static "provideLangEntries"(arg0: string): $JsonObject
 public "isAlreadyAwardedTo"(arg0: $Player$Type): boolean
-public "asCreateAdvancement"(): $CreateAdvancement
+public "descriptionKey"(): string
+public "appendToLang"(arg0: $JsonObject$Type): void
 public "awardTo"(arg0: $Player$Type): void
-public "titleKey"(): string
 public "getTrigger"(): $SimpleTrigger
+public "titleKey"(): string
 get "trigger"(): $SimpleTrigger
 }
 /**
@@ -1026,11 +1026,11 @@ public "canSurvive"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $Bloc
 public "getAnalogOutputSignal"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): integer
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
-public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
-public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
 public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
+public static "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
+public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
+public static "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public "onWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($PrinterBlockEntity$Type)>): void
 public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($PrinterBlockEntity)>
@@ -1147,7 +1147,7 @@ export interface $InkRenderingCamera {
 
  "isInInk"(): boolean
 
-(arg0: $ViewportEvent$ComputeFogColor$Type): void
+(): boolean
 }
 
 export namespace $InkRenderingCamera {

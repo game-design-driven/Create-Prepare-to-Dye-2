@@ -64,13 +64,13 @@ static readonly "PATTERN": $SchematicUploadItemSource
 public static "values"(): ($SchematicUploadItemSource)[]
 public static "valueOf"(arg0: string): $SchematicUploadItemSource
 public "getFactory"(): $SchematicUploadItemSource$SchematicItemFactory
-public "getSchematicSourceItems"(): $List<($ItemEntry<(any)>)>
-public static "tryFromItemStack"(arg0: $ItemStack$Type): $SchematicUploadItemSource
 public "getNbtValue"(): integer
+public static "tryFromItemStack"(arg0: $ItemStack$Type): $SchematicUploadItemSource
+public "getSchematicSourceItems"(): $List<($ItemEntry<(any)>)>
 public static "tryFromInt"(arg0: integer): $SchematicUploadItemSource
 get "factory"(): $SchematicUploadItemSource$SchematicItemFactory
-get "schematicSourceItems"(): $List<($ItemEntry<(any)>)>
 get "nbtValue"(): integer
+get "schematicSourceItems"(): $List<($ItemEntry<(any)>)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

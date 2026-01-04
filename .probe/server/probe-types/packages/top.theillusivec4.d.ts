@@ -22,13 +22,13 @@ public "visible"(): boolean
  */
 public "getWearer"(): $LivingEntity
 public "cosmetic"(): boolean
+public "identifier"(): string
+public "entity"(): $LivingEntity
 /**
  * 
  * @deprecated
  */
 public "getIdentifier"(): string
-public "identifier"(): string
-public "entity"(): $LivingEntity
 get "wearer"(): $LivingEntity
 }
 /**
@@ -89,25 +89,20 @@ export interface $ICurioItem {
 
  "getFortuneLevel"(arg0: $SlotContext$Type, arg1: $LootContext$Type, arg2: $ItemStack$Type): integer
  "getLootingLevel"(arg0: $SlotContext$Type, arg1: $DamageSource$Type, arg2: $LivingEntity$Type, arg3: integer, arg4: $ItemStack$Type): integer
- "makesPiglinsNeutral"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): boolean
-/**
- * 
- * @deprecated
- */
- "getAttributeModifiers"(arg0: string, arg1: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
- "getAttributeModifiers"(arg0: $SlotContext$Type, arg1: $UUID$Type, arg2: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
  "canWalkOnPowderedSnow"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): boolean
  "isEnderMask"(arg0: $SlotContext$Type, arg1: $EnderMan$Type, arg2: $ItemStack$Type): boolean
 /**
  * 
  * @deprecated
  */
- "getFortuneBonus"(arg0: string, arg1: $LivingEntity$Type, arg2: $ItemStack$Type, arg3: integer): integer
+ "getAttributeModifiers"(arg0: string, arg1: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+ "getAttributeModifiers"(arg0: $SlotContext$Type, arg1: $UUID$Type, arg2: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+ "makesPiglinsNeutral"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): boolean
 /**
  * 
  * @deprecated
  */
- "getLootingBonus"(arg0: string, arg1: $LivingEntity$Type, arg2: $ItemStack$Type, arg3: integer): integer
+ "curioAnimate"(arg0: string, arg1: integer, arg2: $LivingEntity$Type, arg3: $ItemStack$Type): void
  "hasCurioCapability"(arg0: $ItemStack$Type): boolean
  "getSlotsTooltip"(arg0: $List$Type<($Component$Type)>, arg1: $ItemStack$Type): $List<($Component)>
 /**
@@ -128,24 +123,24 @@ export interface $ICurioItem {
  * @deprecated
  */
  "canRightClickEquip"(arg0: $ItemStack$Type): boolean
- "writeSyncData"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): $CompoundTag
 /**
  * 
  * @deprecated
  */
  "writeSyncData"(arg0: $ItemStack$Type): $CompoundTag
- "readSyncData"(arg0: $SlotContext$Type, arg1: $CompoundTag$Type, arg2: $ItemStack$Type): void
+ "writeSyncData"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): $CompoundTag
 /**
  * 
  * @deprecated
  */
  "readSyncData"(arg0: $CompoundTag$Type, arg1: $ItemStack$Type): void
- "getDropRule"(arg0: $SlotContext$Type, arg1: $DamageSource$Type, arg2: integer, arg3: boolean, arg4: $ItemStack$Type): $ICurio$DropRule
+ "readSyncData"(arg0: $SlotContext$Type, arg1: $CompoundTag$Type, arg2: $ItemStack$Type): void
 /**
  * 
  * @deprecated
  */
  "getDropRule"(arg0: $LivingEntity$Type, arg1: $ItemStack$Type): $ICurio$DropRule
+ "getDropRule"(arg0: $SlotContext$Type, arg1: $DamageSource$Type, arg2: integer, arg3: boolean, arg4: $ItemStack$Type): $ICurio$DropRule
  "getAttributesTooltip"(arg0: $List$Type<($Component$Type)>, arg1: $ItemStack$Type): $List<($Component)>
 /**
  * 
@@ -156,19 +151,24 @@ export interface $ICurioItem {
  * 
  * @deprecated
  */
- "curioAnimate"(arg0: string, arg1: integer, arg2: $LivingEntity$Type, arg3: $ItemStack$Type): void
+ "getFortuneBonus"(arg0: string, arg1: $LivingEntity$Type, arg2: $ItemStack$Type, arg3: integer): integer
+/**
+ * 
+ * @deprecated
+ */
+ "getLootingBonus"(arg0: string, arg1: $LivingEntity$Type, arg2: $ItemStack$Type, arg3: integer): integer
 /**
  * 
  * @deprecated
  */
  "canEquip"(arg0: string, arg1: $LivingEntity$Type, arg2: $ItemStack$Type): boolean
  "canEquip"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): boolean
- "canUnequip"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): boolean
 /**
  * 
  * @deprecated
  */
  "canUnequip"(arg0: string, arg1: $LivingEntity$Type, arg2: $ItemStack$Type): boolean
+ "canUnequip"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): boolean
  "curioTick"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): void
 /**
  * 
@@ -187,12 +187,12 @@ export interface $ICurioItem {
  * @deprecated
  */
  "onUnequip"(arg0: string, arg1: integer, arg2: $LivingEntity$Type, arg3: $ItemStack$Type): void
- "curioBreak"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): void
 /**
  * 
  * @deprecated
  */
  "curioBreak"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type): void
+ "curioBreak"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): void
  "canSync"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): boolean
 /**
  * 
@@ -264,12 +264,12 @@ public "volume"(): float
  * @deprecated
  */
 public "getPitch"(): float
-public "soundEvent"(): $SoundEvent
 /**
  * 
  * @deprecated
  */
 public "getVolume"(): float
+public "soundEvent"(): $SoundEvent
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -305,25 +305,20 @@ export interface $ICurio {
  "getStack"(): $ItemStack
  "getFortuneLevel"(arg0: $SlotContext$Type, arg1: $LootContext$Type): integer
  "getLootingLevel"(arg0: $SlotContext$Type, arg1: $DamageSource$Type, arg2: $LivingEntity$Type, arg3: integer): integer
- "makesPiglinsNeutral"(arg0: $SlotContext$Type): boolean
+ "canWalkOnPowderedSnow"(arg0: $SlotContext$Type): boolean
+ "isEnderMask"(arg0: $SlotContext$Type, arg1: $EnderMan$Type): boolean
+ "getAttributeModifiers"(arg0: $SlotContext$Type, arg1: $UUID$Type): $Multimap<($Attribute), ($AttributeModifier)>
 /**
  * 
  * @deprecated
  */
  "getAttributeModifiers"(arg0: string): $Multimap<($Attribute), ($AttributeModifier)>
- "getAttributeModifiers"(arg0: $SlotContext$Type, arg1: $UUID$Type): $Multimap<($Attribute), ($AttributeModifier)>
- "canWalkOnPowderedSnow"(arg0: $SlotContext$Type): boolean
- "isEnderMask"(arg0: $SlotContext$Type, arg1: $EnderMan$Type): boolean
+ "makesPiglinsNeutral"(arg0: $SlotContext$Type): boolean
 /**
  * 
  * @deprecated
  */
- "getFortuneBonus"(arg0: string, arg1: $LivingEntity$Type, arg2: $ItemStack$Type, arg3: integer): integer
-/**
- * 
- * @deprecated
- */
- "getLootingBonus"(arg0: string, arg1: $LivingEntity$Type, arg2: $ItemStack$Type, arg3: integer): integer
+ "curioAnimate"(arg0: string, arg1: integer, arg2: $LivingEntity$Type): void
  "getSlotsTooltip"(arg0: $List$Type<($Component$Type)>): $List<($Component)>
 /**
  * 
@@ -355,12 +350,12 @@ export interface $ICurio {
  * @deprecated
  */
  "readSyncData"(arg0: $CompoundTag$Type): void
- "getDropRule"(arg0: $SlotContext$Type, arg1: $DamageSource$Type, arg2: integer, arg3: boolean): $ICurio$DropRule
 /**
  * 
  * @deprecated
  */
  "getDropRule"(arg0: $LivingEntity$Type): $ICurio$DropRule
+ "getDropRule"(arg0: $SlotContext$Type, arg1: $DamageSource$Type, arg2: integer, arg3: boolean): $ICurio$DropRule
  "getAttributesTooltip"(arg0: $List$Type<($Component$Type)>): $List<($Component)>
 /**
  * 
@@ -371,37 +366,42 @@ export interface $ICurio {
  * 
  * @deprecated
  */
- "curioAnimate"(arg0: string, arg1: integer, arg2: $LivingEntity$Type): void
+ "getFortuneBonus"(arg0: string, arg1: $LivingEntity$Type, arg2: $ItemStack$Type, arg3: integer): integer
+/**
+ * 
+ * @deprecated
+ */
+ "getLootingBonus"(arg0: string, arg1: $LivingEntity$Type, arg2: $ItemStack$Type, arg3: integer): integer
 /**
  * 
  * @deprecated
  */
  "canEquip"(arg0: string, arg1: $LivingEntity$Type): boolean
  "canEquip"(arg0: $SlotContext$Type): boolean
+ "canUnequip"(arg0: $SlotContext$Type): boolean
 /**
  * 
  * @deprecated
  */
  "canUnequip"(arg0: string, arg1: $LivingEntity$Type): boolean
- "canUnequip"(arg0: $SlotContext$Type): boolean
- "curioTick"(arg0: $SlotContext$Type): void
 /**
  * 
  * @deprecated
  */
  "curioTick"(arg0: string, arg1: integer, arg2: $LivingEntity$Type): void
+ "curioTick"(arg0: $SlotContext$Type): void
  "onEquip"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): void
 /**
  * 
  * @deprecated
  */
  "onEquip"(arg0: string, arg1: integer, arg2: $LivingEntity$Type): void
+ "onUnequip"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): void
 /**
  * 
  * @deprecated
  */
  "onUnequip"(arg0: string, arg1: integer, arg2: $LivingEntity$Type): void
- "onUnequip"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): void
  "curioBreak"(arg0: $SlotContext$Type): void
 /**
  * 

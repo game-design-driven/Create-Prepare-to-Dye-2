@@ -175,8 +175,8 @@ public "setLength"(arg0: integer): void
 public "getAddress"(): $InetAddress
 public "getPort"(): integer
 public "getOffset"(): integer
-public "getData"(): (byte)[]
 public "setPort"(arg0: integer): void
+public "getData"(): (byte)[]
 public "setData"(arg0: (byte)[]): void
 public "setData"(arg0: (byte)[], arg1: integer, arg2: integer): void
 public "getSocketAddress"(): $SocketAddress
@@ -187,8 +187,8 @@ set "length"(value: integer)
 get "address"(): $InetAddress
 get "port"(): integer
 get "offset"(): integer
-get "data"(): (byte)[]
 set "port"(value: integer)
+get "data"(): (byte)[]
 set "data"(value: (byte)[])
 get "socketAddress"(): $SocketAddress
 set "socketAddress"(value: $SocketAddress$Type)
@@ -440,6 +440,11 @@ public "close"(): void
 public "bind"(arg0: $SocketAddress$Type, arg1: integer): void
 public "bind"(arg0: $SocketAddress$Type): void
 public "getChannel"(): $ServerSocketChannel
+/**
+ * 
+ * @deprecated
+ */
+public static "setSocketFactory"(arg0: $SocketImplFactory$Type): void
 public "isClosed"(): boolean
 public "isBound"(): boolean
 public "getInetAddress"(): $InetAddress
@@ -455,12 +460,8 @@ public "getReceiveBufferSize"(): integer
 public "setReuseAddress"(arg0: boolean): void
 public "getReuseAddress"(): boolean
 public "setPerformancePreferences"(arg0: integer, arg1: integer, arg2: integer): void
-/**
- * 
- * @deprecated
- */
-public static "setSocketFactory"(arg0: $SocketImplFactory$Type): void
 get "channel"(): $ServerSocketChannel
+set "socketFactory"(value: $SocketImplFactory$Type)
 get "closed"(): boolean
 get "bound"(): boolean
 get "inetAddress"(): $InetAddress
@@ -472,7 +473,6 @@ set "receiveBufferSize"(value: integer)
 get "receiveBufferSize"(): integer
 set "reuseAddress"(value: boolean)
 get "reuseAddress"(): boolean
-set "socketFactory"(value: $SocketImplFactory$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -518,7 +518,14 @@ public "getChannel"(): $DatagramChannel
 public "getBroadcast"(): boolean
 public "send"(arg0: $DatagramPacket$Type): void
 public "disconnect"(): void
-public "receive"(arg0: $DatagramPacket$Type): void
+public "setBroadcast"(arg0: boolean): void
+public "joinGroup"(arg0: $SocketAddress$Type, arg1: $NetworkInterface$Type): void
+public "leaveGroup"(arg0: $SocketAddress$Type, arg1: $NetworkInterface$Type): void
+/**
+ * 
+ * @deprecated
+ */
+public static "setDatagramSocketImplFactory"(arg0: $DatagramSocketImplFactory$Type): void
 public "isClosed"(): boolean
 public "isConnected"(): boolean
 public "isBound"(): boolean
@@ -540,17 +547,12 @@ public "setTrafficClass"(arg0: integer): void
 public "getTrafficClass"(): integer
 public "setReuseAddress"(arg0: boolean): void
 public "getReuseAddress"(): boolean
-public "setBroadcast"(arg0: boolean): void
-public "joinGroup"(arg0: $SocketAddress$Type, arg1: $NetworkInterface$Type): void
-public "leaveGroup"(arg0: $SocketAddress$Type, arg1: $NetworkInterface$Type): void
-/**
- * 
- * @deprecated
- */
-public static "setDatagramSocketImplFactory"(arg0: $DatagramSocketImplFactory$Type): void
+public "receive"(arg0: $DatagramPacket$Type): void
 get "port"(): integer
 get "channel"(): $DatagramChannel
 get "broadcast"(): boolean
+set "broadcast"(value: boolean)
+set "datagramSocketImplFactory"(value: $DatagramSocketImplFactory$Type)
 get "closed"(): boolean
 get "connected"(): boolean
 get "bound"(): boolean
@@ -569,8 +571,6 @@ set "trafficClass"(value: integer)
 get "trafficClass"(): integer
 set "reuseAddress"(value: boolean)
 get "reuseAddress"(): boolean
-set "broadcast"(value: boolean)
-set "datagramSocketImplFactory"(value: $DatagramSocketImplFactory$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

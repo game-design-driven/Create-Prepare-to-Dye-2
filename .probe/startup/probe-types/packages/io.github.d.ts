@@ -63,20 +63,20 @@ public "getId"(): string
 public "isInfinite"(): boolean
 public "complete"(): void
 public "isCompleted"(): boolean
+public "getTitle"(): $Component
+public "getDelivered"(): integer
+public "toItemStack"(arg0: $ItemStack$Type): boolean
+public static "fromItemStack"(arg0: $ItemStack$Type): $Optional<($DeliveryAgreement)>
+public "getExperience"(): integer
 public "getDeliveryTime"(): integer
 public "getDeliveryTimeOrDefault"(): integer
 public "getRequested"(): $List<($RequestedItem)>
 public "getExpireTimestamp"(): long
-public "addDelivered"(arg0: integer): void
-public "setDelivered"(arg0: integer): void
-public "getIsExpired"(): boolean
-public "getTitle"(): $Component
 public "getBuyerName"(): $Component
-public "getDelivered"(): integer
 public "getBuyerAddress"(): $Component
-public "toItemStack"(arg0: $ItemStack$Type): boolean
-public static "fromItemStack"(arg0: $ItemStack$Type): $Optional<($DeliveryAgreement)>
-public "getExperience"(): integer
+public "getIsExpired"(): boolean
+public "setDelivered"(arg0: integer): void
+public "addDelivered"(arg0: integer): void
 public "isExpired"(arg0: long): boolean
 public "getOrdered"(): integer
 public "expire"(): void
@@ -90,16 +90,16 @@ get "message"(): $Component
 get "id"(): string
 get "infinite"(): boolean
 get "completed"(): boolean
+get "title"(): $Component
+get "delivered"(): integer
+get "experience"(): integer
 get "deliveryTime"(): integer
 get "deliveryTimeOrDefault"(): integer
 get "requested"(): $List<($RequestedItem)>
 get "expireTimestamp"(): long
-set "delivered"(value: integer)
-get "title"(): $Component
 get "buyerName"(): $Component
-get "delivered"(): integer
 get "buyerAddress"(): $Component
-get "experience"(): integer
+set "delivered"(value: integer)
 get "ordered"(): integer
 get "payment"(): $List<($ItemStack)>
 get "seal"(): string
@@ -145,10 +145,10 @@ constructor(arg0: $Block$Type, arg1: $Item$Properties$Type)
 
 public "useOn"(arg0: $UseOnContext$Type): $InteractionResult
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
-public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
 public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
 public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$setClientAnimationExtension"(arg0: any): void
+public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -174,9 +174,9 @@ import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Directio
 import {$WorldlyContainer, $WorldlyContainer$Type} from "packages/net/minecraft/world/$WorldlyContainer"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$DeliveryAgreement, $DeliveryAgreement$Type} from "packages/io/github/mortuusars/wares/data/agreement/$DeliveryAgreement"
-import {$ClientboundBlockEntityDataPacket, $ClientboundBlockEntityDataPacket$Type} from "packages/net/minecraft/network/protocol/game/$ClientboundBlockEntityDataPacket"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$IItemHandlerModifiable, $IItemHandlerModifiable$Type} from "packages/net/minecraftforge/items/$IItemHandlerModifiable"
+import {$ClientboundBlockEntityDataPacket, $ClientboundBlockEntityDataPacket$Type} from "packages/net/minecraft/network/protocol/game/$ClientboundBlockEntityDataPacket"
 import {$Capability, $Capability$Type} from "packages/net/minecraftforge/common/capabilities/$Capability"
 import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
 import {$ClientGamePacketListener, $ClientGamePacketListener$Type} from "packages/net/minecraft/network/protocol/game/$ClientGamePacketListener"
@@ -209,36 +209,36 @@ static readonly "CONTAINER_DATA_CAN_DELIVER_MANUALLY": integer
 
 constructor(arg0: $BlockPos$Type, arg1: $BlockState$Type)
 
+public "setAgreementItem"(arg0: $ItemStack$Type): void
+public "extractAgreementItem"(): $ItemStack
+public "getAgreementItem"(): $ItemStack
+public "isAgreementLocked"(): boolean
+public "shouldVoidAgreementOnBreak"(): boolean
+public "getAgreement"(): $DeliveryAgreement
+public "trySetOwner"(arg0: $ServerPlayer$Type): boolean
+public "getInventory"(): $IItemHandlerModifiable
+public "onDataPacket"(arg0: $Connection$Type, arg1: $ClientboundBlockEntityDataPacket$Type): void
+public "handleUpdateTag"(arg0: $CompoundTag$Type): void
+public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
+public "invalidateCaps"(): void
 public "getBatchSize"(): integer
 public "getPackagerWorker"(arg0: integer): $Optional<($Villager)>
 public "triggerAdvancement"(arg0: $DeliveryTableTrigger$Type, arg1: $ServerPlayer$Type): void
 public "startManualDelivery"(): void
-public "onDataPacket"(arg0: $Connection$Type, arg1: $ClientboundBlockEntityDataPacket$Type): void
-public "handleUpdateTag"(arg0: $CompoundTag$Type): void
-public "invalidateCaps"(): void
-public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
-public "trySetOwner"(arg0: $ServerPlayer$Type): boolean
-public "getAgreementItem"(): $ItemStack
-public "setAgreementItem"(arg0: $ItemStack$Type): void
-public "isAgreementLocked"(): boolean
-public "extractAgreementItem"(): $ItemStack
-public "getAgreement"(): $DeliveryAgreement
-public "shouldVoidAgreementOnBreak"(): boolean
-public "getInventory"(): $IItemHandlerModifiable
+public "removeItem"(arg0: integer, arg1: integer): $ItemStack
+public "isEmpty"(): boolean
+public "clearContent"(): void
+public "serverTick"(): void
+public "setItem"(arg0: integer, arg1: $ItemStack$Type): void
 public "getContainerSize"(): integer
 public "getItem"(arg0: integer): $ItemStack
 public "removeItemNoUpdate"(arg0: integer): $ItemStack
 public "reviveCaps"(): void
-public "removeItem"(arg0: integer, arg1: integer): $ItemStack
-public "isEmpty"(): boolean
-public "clearContent"(): void
-public "setItem"(arg0: integer, arg1: $ItemStack$Type): void
-public "serverTick"(): void
 public "stillValid"(arg0: $Player$Type): boolean
-public "canPlaceItem"(arg0: integer, arg1: $ItemStack$Type): boolean
 public "load"(arg0: $CompoundTag$Type): void
 public "getUpdatePacket"(): $Packet<($ClientGamePacketListener)>
 public "getUpdateTag"(): $CompoundTag
+public "canPlaceItem"(arg0: integer, arg1: $ItemStack$Type): boolean
 public "getSlotsForFace"(arg0: $Direction$Type): (integer)[]
 public "canPlaceItemThroughFace"(arg0: integer, arg1: $ItemStack$Type, arg2: $Direction$Type): boolean
 public "canTakeItemThroughFace"(arg0: integer, arg1: $ItemStack$Type, arg2: $Direction$Type): boolean
@@ -248,14 +248,14 @@ public "setChanged"(): void
 public static "stillValidBlockEntity"(arg0: $BlockEntity$Type, arg1: $Player$Type): boolean
 public static "stillValidBlockEntity"(arg0: $BlockEntity$Type, arg1: $Player$Type, arg2: integer): boolean
 public static "tryClear"(arg0: any): void
-get "batchSize"(): integer
-get "agreementItem"(): $ItemStack
 set "agreementItem"(value: $ItemStack$Type)
+get "agreementItem"(): $ItemStack
 get "agreementLocked"(): boolean
 get "agreement"(): $DeliveryAgreement
 get "inventory"(): $IItemHandlerModifiable
-get "containerSize"(): integer
+get "batchSize"(): integer
 get "empty"(): boolean
+get "containerSize"(): integer
 get "updatePacket"(): $Packet<($ClientGamePacketListener)>
 get "updateTag"(): $CompoundTag
 }
@@ -304,17 +304,17 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Block$Type, arg1: $Item$Properties$Type)
 
-public "getUseDuration"(arg0: $ItemStack$Type): integer
 public "useOn"(arg0: $UseOnContext$Type): $InteractionResult
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "finishUsingItem"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $LivingEntity$Type): $ItemStack
 public "getUseAnimation"(arg0: $ItemStack$Type): $UseAnim
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "getEatingSound"(): $SoundEvent
-public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
+public "getUseDuration"(arg0: $ItemStack$Type): integer
 public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
 public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$setClientAnimationExtension"(arg0: any): void
+public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
 get "eatingSound"(): $SoundEvent
 }
 /**
@@ -461,13 +461,13 @@ public "message"(arg0: $Component$Type): $AgreementBuilder
 public "build"(): $DeliveryAgreement
 public "requested"(arg0: $List$Type<($RequestedItem$Type)>): $AgreementBuilder
 public "ordered"(arg0: integer): $AgreementBuilder
+public "seal"(arg0: string): $AgreementBuilder
+public "expireTime"(arg0: long): $AgreementBuilder
+public "title"(arg0: $Component$Type): $AgreementBuilder
 public "addRequestedItem"(arg0: $RequestedItem$Type): $AgreementBuilder
 public "addPaymentItem"(arg0: $ItemStack$Type): $AgreementBuilder
-public "deliveryTime"(arg0: integer): $AgreementBuilder
 public "buyerAddress"(arg0: $Component$Type): $AgreementBuilder
-public "title"(arg0: $Component$Type): $AgreementBuilder
-public "expireTime"(arg0: long): $AgreementBuilder
-public "seal"(arg0: string): $AgreementBuilder
+public "deliveryTime"(arg0: integer): $AgreementBuilder
 public "experience"(arg0: integer): $AgreementBuilder
 public "payment"(arg0: $List$Type<($ItemStack$Type)>): $AgreementBuilder
 public "buyerName"(arg0: $Component$Type): $AgreementBuilder
@@ -543,7 +543,6 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public "getUseDuration"(arg0: $ItemStack$Type): integer
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "finishUsingItem"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $LivingEntity$Type): $ItemStack
 public "overrideOtherStackedOnMe"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: $Slot$Type, arg3: $ClickAction$Type, arg4: $Player$Type, arg5: $SlotAccess$Type): boolean
@@ -551,6 +550,7 @@ public "getUseAnimation"(arg0: $ItemStack$Type): $UseAnim
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "getName"(arg0: $ItemStack$Type): $Component
 public "getEatingSound"(): $SoundEvent
+public "getUseDuration"(arg0: $ItemStack$Type): integer
 public "inspect"(arg0: $ItemStack$Type, arg1: $Player$Type): boolean
 get "eatingSound"(): $SoundEvent
 }
@@ -646,6 +646,7 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
 public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
 public "getRenderShape"(arg0: $BlockState$Type): $RenderShape
@@ -654,10 +655,9 @@ public "rotate"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
 public "mirror"(arg0: $BlockState$Type, arg1: $Mirror$Type): $BlockState
 public "getAnalogOutputSignal"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): integer
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public "getTicker"<T extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
+public "getTicker"<T extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -702,9 +702,9 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public static "convertToExpired"(arg0: $ItemStack$Type): $ItemStack
 public "getAgreementFromStack"(arg0: $ItemStack$Type): $Either<($DeliveryAgreement), ($DeliveryAgreementItem$AgreementError)>
 public static "convertToCompleted"(arg0: $ItemStack$Type): $ItemStack
+public static "convertToExpired"(arg0: $ItemStack$Type): $ItemStack
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "overrideOtherStackedOnMe"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: $Slot$Type, arg3: $ClickAction$Type, arg4: $Player$Type, arg5: $SlotAccess$Type): boolean
 public "inventoryTick"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $Entity$Type, arg3: integer, arg4: boolean): void
@@ -749,16 +749,16 @@ public "isEmpty"(): boolean
 public "matches"(arg0: $ItemStack$Type): boolean
 public "getCount"(): integer
 public "getTag"(): $CompoundTag
-public "getTagOrItem"(): $Either<($TagKey<($Item)>), ($Item)>
 public "getTagCompareBehavior"(): $CompoundTagCompareBehavior
 public "matchesWithCount"(arg0: $ItemStack$Type): boolean
+public "getTagOrItem"(): $Either<($TagKey<($Item)>), ($Item)>
 public "getStacks"(): $List<($ItemStack)>
 public "tagMatches"(arg0: $ItemStack$Type): boolean
 get "empty"(): boolean
 get "count"(): integer
 get "tag"(): $CompoundTag
-get "tagOrItem"(): $Either<($TagKey<($Item)>), ($Item)>
 get "tagCompareBehavior"(): $CompoundTagCompareBehavior
+get "tagOrItem"(): $Either<($TagKey<($Item)>), ($Item)>
 get "stacks"(): $List<($ItemStack)>
 }
 /**
@@ -852,13 +852,13 @@ readonly "properties": $BlockBehaviour$Properties
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
 public "getPistonPushReaction"(arg0: $BlockState$Type): $PushReaction
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
 public "getRenderShape"(arg0: $BlockState$Type): $RenderShape
 public "rotate"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
 public "mirror"(arg0: $BlockState$Type, arg1: $Mirror$Type): $BlockState
 public "canSurvive"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): boolean
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "playerWillDestroy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Player$Type): void
 }

@@ -23,6 +23,8 @@ public "compareTo"(arg0: $BookEntry$Type): integer
 public "getId"(): $ResourceLocation
 public "build"(arg0: $Level$Type, arg1: $BookContentsBuilder$Type): void
 public "isLocked"(): boolean
+public "isPriority"(): boolean
+public "getCategory"(): $BookCategory
 public "addRelevantStack"(arg0: $BookContentsBuilder$Type, arg1: $ItemStack$Type, arg2: integer): void
 public "markReadStateDirty"(): void
 public "updateLockStatus"(): void
@@ -30,26 +32,24 @@ public "getPageFromAnchor"(arg0: string): integer
 public "initCategory"(arg0: $ResourceLocation$Type, arg1: $Function$Type<($ResourceLocation$Type), ($BookCategory$Type)>): void
 public "getEntryColor"(): integer
 public "isFoundByQuery"(arg0: string): boolean
-public "isPriority"(): boolean
-public "getCategory"(): $BookCategory
-public "getIcon"(): $BookIcon
 public "getPages"(): $List<($BookPage)>
-public "shouldHide"(): boolean
+public "getIcon"(): $BookIcon
 public "getBook"(): $Book
-public "isSecret"(): boolean
-public "canAdd"(): boolean
+public "shouldHide"(): boolean
 public "getAddedBy"(): string
+public "canAdd"(): boolean
+public "isSecret"(): boolean
 get "name"(): $MutableComponent
 get "id"(): $ResourceLocation
 get "locked"(): boolean
-get "entryColor"(): integer
 get "priority"(): boolean
 get "category"(): $BookCategory
-get "icon"(): $BookIcon
+get "entryColor"(): integer
 get "pages"(): $List<($BookPage)>
+get "icon"(): $BookIcon
 get "book"(): $Book
-get "secret"(): boolean
 get "addedBy"(): string
+get "secret"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -113,21 +113,21 @@ readonly "macros": $Map<(string), (string)>
 constructor(arg0: $JsonObject$Type, arg1: $XplatModContainer$Type, arg2: $ResourceLocation$Type, arg3: boolean)
 
 public "getContents"(): $BookContents
-public "reloadContents"(arg0: $Level$Type, arg1: boolean): void
-public "reloadLocks"(arg0: boolean): void
+public "getOwnerName"(): string
+public "markUpdated"(): void
+public "getSubtitle"(): $MutableComponent
+public "getFontStyle"(): $Style
 public "getBookItem"(): $ItemStack
 public "advancementsEnabled"(): boolean
-public "getFontStyle"(): $Style
-public "getOwnerName"(): string
-public "getSubtitle"(): $MutableComponent
-public "markUpdated"(): void
+public "reloadContents"(arg0: $Level$Type, arg1: boolean): void
+public "reloadLocks"(arg0: boolean): void
 public "getIcon"(): $BookIcon
 public "popUpdated"(): boolean
 get "contents"(): $BookContents
-get "bookItem"(): $ItemStack
-get "fontStyle"(): $Style
 get "ownerName"(): string
 get "subtitle"(): $MutableComponent
+get "fontStyle"(): $Style
+get "bookItem"(): $ItemStack
 get "icon"(): $BookIcon
 }
 /**
@@ -210,27 +210,27 @@ import {$Runnable, $Runnable$Type} from "packages/java/lang/$Runnable"
 
 export interface $IComponentRenderContext {
 
+ "getTextColor"(): integer
+ "getTicksInBook"(): integer
+ "getBookTexture"(): $ResourceLocation
+ "getHeaderColor"(): integer
+ "getCraftingTexture"(): $ResourceLocation
  "renderItemStack"(arg0: $GuiGraphics$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: $ItemStack$Type): void
  "renderIngredient"(arg0: $GuiGraphics$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: $Ingredient$Type): void
- "getTextColor"(): integer
- "addWidget"(arg0: $AbstractWidget$Type, arg1: integer): void
- "isAreaHovered"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): boolean
- "navigateToEntry"(arg0: $ResourceLocation$Type, arg1: integer, arg2: boolean): boolean
-/**
- * 
- * @deprecated
- */
- "setHoverTooltip"(arg0: $List$Type<(string)>): void
  "setHoverTooltipComponents"(arg0: $List$Type<($Component$Type)>): void
 /**
  * 
  * @deprecated
  */
+ "setHoverTooltip"(arg0: $List$Type<(string)>): void
+ "navigateToEntry"(arg0: $ResourceLocation$Type, arg1: integer, arg2: boolean): boolean
+ "isAreaHovered"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): boolean
+/**
+ * 
+ * @deprecated
+ */
  "registerButton"(arg0: $Button$Type, arg1: integer, arg2: $Runnable$Type): void
- "getBookTexture"(): $ResourceLocation
- "getCraftingTexture"(): $ResourceLocation
- "getHeaderColor"(): integer
- "getTicksInBook"(): integer
+ "addWidget"(arg0: $AbstractWidget$Type, arg1: integer): void
  "getGui"(): $Screen
  "getFont"(): $Style
 }
@@ -274,23 +274,23 @@ export type $AccessorKeyMapping_ = $AccessorKeyMapping$Type;
 declare module "packages/vazkii/patchouli/client/book/$BookContentsBuilder" {
 import {$BookEntry, $BookEntry$Type} from "packages/vazkii/patchouli/client/book/$BookEntry"
 import {$BookContents, $BookContents$Type} from "packages/vazkii/patchouli/client/book/$BookContents"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
 import {$BookCategory, $BookCategory$Type} from "packages/vazkii/patchouli/client/book/$BookCategory"
+import {$BookTemplate, $BookTemplate$Type} from "packages/vazkii/patchouli/client/book/template/$BookTemplate"
 import {$Book, $Book$Type} from "packages/vazkii/patchouli/common/book/$Book"
 import {$ItemStackUtil$StackWrapper, $ItemStackUtil$StackWrapper$Type} from "packages/vazkii/patchouli/common/util/$ItemStackUtil$StackWrapper"
-import {$BookTemplate, $BookTemplate$Type} from "packages/vazkii/patchouli/client/book/template/$BookTemplate"
 
 export class $BookContentsBuilder {
 static readonly "DEFAULT_LANG": string
 
 
 public "getEntry"(arg0: $ResourceLocation$Type): $BookEntry
+public "getTemplate"(arg0: $ResourceLocation$Type): $Supplier<($BookTemplate)>
+public "getCategory"(arg0: $ResourceLocation$Type): $BookCategory
 public static "loadAndBuildFor"(arg0: $Level$Type, arg1: $Book$Type, arg2: boolean): $BookContents
 public "addRecipeMapping"(arg0: $ItemStackUtil$StackWrapper$Type, arg1: $BookEntry$Type, arg2: integer): void
-public "getCategory"(arg0: $ResourceLocation$Type): $BookCategory
-public "getTemplate"(arg0: $ResourceLocation$Type): $Supplier<($BookTemplate)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -399,10 +399,10 @@ export interface $IVariable {
  "unwrap"(): $JsonElement
  "as"<T>(arg0: $Class$Type<(T)>): T
  "as"<T>(arg0: $Class$Type<(T)>, arg1: T): T
+ "asString"(arg0: string): string
+ "asString"(): string
  "asStreamOrSingleton"(): $Stream<($IVariable)>
  "asListOrSingleton"(): $List<($IVariable)>
- "asString"(): string
- "asString"(arg0: string): string
  "asNumber"(): number
  "asNumber"(arg0: number): number
  "asBoolean"(arg0: boolean): boolean
@@ -524,16 +524,19 @@ readonly "renderables": $List<($Renderable)>
 
 constructor(arg0: $Book$Type, arg1: $Component$Type)
 
-public "drawCenteredStringNoShadow"(arg0: $GuiGraphics$Type, arg1: string, arg2: integer, arg3: integer, arg4: integer): void
-public "drawCenteredStringNoShadow"(arg0: $GuiGraphics$Type, arg1: $FormattedCharSequence$Type, arg2: integer, arg3: integer, arg4: integer): void
-public static "drawSeparator"(arg0: $GuiGraphics$Type, arg1: $Book$Type, arg2: integer, arg3: integer): void
-public "removeDrawablesIn"(arg0: $Collection$Type<(any)>): void
-public static "drawPageFiller"(arg0: $GuiGraphics$Type, arg1: $Book$Type, arg2: integer, arg3: integer): void
-public static "drawPageFiller"(arg0: $GuiGraphics$Type, arg1: $Book$Type): void
-public "addBookmarkButtons"(): void
+public static "openWebLink"(arg0: $Screen$Type, arg1: string): void
+public "getMinecraft"(): $Minecraft
+public "canBeOpened"(): boolean
 public "isMouseInRelativeRange"(arg0: double, arg1: double, arg2: integer, arg3: integer, arg4: integer, arg5: integer): boolean
 public "handleButtonArrow"(arg0: $Button$Type): void
 public static "drawFromTexture"(arg0: $GuiGraphics$Type, arg1: $Book$Type, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer): void
+public "removeDrawablesIn"(arg0: $Collection$Type<(any)>): void
+public "addBookmarkButtons"(): void
+public static "drawPageFiller"(arg0: $GuiGraphics$Type, arg1: $Book$Type, arg2: integer, arg3: integer): void
+public static "drawPageFiller"(arg0: $GuiGraphics$Type, arg1: $Book$Type): void
+public "drawCenteredStringNoShadow"(arg0: $GuiGraphics$Type, arg1: string, arg2: integer, arg3: integer, arg4: integer): void
+public "drawCenteredStringNoShadow"(arg0: $GuiGraphics$Type, arg1: $FormattedCharSequence$Type, arg2: integer, arg3: integer, arg4: integer): void
+public static "drawSeparator"(arg0: $GuiGraphics$Type, arg1: $Book$Type, arg2: integer, arg3: integer): void
 public "canSeeBackButton"(): boolean
 public "removeDrawablesIf"(arg0: $Predicate$Type<($Renderable$Type)>): void
 public "bookmarkThis"(): void
@@ -548,26 +551,23 @@ public "getRelativeX"(arg0: double): double
 public "getRelativeY"(arg0: double): double
 public "drawProgressBar"(arg0: $GuiGraphics$Type, arg1: $Book$Type, arg2: integer, arg3: integer, arg4: $Predicate$Type<($BookEntry$Type)>): void
 public static "drawMarking"(arg0: $GuiGraphics$Type, arg1: $Book$Type, arg2: integer, arg3: integer, arg4: integer, arg5: $EntryDisplayState$Type): void
-public "getMinecraft"(): $Minecraft
-public static "openWebLink"(arg0: $Screen$Type, arg1: string): void
-public "canBeOpened"(): boolean
 public "getSpread"(): integer
 public "keyPressed"(arg0: integer, arg1: integer, arg2: integer): boolean
 public "addRenderableWidget"<T extends ($GuiEventListener) & ($Renderable) & ($NarratableEntry)>(arg0: T): T
 public "m_7856_"(): void
+public "setTooltip"(arg0: $List$Type<($Component$Type)>): void
+public "setTooltip"(...arg0: ($Component$Type)[]): void
 public "mouseClicked"(arg0: double, arg1: double, arg2: integer): boolean
 public "mouseScrolled"(arg0: double, arg1: double, arg2: double): boolean
-public "setTooltip"(...arg0: ($Component$Type)[]): void
-public "setTooltip"(arg0: $List$Type<($Component$Type)>): void
 public "render"(arg0: $GuiGraphics$Type, arg1: integer, arg2: integer, arg3: float): void
-public "tick"(): void
 public "isPauseScreen"(): boolean
+public "tick"(): void
 public static "drawLock"(arg0: $GuiGraphics$Type, arg1: $Book$Type, arg2: integer, arg3: integer): void
-set "tooltipStack"(value: $ItemStack$Type)
 get "minecraft"(): $Minecraft
+set "tooltipStack"(value: $ItemStack$Type)
 get "spread"(): integer
-set "tooltip"(value: ($Component$Type)[])
 set "tooltip"(value: $List$Type<($Component$Type)>)
+set "tooltip"(value: ($Component$Type)[])
 get "pauseScreen"(): boolean
 }
 /**
@@ -628,9 +628,9 @@ constructor()
 
 public "compile"(arg0: $Level$Type, arg1: $BookContentsBuilder$Type, arg2: $IVariableProvider$Type): void
 public "build"(arg0: $BookContentsBuilder$Type, arg1: $BookPage$Type, arg2: $BookEntry$Type, arg3: integer): void
-public "onDisplayed"(arg0: $BookPage$Type, arg1: $GuiBookEntry$Type, arg2: integer, arg3: integer): void
 public "render"(arg0: $GuiGraphics$Type, arg1: $BookPage$Type, arg2: integer, arg3: integer, arg4: float): void
 public static "registerComponent"(arg0: $ResourceLocation$Type, arg1: $Class$Type<(any)>): void
+public "onDisplayed"(arg0: $BookPage$Type, arg1: $GuiBookEntry$Type, arg2: integer, arg3: integer): void
 public static "createTemplate"(arg0: $Book$Type, arg1: $BookContentsBuilder$Type, arg2: string, arg3: $TemplateInclusion$Type): $BookTemplate
 public "mouseClicked"(arg0: $BookPage$Type, arg1: double, arg2: double, arg3: integer): boolean
 }
@@ -729,10 +729,10 @@ public "addChildCategory"(arg0: $BookCategory$Type): void
 public "getParentCategory"(): $BookCategory
 public "isRootCategory"(): boolean
 public "getIcon"(): $BookIcon
-public "shouldHide"(): boolean
 public "getBook"(): $Book
-public "isSecret"(): boolean
+public "shouldHide"(): boolean
 public "canAdd"(): boolean
+public "isSecret"(): boolean
 public "getDescription"(): string
 get "name"(): $MutableComponent
 get "id"(): $ResourceLocation
@@ -883,36 +883,36 @@ constructor(arg0: $Book$Type, arg1: $BookEntry$Type, arg2: integer)
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public "getEntry"(): $BookEntry
-public static "displayOrBookmark"(arg0: $GuiBook$Type, arg1: $BookEntry$Type): void
+public "getTextColor"(): integer
+public "getTicksInBook"(): integer
+public "getBookTexture"(): $ResourceLocation
+public "getHeaderColor"(): integer
+public "getCraftingTexture"(): $ResourceLocation
+public "canBeOpened"(): boolean
 public "renderItemStack"(arg0: $GuiGraphics$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: $ItemStack$Type): void
 public "renderIngredient"(arg0: $GuiGraphics$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: $Ingredient$Type): void
+public static "displayOrBookmark"(arg0: $GuiBook$Type, arg1: $BookEntry$Type): void
+public "setHoverTooltipComponents"(arg0: $List$Type<($Component$Type)>): void
+public "setHoverTooltip"(arg0: $List$Type<(string)>): void
+public "navigateToEntry"(arg0: $ResourceLocation$Type, arg1: integer, arg2: boolean): boolean
+public "isAreaHovered"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): boolean
+public "registerButton"(arg0: $Button$Type, arg1: integer, arg2: $Runnable$Type): void
 public "bookmarkThis"(): void
 public "onFirstOpened"(): void
 public "mouseClickedScaled"(arg0: double, arg1: double, arg2: integer): boolean
-public "canBeOpened"(): boolean
-public "getTextColor"(): integer
 public "keyPressed"(arg0: integer, arg1: integer, arg2: integer): boolean
 public "m_7856_"(): void
 public "addWidget"(arg0: $AbstractWidget$Type, arg1: integer): void
-public "isAreaHovered"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): boolean
-public "navigateToEntry"(arg0: $ResourceLocation$Type, arg1: integer, arg2: boolean): boolean
-public "setHoverTooltip"(arg0: $List$Type<(string)>): void
-public "setHoverTooltipComponents"(arg0: $List$Type<($Component$Type)>): void
-public "registerButton"(arg0: $Button$Type, arg1: integer, arg2: $Runnable$Type): void
-public "getBookTexture"(): $ResourceLocation
-public "getCraftingTexture"(): $ResourceLocation
-public "getHeaderColor"(): integer
-public "getTicksInBook"(): integer
 public "getGui"(): $Screen
 public "getFont"(): $Style
 get "entry"(): $BookEntry
 get "textColor"(): integer
-set "hoverTooltip"(value: $List$Type<(string)>)
-set "hoverTooltipComponents"(value: $List$Type<($Component$Type)>)
-get "bookTexture"(): $ResourceLocation
-get "craftingTexture"(): $ResourceLocation
-get "headerColor"(): integer
 get "ticksInBook"(): integer
+get "bookTexture"(): $ResourceLocation
+get "headerColor"(): integer
+get "craftingTexture"(): $ResourceLocation
+set "hoverTooltipComponents"(value: $List$Type<($Component$Type)>)
+set "hoverTooltip"(value: $List$Type<(string)>)
 get "gui"(): $Screen
 get "font"(): $Style
 }
@@ -937,8 +937,8 @@ export class $AbstractReadStateHolder {
 constructor()
 
 public "markReadStateDirty"(): void
-public "getReadState"(): $EntryDisplayState
 public static "mostImportantState"(arg0: $Stream$Type<($EntryDisplayState$Type)>): $EntryDisplayState
+public "getReadState"(): $EntryDisplayState
 get "readState"(): $EntryDisplayState
 }
 /**
@@ -1090,9 +1090,9 @@ export class $BookPage {
 constructor()
 
 public "build"(arg0: $Level$Type, arg1: $BookEntry$Type, arg2: $BookContentsBuilder$Type, arg3: integer): void
-public "isPageUnlocked"(): boolean
-public "onDisplayed"(arg0: $GuiBookEntry$Type, arg1: integer, arg2: integer): void
 public "render"(arg0: $GuiGraphics$Type, arg1: integer, arg2: integer, arg3: float): void
+public "onDisplayed"(arg0: $GuiBookEntry$Type, arg1: integer, arg2: integer): void
+public "isPageUnlocked"(): boolean
 public "i18n"(arg0: string): string
 public "onHidden"(arg0: $GuiBookEntry$Type): void
 public "canAdd"(arg0: $Book$Type): boolean

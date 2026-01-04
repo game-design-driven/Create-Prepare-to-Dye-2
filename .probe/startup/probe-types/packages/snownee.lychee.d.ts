@@ -82,14 +82,14 @@ declare global {
 export type $BlockExplodingContext_ = $BlockExplodingContext$Type;
 }}
 declare module "packages/snownee/lychee/core/recipe/$ILycheeRecipe" {
-import {$JsonElement, $JsonElement$Type} from "packages/com/google/gson/$JsonElement"
 import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObject"
+import {$JsonElement, $JsonElement$Type} from "packages/com/google/gson/$JsonElement"
 import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
 import {$Reference, $Reference$Type} from "packages/snownee/lychee/core/$Reference"
 import {$ILycheeRecipe$NBTPatchContext, $ILycheeRecipe$NBTPatchContext$Type} from "packages/snownee/lychee/core/recipe/$ILycheeRecipe$NBTPatchContext"
 import {$List, $List$Type} from "packages/java/util/$List"
-import {$BlockPredicate, $BlockPredicate$Type} from "packages/net/minecraft/advancements/critereon/$BlockPredicate"
 import {$IntList, $IntList$Type} from "packages/it/unimi/dsi/fastutil/ints/$IntList"
+import {$BlockPredicate, $BlockPredicate$Type} from "packages/net/minecraft/advancements/critereon/$BlockPredicate"
 import {$Stream, $Stream$Type} from "packages/java/util/stream/$Stream"
 import {$JsonPointer, $JsonPointer$Type} from "packages/snownee/lychee/util/json/$JsonPointer"
 import {$ContextualHolder, $ContextualHolder$Type} from "packages/snownee/lychee/core/contextual/$ContextualHolder"
@@ -102,18 +102,18 @@ export interface $ILycheeRecipe<C extends $LycheeContext> {
  "getComment"(): string
  "applyPostActions"(arg0: $LycheeContext$Type, arg1: integer): void
  "lychee$getId"(): $ResourceLocation
- "showInRecipeViewer"(): boolean
- "getBlockInputs"(): $List<($BlockPredicate)>
- "getBlockOutputs"(): $List<($BlockPredicate)>
- "getContextualHolder"(): $ContextualHolder
- "getAllActions"(): $Stream<($PostAction)>
- "showingActionsCount"(): integer
- "getItemIndexes"(arg0: $Reference$Type): $IntList
- "getItemIndexes"(arg0: $JsonPointer$Type): $IntList
+ "getActionGroups"(): $Map<($JsonPointer), ($List<($PostAction)>)>
  "defaultItemPointer"(): $JsonPointer
  "getPostActions"(): $Stream<($PostAction)>
- "getActionGroups"(): $Map<($JsonPointer), ($List<($PostAction)>)>
+ "getItemIndexes"(arg0: $JsonPointer$Type): $IntList
+ "getItemIndexes"(arg0: $Reference$Type): $IntList
  "isActionPath"(arg0: $JsonPointer$Type): boolean
+ "getAllActions"(): $Stream<($PostAction)>
+ "getContextualHolder"(): $ContextualHolder
+ "showingActionsCount"(): integer
+ "getBlockInputs"(): $List<($BlockPredicate)>
+ "getBlockOutputs"(): $List<($BlockPredicate)>
+ "showInRecipeViewer"(): boolean
 }
 
 export namespace $ILycheeRecipe {
@@ -122,9 +122,9 @@ const ITEM_OUT: $JsonPointer
 const RESULT: $JsonPointer
 const POST: $JsonPointer
 const patchContexts: $Map<($ResourceLocation), ($ILycheeRecipe$NBTPatchContext)>
-function filterHidden(arg0: $Stream$Type<($PostAction$Type)>): $Stream<($PostAction)>
-function processActionGroup(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonPointer$Type, arg2: $List$Type<($PostAction$Type)>, arg3: $JsonObject$Type): $JsonElement
 function processActions(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonObject$Type): void
+function processActionGroup(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonPointer$Type, arg2: $List$Type<($PostAction$Type)>, arg3: $JsonObject$Type): $JsonElement
+function filterHidden(arg0: $Stream$Type<($PostAction$Type)>): $Stream<($PostAction)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -139,8 +139,8 @@ declare global {
 export type $ILycheeRecipe_<C> = $ILycheeRecipe$Type<(C)>;
 }}
 declare module "packages/snownee/lychee/random_block_ticking/$RandomBlockTickingRecipe" {
-import {$JsonElement, $JsonElement$Type} from "packages/com/google/gson/$JsonElement"
 import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObject"
+import {$JsonElement, $JsonElement$Type} from "packages/com/google/gson/$JsonElement"
 import {$LycheeRecipe, $LycheeRecipe$Type} from "packages/snownee/lychee/core/recipe/$LycheeRecipe"
 import {$LycheeRecipe$Serializer, $LycheeRecipe$Serializer$Type} from "packages/snownee/lychee/core/recipe/$LycheeRecipe$Serializer"
 import {$ILycheeRecipe, $ILycheeRecipe$Type} from "packages/snownee/lychee/core/recipe/$ILycheeRecipe"
@@ -171,9 +171,9 @@ public "getSerializer"(): $LycheeRecipe$Serializer<(any)>
 public "getChance"(): float
 public "setChance"(arg0: float): void
 public "getBlock"(): $BlockPredicate
-public static "filterHidden"(arg0: $Stream$Type<($PostAction$Type)>): $Stream<($PostAction)>
-public static "processActionGroup"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonPointer$Type, arg2: $List$Type<($PostAction$Type)>, arg3: $JsonObject$Type): $JsonElement
 public static "processActions"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonObject$Type): void
+public static "processActionGroup"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonPointer$Type, arg2: $List$Type<($PostAction$Type)>, arg3: $JsonObject$Type): $JsonElement
+public static "filterHidden"(arg0: $Stream$Type<($PostAction$Type)>): $Stream<($PostAction)>
 get "type"(): $LycheeRecipeType<(any), (any)>
 get "serializer"(): $LycheeRecipe$Serializer<(any)>
 get "chance"(): float
@@ -370,8 +370,8 @@ declare global {
 export type $CustomCondition_ = $CustomCondition$Type;
 }}
 declare module "packages/snownee/lychee/item_burning/$ItemBurningRecipe" {
-import {$JsonElement, $JsonElement$Type} from "packages/com/google/gson/$JsonElement"
 import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObject"
+import {$JsonElement, $JsonElement$Type} from "packages/com/google/gson/$JsonElement"
 import {$LycheeRecipe, $LycheeRecipe$Type} from "packages/snownee/lychee/core/recipe/$LycheeRecipe"
 import {$LycheeRecipe$Serializer, $LycheeRecipe$Serializer$Type} from "packages/snownee/lychee/core/recipe/$LycheeRecipe$Serializer"
 import {$ILycheeRecipe, $ILycheeRecipe$Type} from "packages/snownee/lychee/core/recipe/$ILycheeRecipe"
@@ -401,9 +401,9 @@ public "getType"(): $LycheeRecipeType<(any), (any)>
 public "getSerializer"(): $LycheeRecipe$Serializer<(any)>
 public "getIngredients"(): $NonNullList<($Ingredient)>
 public "getInput"(): $Ingredient
-public static "filterHidden"(arg0: $Stream$Type<($PostAction$Type)>): $Stream<($PostAction)>
-public static "processActionGroup"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonPointer$Type, arg2: $List$Type<($PostAction$Type)>, arg3: $JsonObject$Type): $JsonElement
 public static "processActions"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonObject$Type): void
+public static "processActionGroup"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonPointer$Type, arg2: $List$Type<($PostAction$Type)>, arg3: $JsonObject$Type): $JsonElement
+public static "filterHidden"(arg0: $Stream$Type<($PostAction$Type)>): $Stream<($PostAction)>
 get "type"(): $LycheeRecipeType<(any), (any)>
 get "serializer"(): $LycheeRecipe$Serializer<(any)>
 get "ingredients"(): $NonNullList<($Ingredient)>
@@ -449,8 +449,8 @@ constructor(arg0: string, arg1: $Class$Type<($DripstoneRecipe$Type)>, arg2: $Loo
 
 public "buildCache"(): void
 public "hasSource"(arg0: $Block$Type): boolean
-public static "simple"<T extends $Recipe<(any)>>(arg0: $ResourceLocation$Type): $RecipeType<(T)>
 public static "register"<T extends $Recipe<(any)>>(arg0: string): $RecipeType<(T)>
+public static "simple"<T extends $Recipe<(any)>>(arg0: $ResourceLocation$Type): $RecipeType<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -466,8 +466,8 @@ export type $DripstoneRecipeType_ = $DripstoneRecipeType$Type;
 }}
 declare module "packages/snownee/lychee/core/recipe/$ItemShapelessRecipe" {
 import {$Comparable, $Comparable$Type} from "packages/java/lang/$Comparable"
-import {$JsonElement, $JsonElement$Type} from "packages/com/google/gson/$JsonElement"
 import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObject"
+import {$JsonElement, $JsonElement$Type} from "packages/com/google/gson/$JsonElement"
 import {$LycheeRecipe, $LycheeRecipe$Type} from "packages/snownee/lychee/core/recipe/$LycheeRecipe"
 import {$ILycheeRecipe, $ILycheeRecipe$Type} from "packages/snownee/lychee/core/recipe/$ILycheeRecipe"
 import {$NonNullList, $NonNullList$Type} from "packages/net/minecraft/core/$NonNullList"
@@ -492,9 +492,9 @@ constructor(arg0: $ResourceLocation$Type)
 public "compareTo"(arg0: T): integer
 public "matches"(arg0: $ItemShapelessContext$Type, arg1: $Level$Type): boolean
 public "getIngredients"(): $NonNullList<($Ingredient)>
-public static "filterHidden"(arg0: $Stream$Type<($PostAction$Type)>): $Stream<($PostAction)>
-public static "processActionGroup"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonPointer$Type, arg2: $List$Type<($PostAction$Type)>, arg3: $JsonObject$Type): $JsonElement
 public static "processActions"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonObject$Type): void
+public static "processActionGroup"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonPointer$Type, arg2: $List$Type<($PostAction$Type)>, arg3: $JsonObject$Type): $JsonElement
+public static "filterHidden"(arg0: $Stream$Type<($PostAction$Type)>): $Stream<($PostAction)>
 get "ingredients"(): $NonNullList<($Ingredient)>
 }
 /**
@@ -537,8 +537,8 @@ constructor(arg0: string, arg1: $Class$Type<($BlockCrushingRecipe$Type)>, arg2: 
 
 public "process"(arg0: $FallingBlockEntity$Type): void
 public "buildCache"(): void
-public static "simple"<T extends $Recipe<(any)>>(arg0: $ResourceLocation$Type): $RecipeType<(T)>
 public static "register"<T extends $Recipe<(any)>>(arg0: string): $RecipeType<(T)>
+public static "simple"<T extends $Recipe<(any)>>(arg0: $ResourceLocation$Type): $RecipeType<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -567,10 +567,10 @@ constructor(arg0: $Level$Type)
 public "create"(arg0: $LootContextParamSet$Type): C
 public "withOptionalParameter"<T>(arg0: $LootContextParam$Type<(T)>, arg1: T): $LycheeContext$Builder<(C)>
 public "withParameter"<T>(arg0: $LootContextParam$Type<(T)>, arg1: T): $LycheeContext$Builder<(C)>
-public "withRandom"(arg0: $RandomSource$Type): $LycheeContext$Builder<(C)>
-public "withOptionalRandomSeed"(arg0: long): $LycheeContext$Builder<(C)>
-public "withOptionalRandomSeed"(arg0: long, arg1: $RandomSource$Type): $LycheeContext$Builder<(C)>
 public "getOptionalParameter"<T>(arg0: $LootContextParam$Type<(T)>): T
+public "withOptionalRandomSeed"(arg0: long, arg1: $RandomSource$Type): $LycheeContext$Builder<(C)>
+public "withOptionalRandomSeed"(arg0: long): $LycheeContext$Builder<(C)>
+public "withRandom"(arg0: $RandomSource$Type): $LycheeContext$Builder<(C)>
 public "setParams"(arg0: $Map$Type<($LootContextParam$Type<(any)>), (any)>): void
 public "getParameter"<T>(arg0: $LootContextParam$Type<(T)>): T
 set "params"(value: $Map$Type<($LootContextParam$Type<(any)>), (any)>)
@@ -642,8 +642,8 @@ declare global {
 export type $ActionRuntime$State_ = $ActionRuntime$State$Type;
 }}
 declare module "packages/snownee/lychee/interaction/$BlockInteractingRecipe" {
-import {$JsonElement, $JsonElement$Type} from "packages/com/google/gson/$JsonElement"
 import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObject"
+import {$JsonElement, $JsonElement$Type} from "packages/com/google/gson/$JsonElement"
 import {$LycheeRecipe$Serializer, $LycheeRecipe$Serializer$Type} from "packages/snownee/lychee/core/recipe/$LycheeRecipe$Serializer"
 import {$ILycheeRecipe, $ILycheeRecipe$Type} from "packages/snownee/lychee/core/recipe/$ILycheeRecipe"
 import {$NonNullList, $NonNullList$Type} from "packages/net/minecraft/core/$NonNullList"
@@ -670,9 +670,9 @@ public "matches"(arg0: $LycheeContext$Type, arg1: $Level$Type): boolean
 public "getType"(): $LycheeRecipeType<(any), (any)>
 public "getSerializer"(): $LycheeRecipe$Serializer<(any)>
 public "getIngredients"(): $NonNullList<($Ingredient)>
-public static "filterHidden"(arg0: $Stream$Type<($PostAction$Type)>): $Stream<($PostAction)>
-public static "processActionGroup"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonPointer$Type, arg2: $List$Type<($PostAction$Type)>, arg3: $JsonObject$Type): $JsonElement
 public static "processActions"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonObject$Type): void
+public static "processActionGroup"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonPointer$Type, arg2: $List$Type<($PostAction$Type)>, arg3: $JsonObject$Type): $JsonElement
+public static "filterHidden"(arg0: $Stream$Type<($PostAction$Type)>): $Stream<($PostAction)>
 get "type"(): $LycheeRecipeType<(any), (any)>
 get "serializer"(): $LycheeRecipe$Serializer<(any)>
 get "ingredients"(): $NonNullList<($Ingredient)>
@@ -736,38 +736,38 @@ readonly "result": $ItemStack
 constructor(arg0: $ResourceLocation$Type, arg1: string, arg2: $CraftingBookCategory$Type, arg3: integer, arg4: integer, arg5: $NonNullList$Type<($Ingredient$Type)>, arg6: $ItemStack$Type, arg7: boolean)
 
 public "getComment"(): string
-public "addPostAction"(arg0: $PostAction$Type): void
-public "addAssemblingAction"(arg0: $PostAction$Type): void
 public "getRemainingItems"(arg0: $CraftingContainer$Type): $NonNullList<($ItemStack)>
-public "showInRecipeViewer"(): boolean
-public "getContextualHolder"(): $ContextualHolder
-public "getAllActions"(): $Stream<($PostAction)>
 public static "makeContext"(arg0: $CraftingContainer$Type, arg1: $Level$Type, arg2: integer, arg3: integer, arg4: boolean): $CraftingContext
-public "getItemIndexes"(arg0: $JsonPointer$Type): $IntList
+public "getActionGroups"(): $Map<($JsonPointer), ($List<($PostAction)>)>
 public "defaultItemPointer"(): $JsonPointer
 public "getPostActions"(): $Stream<($PostAction)>
-public "getActionGroups"(): $Map<($JsonPointer), ($List<($PostAction)>)>
+public "getItemIndexes"(arg0: $JsonPointer$Type): $IntList
 public "isActionPath"(arg0: $JsonPointer$Type): boolean
+public "getAllActions"(): $Stream<($PostAction)>
+public "getContextualHolder"(): $ContextualHolder
+public "showInRecipeViewer"(): boolean
+public "addAssemblingAction"(arg0: $PostAction$Type): void
+public "addPostAction"(arg0: $PostAction$Type): void
+public "getSerializer"(): $RecipeSerializer<(any)>
 public "assemble"(arg0: $CraftingContainer$Type, arg1: $RegistryAccess$Type): $ItemStack
 public "matches"(arg0: $CraftingContainer$Type, arg1: $Level$Type): boolean
 public "isSpecial"(): boolean
-public "getSerializer"(): $RecipeSerializer<(any)>
 public "applyPostActions"(arg0: $LycheeContext$Type, arg1: integer): void
 public "lychee$getId"(): $ResourceLocation
-public "getBlockInputs"(): $List<($BlockPredicate)>
-public "getBlockOutputs"(): $List<($BlockPredicate)>
-public static "filterHidden"(arg0: $Stream$Type<($PostAction$Type)>): $Stream<($PostAction)>
-public "showingActionsCount"(): integer
-public static "processActionGroup"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonPointer$Type, arg2: $List$Type<($PostAction$Type)>, arg3: $JsonObject$Type): $JsonElement
 public "getItemIndexes"(arg0: $Reference$Type): $IntList
 public static "processActions"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonObject$Type): void
+public static "processActionGroup"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonPointer$Type, arg2: $List$Type<($PostAction$Type)>, arg3: $JsonObject$Type): $JsonElement
+public static "filterHidden"(arg0: $Stream$Type<($PostAction$Type)>): $Stream<($PostAction)>
+public "showingActionsCount"(): integer
+public "getBlockInputs"(): $List<($BlockPredicate)>
+public "getBlockOutputs"(): $List<($BlockPredicate)>
 get "comment"(): string
-get "contextualHolder"(): $ContextualHolder
-get "allActions"(): $Stream<($PostAction)>
-get "postActions"(): $Stream<($PostAction)>
 get "actionGroups"(): $Map<($JsonPointer), ($List<($PostAction)>)>
-get "special"(): boolean
+get "postActions"(): $Stream<($PostAction)>
+get "allActions"(): $Stream<($PostAction)>
+get "contextualHolder"(): $ContextualHolder
 get "serializer"(): $RecipeSerializer<(any)>
+get "special"(): boolean
 get "blockInputs"(): $List<($BlockPredicate)>
 get "blockOutputs"(): $List<($BlockPredicate)>
 }
@@ -854,14 +854,14 @@ export class $EmptyContainer implements $Container {
 
 constructor()
 
-public "getContainerSize"(): integer
-public "getItem"(arg0: integer): $ItemStack
-public "removeItemNoUpdate"(arg0: integer): $ItemStack
-public "setChanged"(): void
 public "removeItem"(arg0: integer, arg1: integer): $ItemStack
 public "isEmpty"(): boolean
 public "clearContent"(): void
 public "setItem"(arg0: integer, arg1: $ItemStack$Type): void
+public "setChanged"(): void
+public "getContainerSize"(): integer
+public "getItem"(arg0: integer): $ItemStack
+public "removeItemNoUpdate"(arg0: integer): $ItemStack
 public "stillValid"(arg0: $Player$Type): boolean
 public static "stillValidBlockEntity"(arg0: $BlockEntity$Type, arg1: $Player$Type, arg2: double): boolean
 public "isMutable"(): boolean
@@ -879,6 +879,7 @@ public "asContainer"(): $Container
 public "getBlock"(level: $Level$Type): $BlockContainerJS
 public "kjs$self"(): $Container
 public "getMaxStackSize"(): integer
+public static "stillValidBlockEntity"(arg0: $BlockEntity$Type, arg1: $Player$Type): boolean
 public "startOpen"(arg0: $Player$Type): void
 public "stopOpen"(arg0: $Player$Type): void
 public "canPlaceItem"(arg0: integer, arg1: $ItemStack$Type): boolean
@@ -886,7 +887,6 @@ public "canTakeItem"(arg0: $Container$Type, arg1: integer, arg2: $ItemStack$Type
 public "countItem"(arg0: $Item$Type): integer
 public "hasAnyOf"(arg0: $Set$Type<($Item$Type)>): boolean
 public "hasAnyMatching"(arg0: $Predicate$Type<($ItemStack$Type)>): boolean
-public static "stillValidBlockEntity"(arg0: $BlockEntity$Type, arg1: $Player$Type): boolean
 public static "stillValidBlockEntity"(arg0: $BlockEntity$Type, arg1: $Player$Type, arg2: integer): boolean
 public "clear"(): void
 public static "tryClear"(arg0: any): void
@@ -900,8 +900,8 @@ public "find"(ingredient: $Ingredient$Type): integer
 public "find"(): integer
 public "count"(ingredient: $Ingredient$Type): integer
 public "count"(): integer
-get "containerSize"(): integer
 get "empty"(): boolean
+get "containerSize"(): integer
 get "mutable"(): boolean
 get "slots"(): integer
 get "width"(): integer
@@ -955,8 +955,8 @@ export type $RandomBlockTickingRecipe$Serializer_ = $RandomBlockTickingRecipe$Se
 }}
 declare module "packages/snownee/lychee/anvil_crafting/$AnvilCraftingRecipe" {
 import {$Comparable, $Comparable$Type} from "packages/java/lang/$Comparable"
-import {$JsonElement, $JsonElement$Type} from "packages/com/google/gson/$JsonElement"
 import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObject"
+import {$JsonElement, $JsonElement$Type} from "packages/com/google/gson/$JsonElement"
 import {$LycheeRecipe, $LycheeRecipe$Type} from "packages/snownee/lychee/core/recipe/$LycheeRecipe"
 import {$LycheeRecipe$Serializer, $LycheeRecipe$Serializer$Type} from "packages/snownee/lychee/core/recipe/$LycheeRecipe$Serializer"
 import {$ILycheeRecipe, $ILycheeRecipe$Type} from "packages/snownee/lychee/core/recipe/$ILycheeRecipe"
@@ -968,8 +968,8 @@ import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/
 import {$RegistryAccess, $RegistryAccess$Type} from "packages/net/minecraft/core/$RegistryAccess"
 import {$AnvilContext, $AnvilContext$Type} from "packages/snownee/lychee/anvil_crafting/$AnvilContext"
 import {$LycheeRecipeType, $LycheeRecipeType$Type} from "packages/snownee/lychee/core/recipe/type/$LycheeRecipeType"
-import {$IntList, $IntList$Type} from "packages/it/unimi/dsi/fastutil/ints/$IntList"
 import {$List, $List$Type} from "packages/java/util/$List"
+import {$IntList, $IntList$Type} from "packages/it/unimi/dsi/fastutil/ints/$IntList"
 import {$Stream, $Stream$Type} from "packages/java/util/stream/$Stream"
 import {$JsonPointer, $JsonPointer$Type} from "packages/snownee/lychee/util/json/$JsonPointer"
 import {$PostAction, $PostAction$Type} from "packages/snownee/lychee/core/post/$PostAction"
@@ -986,31 +986,31 @@ constructor(arg0: $ResourceLocation$Type)
 public "compareTo"(arg0: $AnvilCraftingRecipe$Type): integer
 public "matches"(arg0: $AnvilContext$Type, arg1: $Level$Type): boolean
 public "getType"(): $LycheeRecipeType<(any), (any)>
-public "addAssemblingAction"(arg0: $PostAction$Type): void
 public "getLeft"(): $Ingredient
 public "getRight"(): $Ingredient
-public "getResultItem"(): $ItemStack
 public "getSerializer"(): $LycheeRecipe$Serializer<(any)>
-public "getMaterialCost"(): integer
-public "getAllActions"(): $Stream<($PostAction)>
-public "getItemIndexes"(arg0: $JsonPointer$Type): $IntList
-public "defaultItemPointer"(): $JsonPointer
+public "getResultItem"(): $ItemStack
 public "getActionGroups"(): $Map<($JsonPointer), ($List<($PostAction)>)>
+public "defaultItemPointer"(): $JsonPointer
+public "getItemIndexes"(arg0: $JsonPointer$Type): $IntList
 public "isActionPath"(arg0: $JsonPointer$Type): boolean
+public "getAllActions"(): $Stream<($PostAction)>
+public "getMaterialCost"(): integer
+public "addAssemblingAction"(arg0: $PostAction$Type): void
 public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
-public "assemble"(arg0: $AnvilContext$Type, arg1: $RegistryAccess$Type): $ItemStack
 public "getIngredients"(): $NonNullList<($Ingredient)>
-public static "filterHidden"(arg0: $Stream$Type<($PostAction$Type)>): $Stream<($PostAction)>
-public static "processActionGroup"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonPointer$Type, arg2: $List$Type<($PostAction$Type)>, arg3: $JsonObject$Type): $JsonElement
+public "assemble"(arg0: $AnvilContext$Type, arg1: $RegistryAccess$Type): $ItemStack
 public static "processActions"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonObject$Type): void
+public static "processActionGroup"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonPointer$Type, arg2: $List$Type<($PostAction$Type)>, arg3: $JsonObject$Type): $JsonElement
+public static "filterHidden"(arg0: $Stream$Type<($PostAction$Type)>): $Stream<($PostAction)>
 get "type"(): $LycheeRecipeType<(any), (any)>
 get "left"(): $Ingredient
 get "right"(): $Ingredient
-get "resultItem"(): $ItemStack
 get "serializer"(): $LycheeRecipe$Serializer<(any)>
-get "materialCost"(): integer
-get "allActions"(): $Stream<($PostAction)>
+get "resultItem"(): $ItemStack
 get "actionGroups"(): $Map<($JsonPointer), ($List<($PostAction)>)>
+get "allActions"(): $Stream<($PostAction)>
+get "materialCost"(): integer
 get "ingredients"(): $NonNullList<($Ingredient)>
 }
 /**
@@ -1063,12 +1063,12 @@ constructor(template: $JsonObject$Type, usedIndexes: $IntCollection$Type, splits
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
-public "template"(): $JsonObject
 public "splits"(): $Object2IntMap<($JsonPointer)>
+public "template"(): $JsonObject
 public "convertPath"(arg0: $JsonPointer$Type, arg1: $BiFunction$Type<(string), (string), (string)>): $JsonPointer
-public "usedIndexes"(): $IntCollection
-public "countTargets"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $Reference$Type): integer
 public "countTargets"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonPointer$Type): integer
+public "countTargets"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $Reference$Type): integer
+public "usedIndexes"(): $IntCollection
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1110,22 +1110,22 @@ public static "read"(arg0: $FriendlyByteBuf$Type): $PostAction
 public "getType"(): $PostActionType<(any)>
 public static "parse"(arg0: $JsonObject$Type): $PostAction
 public "getDisplayName"(): $Component
-public "toJson"(): $JsonObject
 public "preApply"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $LycheeContext$Type, arg2: $ILycheeRecipe$NBTPatchContext$Type): void
-public "getBlockOutputs"(): $List<($BlockPredicate)>
-public "getItemOutputs"(): $List<($ItemStack)>
+public "toJson"(): $JsonObject
 public static "parseActions"(arg0: $JsonElement$Type, arg1: $Consumer$Type<($PostAction$Type)>): void
 public "preventSync"(): boolean
 public "getUsedPointers"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $Consumer$Type<($JsonPointer$Type)>): void
 public "provideJsonInfo"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonPointer$Type, arg2: $JsonObject$Type): $JsonElement
-public "onFailure"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $LycheeContext$Type, arg2: integer): void
+public "getItemOutputs"(): $List<($ItemStack)>
+public "getBlockOutputs"(): $List<($BlockPredicate)>
 public "doApply"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $LycheeContext$Type, arg2: integer): void
+public "onFailure"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $LycheeContext$Type, arg2: integer): void
 public "canRepeat"(): boolean
 get "hidden"(): boolean
 get "type"(): $PostActionType<(any)>
 get "displayName"(): $Component
-get "blockOutputs"(): $List<($BlockPredicate)>
 get "itemOutputs"(): $List<($ItemStack)>
+get "blockOutputs"(): $List<($BlockPredicate)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1177,8 +1177,8 @@ import {$LycheeContext, $LycheeContext$Type} from "packages/snownee/lychee/core/
 
 export interface $Delay$LycheeMarker {
 
- "lychee$getContext"(): $LycheeContext
  "lychee$setContext"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $LycheeContext$Type): void
+ "lychee$getContext"(): $LycheeContext
  "lychee$addDelay"(arg0: integer): void
  "getEntity"(): $Marker
 }
@@ -1237,69 +1237,69 @@ constructor(arg0: $ResourceLocation$Type)
 
 public "getType"(): $LycheeRecipeType<(any), (any)>
 public "getComment"(): string
-public "addPostAction"(arg0: $PostAction$Type): void
 public "getSerializer"(): $LycheeRecipe$Serializer<(any)>
-public "showInRecipeViewer"(): boolean
+public "getActionGroups"(): $Map<($JsonPointer), ($List<($PostAction)>)>
+public "getPostActions"(): $Stream<($PostAction)>
+public "getItemIndexes"(arg0: $JsonPointer$Type): $IntList
 public "getContextualHolder"(): $ContextualHolder
+public "getMaxRepeats"(): $MinMaxBounds$Ints
 public "tickOrApply"(arg0: C): boolean
 public "getRandomRepeats"(arg0: integer, arg1: C): integer
-public "getMaxRepeats"(): $MinMaxBounds$Ints
-public "getItemIndexes"(arg0: $JsonPointer$Type): $IntList
-public "getPostActions"(): $Stream<($PostAction)>
-public "getActionGroups"(): $Map<($JsonPointer), ($List<($PostAction)>)>
-public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
+public "showInRecipeViewer"(): boolean
+public "addPostAction"(arg0: $PostAction$Type): void
 public "getId"(): $ResourceLocation
-public "assemble"(arg0: C, arg1: $RegistryAccess$Type): $ItemStack
+public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
 public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
+public "assemble"(arg0: C, arg1: $RegistryAccess$Type): $ItemStack
 public "applyPostActions"(arg0: $LycheeContext$Type, arg1: integer): void
 public "lychee$getId"(): $ResourceLocation
+public "defaultItemPointer"(): $JsonPointer
+public "getItemIndexes"(arg0: $Reference$Type): $IntList
+public "isActionPath"(arg0: $JsonPointer$Type): boolean
+public static "processActions"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonObject$Type): void
+public static "processActionGroup"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonPointer$Type, arg2: $List$Type<($PostAction$Type)>, arg3: $JsonObject$Type): $JsonElement
+public static "filterHidden"(arg0: $Stream$Type<($PostAction$Type)>): $Stream<($PostAction)>
+public "getAllActions"(): $Stream<($PostAction)>
+public "showingActionsCount"(): integer
 public "getBlockInputs"(): $List<($BlockPredicate)>
 public "getBlockOutputs"(): $List<($BlockPredicate)>
-public "getAllActions"(): $Stream<($PostAction)>
-public static "filterHidden"(arg0: $Stream$Type<($PostAction$Type)>): $Stream<($PostAction)>
-public "showingActionsCount"(): integer
-public static "processActionGroup"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonPointer$Type, arg2: $List$Type<($PostAction$Type)>, arg3: $JsonObject$Type): $JsonElement
-public "getItemIndexes"(arg0: $Reference$Type): $IntList
-public "defaultItemPointer"(): $JsonPointer
-public static "processActions"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonObject$Type): void
-public "isActionPath"(arg0: $JsonPointer$Type): boolean
-public "matches"(arg0: C, arg1: $Level$Type): boolean
-public "isSpecial"(): boolean
 public "getRemainingItems"(arg0: C): $NonNullList<($ItemStack)>
 public "getIngredients"(): $NonNullList<($Ingredient)>
 public "showNotification"(): boolean
 public "getToastSymbol"(): $ItemStack
 public "isIncomplete"(): boolean
-public "getType"(): $ResourceLocation
+public "matches"(arg0: C, arg1: $Level$Type): boolean
+public "isSpecial"(): boolean
+public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
+public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
 public "getGroup"(): string
 public "setGroup"(group: string): void
 public "getOrCreateId"(): $ResourceLocation
 public "getSchema"(): $RecipeSchema
-public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
-public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
+public "getType"(): $ResourceLocation
 public "getMod"(): string
 public "hasInput"(match: $ReplacementMatch$Type): boolean
 public "hasOutput"(match: $ReplacementMatch$Type): boolean
 get "type"(): $LycheeRecipeType<(any), (any)>
 get "comment"(): string
 get "serializer"(): $LycheeRecipe$Serializer<(any)>
+get "actionGroups"(): $Map<($JsonPointer), ($List<($PostAction)>)>
+get "postActions"(): $Stream<($PostAction)>
 get "contextualHolder"(): $ContextualHolder
 get "maxRepeats"(): $MinMaxBounds$Ints
-get "postActions"(): $Stream<($PostAction)>
-get "actionGroups"(): $Map<($JsonPointer), ($List<($PostAction)>)>
 get "id"(): $ResourceLocation
+get "allActions"(): $Stream<($PostAction)>
 get "blockInputs"(): $List<($BlockPredicate)>
 get "blockOutputs"(): $List<($BlockPredicate)>
-get "allActions"(): $Stream<($PostAction)>
-get "special"(): boolean
 get "ingredients"(): $NonNullList<($Ingredient)>
 get "toastSymbol"(): $ItemStack
 get "incomplete"(): boolean
-get "type"(): $ResourceLocation
+get "special"(): boolean
 get "group"(): string
 set "group"(value: string)
 get "orCreateId"(): $ResourceLocation
 get "schema"(): $RecipeSchema
+get "type"(): $ResourceLocation
 get "mod"(): string
 }
 /**
@@ -1351,11 +1351,11 @@ import {$Recipe, $Recipe$Type} from "packages/net/minecraft/world/item/crafting/
 
 export interface $LycheeCounter {
 
+ "lychee$update"(arg0: $ResourceLocation$Type, arg1: $Recipe$Type<(any)>): void
  "lychee$setRecipeId"(arg0: $ResourceLocation$Type): void
  "lychee$getRecipeId"(): $ResourceLocation
  "lychee$setCount"(arg0: integer): void
  "lychee$getCount"(): integer
- "lychee$update"(arg0: $ResourceLocation$Type, arg1: $Recipe$Type<(any)>): void
 }
 
 export namespace $LycheeCounter {
@@ -1825,8 +1825,8 @@ declare global {
 export type $StatePropertiesPredicateAccess_ = $StatePropertiesPredicateAccess$Type;
 }}
 declare module "packages/snownee/lychee/core/recipe/$ItemAndBlockRecipe" {
-import {$JsonElement, $JsonElement$Type} from "packages/com/google/gson/$JsonElement"
 import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObject"
+import {$JsonElement, $JsonElement$Type} from "packages/com/google/gson/$JsonElement"
 import {$LycheeRecipe, $LycheeRecipe$Type} from "packages/snownee/lychee/core/recipe/$LycheeRecipe"
 import {$ILycheeRecipe, $ILycheeRecipe$Type} from "packages/snownee/lychee/core/recipe/$ILycheeRecipe"
 import {$NonNullList, $NonNullList$Type} from "packages/net/minecraft/core/$NonNullList"
@@ -1854,9 +1854,9 @@ public "matches"(arg0: $LycheeContext$Type, arg1: $Level$Type): boolean
 public "getIngredients"(): $NonNullList<($Ingredient)>
 public "getInput"(): $Ingredient
 public "getBlock"(): $BlockPredicate
-public static "filterHidden"(arg0: $Stream$Type<($PostAction$Type)>): $Stream<($PostAction)>
-public static "processActionGroup"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonPointer$Type, arg2: $List$Type<($PostAction$Type)>, arg3: $JsonObject$Type): $JsonElement
 public static "processActions"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonObject$Type): void
+public static "processActionGroup"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonPointer$Type, arg2: $List$Type<($PostAction$Type)>, arg3: $JsonObject$Type): $JsonElement
+public static "filterHidden"(arg0: $Stream$Type<($PostAction$Type)>): $Stream<($PostAction)>
 get "ingredients"(): $NonNullList<($Ingredient)>
 get "input"(): $Ingredient
 get "block"(): $BlockPredicate
@@ -1924,15 +1924,15 @@ export class $LycheeContext extends $EmptyContainer {
 public static "load"(arg0: $JsonObject$Type, arg1: $Delay$LycheeMarker$Type): $LycheeContext
 public "save"(): $JsonObject
 public "getLevel"(): $Level
+public "lazyGetBlockEntity"(): void
+public "getParamOrNull"<T>(arg0: $LootContextParam$Type<(T)>): T
 public "getServerLevel"(): $ServerLevel
 public "toLootContext"(): $LootContext
 public "removeParam"(arg0: $LootContextParam$Type<(any)>): void
 public "enqueueActions"(arg0: $Stream$Type<($PostAction$Type)>, arg1: integer, arg2: boolean): void
-public "lazyGetBlockEntity"(): void
-public "getParamOrNull"<T>(arg0: $LootContextParam$Type<(T)>): T
+public "setItem"(arg0: integer, arg1: $ItemStack$Type): void
 public "getContainerSize"(): integer
 public "getItem"(arg0: integer): $ItemStack
-public "setItem"(arg0: integer, arg1: $ItemStack$Type): void
 public "hasParam"(arg0: $LootContextParam$Type<(any)>): boolean
 public "getParam"<T>(arg0: $LootContextParam$Type<(T)>): T
 public "getRandom"(): $RandomSource
@@ -2076,8 +2076,8 @@ declare module "packages/snownee/lychee/block_crushing/$LycheeFallingBlockEntity
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $LycheeFallingBlockEntity {
 
- "lychee$matched"(): void
  "lychee$cancelDrop"(): void
+ "lychee$matched"(): void
  "lychee$anvilDamageChance"(arg0: float): void
 }
 
@@ -2144,8 +2144,8 @@ public "has"(arg0: $BlockState$Type): boolean
 public "blockKeysToItems"(): $List<($ItemStack)>
 public "mergeAnyBlockRecipes"(arg0: $Collection$Type<(T)>): $Iterable<(T)>
 public "buildCache"(): void
-public static "simple"<T extends $Recipe<(any)>>(arg0: $ResourceLocation$Type): $RecipeType<(T)>
 public static "register"<T extends $Recipe<(any)>>(arg0: string): $RecipeType<(T)>
+public static "simple"<T extends $Recipe<(any)>>(arg0: $ResourceLocation$Type): $RecipeType<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2161,8 +2161,8 @@ export type $BlockKeyRecipeType_<C, T> = $BlockKeyRecipeType$Type<(C), (T)>;
 }}
 declare module "packages/snownee/lychee/block_exploding/$BlockExplodingRecipe" {
 import {$BlockExplodingContext, $BlockExplodingContext$Type} from "packages/snownee/lychee/block_exploding/$BlockExplodingContext"
-import {$JsonElement, $JsonElement$Type} from "packages/com/google/gson/$JsonElement"
 import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObject"
+import {$JsonElement, $JsonElement$Type} from "packages/com/google/gson/$JsonElement"
 import {$LycheeRecipe, $LycheeRecipe$Type} from "packages/snownee/lychee/core/recipe/$LycheeRecipe"
 import {$LycheeRecipe$Serializer, $LycheeRecipe$Serializer$Type} from "packages/snownee/lychee/core/recipe/$LycheeRecipe$Serializer"
 import {$ILycheeRecipe, $ILycheeRecipe$Type} from "packages/snownee/lychee/core/recipe/$ILycheeRecipe"
@@ -2189,9 +2189,9 @@ public "matches"(arg0: $BlockExplodingContext$Type, arg1: $Level$Type): boolean
 public "getType"(): $LycheeRecipeType<(any), (any)>
 public "getSerializer"(): $LycheeRecipe$Serializer<(any)>
 public "getBlock"(): $BlockPredicate
-public static "filterHidden"(arg0: $Stream$Type<($PostAction$Type)>): $Stream<($PostAction)>
-public static "processActionGroup"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonPointer$Type, arg2: $List$Type<($PostAction$Type)>, arg3: $JsonObject$Type): $JsonElement
 public static "processActions"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonObject$Type): void
+public static "processActionGroup"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonPointer$Type, arg2: $List$Type<($PostAction$Type)>, arg3: $JsonObject$Type): $JsonElement
+public static "filterHidden"(arg0: $Stream$Type<($PostAction$Type)>): $Stream<($PostAction)>
 get "type"(): $LycheeRecipeType<(any), (any)>
 get "serializer"(): $LycheeRecipe$Serializer<(any)>
 get "block"(): $BlockPredicate
@@ -2338,8 +2338,8 @@ constructor()
 
 public "fromJson"(arg0: $JsonObject$Type): T
 public "toJson"(arg0: T, arg1: $JsonObject$Type): void
-public "getRegistryName"(): $ResourceLocation
 public "fromNetwork"(arg0: $FriendlyByteBuf$Type): T
+public "getRegistryName"(): $ResourceLocation
 public "toNetwork"(arg0: T, arg1: $FriendlyByteBuf$Type): void
 get "registryName"(): $ResourceLocation
 }
@@ -2425,8 +2425,8 @@ constructor()
 
 public "fromJson"(arg0: $JsonObject$Type): T
 public "toJson"(arg0: T, arg1: $JsonObject$Type): void
-public "getRegistryName"(): $ResourceLocation
 public "fromNetwork"(arg0: $FriendlyByteBuf$Type): T
+public "getRegistryName"(): $ResourceLocation
 public "toNetwork"(arg0: T, arg1: $FriendlyByteBuf$Type): void
 get "registryName"(): $ResourceLocation
 }
@@ -2503,8 +2503,8 @@ declare global {
 export type $CraftingContext_ = $CraftingContext$Type;
 }}
 declare module "packages/snownee/lychee/dripstone_dripping/$DripstoneRecipe" {
-import {$JsonElement, $JsonElement$Type} from "packages/com/google/gson/$JsonElement"
 import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObject"
+import {$JsonElement, $JsonElement$Type} from "packages/com/google/gson/$JsonElement"
 import {$LycheeRecipe, $LycheeRecipe$Type} from "packages/snownee/lychee/core/recipe/$LycheeRecipe"
 import {$LycheeRecipe$Serializer, $LycheeRecipe$Serializer$Type} from "packages/snownee/lychee/core/recipe/$LycheeRecipe$Serializer"
 import {$ILycheeRecipe, $ILycheeRecipe$Type} from "packages/snownee/lychee/core/recipe/$ILycheeRecipe"
@@ -2537,18 +2537,18 @@ public "compareTo"(arg0: $DripstoneRecipe$Type): integer
 public "matches"(arg0: $DripstoneContext$Type, arg1: $Level$Type): boolean
 public static "on"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type): boolean
 public "getType"(): $LycheeRecipeType<(any), (any)>
-public static "getBlockAboveStalactite"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $BlockState
 public "applyPostActions"(arg0: $LycheeContext$Type, arg1: integer): void
 public "getSerializer"(): $LycheeRecipe$Serializer<(any)>
 public "getSourceBlock"(): $BlockPredicate
 public "getBlockInputs"(): $List<($BlockPredicate)>
+public static "getBlockAboveStalactite"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $BlockState
 public static "safeTick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): boolean
 public "getChance"(): float
 public "setChance"(arg0: float): void
 public "getBlock"(): $BlockPredicate
-public static "filterHidden"(arg0: $Stream$Type<($PostAction$Type)>): $Stream<($PostAction)>
-public static "processActionGroup"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonPointer$Type, arg2: $List$Type<($PostAction$Type)>, arg3: $JsonObject$Type): $JsonElement
 public static "processActions"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonObject$Type): void
+public static "processActionGroup"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonPointer$Type, arg2: $List$Type<($PostAction$Type)>, arg3: $JsonObject$Type): $JsonElement
+public static "filterHidden"(arg0: $Stream$Type<($PostAction$Type)>): $Stream<($PostAction)>
 get "type"(): $LycheeRecipeType<(any), (any)>
 get "serializer"(): $LycheeRecipe$Serializer<(any)>
 get "sourceBlock"(): $BlockPredicate
@@ -2632,9 +2632,9 @@ export type $CustomConditionEventJS_ = $CustomConditionEventJS$Type;
 }}
 declare module "packages/snownee/lychee/core/contextual/$ContextualHolder" {
 import {$JsonElement, $JsonElement$Type} from "packages/com/google/gson/$JsonElement"
+import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
 import {$ContextualCondition, $ContextualCondition$Type} from "packages/snownee/lychee/core/contextual/$ContextualCondition"
 import {$ILycheeRecipe, $ILycheeRecipe$Type} from "packages/snownee/lychee/core/recipe/$ILycheeRecipe"
-import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$FriendlyByteBuf, $FriendlyByteBuf$Type} from "packages/net/minecraft/network/$FriendlyByteBuf"
 import {$List, $List$Type} from "packages/java/util/$List"
@@ -2645,9 +2645,6 @@ export class $ContextualHolder {
 
 constructor()
 
-public "withCondition"(arg0: $ContextualCondition$Type): void
-public "getConditions"(): $List<($ContextualCondition)>
-public "checkConditions"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $LycheeContext$Type, arg2: integer): integer
 public "showingConditionsCount"(): integer
 public "getConditionTooltips"(arg0: $List$Type<($Component$Type)>, arg1: integer, arg2: $Level$Type, arg3: $Player$Type): void
 public "parseConditions"(arg0: $JsonElement$Type): void
@@ -2655,6 +2652,9 @@ public "conditionsFromNetwork"(arg0: $FriendlyByteBuf$Type): void
 public "conditionsToNetwork"(arg0: $FriendlyByteBuf$Type): void
 public "rawConditionsToJson"(): $JsonElement
 public "isSecretCondition"(arg0: integer): boolean
+public "withCondition"(arg0: $ContextualCondition$Type): void
+public "checkConditions"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $LycheeContext$Type, arg2: integer): integer
+public "getConditions"(): $List<($ContextualCondition)>
 get "conditions"(): $List<($ContextualCondition)>
 }
 /**
@@ -2792,8 +2792,8 @@ constructor(arg0: string, arg1: $Class$Type<($ItemInsideRecipe$Type)>, arg2: $Lo
 
 public "process"(arg0: $Entity$Type, arg1: $ItemStack$Type, arg2: $BlockPos$Type, arg3: $Vec3$Type): void
 public "buildCache"(): void
-public static "simple"<T extends $Recipe<(any)>>(arg0: $ResourceLocation$Type): $RecipeType<(T)>
 public static "register"<T extends $Recipe<(any)>>(arg0: string): $RecipeType<(T)>
+public static "simple"<T extends $Recipe<(any)>>(arg0: $ResourceLocation$Type): $RecipeType<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2833,8 +2833,8 @@ declare global {
 export type $GameRendererAccess_ = $GameRendererAccess$Type;
 }}
 declare module "packages/snownee/lychee/item_inside/$ItemInsideRecipe" {
-import {$JsonElement, $JsonElement$Type} from "packages/com/google/gson/$JsonElement"
 import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObject"
+import {$JsonElement, $JsonElement$Type} from "packages/com/google/gson/$JsonElement"
 import {$LycheeRecipe$Serializer, $LycheeRecipe$Serializer$Type} from "packages/snownee/lychee/core/recipe/$LycheeRecipe$Serializer"
 import {$ILycheeRecipe, $ILycheeRecipe$Type} from "packages/snownee/lychee/core/recipe/$ILycheeRecipe"
 import {$ItemInsideRecipeType$Cache, $ItemInsideRecipeType$Cache$Type} from "packages/snownee/lychee/item_inside/$ItemInsideRecipeType$Cache"
@@ -2866,12 +2866,12 @@ public "getType"(): $LycheeRecipeType<(any), (any)>
 public "getTime"(): integer
 public "getSerializer"(): $LycheeRecipe$Serializer<(any)>
 public "tickOrApply"(arg0: $ItemShapelessContext$Type): boolean
-public "isSpecial"(): boolean
 public "buildCache"(arg0: $Object2FloatMap$Type<($Item$Type)>, arg1: $List$Type<($ItemInsideRecipe$Type)>): $ItemInsideRecipeType$Cache
+public "isSpecial"(): boolean
 public "getBlock"(): $BlockPredicate
-public static "filterHidden"(arg0: $Stream$Type<($PostAction$Type)>): $Stream<($PostAction)>
-public static "processActionGroup"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonPointer$Type, arg2: $List$Type<($PostAction$Type)>, arg3: $JsonObject$Type): $JsonElement
 public static "processActions"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonObject$Type): void
+public static "processActionGroup"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonPointer$Type, arg2: $List$Type<($PostAction$Type)>, arg3: $JsonObject$Type): $JsonElement
+public static "filterHidden"(arg0: $Stream$Type<($PostAction$Type)>): $Stream<($PostAction)>
 get "type"(): $LycheeRecipeType<(any), (any)>
 get "time"(): integer
 get "serializer"(): $LycheeRecipe$Serializer<(any)>
@@ -2891,9 +2891,9 @@ declare global {
 export type $ItemInsideRecipe_ = $ItemInsideRecipe$Type;
 }}
 declare module "packages/snownee/lychee/core/recipe/$LycheeRecipe$Serializer" {
-import {$JsonElement, $JsonElement$Type} from "packages/com/google/gson/$JsonElement"
 import {$LycheeRecipe, $LycheeRecipe$Type} from "packages/snownee/lychee/core/recipe/$LycheeRecipe"
 import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObject"
+import {$JsonElement, $JsonElement$Type} from "packages/com/google/gson/$JsonElement"
 import {$RecipeSerializer, $RecipeSerializer$Type} from "packages/net/minecraft/world/item/crafting/$RecipeSerializer"
 import {$Ingredient, $Ingredient$Type} from "packages/net/minecraft/world/item/crafting/$Ingredient"
 import {$ICondition$IContext, $ICondition$IContext$Type} from "packages/net/minecraftforge/common/crafting/conditions/$ICondition$IContext"
@@ -2910,14 +2910,14 @@ static readonly "AIR_INGREDIENT": $Ingredient
 
 constructor(arg0: $Function$Type<($ResourceLocation$Type), (R)>)
 
+public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): R
+public "fromJson"(arg0: R, arg1: $JsonObject$Type): void
+public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): R
+public "fromNetwork"(arg0: R, arg1: $FriendlyByteBuf$Type): void
+public "getRegistryName"(): $ResourceLocation
 public static "parseIngredientOrAir"(arg0: $JsonElement$Type): $Ingredient
 public static "actionsToNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $List$Type<($PostAction$Type)>): void
 public static "actionsFromNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $Consumer$Type<($PostAction$Type)>): void
-public "fromJson"(arg0: R, arg1: $JsonObject$Type): void
-public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): R
-public "getRegistryName"(): $ResourceLocation
-public "fromNetwork"(arg0: R, arg1: $FriendlyByteBuf$Type): void
-public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): R
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: R): void
 public "toNetwork0"(arg0: $FriendlyByteBuf$Type, arg1: R): void
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
@@ -2938,8 +2938,8 @@ export type $LycheeRecipe$Serializer_<R> = $LycheeRecipe$Serializer$Type<(R)>;
 }}
 declare module "packages/snownee/lychee/block_crushing/$BlockCrushingRecipe" {
 import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
-import {$JsonElement, $JsonElement$Type} from "packages/com/google/gson/$JsonElement"
 import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObject"
+import {$JsonElement, $JsonElement$Type} from "packages/com/google/gson/$JsonElement"
 import {$LycheeRecipe, $LycheeRecipe$Type} from "packages/snownee/lychee/core/recipe/$LycheeRecipe"
 import {$LycheeRecipe$Serializer, $LycheeRecipe$Serializer$Type} from "packages/snownee/lychee/core/recipe/$LycheeRecipe$Serializer"
 import {$ILycheeRecipe, $ILycheeRecipe$Type} from "packages/snownee/lychee/core/recipe/$ILycheeRecipe"
@@ -2969,19 +2969,19 @@ constructor(arg0: $ResourceLocation$Type)
 public "compareTo"(arg0: $BlockCrushingRecipe$Type): integer
 public "matches"(arg0: $BlockCrushingContext$Type, arg1: $Level$Type): boolean
 public "getType"(): $LycheeRecipeType<(any), (any)>
-public "matchesFallingBlock"(arg0: $BlockState$Type, arg1: $CompoundTag$Type): boolean
 public "getSerializer"(): $LycheeRecipe$Serializer<(any)>
-public "getBlockInputs"(): $List<($BlockPredicate)>
 public "getLandingBlock"(): $BlockPredicate
+public "getBlockInputs"(): $List<($BlockPredicate)>
+public "matchesFallingBlock"(arg0: $BlockState$Type, arg1: $CompoundTag$Type): boolean
 public "getIngredients"(): $NonNullList<($Ingredient)>
 public "getBlock"(): $BlockPredicate
-public static "filterHidden"(arg0: $Stream$Type<($PostAction$Type)>): $Stream<($PostAction)>
-public static "processActionGroup"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonPointer$Type, arg2: $List$Type<($PostAction$Type)>, arg3: $JsonObject$Type): $JsonElement
 public static "processActions"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonObject$Type): void
+public static "processActionGroup"(arg0: $ILycheeRecipe$Type<(any)>, arg1: $JsonPointer$Type, arg2: $List$Type<($PostAction$Type)>, arg3: $JsonObject$Type): $JsonElement
+public static "filterHidden"(arg0: $Stream$Type<($PostAction$Type)>): $Stream<($PostAction)>
 get "type"(): $LycheeRecipeType<(any), (any)>
 get "serializer"(): $LycheeRecipe$Serializer<(any)>
-get "blockInputs"(): $List<($BlockPredicate)>
 get "landingBlock"(): $BlockPredicate
+get "blockInputs"(): $List<($BlockPredicate)>
 get "ingredients"(): $NonNullList<($Ingredient)>
 get "block"(): $BlockPredicate
 }
@@ -3061,8 +3061,8 @@ static readonly "DEFAULT_PREVENT_TIP": $Component
 constructor(arg0: string, arg1: $Class$Type<($RandomBlockTickingRecipe$Type)>, arg2: $LootContextParamSet$Type)
 
 public "buildCache"(): void
-public static "simple"<T extends $Recipe<(any)>>(arg0: $ResourceLocation$Type): $RecipeType<(T)>
 public static "register"<T extends $Recipe<(any)>>(arg0: string): $RecipeType<(T)>
+public static "simple"<T extends $Recipe<(any)>>(arg0: $ResourceLocation$Type): $RecipeType<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3139,14 +3139,14 @@ constructor(arg0: string, arg1: $Class$Type<(T)>, arg2: $LootContextParamSet$Typ
 public "toString"(): string
 public "isEmpty"(): boolean
 public "findFirst"(arg0: C, arg1: $Level$Type): $Optional<(T)>
-public "getPreventDefaultDescription"(arg0: $LycheeRecipe$Type<(any)>): $Component
 public "inViewerRecipes"(): $List<(T)>
 public "updateEmptyState"(): void
-public "recipes"(): $List<(T)>
+public "getPreventDefaultDescription"(arg0: $LycheeRecipe$Type<(any)>): $Component
 public "buildCache"(): void
+public "recipes"(): $List<(T)>
 public "tryMatch"<D extends $Container>(arg0: $Recipe$Type<(D)>, arg1: $Level$Type, arg2: D): $Optional<(T)>
-public static "simple"<T extends $Recipe<(any)>>(arg0: $ResourceLocation$Type): $RecipeType<(T)>
 public static "register"<T extends $Recipe<(any)>>(arg0: string): $RecipeType<(T)>
+public static "simple"<T extends $Recipe<(any)>>(arg0: $ResourceLocation$Type): $RecipeType<(T)>
 get "empty"(): boolean
 }
 /**
@@ -3319,8 +3319,8 @@ constructor(arg0: string, arg1: $Class$Type<(T)>, arg2: $LootContextParamSet$Typ
 public static "process"<C extends $ItemShapelessContext, T extends $LycheeRecipe<(C)>>(arg0: $LycheeRecipeType$Type<(C), (T)>, arg1: $Iterable$Type<(T)>, arg2: C, arg3: $Predicate$Type<(T)>): void
 public "process"(arg0: $Level$Type, arg1: $Stream$Type<($ItemEntity$Type)>, arg2: $Consumer$Type<($ItemShapelessContext$Builder$Type<(C)>)>): void
 public "buildCache"(): void
-public static "simple"<T extends $Recipe<(any)>>(arg0: $ResourceLocation$Type): $RecipeType<(T)>
 public static "register"<T extends $Recipe<(any)>>(arg0: string): $RecipeType<(T)>
+public static "simple"<T extends $Recipe<(any)>>(arg0: $ResourceLocation$Type): $RecipeType<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

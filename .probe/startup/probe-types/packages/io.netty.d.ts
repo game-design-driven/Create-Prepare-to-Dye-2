@@ -46,10 +46,10 @@ export interface $ScheduledFuture<V> extends $Future<(V)>, $ScheduledFuture$0<(V
  "cause"(): $Throwable
  "sync"(): $Future<(V)>
  "cancel"(arg0: boolean): boolean
- "addListener"(arg0: $GenericFutureListener$Type<(any)>): $Future<(V)>
  "removeListener"(arg0: $GenericFutureListener$Type<(any)>): $Future<(V)>
- "isCancellable"(): boolean
+ "addListener"(arg0: $GenericFutureListener$Type<(any)>): $Future<(V)>
  "syncUninterruptibly"(): $Future<(V)>
+ "isCancellable"(): boolean
  "addListeners"(...arg0: ($GenericFutureListener$Type<(any)>)[]): $Future<(V)>
  "isSuccess"(): boolean
  "getNow"(): V
@@ -103,12 +103,12 @@ export interface $Attribute<T> {
  "key"(): $AttributeKey<(T)>
  "compareAndSet"(arg0: T, arg1: T): boolean
  "getAndSet"(arg0: T): T
+ "setIfAbsent"(arg0: T): T
 /**
  * 
  * @deprecated
  */
  "getAndRemove"(): T
- "setIfAbsent"(arg0: T): T
 }
 
 export namespace $Attribute {
@@ -143,13 +143,13 @@ export interface $RecvByteBufAllocator$Handle {
  "reset"(arg0: $ChannelConfig$Type): void
  "allocate"(arg0: $ByteBufAllocator$Type): $ByteBuf
  "guess"(): integer
- "lastBytesRead"(): integer
- "lastBytesRead"(arg0: integer): void
- "attemptedBytesRead"(): integer
- "attemptedBytesRead"(arg0: integer): void
- "incMessagesRead"(arg0: integer): void
  "continueReading"(): boolean
  "readComplete"(): void
+ "attemptedBytesRead"(): integer
+ "attemptedBytesRead"(arg0: integer): void
+ "lastBytesRead"(): integer
+ "lastBytesRead"(arg0: integer): void
+ "incMessagesRead"(arg0: integer): void
 }
 
 export namespace $RecvByteBufAllocator$Handle {
@@ -247,64 +247,62 @@ public "arrayOffset"(): integer
 public "setBoolean"(arg0: integer, arg1: boolean): $CompositeByteBuf
 public "setByte"(arg0: integer, arg1: integer): $CompositeByteBuf
 public "setChar"(arg0: integer, arg1: integer): $CompositeByteBuf
-public "setDouble"(arg0: integer, arg1: double): $CompositeByteBuf
 public "copy"(arg0: integer, arg1: integer): $ByteBuf
 public "unwrap"(): $ByteBuf
 public "capacity"(arg0: integer): $CompositeByteBuf
 public "capacity"(): integer
 public "order"(): $ByteOrder
-public "readBytes"(arg0: $ByteBuf$Type, arg1: integer): $CompositeByteBuf
-public "writeBytes"(arg0: $ByteBuf$Type): $CompositeByteBuf
-public "writeBytes"(arg0: $ByteBuf$Type, arg1: integer): $CompositeByteBuf
-public "writeBytes"(arg0: $ByteBuf$Type, arg1: integer, arg2: integer): $CompositeByteBuf
+public "readBytes"(arg0: $ByteBuf$Type): $CompositeByteBuf
+public "readBytes"(arg0: (byte)[]): $CompositeByteBuf
+public "readBytes"(arg0: (byte)[], arg1: integer, arg2: integer): $CompositeByteBuf
 public "writeBytes"(arg0: (byte)[]): $CompositeByteBuf
+public "writeBytes"(arg0: (byte)[], arg1: integer, arg2: integer): $CompositeByteBuf
+public "writeFloat"(arg0: float): $CompositeByteBuf
 public "writeByte"(arg0: integer): $CompositeByteBuf
-public "writeShort"(arg0: integer): $CompositeByteBuf
 public "writeLong"(arg0: long): $CompositeByteBuf
-public "writeDouble"(arg0: double): $CompositeByteBuf
-public "skipBytes"(arg0: integer): $CompositeByteBuf
-public "setIndex"(arg0: integer, arg1: integer): $CompositeByteBuf
-public "maxNumComponents"(): integer
-public "addComponents"(arg0: $Iterable$Type<($ByteBuf$Type)>): $CompositeByteBuf
-public "addComponents"(arg0: integer, arg1: $Iterable$Type<($ByteBuf$Type)>): $CompositeByteBuf
-public "addComponents"(arg0: boolean, ...arg1: ($ByteBuf$Type)[]): $CompositeByteBuf
-public "addComponents"(arg0: boolean, arg1: $Iterable$Type<($ByteBuf$Type)>): $CompositeByteBuf
-public "addComponents"(...arg0: ($ByteBuf$Type)[]): $CompositeByteBuf
-public "addComponents"(arg0: integer, ...arg1: ($ByteBuf$Type)[]): $CompositeByteBuf
-public "toComponentIndex"(arg0: integer): integer
-public "addFlattenedComponents"(arg0: boolean, arg1: $ByteBuf$Type): $CompositeByteBuf
-public "toByteIndex"(arg0: integer): integer
-public "removeComponents"(arg0: integer, arg1: integer): $CompositeByteBuf
-public "internalComponentAtOffset"(arg0: integer): $ByteBuf
-public "numComponents"(): integer
-public "internalComponent"(arg0: integer): $ByteBuf
-public "discardReadComponents"(): $CompositeByteBuf
-public "componentAtOffset"(arg0: integer): $ByteBuf
-public "removeComponent"(arg0: integer): $CompositeByteBuf
-public "consolidate"(): $CompositeByteBuf
-public "consolidate"(arg0: integer, arg1: integer): $CompositeByteBuf
-public "touch"(): $CompositeByteBuf
-public "addComponent"(arg0: boolean, arg1: $ByteBuf$Type): $CompositeByteBuf
-public "addComponent"(arg0: boolean, arg1: integer, arg2: $ByteBuf$Type): $CompositeByteBuf
 public "addComponent"(arg0: $ByteBuf$Type): $CompositeByteBuf
 public "addComponent"(arg0: integer, arg1: $ByteBuf$Type): $CompositeByteBuf
+public "addComponent"(arg0: boolean, arg1: $ByteBuf$Type): $CompositeByteBuf
+public "addComponent"(arg0: boolean, arg1: integer, arg2: $ByteBuf$Type): $CompositeByteBuf
+public "readerIndex"(arg0: integer): $CompositeByteBuf
+public "markReaderIndex"(): $CompositeByteBuf
+public "resetReaderIndex"(): $CompositeByteBuf
 public "discardReadBytes"(): $CompositeByteBuf
 public "nioBufferCount"(): integer
 public "internalNioBuffer"(arg0: integer, arg1: integer): $ByteBuffer
 public "hasMemoryAddress"(): boolean
 public "memoryAddress"(): long
-public "markReaderIndex"(): $CompositeByteBuf
-public "retain"(): $CompositeByteBuf
+public "addComponents"(arg0: $Iterable$Type<($ByteBuf$Type)>): $CompositeByteBuf
+public "addComponents"(...arg0: ($ByteBuf$Type)[]): $CompositeByteBuf
+public "addComponents"(arg0: integer, arg1: $Iterable$Type<($ByteBuf$Type)>): $CompositeByteBuf
+public "addComponents"(arg0: boolean, arg1: $Iterable$Type<($ByteBuf$Type)>): $CompositeByteBuf
+public "addComponents"(arg0: boolean, ...arg1: ($ByteBuf$Type)[]): $CompositeByteBuf
+public "addComponents"(arg0: integer, ...arg1: ($ByteBuf$Type)[]): $CompositeByteBuf
+public "removeComponents"(arg0: integer, arg1: integer): $CompositeByteBuf
+public "removeComponent"(arg0: integer): $CompositeByteBuf
+public "addFlattenedComponents"(arg0: boolean, arg1: $ByteBuf$Type): $CompositeByteBuf
+public "numComponents"(): integer
+public "toComponentIndex"(arg0: integer): integer
+public "toByteIndex"(arg0: integer): integer
+public "componentAtOffset"(arg0: integer): $ByteBuf
+public "internalComponent"(arg0: integer): $ByteBuf
+public "internalComponentAtOffset"(arg0: integer): $ByteBuf
+public "consolidate"(arg0: integer, arg1: integer): $CompositeByteBuf
+public "consolidate"(): $CompositeByteBuf
+public "discardReadComponents"(): $CompositeByteBuf
+public "maxNumComponents"(): integer
 public "alloc"(): $ByteBufAllocator
-public "setMedium"(arg0: integer, arg1: integer): $CompositeByteBuf
-public "setBytes"(arg0: integer, arg1: $ByteBuf$Type, arg2: integer, arg3: integer): $CompositeByteBuf
-public "setBytes"(arg0: integer, arg1: $InputStream$Type, arg2: integer): integer
-public "setBytes"(arg0: integer, arg1: $FileChannel$Type, arg2: long, arg3: integer): integer
+public "setBytes"(arg0: integer, arg1: $ByteBuf$Type, arg2: integer): $CompositeByteBuf
+public "setBytes"(arg0: integer, arg1: (byte)[], arg2: integer, arg3: integer): $CompositeByteBuf
+public "setBytes"(arg0: integer, arg1: $ByteBuf$Type): $CompositeByteBuf
+public "setBytes"(arg0: integer, arg1: (byte)[]): $CompositeByteBuf
 public "setBytes"(arg0: integer, arg1: $ScatteringByteChannel$Type, arg2: integer): integer
+public "setBytes"(arg0: integer, arg1: $FileChannel$Type, arg2: long, arg3: integer): integer
+public "setBytes"(arg0: integer, arg1: $InputStream$Type, arg2: integer): integer
 public "setZero"(arg0: integer, arg1: integer): $CompositeByteBuf
 public "nioBuffer"(arg0: integer, arg1: integer): $ByteBuffer
-public "nioBuffers"(): ($ByteBuffer)[]
 public "nioBuffers"(arg0: integer, arg1: integer): ($ByteBuffer)[]
+public "nioBuffers"(): ($ByteBuffer)[]
 public "decompose"(arg0: integer, arg1: integer): $List<($ByteBuf)>
 public "spliterator"(): $Spliterator<($ByteBuf)>
 public "forEach"(arg0: $Consumer$Type<(any)>): void
@@ -337,23 +335,23 @@ import {$ChannelPromise, $ChannelPromise$Type} from "packages/io/netty/channel/$
 export class $ChannelOutboundBuffer {
 
 
-public "remove"(arg0: $Throwable$Type): boolean
 public "remove"(): boolean
+public "remove"(arg0: $Throwable$Type): boolean
 public "isEmpty"(): boolean
 public "size"(): integer
 public "current"(): any
 public "isWritable"(): boolean
-public "bytesBeforeUnwritable"(): long
-public "bytesBeforeWritable"(): long
-public "nioBufferSize"(): long
-public "removeBytes"(arg0: long): void
-public "getUserDefinedWritability"(arg0: integer): boolean
-public "setUserDefinedWritability"(arg0: integer, arg1: boolean): void
-public "totalPendingWriteBytes"(): long
-public "forEachFlushedMessage"(arg0: $ChannelOutboundBuffer$MessageProcessor$Type): void
 public "addMessage"(arg0: any, arg1: integer, arg2: $ChannelPromise$Type): void
 public "currentProgress"(): long
 public "nioBufferCount"(): integer
+public "removeBytes"(arg0: long): void
+public "nioBufferSize"(): long
+public "getUserDefinedWritability"(arg0: integer): boolean
+public "setUserDefinedWritability"(arg0: integer, arg1: boolean): void
+public "forEachFlushedMessage"(arg0: $ChannelOutboundBuffer$MessageProcessor$Type): void
+public "totalPendingWriteBytes"(): long
+public "bytesBeforeUnwritable"(): long
+public "bytesBeforeWritable"(): long
 public "nioBuffers"(arg0: integer, arg1: long): ($ByteBuffer)[]
 public "nioBuffers"(): ($ByteBuffer)[]
 /**
@@ -395,10 +393,10 @@ export interface $ChannelInboundHandler extends $ChannelHandler {
  "exceptionCaught"(arg0: $ChannelHandlerContext$Type, arg1: $Throwable$Type): void
  "channelRead"(arg0: $ChannelHandlerContext$Type, arg1: any): void
  "channelRegistered"(arg0: $ChannelHandlerContext$Type): void
- "channelUnregistered"(arg0: $ChannelHandlerContext$Type): void
  "channelReadComplete"(arg0: $ChannelHandlerContext$Type): void
- "userEventTriggered"(arg0: $ChannelHandlerContext$Type, arg1: any): void
  "channelWritabilityChanged"(arg0: $ChannelHandlerContext$Type): void
+ "userEventTriggered"(arg0: $ChannelHandlerContext$Type, arg1: any): void
+ "channelUnregistered"(arg0: $ChannelHandlerContext$Type): void
  "handlerAdded"(arg0: $ChannelHandlerContext$Type): void
  "handlerRemoved"(arg0: $ChannelHandlerContext$Type): void
 }
@@ -452,25 +450,25 @@ public "execute"(arg0: $Runnable$Type): void
 public "addShutdownHook"(arg0: $Runnable$Type): void
 public "removeShutdownHook"(arg0: $Runnable$Type): void
 public "isShutdown"(): boolean
-public "invokeAll"<T>(arg0: $Collection$Type<(any)>): $List<($Future$0<(T)>)>
 public "invokeAll"<T>(arg0: $Collection$Type<(any)>, arg1: long, arg2: $TimeUnit$Type): $List<($Future$0<(T)>)>
+public "invokeAll"<T>(arg0: $Collection$Type<(any)>): $List<($Future$0<(T)>)>
 public "isTerminated"(): boolean
 public "awaitTermination"(arg0: long, arg1: $TimeUnit$Type): boolean
 public "invokeAny"<T>(arg0: $Collection$Type<(any)>): T
 public "invokeAny"<T>(arg0: $Collection$Type<(any)>, arg1: long, arg2: $TimeUnit$Type): T
-public "threadProperties"(): $ThreadProperties
-public "lazyExecute"(arg0: $Runnable$Type): void
 public "pendingTasks"(): integer
 public "inEventLoop"(arg0: $Thread$Type): boolean
 public "isShuttingDown"(): boolean
 public "shutdownGracefully"(arg0: long, arg1: long, arg2: $TimeUnit$Type): $Future<(any)>
 public "terminationFuture"(): $Future<(any)>
+public "threadProperties"(): $ThreadProperties
+public "lazyExecute"(arg0: $Runnable$Type): void
 public "parent"(): $EventExecutorGroup
 public "next"(): $EventExecutor
-public "newProgressivePromise"<V>(): $ProgressivePromise<(V)>
-public "newSucceededFuture"<V>(arg0: V): $Future<(V)>
-public "newFailedFuture"<V>(arg0: $Throwable$Type): $Future<(V)>
 public "inEventLoop"(): boolean
+public "newSucceededFuture"<V>(arg0: V): $Future<(V)>
+public "newProgressivePromise"<V>(): $ProgressivePromise<(V)>
+public "newFailedFuture"<V>(arg0: $Throwable$Type): $Future<(V)>
 public "newPromise"<V>(): $Promise<(V)>
 get "terminated"(): boolean
 get "shuttingDown"(): boolean
@@ -583,56 +581,56 @@ public "readBoolean"(): boolean
 public "readUnsignedByte"(): short
 public "readDouble"(): double
 public "setIndex"(arg0: integer, arg1: integer): $ByteBuf
+public "getCharSequence"(arg0: integer, arg1: integer, arg2: $Charset$Type): charseq
+public "maxWritableBytes"(): integer
+public "writableBytes"(): integer
+public "maxCapacity"(): integer
+public "readerIndex"(): integer
+public "readerIndex"(arg0: integer): $ByteBuf
 public "readableBytes"(): integer
 public "writerIndex"(arg0: integer): $ByteBuf
 public "writerIndex"(): integer
-public "getCharSequence"(arg0: integer, arg1: integer, arg2: $Charset$Type): charseq
-public "maxCapacity"(): integer
-public "writableBytes"(): integer
-public "readerIndex"(arg0: integer): $ByteBuf
-public "readerIndex"(): integer
-public "discardReadBytes"(): $ByteBuf
+public "markReaderIndex"(): $ByteBuf
+public "resetReaderIndex"(): $ByteBuf
+public "markWriterIndex"(): $ByteBuf
 public "resetWriterIndex"(): $ByteBuf
-public "ensureWritable"(arg0: integer): $ByteBuf
-public "ensureWritable"(arg0: integer, arg1: boolean): integer
-public "getUnsignedByte"(arg0: integer): short
+public "discardReadBytes"(): $ByteBuf
 public "discardSomeReadBytes"(): $ByteBuf
-public "writeCharSequence"(arg0: charseq, arg1: $Charset$Type): integer
-public "bytesBefore"(arg0: byte): integer
-public "bytesBefore"(arg0: integer, arg1: byte): integer
-public "bytesBefore"(arg0: integer, arg1: integer, arg2: byte): integer
-public "retainedSlice"(arg0: integer, arg1: integer): $ByteBuf
-public "retainedSlice"(): $ByteBuf
-public "retainedDuplicate"(): $ByteBuf
-public "writeLongLE"(arg0: long): $ByteBuf
-public "writeMediumLE"(arg0: integer): $ByteBuf
-public "readUnsignedShortLE"(): integer
-public "readMediumLE"(): integer
-public "readUnsignedMedium"(): integer
-public "readCharSequence"(arg0: integer, arg1: $Charset$Type): charseq
-public "readUnsignedMediumLE"(): integer
-public "readUnsignedInt"(): long
-public "readUnsignedIntLE"(): long
-public "readRetainedSlice"(arg0: integer): $ByteBuf
-public "writeShortLE"(arg0: integer): $ByteBuf
-public "writeMedium"(arg0: integer): $ByteBuf
-public "setCharSequence"(arg0: integer, arg1: charseq, arg2: $Charset$Type): integer
-public "readShortLE"(): short
+public "ensureWritable"(arg0: integer, arg1: boolean): integer
+public "ensureWritable"(arg0: integer): $ByteBuf
+public "getUnsignedByte"(arg0: integer): short
 public "getUnsignedShort"(arg0: integer): integer
 public "getUnsignedShortLE"(arg0: integer): integer
 public "getMediumLE"(arg0: integer): integer
 public "getUnsignedMedium"(arg0: integer): integer
-public "setMediumLE"(arg0: integer, arg1: integer): $ByteBuf
 public "getUnsignedMediumLE"(arg0: integer): integer
 public "getUnsignedIntLE"(arg0: integer): long
-public "maxWritableBytes"(): integer
-public "markReaderIndex"(): $ByteBuf
-public "resetReaderIndex"(): $ByteBuf
-public "markWriterIndex"(): $ByteBuf
+public "setMediumLE"(arg0: integer, arg1: integer): $ByteBuf
+public "setCharSequence"(arg0: integer, arg1: charseq, arg2: $Charset$Type): integer
+public "readShortLE"(): short
+public "readUnsignedShortLE"(): integer
+public "readMediumLE"(): integer
+public "readUnsignedMedium"(): integer
+public "readUnsignedMediumLE"(): integer
+public "readUnsignedInt"(): long
+public "readUnsignedIntLE"(): long
+public "readRetainedSlice"(arg0: integer): $ByteBuf
+public "readCharSequence"(arg0: integer, arg1: $Charset$Type): charseq
+public "writeShortLE"(arg0: integer): $ByteBuf
+public "writeMedium"(arg0: integer): $ByteBuf
+public "writeMediumLE"(arg0: integer): $ByteBuf
+public "writeLongLE"(arg0: long): $ByteBuf
+public "writeCharSequence"(arg0: charseq, arg1: $Charset$Type): integer
+public "bytesBefore"(arg0: byte): integer
+public "bytesBefore"(arg0: integer, arg1: integer, arg2: byte): integer
+public "bytesBefore"(arg0: integer, arg1: byte): integer
+public "retainedSlice"(): $ByteBuf
+public "retainedSlice"(arg0: integer, arg1: integer): $ByteBuf
+public "retainedDuplicate"(): $ByteBuf
 public "forEachByte"(arg0: integer, arg1: integer, arg2: $ByteProcessor$Type): integer
 public "forEachByte"(arg0: $ByteProcessor$Type): integer
-public "forEachByteDesc"(arg0: $ByteProcessor$Type): integer
 public "forEachByteDesc"(arg0: integer, arg1: integer, arg2: $ByteProcessor$Type): integer
+public "forEachByteDesc"(arg0: $ByteProcessor$Type): integer
 public "getUnsignedInt"(arg0: integer): long
 public "asReadOnly"(): $ByteBuf
 public "getShortLE"(arg0: integer): short
@@ -643,9 +641,9 @@ public "setShortLE"(arg0: integer, arg1: integer): $ByteBuf
 public "setMedium"(arg0: integer, arg1: integer): $ByteBuf
 public "setIntLE"(arg0: integer, arg1: integer): $ByteBuf
 public "setLongLE"(arg0: integer, arg1: long): $ByteBuf
-public "setBytes"(arg0: integer, arg1: $ByteBuf$Type): $ByteBuf
 public "setBytes"(arg0: integer, arg1: $ByteBuf$Type, arg2: integer): $ByteBuf
 public "setBytes"(arg0: integer, arg1: (byte)[]): $ByteBuf
+public "setBytes"(arg0: integer, arg1: $ByteBuf$Type): $ByteBuf
 public "setZero"(arg0: integer, arg1: integer): $ByteBuf
 public "readMedium"(): integer
 public "readIntLE"(): integer
@@ -717,18 +715,18 @@ constructor(arg0: integer, arg1: $Executor$Type)
 constructor(arg0: integer, arg1: $ThreadFactory$Type)
 
 public "setIoRatio"(arg0: integer): void
+public "submit"<T>(arg0: $Callable$Type<(T)>): $Future<(T)>
 public "submit"(arg0: $Runnable$Type): $Future<(any)>
 public "submit"<T>(arg0: $Runnable$Type, arg1: T): $Future<(T)>
-public "submit"<T>(arg0: $Callable$Type<(T)>): $Future<(T)>
 /**
  * 
  * @deprecated
  */
 public "shutdownNow"(): $List<($Runnable)>
-public "schedule"<V>(arg0: $Callable$Type<(V)>, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(V)>
 public "schedule"(arg0: $Runnable$Type, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(any)>
-public "scheduleWithFixedDelay"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
+public "schedule"<V>(arg0: $Callable$Type<(V)>, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(V)>
 public "scheduleAtFixedRate"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
+public "scheduleWithFixedDelay"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
 public "shutdownGracefully"(): $Future<(any)>
 set "ioRatio"(value: integer)
 }
@@ -792,14 +790,14 @@ export interface $ChannelPromise extends $ChannelFuture, $Promise<(void)> {
 
  "sync"(): $ChannelPromise
  "channel"(): $Channel
- "addListener"(arg0: $GenericFutureListener$Type<(any)>): $ChannelPromise
  "removeListener"(arg0: $GenericFutureListener$Type<(any)>): $ChannelPromise
+ "addListener"(arg0: $GenericFutureListener$Type<(any)>): $ChannelPromise
  "syncUninterruptibly"(): $ChannelPromise
  "addListeners"(...arg0: ($GenericFutureListener$Type<(any)>)[]): $ChannelPromise
  "unvoid"(): $ChannelPromise
  "setFailure"(arg0: $Throwable$Type): $ChannelPromise
- "setSuccess"(arg0: void): $ChannelPromise
  "setSuccess"(): $ChannelPromise
+ "setSuccess"(arg0: void): $ChannelPromise
  "trySuccess"(): boolean
  "await"(): $ChannelPromise
  "awaitUninterruptibly"(): $ChannelPromise
@@ -859,15 +857,15 @@ export interface $Channel$Unsafe {
  "connect"(arg0: $SocketAddress$Type, arg1: $SocketAddress$Type, arg2: $ChannelPromise$Type): void
  "close"(arg0: $ChannelPromise$Type): void
  "bind"(arg0: $SocketAddress$Type, arg1: $ChannelPromise$Type): void
- "closeForcibly"(): void
  "voidPromise"(): $ChannelPromise
  "recvBufAllocHandle"(): $RecvByteBufAllocator$Handle
  "outboundBuffer"(): $ChannelOutboundBuffer
+ "closeForcibly"(): void
  "disconnect"(arg0: $ChannelPromise$Type): void
- "deregister"(arg0: $ChannelPromise$Type): void
  "beginRead"(): void
  "localAddress"(): $SocketAddress
  "remoteAddress"(): $SocketAddress
+ "deregister"(arg0: $ChannelPromise$Type): void
 }
 
 export namespace $Channel$Unsafe {
@@ -954,18 +952,18 @@ constructor(arg0: integer, arg1: $ThreadFactory$Type)
 
 public "rebuildSelectors"(): void
 public "setIoRatio"(arg0: integer): void
+public "submit"<T>(arg0: $Callable$Type<(T)>): $Future<(T)>
 public "submit"(arg0: $Runnable$Type): $Future<(any)>
 public "submit"<T>(arg0: $Runnable$Type, arg1: T): $Future<(T)>
-public "submit"<T>(arg0: $Callable$Type<(T)>): $Future<(T)>
 /**
  * 
  * @deprecated
  */
 public "shutdownNow"(): $List<($Runnable)>
-public "schedule"<V>(arg0: $Callable$Type<(V)>, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(V)>
 public "schedule"(arg0: $Runnable$Type, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(any)>
-public "scheduleWithFixedDelay"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
+public "schedule"<V>(arg0: $Callable$Type<(V)>, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(V)>
 public "scheduleAtFixedRate"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
+public "scheduleWithFixedDelay"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
 public "shutdownGracefully"(): $Future<(any)>
 set "ioRatio"(value: integer)
 }
@@ -1011,6 +1009,7 @@ declare global {
 export type $MessageSizeEstimator$Handle_ = $MessageSizeEstimator$Handle$Type;
 }}
 declare module "packages/io/netty/buffer/$AbstractReferenceCountedByteBuf" {
+import {$ByteBuf, $ByteBuf$Type} from "packages/io/netty/buffer/$ByteBuf"
 import {$AbstractByteBuf, $AbstractByteBuf$Type} from "packages/io/netty/buffer/$AbstractByteBuf"
 
 /**
@@ -1023,6 +1022,9 @@ export class $AbstractReferenceCountedByteBuf extends $AbstractByteBuf {
 
 public "release"(): boolean
 public "release"(arg0: integer): boolean
+public "touch"(): $ByteBuf
+public "touch"(arg0: any): $ByteBuf
+public "retain"(): $ByteBuf
 public "refCnt"(): integer
 }
 /**
@@ -1082,28 +1084,28 @@ import {$ChannelPromise, $ChannelPromise$Type} from "packages/io/netty/channel/$
 export interface $ChannelOutboundInvoker {
 
  "flush"(): $ChannelOutboundInvoker
- "write"(arg0: any, arg1: $ChannelPromise$Type): $ChannelFuture
  "write"(arg0: any): $ChannelFuture
+ "write"(arg0: any, arg1: $ChannelPromise$Type): $ChannelFuture
  "read"(): $ChannelOutboundInvoker
  "connect"(arg0: $SocketAddress$Type, arg1: $ChannelPromise$Type): $ChannelFuture
  "connect"(arg0: $SocketAddress$Type, arg1: $SocketAddress$Type, arg2: $ChannelPromise$Type): $ChannelFuture
- "connect"(arg0: $SocketAddress$Type, arg1: $SocketAddress$Type): $ChannelFuture
  "connect"(arg0: $SocketAddress$Type): $ChannelFuture
+ "connect"(arg0: $SocketAddress$Type, arg1: $SocketAddress$Type): $ChannelFuture
  "close"(arg0: $ChannelPromise$Type): $ChannelFuture
  "close"(): $ChannelFuture
- "bind"(arg0: $SocketAddress$Type): $ChannelFuture
  "bind"(arg0: $SocketAddress$Type, arg1: $ChannelPromise$Type): $ChannelFuture
- "newProgressivePromise"(): $ChannelProgressivePromise
+ "bind"(arg0: $SocketAddress$Type): $ChannelFuture
+ "writeAndFlush"(arg0: any, arg1: $ChannelPromise$Type): $ChannelFuture
+ "writeAndFlush"(arg0: any): $ChannelFuture
  "newSucceededFuture"(): $ChannelFuture
+ "newProgressivePromise"(): $ChannelProgressivePromise
  "newFailedFuture"(arg0: $Throwable$Type): $ChannelFuture
  "voidPromise"(): $ChannelPromise
- "writeAndFlush"(arg0: any): $ChannelFuture
- "writeAndFlush"(arg0: any, arg1: $ChannelPromise$Type): $ChannelFuture
  "disconnect"(): $ChannelFuture
  "disconnect"(arg0: $ChannelPromise$Type): $ChannelFuture
  "newPromise"(): $ChannelPromise
- "deregister"(): $ChannelFuture
  "deregister"(arg0: $ChannelPromise$Type): $ChannelFuture
+ "deregister"(): $ChannelFuture
 }
 
 export namespace $ChannelOutboundInvoker {
@@ -1187,16 +1189,16 @@ export interface $ChannelHandlerContext extends $AttributeMap, $ChannelInboundIn
  "attr"<T>(arg0: $AttributeKey$Type<(T)>): $Attribute<(T)>
  "channel"(): $Channel
  "executor"(): $EventExecutor
- "fireChannelWritabilityChanged"(): $ChannelHandlerContext
  "isRemoved"(): boolean
- "fireChannelRead"(arg0: any): $ChannelHandlerContext
- "fireChannelRegistered"(): $ChannelHandlerContext
- "fireChannelUnregistered"(): $ChannelHandlerContext
  "fireChannelActive"(): $ChannelHandlerContext
- "fireChannelInactive"(): $ChannelHandlerContext
+ "fireChannelRead"(arg0: any): $ChannelHandlerContext
  "fireChannelReadComplete"(): $ChannelHandlerContext
- "fireUserEventTriggered"(arg0: any): $ChannelHandlerContext
+ "fireChannelUnregistered"(): $ChannelHandlerContext
+ "fireChannelInactive"(): $ChannelHandlerContext
  "fireExceptionCaught"(arg0: $Throwable$Type): $ChannelHandlerContext
+ "fireUserEventTriggered"(arg0: any): $ChannelHandlerContext
+ "fireChannelRegistered"(): $ChannelHandlerContext
+ "fireChannelWritabilityChanged"(): $ChannelHandlerContext
  "alloc"(): $ByteBufAllocator
  "pipeline"(): $ChannelPipeline
 /**
@@ -1204,27 +1206,27 @@ export interface $ChannelHandlerContext extends $AttributeMap, $ChannelInboundIn
  * @deprecated
  */
  "hasAttr"<T>(arg0: $AttributeKey$Type<(T)>): boolean
- "write"(arg0: any, arg1: $ChannelPromise$Type): $ChannelFuture
  "write"(arg0: any): $ChannelFuture
+ "write"(arg0: any, arg1: $ChannelPromise$Type): $ChannelFuture
  "connect"(arg0: $SocketAddress$Type, arg1: $ChannelPromise$Type): $ChannelFuture
  "connect"(arg0: $SocketAddress$Type, arg1: $SocketAddress$Type, arg2: $ChannelPromise$Type): $ChannelFuture
- "connect"(arg0: $SocketAddress$Type, arg1: $SocketAddress$Type): $ChannelFuture
  "connect"(arg0: $SocketAddress$Type): $ChannelFuture
+ "connect"(arg0: $SocketAddress$Type, arg1: $SocketAddress$Type): $ChannelFuture
  "close"(arg0: $ChannelPromise$Type): $ChannelFuture
  "close"(): $ChannelFuture
- "bind"(arg0: $SocketAddress$Type): $ChannelFuture
  "bind"(arg0: $SocketAddress$Type, arg1: $ChannelPromise$Type): $ChannelFuture
- "newProgressivePromise"(): $ChannelProgressivePromise
+ "bind"(arg0: $SocketAddress$Type): $ChannelFuture
+ "writeAndFlush"(arg0: any, arg1: $ChannelPromise$Type): $ChannelFuture
+ "writeAndFlush"(arg0: any): $ChannelFuture
  "newSucceededFuture"(): $ChannelFuture
+ "newProgressivePromise"(): $ChannelProgressivePromise
  "newFailedFuture"(arg0: $Throwable$Type): $ChannelFuture
  "voidPromise"(): $ChannelPromise
- "writeAndFlush"(arg0: any): $ChannelFuture
- "writeAndFlush"(arg0: any, arg1: $ChannelPromise$Type): $ChannelFuture
  "disconnect"(): $ChannelFuture
  "disconnect"(arg0: $ChannelPromise$Type): $ChannelFuture
  "newPromise"(): $ChannelPromise
- "deregister"(): $ChannelFuture
  "deregister"(arg0: $ChannelPromise$Type): $ChannelFuture
+ "deregister"(): $ChannelFuture
 }
 
 export namespace $ChannelHandlerContext {
@@ -1282,21 +1284,21 @@ export interface $EventLoopGroup extends $EventExecutorGroup {
  */
  "shutdown"(): void
  "iterator"(): $Iterator<($EventExecutor)>
+ "submit"<T>(arg0: $Callable$Type<(T)>): $Future<(T)>
  "submit"(arg0: $Runnable$Type): $Future<(any)>
  "submit"<T>(arg0: $Runnable$Type, arg1: T): $Future<(T)>
- "submit"<T>(arg0: $Callable$Type<(T)>): $Future<(T)>
 /**
  * 
  * @deprecated
  */
  "shutdownNow"(): $List<($Runnable)>
- "schedule"<V>(arg0: $Callable$Type<(V)>, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(V)>
  "schedule"(arg0: $Runnable$Type, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(any)>
- "scheduleWithFixedDelay"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
+ "schedule"<V>(arg0: $Callable$Type<(V)>, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(V)>
  "scheduleAtFixedRate"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
+ "scheduleWithFixedDelay"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
  "isShuttingDown"(): boolean
- "shutdownGracefully"(arg0: long, arg1: long, arg2: $TimeUnit$Type): $Future<(any)>
  "shutdownGracefully"(): $Future<(any)>
+ "shutdownGracefully"(arg0: long, arg1: long, arg2: $TimeUnit$Type): $Future<(any)>
  "terminationFuture"(): $Future<(any)>
  "spliterator"(): $Spliterator<($EventExecutor)>
  "forEach"(arg0: $Consumer$Type<(any)>): void
@@ -1374,11 +1376,11 @@ import {$TimeUnit, $TimeUnit$Type} from "packages/java/util/concurrent/$TimeUnit
 export interface $Promise<V> extends $Future<(V)> {
 
  "sync"(): $Promise<(V)>
- "setUncancellable"(): boolean
- "addListener"(arg0: $GenericFutureListener$Type<(any)>): $Promise<(V)>
  "removeListener"(arg0: $GenericFutureListener$Type<(any)>): $Promise<(V)>
+ "addListener"(arg0: $GenericFutureListener$Type<(any)>): $Promise<(V)>
  "syncUninterruptibly"(): $Promise<(V)>
  "addListeners"(...arg0: ($GenericFutureListener$Type<(any)>)[]): $Promise<(V)>
+ "setUncancellable"(): boolean
  "setFailure"(arg0: $Throwable$Type): $Promise<(V)>
  "setSuccess"(arg0: V): $Promise<(V)>
  "trySuccess"(arg0: V): boolean
@@ -1484,11 +1486,11 @@ export interface $EventLoop extends $OrderedEventExecutor, $EventLoopGroup {
  "register"(arg0: $Channel$Type, arg1: $ChannelPromise$Type): $ChannelFuture
  "register"(arg0: $ChannelPromise$Type): $ChannelFuture
  "register"(arg0: $Channel$Type): $ChannelFuture
- "newProgressivePromise"<V>(): $ProgressivePromise<(V)>
- "newSucceededFuture"<V>(arg0: V): $Future<(V)>
- "newFailedFuture"<V>(arg0: $Throwable$Type): $Future<(V)>
  "inEventLoop"(arg0: $Thread$Type): boolean
  "inEventLoop"(): boolean
+ "newSucceededFuture"<V>(arg0: V): $Future<(V)>
+ "newProgressivePromise"<V>(): $ProgressivePromise<(V)>
+ "newFailedFuture"<V>(arg0: $Throwable$Type): $Future<(V)>
  "newPromise"<V>(): $Promise<(V)>
 /**
  * 
@@ -1496,21 +1498,21 @@ export interface $EventLoop extends $OrderedEventExecutor, $EventLoopGroup {
  */
  "shutdown"(): void
  "iterator"(): $Iterator<($EventExecutor)>
+ "submit"<T>(arg0: $Callable$Type<(T)>): $Future<(T)>
  "submit"(arg0: $Runnable$Type): $Future<(any)>
  "submit"<T>(arg0: $Runnable$Type, arg1: T): $Future<(T)>
- "submit"<T>(arg0: $Callable$Type<(T)>): $Future<(T)>
 /**
  * 
  * @deprecated
  */
  "shutdownNow"(): $List<($Runnable)>
- "schedule"<V>(arg0: $Callable$Type<(V)>, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(V)>
  "schedule"(arg0: $Runnable$Type, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(any)>
- "scheduleWithFixedDelay"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
+ "schedule"<V>(arg0: $Callable$Type<(V)>, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(V)>
  "scheduleAtFixedRate"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
+ "scheduleWithFixedDelay"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
  "isShuttingDown"(): boolean
- "shutdownGracefully"(arg0: long, arg1: long, arg2: $TimeUnit$Type): $Future<(any)>
  "shutdownGracefully"(): $Future<(any)>
+ "shutdownGracefully"(arg0: long, arg1: long, arg2: $TimeUnit$Type): $Future<(any)>
  "terminationFuture"(): $Future<(any)>
  "spliterator"(): $Spliterator<($EventExecutor)>
  "forEach"(arg0: $Consumer$Type<(any)>): void
@@ -1579,15 +1581,15 @@ public "getLong"(arg0: integer): long
 public "getFloat"(arg0: integer): float
 public "getDouble"(arg0: integer): double
 public "clear"(): $ByteBuf
+public "getBytes"(arg0: integer, arg1: $ByteBuffer$Type): $ByteBuf
+public "getBytes"(arg0: integer, arg1: $ByteBuf$Type, arg2: integer): $ByteBuf
+public "getBytes"(arg0: integer, arg1: $ByteBuf$Type, arg2: integer, arg3: integer): $ByteBuf
 public "getBytes"(arg0: integer, arg1: (byte)[]): $ByteBuf
 public "getBytes"(arg0: integer, arg1: (byte)[], arg2: integer, arg3: integer): $ByteBuf
-public "getBytes"(arg0: integer, arg1: $ByteBuf$Type, arg2: integer): $ByteBuf
 public "getBytes"(arg0: integer, arg1: $ByteBuf$Type): $ByteBuf
-public "getBytes"(arg0: integer, arg1: $ByteBuf$Type, arg2: integer, arg3: integer): $ByteBuf
 public "getBytes"(arg0: integer, arg1: $FileChannel$Type, arg2: long, arg3: integer): integer
 public "getBytes"(arg0: integer, arg1: $GatheringByteChannel$Type, arg2: integer): integer
 public "getBytes"(arg0: integer, arg1: $OutputStream$Type, arg2: integer): $ByteBuf
-public "getBytes"(arg0: integer, arg1: $ByteBuffer$Type): $ByteBuf
 public "isDirect"(): boolean
 public "hasArray"(): boolean
 public "array"(): (byte)[]
@@ -1605,8 +1607,8 @@ public "setDouble"(arg0: integer, arg1: double): $ByteBuf
 public "copy"(arg0: integer, arg1: integer): $ByteBuf
 public "copy"(): $ByteBuf
 public "unwrap"(): $ByteBuf
-public "capacity"(arg0: integer): $ByteBuf
 public "capacity"(): integer
+public "capacity"(arg0: integer): $ByteBuf
 public "isReadOnly"(): boolean
 public "slice"(arg0: integer, arg1: integer): $ByteBuf
 public "slice"(): $ByteBuf
@@ -1621,25 +1623,25 @@ public "order"(): $ByteOrder
  * @deprecated
  */
 public "order"(arg0: $ByteOrder$Type): $ByteBuf
-public "readBytes"(arg0: $FileChannel$Type, arg1: long, arg2: integer): integer
-public "readBytes"(arg0: integer): $ByteBuf
+public "readBytes"(arg0: $ByteBuf$Type): $ByteBuf
 public "readBytes"(arg0: $ByteBuffer$Type): $ByteBuf
-public "readBytes"(arg0: (byte)[], arg1: integer, arg2: integer): $ByteBuf
+public "readBytes"(arg0: $OutputStream$Type, arg1: integer): $ByteBuf
+public "readBytes"(arg0: $GatheringByteChannel$Type, arg1: integer): integer
+public "readBytes"(arg0: integer): $ByteBuf
 public "readBytes"(arg0: (byte)[]): $ByteBuf
+public "readBytes"(arg0: $FileChannel$Type, arg1: long, arg2: integer): integer
 public "readBytes"(arg0: $ByteBuf$Type, arg1: integer, arg2: integer): $ByteBuf
 public "readBytes"(arg0: $ByteBuf$Type, arg1: integer): $ByteBuf
-public "readBytes"(arg0: $ByteBuf$Type): $ByteBuf
-public "readBytes"(arg0: $GatheringByteChannel$Type, arg1: integer): integer
-public "readBytes"(arg0: $OutputStream$Type, arg1: integer): $ByteBuf
-public "writeBytes"(arg0: $ByteBuf$Type, arg1: integer, arg2: integer): $ByteBuf
+public "readBytes"(arg0: (byte)[], arg1: integer, arg2: integer): $ByteBuf
 public "writeBytes"(arg0: (byte)[]): $ByteBuf
-public "writeBytes"(arg0: $ByteBuf$Type, arg1: integer): $ByteBuf
-public "writeBytes"(arg0: $InputStream$Type, arg1: integer): integer
-public "writeBytes"(arg0: $ByteBuffer$Type): $ByteBuf
 public "writeBytes"(arg0: (byte)[], arg1: integer, arg2: integer): $ByteBuf
+public "writeBytes"(arg0: $ByteBuffer$Type): $ByteBuf
 public "writeBytes"(arg0: $FileChannel$Type, arg1: long, arg2: integer): integer
-public "writeBytes"(arg0: $ByteBuf$Type): $ByteBuf
 public "writeBytes"(arg0: $ScatteringByteChannel$Type, arg1: integer): integer
+public "writeBytes"(arg0: $InputStream$Type, arg1: integer): integer
+public "writeBytes"(arg0: $ByteBuf$Type, arg1: integer, arg2: integer): $ByteBuf
+public "writeBytes"(arg0: $ByteBuf$Type, arg1: integer): $ByteBuf
+public "writeBytes"(arg0: $ByteBuf$Type): $ByteBuf
 public "writeChar"(arg0: integer): $ByteBuf
 public "readChar"(): character
 public "writeFloat"(arg0: float): $ByteBuf
@@ -1650,8 +1652,8 @@ public "readByte"(): byte
 public "readShort"(): short
 public "isReadable"(arg0: integer): boolean
 public "isReadable"(): boolean
-public "isWritable"(): boolean
 public "isWritable"(arg0: integer): boolean
+public "isWritable"(): boolean
 public "writeBoolean"(arg0: boolean): $ByteBuf
 public "writeByte"(arg0: integer): $ByteBuf
 public "writeShort"(arg0: integer): $ByteBuf
@@ -1662,20 +1664,46 @@ public "readBoolean"(): boolean
 public "readUnsignedByte"(): short
 public "readDouble"(): double
 public "setIndex"(arg0: integer, arg1: integer): $ByteBuf
+public "touch"(arg0: any): $ByteBuf
+public "getCharSequence"(arg0: integer, arg1: integer, arg2: $Charset$Type): charseq
+public "maxWritableBytes"(): integer
+public "writableBytes"(): integer
+public "maxCapacity"(): integer
+public "readerIndex"(arg0: integer): $ByteBuf
+public "readerIndex"(): integer
 public "readableBytes"(): integer
 public "writerIndex"(arg0: integer): $ByteBuf
 public "writerIndex"(): integer
-public "getCharSequence"(arg0: integer, arg1: integer, arg2: $Charset$Type): charseq
-public "maxCapacity"(): integer
-public "writableBytes"(): integer
-public "readerIndex"(arg0: integer): $ByteBuf
-public "readerIndex"(): integer
-public "discardReadBytes"(): $ByteBuf
+public "markReaderIndex"(): $ByteBuf
+public "resetReaderIndex"(): $ByteBuf
+public "markWriterIndex"(): $ByteBuf
 public "resetWriterIndex"(): $ByteBuf
+public "discardReadBytes"(): $ByteBuf
+public "discardSomeReadBytes"(): $ByteBuf
 public "ensureWritable"(arg0: integer, arg1: boolean): integer
 public "ensureWritable"(arg0: integer): $ByteBuf
 public "getUnsignedByte"(arg0: integer): short
-public "discardSomeReadBytes"(): $ByteBuf
+public "getUnsignedShort"(arg0: integer): integer
+public "getUnsignedShortLE"(arg0: integer): integer
+public "getMediumLE"(arg0: integer): integer
+public "getUnsignedMedium"(arg0: integer): integer
+public "getUnsignedMediumLE"(arg0: integer): integer
+public "getUnsignedIntLE"(arg0: integer): long
+public "setMediumLE"(arg0: integer, arg1: integer): $ByteBuf
+public "setCharSequence"(arg0: integer, arg1: charseq, arg2: $Charset$Type): integer
+public "readShortLE"(): short
+public "readUnsignedShortLE"(): integer
+public "readMediumLE"(): integer
+public "readUnsignedMedium"(): integer
+public "readUnsignedMediumLE"(): integer
+public "readUnsignedInt"(): long
+public "readUnsignedIntLE"(): long
+public "readRetainedSlice"(arg0: integer): $ByteBuf
+public "readCharSequence"(arg0: integer, arg1: $Charset$Type): charseq
+public "writeShortLE"(arg0: integer): $ByteBuf
+public "writeMedium"(arg0: integer): $ByteBuf
+public "writeMediumLE"(arg0: integer): $ByteBuf
+public "writeLongLE"(arg0: long): $ByteBuf
 public "writeCharSequence"(arg0: charseq, arg1: $Charset$Type): integer
 public "bytesBefore"(arg0: integer, arg1: integer, arg2: byte): integer
 public "bytesBefore"(arg0: byte): integer
@@ -1687,48 +1715,20 @@ public "nioBufferCount"(): integer
 public "internalNioBuffer"(arg0: integer, arg1: integer): $ByteBuffer
 public "hasMemoryAddress"(): boolean
 public "memoryAddress"(): long
-public "writeLongLE"(arg0: long): $ByteBuf
-public "writeMediumLE"(arg0: integer): $ByteBuf
-public "readUnsignedShortLE"(): integer
-public "readMediumLE"(): integer
-public "readUnsignedMedium"(): integer
-public "readCharSequence"(arg0: integer, arg1: $Charset$Type): charseq
-public "readUnsignedMediumLE"(): integer
-public "readUnsignedInt"(): long
-public "readUnsignedIntLE"(): long
-public "readRetainedSlice"(arg0: integer): $ByteBuf
-public "writeShortLE"(arg0: integer): $ByteBuf
-public "writeMedium"(arg0: integer): $ByteBuf
-public "setCharSequence"(arg0: integer, arg1: charseq, arg2: $Charset$Type): integer
-public "readShortLE"(): short
-public "getUnsignedShort"(arg0: integer): integer
-public "getUnsignedShortLE"(arg0: integer): integer
-public "getMediumLE"(arg0: integer): integer
-public "getUnsignedMedium"(arg0: integer): integer
-public "setMediumLE"(arg0: integer, arg1: integer): $ByteBuf
-public "getUnsignedMediumLE"(arg0: integer): integer
-public "getUnsignedIntLE"(arg0: integer): long
-public "maxWritableBytes"(): integer
-public "markReaderIndex"(): $ByteBuf
-public "resetReaderIndex"(): $ByteBuf
-public "markWriterIndex"(): $ByteBuf
-public "forEachByte"(arg0: $ByteProcessor$Type): integer
-public "forEachByte"(arg0: integer, arg1: integer, arg2: $ByteProcessor$Type): integer
-public "forEachByteDesc"(arg0: integer, arg1: integer, arg2: $ByteProcessor$Type): integer
-public "forEachByteDesc"(arg0: $ByteProcessor$Type): integer
-public "getUnsignedInt"(arg0: integer): long
-public "maxFastWritableBytes"(): integer
-public "getDoubleLE"(arg0: integer): double
-public "setDoubleLE"(arg0: integer, arg1: double): $ByteBuf
-public "readFloatLE"(): float
-public "readDoubleLE"(): double
-public "writeFloatLE"(arg0: float): $ByteBuf
 public "writeDoubleLE"(arg0: double): $ByteBuf
 public "isContiguous"(): boolean
+public "getDoubleLE"(arg0: integer): double
+public "setDoubleLE"(arg0: integer, arg1: double): $ByteBuf
+public "maxFastWritableBytes"(): integer
+public "writeFloatLE"(arg0: float): $ByteBuf
+public "readDoubleLE"(): double
+public "readFloatLE"(): float
+public "forEachByte"(arg0: integer, arg1: integer, arg2: $ByteProcessor$Type): integer
+public "forEachByte"(arg0: $ByteProcessor$Type): integer
+public "forEachByteDesc"(arg0: $ByteProcessor$Type): integer
+public "forEachByteDesc"(arg0: integer, arg1: integer, arg2: $ByteProcessor$Type): integer
+public "getUnsignedInt"(arg0: integer): long
 public "retain"(): $ByteBuf
-public "getFloatLE"(arg0: integer): float
-public "setFloatLE"(arg0: integer, arg1: float): $ByteBuf
-public "asByteBuf"(): $ByteBuf
 public "alloc"(): $ByteBufAllocator
 public "asReadOnly"(): $ByteBuf
 public "getShortLE"(arg0: integer): short
@@ -1739,15 +1739,15 @@ public "setShortLE"(arg0: integer, arg1: integer): $ByteBuf
 public "setMedium"(arg0: integer, arg1: integer): $ByteBuf
 public "setIntLE"(arg0: integer, arg1: integer): $ByteBuf
 public "setLongLE"(arg0: integer, arg1: long): $ByteBuf
-public "setBytes"(arg0: integer, arg1: (byte)[]): $ByteBuf
-public "setBytes"(arg0: integer, arg1: $ByteBuf$Type, arg2: integer): $ByteBuf
-public "setBytes"(arg0: integer, arg1: $ByteBuf$Type, arg2: integer, arg3: integer): $ByteBuf
-public "setBytes"(arg0: integer, arg1: $ScatteringByteChannel$Type, arg2: integer): integer
-public "setBytes"(arg0: integer, arg1: $InputStream$Type, arg2: integer): integer
-public "setBytes"(arg0: integer, arg1: $ByteBuffer$Type): $ByteBuf
-public "setBytes"(arg0: integer, arg1: (byte)[], arg2: integer, arg3: integer): $ByteBuf
 public "setBytes"(arg0: integer, arg1: $FileChannel$Type, arg2: long, arg3: integer): integer
+public "setBytes"(arg0: integer, arg1: (byte)[]): $ByteBuf
+public "setBytes"(arg0: integer, arg1: $ByteBuf$Type, arg2: integer, arg3: integer): $ByteBuf
+public "setBytes"(arg0: integer, arg1: $InputStream$Type, arg2: integer): integer
+public "setBytes"(arg0: integer, arg1: $ScatteringByteChannel$Type, arg2: integer): integer
+public "setBytes"(arg0: integer, arg1: (byte)[], arg2: integer, arg3: integer): $ByteBuf
+public "setBytes"(arg0: integer, arg1: $ByteBuffer$Type): $ByteBuf
 public "setBytes"(arg0: integer, arg1: $ByteBuf$Type): $ByteBuf
+public "setBytes"(arg0: integer, arg1: $ByteBuf$Type, arg2: integer): $ByteBuf
 public "setZero"(arg0: integer, arg1: integer): $ByteBuf
 public "readMedium"(): integer
 public "readIntLE"(): integer
@@ -1759,6 +1759,9 @@ public "nioBuffer"(arg0: integer, arg1: integer): $ByteBuffer
 public "nioBuffer"(): $ByteBuffer
 public "nioBuffers"(arg0: integer, arg1: integer): ($ByteBuffer)[]
 public "nioBuffers"(): ($ByteBuffer)[]
+public "setFloatLE"(arg0: integer, arg1: float): $ByteBuf
+public "getFloatLE"(arg0: integer): float
+public "asByteBuf"(): $ByteBuf
 public "release"(arg0: integer): boolean
 public "release"(): boolean
 public "refCnt"(): integer
@@ -1989,43 +1992,43 @@ export interface $ChannelPipeline extends $ChannelInboundInvoker, $ChannelOutbou
  "addLast"(arg0: $EventExecutorGroup$Type, ...arg1: ($ChannelHandler$Type)[]): $ChannelPipeline
  "removeFirst"(): $ChannelHandler
  "removeLast"(): $ChannelHandler
+ "fireChannelActive"(): $ChannelPipeline
+ "fireChannelRead"(arg0: any): $ChannelPipeline
+ "fireChannelReadComplete"(): $ChannelPipeline
+ "fireChannelUnregistered"(): $ChannelPipeline
+ "fireChannelInactive"(): $ChannelPipeline
+ "fireExceptionCaught"(arg0: $Throwable$Type): $ChannelPipeline
+ "fireUserEventTriggered"(arg0: any): $ChannelPipeline
+ "fireChannelRegistered"(): $ChannelPipeline
  "firstContext"(): $ChannelHandlerContext
  "lastContext"(): $ChannelHandlerContext
  "fireChannelWritabilityChanged"(): $ChannelPipeline
- "fireChannelRead"(arg0: any): $ChannelPipeline
- "fireChannelRegistered"(): $ChannelPipeline
- "fireChannelUnregistered"(): $ChannelPipeline
- "fireChannelActive"(): $ChannelPipeline
- "fireChannelInactive"(): $ChannelPipeline
- "fireChannelReadComplete"(): $ChannelPipeline
- "fireUserEventTriggered"(arg0: any): $ChannelPipeline
- "fireExceptionCaught"(arg0: $Throwable$Type): $ChannelPipeline
  "addBefore"(arg0: string, arg1: string, arg2: $ChannelHandler$Type): $ChannelPipeline
  "addBefore"(arg0: $EventExecutorGroup$Type, arg1: string, arg2: string, arg3: $ChannelHandler$Type): $ChannelPipeline
  "addAfter"(arg0: $EventExecutorGroup$Type, arg1: string, arg2: string, arg3: $ChannelHandler$Type): $ChannelPipeline
  "addAfter"(arg0: string, arg1: string, arg2: $ChannelHandler$Type): $ChannelPipeline
- "write"(arg0: any, arg1: $ChannelPromise$Type): $ChannelFuture
  "write"(arg0: any): $ChannelFuture
+ "write"(arg0: any, arg1: $ChannelPromise$Type): $ChannelFuture
  "read"(): $ChannelOutboundInvoker
  "connect"(arg0: $SocketAddress$Type, arg1: $ChannelPromise$Type): $ChannelFuture
  "connect"(arg0: $SocketAddress$Type, arg1: $SocketAddress$Type, arg2: $ChannelPromise$Type): $ChannelFuture
- "connect"(arg0: $SocketAddress$Type, arg1: $SocketAddress$Type): $ChannelFuture
  "connect"(arg0: $SocketAddress$Type): $ChannelFuture
+ "connect"(arg0: $SocketAddress$Type, arg1: $SocketAddress$Type): $ChannelFuture
  "close"(arg0: $ChannelPromise$Type): $ChannelFuture
  "close"(): $ChannelFuture
- "bind"(arg0: $SocketAddress$Type): $ChannelFuture
  "bind"(arg0: $SocketAddress$Type, arg1: $ChannelPromise$Type): $ChannelFuture
- "newProgressivePromise"(): $ChannelProgressivePromise
+ "bind"(arg0: $SocketAddress$Type): $ChannelFuture
+ "writeAndFlush"(arg0: any, arg1: $ChannelPromise$Type): $ChannelFuture
+ "writeAndFlush"(arg0: any): $ChannelFuture
  "newSucceededFuture"(): $ChannelFuture
+ "newProgressivePromise"(): $ChannelProgressivePromise
  "newFailedFuture"(arg0: $Throwable$Type): $ChannelFuture
  "voidPromise"(): $ChannelPromise
- "writeAndFlush"(arg0: any): $ChannelFuture
- "writeAndFlush"(arg0: any, arg1: $ChannelPromise$Type): $ChannelFuture
  "disconnect"(): $ChannelFuture
  "disconnect"(arg0: $ChannelPromise$Type): $ChannelFuture
  "newPromise"(): $ChannelPromise
- "deregister"(): $ChannelFuture
  "deregister"(arg0: $ChannelPromise$Type): $ChannelFuture
+ "deregister"(): $ChannelFuture
  "iterator"(): $Iterator<($Map$Entry<(string), ($ChannelHandler)>)>
  "spliterator"(): $Spliterator<($Map$Entry<(string), ($ChannelHandler)>)>
  "forEach"(arg0: $Consumer$Type<(any)>): void
@@ -2060,8 +2063,8 @@ import {$TimeUnit, $TimeUnit$Type} from "packages/java/util/concurrent/$TimeUnit
 export interface $ProgressiveFuture<V> extends $Future<(V)> {
 
  "sync"(): $ProgressiveFuture<(V)>
- "addListener"(arg0: $GenericFutureListener$Type<(any)>): $ProgressiveFuture<(V)>
  "removeListener"(arg0: $GenericFutureListener$Type<(any)>): $ProgressiveFuture<(V)>
+ "addListener"(arg0: $GenericFutureListener$Type<(any)>): $ProgressiveFuture<(V)>
  "syncUninterruptibly"(): $ProgressiveFuture<(V)>
  "addListeners"(...arg0: ($GenericFutureListener$Type<(any)>)[]): $ProgressiveFuture<(V)>
  "await"(): $ProgressiveFuture<(V)>
@@ -2114,8 +2117,8 @@ export interface $ChannelFuture extends $Future<(void)> {
  "isVoid"(): boolean
  "sync"(): $ChannelFuture
  "channel"(): $Channel
- "addListener"(arg0: $GenericFutureListener$Type<(any)>): $ChannelFuture
  "removeListener"(arg0: $GenericFutureListener$Type<(any)>): $ChannelFuture
+ "addListener"(arg0: $GenericFutureListener$Type<(any)>): $ChannelFuture
  "syncUninterruptibly"(): $ChannelFuture
  "addListeners"(...arg0: ($GenericFutureListener$Type<(any)>)[]): $ChannelFuture
  "await"(): $ChannelFuture
@@ -2181,21 +2184,21 @@ export interface $EventExecutorGroup extends $ScheduledExecutorService, $Iterabl
  "shutdown"(): void
  "iterator"(): $Iterator<($EventExecutor)>
  "next"(): $EventExecutor
+ "submit"<T>(arg0: $Callable$Type<(T)>): $Future<(T)>
  "submit"(arg0: $Runnable$Type): $Future<(any)>
  "submit"<T>(arg0: $Runnable$Type, arg1: T): $Future<(T)>
- "submit"<T>(arg0: $Callable$Type<(T)>): $Future<(T)>
 /**
  * 
  * @deprecated
  */
  "shutdownNow"(): $List<($Runnable)>
- "schedule"<V>(arg0: $Callable$Type<(V)>, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(V)>
  "schedule"(arg0: $Runnable$Type, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(any)>
- "scheduleWithFixedDelay"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
+ "schedule"<V>(arg0: $Callable$Type<(V)>, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(V)>
  "scheduleAtFixedRate"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
+ "scheduleWithFixedDelay"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
  "isShuttingDown"(): boolean
- "shutdownGracefully"(arg0: long, arg1: long, arg2: $TimeUnit$Type): $Future<(any)>
  "shutdownGracefully"(): $Future<(any)>
+ "shutdownGracefully"(arg0: long, arg1: long, arg2: $TimeUnit$Type): $Future<(any)>
  "terminationFuture"(): $Future<(any)>
  "spliterator"(): $Spliterator<($EventExecutor)>
  "forEach"(arg0: $Consumer$Type<(any)>): void
@@ -2244,10 +2247,10 @@ public "channelInactive"(arg0: $ChannelHandlerContext$Type): void
 public "exceptionCaught"(arg0: $ChannelHandlerContext$Type, arg1: $Throwable$Type): void
 public "channelRead"(arg0: $ChannelHandlerContext$Type, arg1: any): void
 public "channelRegistered"(arg0: $ChannelHandlerContext$Type): void
-public "channelUnregistered"(arg0: $ChannelHandlerContext$Type): void
 public "channelReadComplete"(arg0: $ChannelHandlerContext$Type): void
-public "userEventTriggered"(arg0: $ChannelHandlerContext$Type, arg1: any): void
 public "channelWritabilityChanged"(arg0: $ChannelHandlerContext$Type): void
+public "userEventTriggered"(arg0: $ChannelHandlerContext$Type, arg1: any): void
+public "channelUnregistered"(arg0: $ChannelHandlerContext$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2271,15 +2274,15 @@ import {$Throwable, $Throwable$Type} from "packages/java/lang/$Throwable"
  */
 export interface $ChannelInboundInvoker {
 
- "fireChannelWritabilityChanged"(): $ChannelInboundInvoker
- "fireChannelRead"(arg0: any): $ChannelInboundInvoker
- "fireChannelRegistered"(): $ChannelInboundInvoker
- "fireChannelUnregistered"(): $ChannelInboundInvoker
  "fireChannelActive"(): $ChannelInboundInvoker
- "fireChannelInactive"(): $ChannelInboundInvoker
+ "fireChannelRead"(arg0: any): $ChannelInboundInvoker
  "fireChannelReadComplete"(): $ChannelInboundInvoker
- "fireUserEventTriggered"(arg0: any): $ChannelInboundInvoker
+ "fireChannelUnregistered"(): $ChannelInboundInvoker
+ "fireChannelInactive"(): $ChannelInboundInvoker
  "fireExceptionCaught"(arg0: $Throwable$Type): $ChannelInboundInvoker
+ "fireUserEventTriggered"(arg0: any): $ChannelInboundInvoker
+ "fireChannelRegistered"(): $ChannelInboundInvoker
+ "fireChannelWritabilityChanged"(): $ChannelInboundInvoker
 }
 
 export namespace $ChannelInboundInvoker {
@@ -2336,8 +2339,8 @@ export type $ChannelHandlerAdapter_ = $ChannelHandlerAdapter$Type;
 declare module "packages/io/netty/channel/$ChannelConfig" {
 import {$RecvByteBufAllocator, $RecvByteBufAllocator$Type} from "packages/io/netty/channel/$RecvByteBufAllocator"
 import {$ByteBufAllocator, $ByteBufAllocator$Type} from "packages/io/netty/buffer/$ByteBufAllocator"
-import {$MessageSizeEstimator, $MessageSizeEstimator$Type} from "packages/io/netty/channel/$MessageSizeEstimator"
 import {$ChannelOption, $ChannelOption$Type} from "packages/io/netty/channel/$ChannelOption"
+import {$MessageSizeEstimator, $MessageSizeEstimator$Type} from "packages/io/netty/channel/$MessageSizeEstimator"
 import {$WriteBufferWaterMark, $WriteBufferWaterMark$Type} from "packages/io/netty/channel/$WriteBufferWaterMark"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
 
@@ -2348,36 +2351,36 @@ import {$Map, $Map$Type} from "packages/java/util/$Map"
  */
 export interface $ChannelConfig {
 
+ "getOptions"(): $Map<($ChannelOption<(any)>), (any)>
+ "setConnectTimeoutMillis"(arg0: integer): $ChannelConfig
+ "getAllocator"(): $ByteBufAllocator
+ "setAutoRead"(arg0: boolean): $ChannelConfig
  "setAllocator"(arg0: $ByteBufAllocator$Type): $ChannelConfig
- "getRecvByteBufAllocator"<T extends $RecvByteBufAllocator>(): T
- "isAutoClose"(): boolean
- "getConnectTimeoutMillis"(): integer
-/**
- * 
- * @deprecated
- */
- "getMaxMessagesPerRead"(): integer
+ "getWriteBufferLowWaterMark"(): integer
+ "setMessageSizeEstimator"(arg0: $MessageSizeEstimator$Type): $ChannelConfig
+ "setAutoClose"(arg0: boolean): $ChannelConfig
+ "getMessageSizeEstimator"(): $MessageSizeEstimator
+ "setWriteSpinCount"(arg0: integer): $ChannelConfig
+ "setWriteBufferWaterMark"(arg0: $WriteBufferWaterMark$Type): $ChannelConfig
+ "getWriteBufferWaterMark"(): $WriteBufferWaterMark
+ "setRecvByteBufAllocator"(arg0: $RecvByteBufAllocator$Type): $ChannelConfig
 /**
  * 
  * @deprecated
  */
  "setMaxMessagesPerRead"(arg0: integer): $ChannelConfig
  "getWriteSpinCount"(): integer
- "setWriteSpinCount"(arg0: integer): $ChannelConfig
- "setRecvByteBufAllocator"(arg0: $RecvByteBufAllocator$Type): $ChannelConfig
- "setAutoClose"(arg0: boolean): $ChannelConfig
- "getWriteBufferLowWaterMark"(): integer
+/**
+ * 
+ * @deprecated
+ */
+ "getMaxMessagesPerRead"(): integer
  "setWriteBufferLowWaterMark"(arg0: integer): $ChannelConfig
- "getMessageSizeEstimator"(): $MessageSizeEstimator
- "setMessageSizeEstimator"(arg0: $MessageSizeEstimator$Type): $ChannelConfig
- "getWriteBufferWaterMark"(): $WriteBufferWaterMark
- "setWriteBufferWaterMark"(arg0: $WriteBufferWaterMark$Type): $ChannelConfig
- "getOptions"(): $Map<($ChannelOption<(any)>), (any)>
- "getAllocator"(): $ByteBufAllocator
- "setConnectTimeoutMillis"(arg0: integer): $ChannelConfig
- "setAutoRead"(arg0: boolean): $ChannelConfig
- "getWriteBufferHighWaterMark"(): integer
+ "getConnectTimeoutMillis"(): integer
+ "getRecvByteBufAllocator"<T extends $RecvByteBufAllocator>(): T
+ "isAutoClose"(): boolean
  "setWriteBufferHighWaterMark"(arg0: integer): $ChannelConfig
+ "getWriteBufferHighWaterMark"(): integer
  "isAutoRead"(): boolean
  "setOptions"(arg0: $Map$Type<($ChannelOption$Type<(any)>), (any)>): boolean
  "getOption"<T>(arg0: $ChannelOption$Type<(T)>): T
@@ -2427,18 +2430,18 @@ public "register"(arg0: $Channel$Type): $ChannelFuture
  */
 public "register"(arg0: $Channel$Type, arg1: $ChannelPromise$Type): $ChannelFuture
 public "register"(arg0: $ChannelPromise$Type): $ChannelFuture
+public "submit"<T>(arg0: $Callable$Type<(T)>): $Future<(T)>
 public "submit"(arg0: $Runnable$Type): $Future<(any)>
 public "submit"<T>(arg0: $Runnable$Type, arg1: T): $Future<(T)>
-public "submit"<T>(arg0: $Callable$Type<(T)>): $Future<(T)>
 /**
  * 
  * @deprecated
  */
 public "shutdownNow"(): $List<($Runnable)>
-public "schedule"<V>(arg0: $Callable$Type<(V)>, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(V)>
 public "schedule"(arg0: $Runnable$Type, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(any)>
-public "scheduleWithFixedDelay"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
+public "schedule"<V>(arg0: $Callable$Type<(V)>, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(V)>
 public "scheduleAtFixedRate"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
+public "scheduleWithFixedDelay"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
 public "shutdownGracefully"(): $Future<(any)>
 }
 /**
@@ -2468,12 +2471,12 @@ import {$TimeUnit, $TimeUnit$Type} from "packages/java/util/concurrent/$TimeUnit
 export interface $ProgressivePromise<V> extends $Promise<(V)>, $ProgressiveFuture<(V)> {
 
  "sync"(): $ProgressivePromise<(V)>
- "setProgress"(arg0: long, arg1: long): $ProgressivePromise<(V)>
- "tryProgress"(arg0: long, arg1: long): boolean
- "addListener"(arg0: $GenericFutureListener$Type<(any)>): $ProgressivePromise<(V)>
  "removeListener"(arg0: $GenericFutureListener$Type<(any)>): $ProgressivePromise<(V)>
+ "addListener"(arg0: $GenericFutureListener$Type<(any)>): $ProgressivePromise<(V)>
  "syncUninterruptibly"(): $ProgressivePromise<(V)>
  "addListeners"(...arg0: ($GenericFutureListener$Type<(any)>)[]): $ProgressivePromise<(V)>
+ "setProgress"(arg0: long, arg1: long): $ProgressivePromise<(V)>
+ "tryProgress"(arg0: long, arg1: long): boolean
  "setFailure"(arg0: $Throwable$Type): $ProgressivePromise<(V)>
  "setSuccess"(arg0: V): $ProgressivePromise<(V)>
  "await"(): $ProgressivePromise<(V)>
@@ -2539,11 +2542,11 @@ export interface $EventExecutor extends $EventExecutorGroup {
 
  "parent"(): $EventExecutorGroup
  "next"(): $EventExecutor
- "newProgressivePromise"<V>(): $ProgressivePromise<(V)>
- "newSucceededFuture"<V>(arg0: V): $Future<(V)>
- "newFailedFuture"<V>(arg0: $Throwable$Type): $Future<(V)>
  "inEventLoop"(arg0: $Thread$Type): boolean
  "inEventLoop"(): boolean
+ "newSucceededFuture"<V>(arg0: V): $Future<(V)>
+ "newProgressivePromise"<V>(): $ProgressivePromise<(V)>
+ "newFailedFuture"<V>(arg0: $Throwable$Type): $Future<(V)>
  "newPromise"<V>(): $Promise<(V)>
 /**
  * 
@@ -2551,21 +2554,21 @@ export interface $EventExecutor extends $EventExecutorGroup {
  */
  "shutdown"(): void
  "iterator"(): $Iterator<($EventExecutor)>
+ "submit"<T>(arg0: $Callable$Type<(T)>): $Future<(T)>
  "submit"(arg0: $Runnable$Type): $Future<(any)>
  "submit"<T>(arg0: $Runnable$Type, arg1: T): $Future<(T)>
- "submit"<T>(arg0: $Callable$Type<(T)>): $Future<(T)>
 /**
  * 
  * @deprecated
  */
  "shutdownNow"(): $List<($Runnable)>
- "schedule"<V>(arg0: $Callable$Type<(V)>, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(V)>
  "schedule"(arg0: $Runnable$Type, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(any)>
- "scheduleWithFixedDelay"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
+ "schedule"<V>(arg0: $Callable$Type<(V)>, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(V)>
  "scheduleAtFixedRate"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
+ "scheduleWithFixedDelay"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
  "isShuttingDown"(): boolean
- "shutdownGracefully"(arg0: long, arg1: long, arg2: $TimeUnit$Type): $Future<(any)>
  "shutdownGracefully"(): $Future<(any)>
+ "shutdownGracefully"(arg0: long, arg1: long, arg2: $TimeUnit$Type): $Future<(any)>
  "terminationFuture"(): $Future<(any)>
  "spliterator"(): $Spliterator<($EventExecutor)>
  "forEach"(arg0: $Consumer$Type<(any)>): void
@@ -2624,7 +2627,6 @@ declare global {
 export type $AttributeKey_<T> = $AttributeKey$Type<(T)>;
 }}
 declare module "packages/io/netty/util/concurrent/$AbstractEventExecutor" {
-import {$ScheduledFuture, $ScheduledFuture$Type} from "packages/io/netty/util/concurrent/$ScheduledFuture"
 import {$EventExecutorGroup, $EventExecutorGroup$Type} from "packages/io/netty/util/concurrent/$EventExecutorGroup"
 import {$Future, $Future$Type} from "packages/io/netty/util/concurrent/$Future"
 import {$Callable, $Callable$Type} from "packages/java/util/concurrent/$Callable"
@@ -2665,15 +2667,12 @@ public "submit"<T>(arg0: $Runnable$Type, arg1: T): $Future<(T)>
  * @deprecated
  */
 public "shutdownNow"(): $List<($Runnable)>
-public "newProgressivePromise"<V>(): $ProgressivePromise<(V)>
-public "newSucceededFuture"<V>(arg0: V): $Future<(V)>
-public "newFailedFuture"<V>(arg0: $Throwable$Type): $Future<(V)>
-public "lazyExecute"(arg0: $Runnable$Type): void
-public "schedule"<V>(arg0: $Callable$Type<(V)>, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(V)>
-public "scheduleWithFixedDelay"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
-public "scheduleAtFixedRate"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
 public "inEventLoop"(): boolean
 public "shutdownGracefully"(): $Future<(any)>
+public "newSucceededFuture"<V>(arg0: V): $Future<(V)>
+public "newProgressivePromise"<V>(): $ProgressivePromise<(V)>
+public "newFailedFuture"<V>(arg0: $Throwable$Type): $Future<(V)>
+public "lazyExecute"(arg0: $Runnable$Type): void
 public "newPromise"<V>(): $Promise<(V)>
 public "inEventLoop"(arg0: $Thread$Type): boolean
 public "isShuttingDown"(): boolean
@@ -2738,8 +2737,8 @@ import {$ChannelInboundHandlerAdapter, $ChannelInboundHandlerAdapter$Type} from 
 export class $SimpleChannelInboundHandler<I> extends $ChannelInboundHandlerAdapter {
 
 
-public "channelRead"(arg0: $ChannelHandlerContext$Type, arg1: any): void
 public "acceptInboundMessage"(arg0: any): boolean
+public "channelRead"(arg0: $ChannelHandlerContext$Type, arg1: any): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2827,10 +2826,10 @@ export interface $Future<V> extends $Future$0<(V)> {
  "cause"(): $Throwable
  "sync"(): $Future<(V)>
  "cancel"(arg0: boolean): boolean
- "addListener"(arg0: $GenericFutureListener$Type<(any)>): $Future<(V)>
  "removeListener"(arg0: $GenericFutureListener$Type<(any)>): $Future<(V)>
- "isCancellable"(): boolean
+ "addListener"(arg0: $GenericFutureListener$Type<(any)>): $Future<(V)>
  "syncUninterruptibly"(): $Future<(V)>
+ "isCancellable"(): boolean
  "addListeners"(...arg0: ($GenericFutureListener$Type<(any)>)[]): $Future<(V)>
  "isSuccess"(): boolean
  "getNow"(): V
@@ -2917,18 +2916,18 @@ constructor(arg0: $ThreadFactory$Type)
 constructor(arg0: integer)
 constructor()
 
+public "submit"<T>(arg0: $Callable$Type<(T)>): $Future<(T)>
 public "submit"(arg0: $Runnable$Type): $Future<(any)>
 public "submit"<T>(arg0: $Runnable$Type, arg1: T): $Future<(T)>
-public "submit"<T>(arg0: $Callable$Type<(T)>): $Future<(T)>
 /**
  * 
  * @deprecated
  */
 public "shutdownNow"(): $List<($Runnable)>
-public "schedule"<V>(arg0: $Callable$Type<(V)>, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(V)>
 public "schedule"(arg0: $Runnable$Type, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(any)>
-public "scheduleWithFixedDelay"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
+public "schedule"<V>(arg0: $Callable$Type<(V)>, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(V)>
 public "scheduleAtFixedRate"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
+public "scheduleWithFixedDelay"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
 public "shutdownGracefully"(): $Future<(any)>
 }
 /**
@@ -2960,11 +2959,11 @@ import {$ChannelPromise, $ChannelPromise$Type} from "packages/io/netty/channel/$
 export interface $ChannelProgressivePromise extends $ProgressivePromise<(void)>, $ChannelProgressiveFuture, $ChannelPromise {
 
  "sync"(): $ChannelProgressivePromise
- "setProgress"(arg0: long, arg1: long): $ChannelProgressivePromise
- "addListener"(arg0: $GenericFutureListener$Type<(any)>): $ChannelProgressivePromise
  "removeListener"(arg0: $GenericFutureListener$Type<(any)>): $ChannelProgressivePromise
+ "addListener"(arg0: $GenericFutureListener$Type<(any)>): $ChannelProgressivePromise
  "syncUninterruptibly"(): $ChannelProgressivePromise
  "addListeners"(...arg0: ($GenericFutureListener$Type<(any)>)[]): $ChannelProgressivePromise
+ "setProgress"(arg0: long, arg1: long): $ChannelProgressivePromise
  "unvoid"(): $ChannelProgressivePromise
  "setFailure"(arg0: $Throwable$Type): $ChannelProgressivePromise
  "setSuccess"(): $ChannelProgressivePromise
@@ -3130,10 +3129,10 @@ public "next"(): $EventExecutor
 public "isShutdown"(): boolean
 public "isTerminated"(): boolean
 public "awaitTermination"(arg0: long, arg1: $TimeUnit$Type): boolean
-public "executorCount"(): integer
 public "isShuttingDown"(): boolean
 public "shutdownGracefully"(arg0: long, arg1: long, arg2: $TimeUnit$Type): $Future<(any)>
 public "terminationFuture"(): $Future<(any)>
+public "executorCount"(): integer
 get "terminated"(): boolean
 get "shuttingDown"(): boolean
 }
@@ -3185,10 +3184,10 @@ export interface $Channel extends $AttributeMap, $ChannelOutboundInvoker, $Compa
  "isActive"(): boolean
  "isWritable"(): boolean
  "config"(): $ChannelConfig
+ "metadata"(): $ChannelMetadata
  "closeFuture"(): $ChannelFuture
  "bytesBeforeUnwritable"(): long
  "bytesBeforeWritable"(): long
- "metadata"(): $ChannelMetadata
  "alloc"(): $ByteBufAllocator
  "eventLoop"(): $EventLoop
  "pipeline"(): $ChannelPipeline
@@ -3196,27 +3195,27 @@ export interface $Channel extends $AttributeMap, $ChannelOutboundInvoker, $Compa
  "remoteAddress"(): $SocketAddress
  "attr"<T>(arg0: $AttributeKey$Type<(T)>): $Attribute<(T)>
  "hasAttr"<T>(arg0: $AttributeKey$Type<(T)>): boolean
- "write"(arg0: any, arg1: $ChannelPromise$Type): $ChannelFuture
  "write"(arg0: any): $ChannelFuture
+ "write"(arg0: any, arg1: $ChannelPromise$Type): $ChannelFuture
  "connect"(arg0: $SocketAddress$Type, arg1: $ChannelPromise$Type): $ChannelFuture
  "connect"(arg0: $SocketAddress$Type, arg1: $SocketAddress$Type, arg2: $ChannelPromise$Type): $ChannelFuture
- "connect"(arg0: $SocketAddress$Type, arg1: $SocketAddress$Type): $ChannelFuture
  "connect"(arg0: $SocketAddress$Type): $ChannelFuture
+ "connect"(arg0: $SocketAddress$Type, arg1: $SocketAddress$Type): $ChannelFuture
  "close"(arg0: $ChannelPromise$Type): $ChannelFuture
  "close"(): $ChannelFuture
- "bind"(arg0: $SocketAddress$Type): $ChannelFuture
  "bind"(arg0: $SocketAddress$Type, arg1: $ChannelPromise$Type): $ChannelFuture
- "newProgressivePromise"(): $ChannelProgressivePromise
+ "bind"(arg0: $SocketAddress$Type): $ChannelFuture
+ "writeAndFlush"(arg0: any, arg1: $ChannelPromise$Type): $ChannelFuture
+ "writeAndFlush"(arg0: any): $ChannelFuture
  "newSucceededFuture"(): $ChannelFuture
+ "newProgressivePromise"(): $ChannelProgressivePromise
  "newFailedFuture"(arg0: $Throwable$Type): $ChannelFuture
  "voidPromise"(): $ChannelPromise
- "writeAndFlush"(arg0: any): $ChannelFuture
- "writeAndFlush"(arg0: any, arg1: $ChannelPromise$Type): $ChannelFuture
  "disconnect"(): $ChannelFuture
  "disconnect"(arg0: $ChannelPromise$Type): $ChannelFuture
  "newPromise"(): $ChannelPromise
- "deregister"(): $ChannelFuture
  "deregister"(arg0: $ChannelPromise$Type): $ChannelFuture
+ "deregister"(): $ChannelFuture
  "compareTo"(arg0: $Channel$Type): integer
 }
 
@@ -3273,7 +3272,7 @@ public "invokeAll"<T>(arg0: $Collection$Type<(any)>): $List<($Future<(T)>)>
 public "shutdownNow"(): $List<($Runnable)>
 public "invokeAny"<T>(arg0: $Collection$Type<(any)>, arg1: long, arg2: $TimeUnit$Type): T
 public "invokeAny"<T>(arg0: $Collection$Type<(any)>): T
-public "scheduleWithFixedDelay"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
+public "scheduleAtFixedRate"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
 public "shutdownGracefully"(): $Future$0<(any)>
 public "iterator"(): $Iterator<($EventExecutor)>
 public "next"(): $EventExecutor
@@ -3329,11 +3328,11 @@ export interface $OrderedEventExecutor extends $EventExecutor {
 
  "parent"(): $EventExecutorGroup
  "next"(): $EventExecutor
- "newProgressivePromise"<V>(): $ProgressivePromise<(V)>
- "newSucceededFuture"<V>(arg0: V): $Future<(V)>
- "newFailedFuture"<V>(arg0: $Throwable$Type): $Future<(V)>
  "inEventLoop"(arg0: $Thread$Type): boolean
  "inEventLoop"(): boolean
+ "newSucceededFuture"<V>(arg0: V): $Future<(V)>
+ "newProgressivePromise"<V>(): $ProgressivePromise<(V)>
+ "newFailedFuture"<V>(arg0: $Throwable$Type): $Future<(V)>
  "newPromise"<V>(): $Promise<(V)>
 /**
  * 
@@ -3341,21 +3340,21 @@ export interface $OrderedEventExecutor extends $EventExecutor {
  */
  "shutdown"(): void
  "iterator"(): $Iterator<($EventExecutor)>
+ "submit"<T>(arg0: $Callable$Type<(T)>): $Future<(T)>
  "submit"(arg0: $Runnable$Type): $Future<(any)>
  "submit"<T>(arg0: $Runnable$Type, arg1: T): $Future<(T)>
- "submit"<T>(arg0: $Callable$Type<(T)>): $Future<(T)>
 /**
  * 
  * @deprecated
  */
  "shutdownNow"(): $List<($Runnable)>
- "schedule"<V>(arg0: $Callable$Type<(V)>, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(V)>
  "schedule"(arg0: $Runnable$Type, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(any)>
- "scheduleWithFixedDelay"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
+ "schedule"<V>(arg0: $Callable$Type<(V)>, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(V)>
  "scheduleAtFixedRate"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
+ "scheduleWithFixedDelay"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
  "isShuttingDown"(): boolean
- "shutdownGracefully"(arg0: long, arg1: long, arg2: $TimeUnit$Type): $Future<(any)>
  "shutdownGracefully"(): $Future<(any)>
+ "shutdownGracefully"(arg0: long, arg1: long, arg2: $TimeUnit$Type): $Future<(any)>
  "terminationFuture"(): $Future<(any)>
  "spliterator"(): $Spliterator<($EventExecutor)>
  "forEach"(arg0: $Consumer$Type<(any)>): void
@@ -3389,6 +3388,7 @@ import {$ScheduledFuture, $ScheduledFuture$Type} from "packages/io/netty/util/co
 import {$AbstractEventExecutor, $AbstractEventExecutor$Type} from "packages/io/netty/util/concurrent/$AbstractEventExecutor"
 import {$Callable, $Callable$Type} from "packages/java/util/concurrent/$Callable"
 import {$TimeUnit, $TimeUnit$Type} from "packages/java/util/concurrent/$TimeUnit"
+import {$Runnable, $Runnable$Type} from "packages/java/lang/$Runnable"
 
 /**
  * This class is not allowed By KubeJS!
@@ -3399,6 +3399,8 @@ export class $AbstractScheduledEventExecutor extends $AbstractEventExecutor {
 
 
 public "schedule"<V>(arg0: $Callable$Type<(V)>, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(V)>
+public "schedule"(arg0: $Runnable$Type, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(any)>
+public "scheduleAtFixedRate"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3424,8 +3426,8 @@ export class $ChannelMetadata {
 constructor(arg0: boolean)
 constructor(arg0: boolean, arg1: integer)
 
-public "hasDisconnect"(): boolean
 public "defaultMaxMessagesPerRead"(): integer
+public "hasDisconnect"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3455,8 +3457,8 @@ import {$ChannelFuture, $ChannelFuture$Type} from "packages/io/netty/channel/$Ch
 export interface $ChannelProgressiveFuture extends $ChannelFuture, $ProgressiveFuture<(void)> {
 
  "sync"(): $ChannelProgressiveFuture
- "addListener"(arg0: $GenericFutureListener$Type<(any)>): $ChannelProgressiveFuture
  "removeListener"(arg0: $GenericFutureListener$Type<(any)>): $ChannelProgressiveFuture
+ "addListener"(arg0: $GenericFutureListener$Type<(any)>): $ChannelProgressiveFuture
  "syncUninterruptibly"(): $ChannelProgressiveFuture
  "addListeners"(...arg0: ($GenericFutureListener$Type<(any)>)[]): $ChannelProgressiveFuture
  "await"(): $ChannelProgressiveFuture
@@ -3513,12 +3515,12 @@ export interface $ByteBufAllocator {
  "directBuffer"(arg0: integer): $ByteBuf
  "compositeBuffer"(arg0: integer): $CompositeByteBuf
  "compositeBuffer"(): $CompositeByteBuf
- "calculateNewCapacity"(arg0: integer, arg1: integer): integer
- "isDirectBufferPooled"(): boolean
- "compositeDirectBuffer"(): $CompositeByteBuf
- "compositeDirectBuffer"(arg0: integer): $CompositeByteBuf
- "compositeHeapBuffer"(): $CompositeByteBuf
  "compositeHeapBuffer"(arg0: integer): $CompositeByteBuf
+ "compositeHeapBuffer"(): $CompositeByteBuf
+ "compositeDirectBuffer"(arg0: integer): $CompositeByteBuf
+ "compositeDirectBuffer"(): $CompositeByteBuf
+ "isDirectBufferPooled"(): boolean
+ "calculateNewCapacity"(arg0: integer, arg1: integer): integer
  "heapBuffer"(arg0: integer, arg1: integer): $ByteBuf
  "heapBuffer"(): $ByteBuf
  "heapBuffer"(arg0: integer): $ByteBuf

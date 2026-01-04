@@ -223,9 +223,9 @@ import {$ListTag, $ListTag$Type} from "packages/net/minecraft/nbt/$ListTag"
 
 export interface $SetCanHitList {
 
- "fabrication$getCanHitList"(): $ListTag
- "fabrication$getCanHitList2"(): $ListTag
  "fabrication$setCanHitLists"(arg0: $ListTag$Type, arg1: $ListTag$Type): void
+ "fabrication$getCanHitList2"(): $ListTag
+ "fabrication$getCanHitList"(): $ListTag
 }
 
 export namespace $SetCanHitList {
@@ -271,10 +271,10 @@ import {$Set, $Set$Type} from "packages/java/util/$Set"
 
 export interface $TaggablePlayer {
 
- "fabrication$getTags"(): $Set<(string)>
  "fabrication$clearTags"(): void
  "fabrication$setTag"(arg0: string, arg1: boolean): void
  "fabrication$hasTag"(arg0: string): boolean
+ "fabrication$getTags"(): $Set<(string)>
 }
 
 export namespace $TaggablePlayer {
@@ -519,15 +519,15 @@ static readonly "DEFAULT_BB_HEIGHT": float
 
 constructor(world: $Level$Type)
 
-public "getContainerSize"(): integer
-public "getItem"(slot: integer): $ItemStack
-public "removeItemNoUpdate"(slot: integer): $ItemStack
-public "setChanged"(): void
-public "getAddEntityPacket"(): $Packet<($ClientGamePacketListener)>
 public "removeItem"(slot: integer, amount: integer): $ItemStack
 public "isEmpty"(): boolean
 public "clearContent"(): void
 public "setItem"(slot: integer, stack: $ItemStack$Type): void
+public "setChanged"(): void
+public "getContainerSize"(): integer
+public "getItem"(slot: integer): $ItemStack
+public "removeItemNoUpdate"(slot: integer): $ItemStack
+public "getAddEntityPacket"(): $Packet<($ClientGamePacketListener)>
 public "getMaxStackSize"(): integer
 public "stillValid"(player: $Player$Type): boolean
 public "getSlotsForFace"(side: $Direction$Type): (integer)[]
@@ -548,6 +548,7 @@ public "setChanged"(): void
 public "asContainer"(): $Container
 public "getBlock"(level: $Level$Type): $BlockContainerJS
 public "self"(): $Container
+public static "stillValidBlockEntity"(arg0: $BlockEntity$Type, arg1: $Player$Type): boolean
 public "startOpen"(arg0: $Player$Type): void
 public "stopOpen"(arg0: $Player$Type): void
 public "canPlaceItem"(arg0: integer, arg1: $ItemStack$Type): boolean
@@ -555,7 +556,6 @@ public "canTakeItem"(arg0: $Container$Type, arg1: integer, arg2: $ItemStack$Type
 public "countItem"(arg0: $Item$Type): integer
 public "hasAnyOf"(arg0: $Set$Type<($Item$Type)>): boolean
 public "hasAnyMatching"(arg0: $Predicate$Type<($ItemStack$Type)>): boolean
-public static "stillValidBlockEntity"(arg0: $BlockEntity$Type, arg1: $Player$Type): boolean
 public static "stillValidBlockEntity"(arg0: $BlockEntity$Type, arg1: $Player$Type, arg2: integer): boolean
 public "clear"(): void
 public static "tryClear"(arg0: any): void
@@ -569,9 +569,9 @@ public "find"(ingredient: $Ingredient$Type): integer
 public "find"(): integer
 public "count"(ingredient: $Ingredient$Type): integer
 public "count"(): integer
+get "empty"(): boolean
 get "containerSize"(): integer
 get "addEntityPacket"(): $Packet<($ClientGamePacketListener)>
-get "empty"(): boolean
 get "maxStackSize"(): integer
 get "mutable"(): boolean
 get "slots"(): integer
@@ -690,8 +690,8 @@ declare module "packages/com/unascribed/fabrication/interfaces/$ToggleableFurnac
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $ToggleableFurnaceCart {
 
- "fabrication$tgfc$getPauseFuel"(): integer
  "fabrication$tgfc$setFuel"(arg0: integer): void
+ "fabrication$tgfc$getPauseFuel"(): integer
 }
 
 export namespace $ToggleableFurnaceCart {
@@ -893,13 +893,13 @@ import {$Map, $Map$Type} from "packages/java/util/$Map"
 
 export interface $GetServerConfig {
 
+ "fabrication$hasHandshook"(): boolean
+ "fabrication$getLaunchId"(): long
+ "fabrication$getServerBanned"(): $Set<(string)>
  "fabrication$getServerTrileanConfig"(): $Map<(string), ($ConfigValues$ResolvedFeature)>
  "fabrication$getServerStringConfig"(): $Map<(string), (string)>
  "fabrication$getServerVersion"(): string
  "fabrication$getServerFailedConfig"(): $Map<(string), (string)>
- "fabrication$getServerBanned"(): $Set<(string)>
- "fabrication$hasHandshook"(): boolean
- "fabrication$getLaunchId"(): long
 }
 
 export namespace $GetServerConfig {

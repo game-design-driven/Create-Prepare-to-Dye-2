@@ -15,8 +15,8 @@ public "toString"(): string
 public "getId"(): string
 public "cancel"(): void
 public "isCancelled"(): boolean
-public static "getCallInfoClassName"(arg0: $Type$Type): string
 public "isCancellable"(): boolean
+public static "getCallInfoClassName"(arg0: $Type$Type): string
 get "id"(): string
 get "cancelled"(): boolean
 get "cancellable"(): boolean
@@ -84,24 +84,24 @@ constructor(arg0: string, arg1: boolean, arg2: character)
 constructor(arg0: string, arg1: boolean, arg2: double)
 
 public "getReturnValue"(): R
-public "setReturnValue"(arg0: R): void
 public "getReturnValueB"(): byte
+public "setReturnValue"(arg0: R): void
 public "getReturnValueC"(): character
 public "getReturnValueD"(): double
 public "getReturnValueF"(): float
 public "getReturnValueI"(): integer
-public "getReturnValueJ"(): long
 public "getReturnValueS"(): short
+public "getReturnValueJ"(): long
 public "getReturnValueZ"(): boolean
 get "returnValue"(): R
-set "returnValue"(value: R)
 get "returnValueB"(): byte
+set "returnValue"(value: R)
 get "returnValueC"(): character
 get "returnValueD"(): double
 get "returnValueF"(): float
 get "returnValueI"(): integer
-get "returnValueJ"(): long
 get "returnValueS"(): short
+get "returnValueJ"(): long
 get "returnValueZ"(): boolean
 }
 /**

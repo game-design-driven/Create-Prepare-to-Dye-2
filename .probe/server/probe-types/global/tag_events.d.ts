@@ -103,15 +103,15 @@ function tags(extra: "botania:brews", handler: (event: TagEventProbe<(Special.Br
 function tags(extra: "forge:entity_data_serializers", handler: (event: TagEventProbe<(Special.EntityDataSerializersTag), (Special.EntityDataSerializers)>) => void): void
 function tags(extra: "forge:fluid_type", handler: (event: TagEventProbe<(Special.FluidTypeTag), (Special.FluidType)>) => void): void
 function tags(extra: "forge:global_loot_modifier_serializers", handler: (event: TagEventProbe<(Special.GlobalLootModifierSerializersTag), (Special.GlobalLootModifierSerializers)>) => void): void
-function tags(extra: "forge:structure_modifier", handler: (event: TagEventProbe<(Special.StructureModifierTag), (Special.StructureModifier)>) => void): void
-function tags(extra: "libx:surface_rule_set", handler: (event: TagEventProbe<(Special.SurfaceRuleSetTag), (Special.SurfaceRuleSet)>) => void): void
-function tags(extra: "moonlight:soft_fluids", handler: (event: TagEventProbe<(Special.SoftFluidsTag), (Special.SoftFluids)>) => void): void
-function tags(extra: "moonlight:map_markers", handler: (event: TagEventProbe<(Special.MapMarkersTag), (Special.MapMarkers)>) => void): void
-function tags(extra: "libx:biome_layer", handler: (event: TagEventProbe<(Special.BiomeLayerTag), (Special.BiomeLayer)>) => void): void
-function tags(extra: "createdieselgenerators:fuel_type", handler: (event: TagEventProbe<(Special.FuelTypeTag), (Special.FuelType)>) => void): void
 function tags(extra: "forge:biome_modifier", handler: (event: TagEventProbe<(Special.BiomeModifierTag), (Special.BiomeModifier)>) => void): void
-function tags(extra: "libx:biome_surface", handler: (event: TagEventProbe<(Special.BiomeSurfaceTag), (Special.BiomeSurface)>) => void): void
+function tags(extra: "libx:surface_rule_set", handler: (event: TagEventProbe<(Special.SurfaceRuleSetTag), (Special.SurfaceRuleSet)>) => void): void
+function tags(extra: "forge:structure_modifier", handler: (event: TagEventProbe<(Special.StructureModifierTag), (Special.StructureModifier)>) => void): void
+function tags(extra: "moonlight:soft_fluids", handler: (event: TagEventProbe<(Special.SoftFluidsTag), (Special.SoftFluids)>) => void): void
+function tags(extra: "createdieselgenerators:fuel_type", handler: (event: TagEventProbe<(Special.FuelTypeTag), (Special.FuelType)>) => void): void
 function tags(extra: "create:potato_projectile/type", handler: (event: TagEventProbe<(Special.PotatoProjectileTypeTag), (Special.PotatoProjectileType)>) => void): void
+function tags(extra: "libx:biome_layer", handler: (event: TagEventProbe<(Special.BiomeLayerTag), (Special.BiomeLayer)>) => void): void
+function tags(extra: "moonlight:map_markers", handler: (event: TagEventProbe<(Special.MapMarkersTag), (Special.MapMarkers)>) => void): void
 function tags(extra: "libx:template_pool_extension", handler: (event: TagEventProbe<(Special.TemplatePoolExtensionTag), (Special.TemplatePoolExtension)>) => void): void
+function tags(extra: "libx:biome_surface", handler: (event: TagEventProbe<(Special.BiomeSurfaceTag), (Special.BiomeSurface)>) => void): void
 }
 }

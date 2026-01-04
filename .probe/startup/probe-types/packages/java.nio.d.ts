@@ -1781,14 +1781,14 @@ public "read"(arg0: ($ByteBuffer$Type)[], arg1: integer, arg2: integer): long
 public "connect"(arg0: $SocketAddress$Type): $DatagramChannel
 public static "open"(arg0: $ProtocolFamily$Type): $DatagramChannel
 public static "open"(): $DatagramChannel
-public "send"(arg0: $ByteBuffer$Type, arg1: $SocketAddress$Type): integer
 public "socket"(): $DatagramSocket
+public "send"(arg0: $ByteBuffer$Type, arg1: $SocketAddress$Type): integer
 public "disconnect"(): $DatagramChannel
 public "getRemoteAddress"(): $SocketAddress
-public "receive"(arg0: $ByteBuffer$Type): $SocketAddress
 public "isConnected"(): boolean
 public "getLocalAddress"(): $SocketAddress
 public "validOps"(): integer
+public "receive"(arg0: $ByteBuffer$Type): $SocketAddress
 public "join"(arg0: $InetAddress$Type, arg1: $NetworkInterface$Type): $MembershipKey
 public "join"(arg0: $InetAddress$Type, arg1: $NetworkInterface$Type, arg2: $InetAddress$Type): $MembershipKey
 public "close"(): void
@@ -2570,9 +2570,9 @@ public "wakeup"(): $Selector
 public "selectNow"(arg0: $Consumer$Type<($SelectionKey$Type)>): integer
 public "selectNow"(): integer
 public "select"(): integer
+public "select"(arg0: long): integer
 public "select"(arg0: $Consumer$Type<($SelectionKey$Type)>): integer
 public "select"(arg0: $Consumer$Type<($SelectionKey$Type)>, arg1: long): integer
-public "select"(arg0: long): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
