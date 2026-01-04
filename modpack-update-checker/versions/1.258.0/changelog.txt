@@ -1,0 +1,24 @@
+## [1.258.0](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/compare/1.257.0...1.258.0) (2026-01-04)
+
+
+### Features
+
+* add recipes for slat related things ([fe7eeaa](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/fe7eeaad3d635b603d9131b88cb44c4735096e84))
+* refactor tooltip system ([0fd0925](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/0fd09259fe9fa839fb27fd0205ce976c755a27b0))
+
+
+### Documentation and Localization
+
+* document tooltip system ([6c1418d](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/6c1418d5111fec5101ea2237031a43feb8fffad5))
+
+
+### Fixes
+
+* probejs update ([0dfcbcb](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/0dfcbcb67b59ec87b03a735b4deddc3bc12c83b7))
+
+
+### chores
+
+* autopublish 2026-01-04T08:32:24Z ([61fed77](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/61fed77948d82fe6becb84922e40bb8150075ac1))
+
+
