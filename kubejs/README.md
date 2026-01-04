@@ -155,6 +155,48 @@ function fillBlockWithBucket(block, event) { ... }
 ```
 
 
+## Adding Tooltips
+
+Tooltips are defined in `client_scripts/tooltips.js`.
+
+### Static Tooltips (lang file based)
+
+Add item ID to `TOOLTIP_ITEMS` array:
+```javascript
+var TOOLTIP_ITEMS = [
+  // ...
+  "modid:item_name",
+];
+```
+
+Lang key is auto-derived: `modid:item_name` -> `ptd.tooltip.modid.item_name`
+
+Then add the lang entry:
+```json
+"ptd.tooltip.modid.item_name": "Your tooltip with _highlighted_ parts"
+```
+
+Text wrapped in `_underscores_` renders as gold, rest is gray. Shows on Shift.
+
+For shared/custom lang keys, use `TOOLTIP_MAPPINGS` instead:
+```javascript
+var TOOLTIP_MAPPINGS = {
+  "modid:item_name": "ptd.tooltip.custom.shared_key",
+};
+```
+
+### Dynamic Tooltips (code based)
+
+Add directly in `ItemEvents.tooltip()`:
+```javascript
+event.addAdvanced("modid:item_name", function(item, advanced, text) {
+  if (shiftHint(text)) return;  // or ctrlHint(text, "Details")
+  text.add(Text.gray("Your tooltip text"));
+});
+```
+
+Use `shiftHint(text)` for Shift gating, `ctrlHint(text, "Label")` for Ctrl gating.
+
 ## Tips
 
 1. **Test incrementally** - Add a few recipes, reload, verify
