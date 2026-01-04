@@ -1,0 +1,13 @@
+### [1.256.1](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/compare/1.256.0...1.256.1) (2026-01-04)
+
+
+### Fixes
+
+* disable ae2 meteorites ([ad7b5ba](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/ad7b5bad78f087dc4cf31356b79898c17f117bfa))
+
+
+### chores
+
+* autopublish 2026-01-03T10:49:43Z ([b09c349](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/b09c349f830373aa0d69e50795779e87dc854e2f))
+
+
