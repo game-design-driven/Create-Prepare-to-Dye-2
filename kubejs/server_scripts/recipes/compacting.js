@@ -82,4 +82,7 @@ ServerEvents.recipes((event) => {
     Fluid.of("ptdye:organic_mass", 500),
     "#forge:squeezables/rich"
   );
+
+  // SALT - from salt granules
+  event.recipes.create.compacting("ptdye:salt", "9x ptdye:salt_granule");
 });

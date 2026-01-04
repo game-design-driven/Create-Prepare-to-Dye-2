@@ -321,9 +321,7 @@ ServerEvents.recipes((event) => {
     .transitionalItem("minecraft:stick")
     .loops(4);
 
-  // =============================================================================
   // ENCHANTMENT COMBINING - combine 2 books of same enchant to get higher level
-  // =============================================================================
 
   var enchantRegistry = Java.loadClass("net.minecraft.core.registries.BuiltInRegistries").ENCHANTMENT;
   enchantRegistry.entrySet().forEach(function(entry) {
@@ -349,4 +347,15 @@ ServerEvents.recipes((event) => {
         .loops(1);
     }
   });
+
+  // SALT SHAKER - from shaker and salt
+  event.recipes.create
+    .sequenced_assembly("ptdye:salt_shaker", "ptdye:shaker", [
+      event.recipes.createDeploying("ptdye:shaker", [
+        "ptdye:shaker",
+        "ptdye:salt",
+      ]),
+    ])
+    .transitionalItem("ptdye:shaker")
+    .loops(16);
 });

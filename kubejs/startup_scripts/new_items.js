@@ -55,6 +55,7 @@ StartupEvents.registry("item", (event) => {
   event.create("ptdye:salt_granule");
   event.create("ptdye:salt");
   event.create("ptdye:salt_shaker");
+  event.create("ptdye:shaker");
   // Device generic items (convertible to specialized devices via stonecutter)
   // event.create("ptdye:sturdy_device");
   // event.create("ptdye:mechanical_device");
