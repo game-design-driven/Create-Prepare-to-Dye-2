@@ -4,3 +4,5 @@
 *.png binary
 *.ogg binary
 *.nbt binary
+
+*.toml text=auto
