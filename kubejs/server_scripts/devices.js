@@ -279,7 +279,6 @@ global.DEVICE_GROUPS = {
       "create:wand_of_symmetry",
       "botania:twig_wand",
       "create:clipboard",
-      "crafting_on_a_stick:stonecutter",
       "quark:abacus",
       "minecraft:elytra",
     ],
