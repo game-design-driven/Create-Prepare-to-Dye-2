@@ -1,0 +1,18 @@
+## [1.262.0](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/compare/1.261.0...1.262.0) (2026-01-07)
+
+
+### Features
+
+* add /exampleRelay command ([3646c9d](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/3646c9d58497aca38539a2af765c8aac9cfaabd9))
+
+
+### Fixes
+
+* ponder index button ([cc043dc](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/cc043dc0177df9d5a50f2ae32c4aa1ac8fb22163))
+
+
+### chores
+
+* autopublish 2026-01-07T16:11:50Z ([4e9176f](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/4e9176f51e2006bbc54bcdb24306cb0a8e8656bc))
+
+
