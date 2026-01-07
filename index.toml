@@ -1250,7 +1250,7 @@ hash = "48981474996310a7861d97b5aaea8a11ba16d6075c273766daab566848930c09"
 
 [[files]]
 file = "VERSION"
-hash = "c9bbe0c856af20a62e17c79e79dc96e00c893c7fc987772311cfa89d579f990f"
+hash = "76ecf8f1b6129cfb38c587d339f01a9d7f7c88151f918ad51587fbace536a9f4"
 
 [[files]]
 file = "config/MouseTweaks.cfg"
@@ -1553,6 +1553,10 @@ file = "config/finite_water.json"
 hash = "b166a7a65cf608427e4b283dbedfe65dac278396195a415e78961a59621a0fc8"
 
 [[files]]
+file = "config/flywheel-client.toml"
+hash = "9dbbbbf8a27341be108f0fa8b557caa1d18a7c7bdc6584ba623bb8358cbfd407"
+
+[[files]]
 file = "config/fml.toml"
 hash = "1ed9280977d03a3e6d0661ae5c7217b49a4c40e255c88c6811b12b1b28f69ea5"
 
@@ -1694,7 +1698,7 @@ hash = "e6692fd7c3b5d4db82c9836c81b02182500bb00c81817919120f514df2bc7f00"
 
 [[files]]
 file = "config/modpack-update-checker/config.json"
-hash = "66286834654e2932bd1eab70e242775a05c82f12b37c7ae57efb2d8fd4079975"
+hash = "6426afd7b611923f8ffef76c5fb177786b1369e8d04e11d3ec157c1b8257c848"
 
 [[files]]
 file = "config/modpack-update-checker/modpack-info.txt"
@@ -4870,7 +4874,7 @@ hash = "ded1b3b51c1b47ee3e812ef73dfb4dd423dec7119ed921585bed038c95328c0d"
 
 [[files]]
 file = "kubejs/assets/sdrp/lang/en_us.json"
-hash = "066b52cda92bfde3ada3176a7edc409db3b19cf3d2930e9a5293511ecf2d78bd"
+hash = "04e231ad525f0231fc6289b81d4b965fc3a4a3017b1a2c12d5c27ca55b331a30"
 
 [[files]]
 file = "kubejs/assets/storagedrawers/blockstates/controller.json"
@@ -5714,7 +5718,7 @@ hash = "c0af412fe103b10ccc24958b293baa384b6d92aa86ce8e929dd62c7f843f1018"
 
 [[files]]
 file = "kubejs/server_scripts/devices.js"
-hash = "c890ae0c3c6782bb69bb1eda277cf8ef6707968219376a181bc4f41e96c79134"
+hash = "b006b1e5b06032117530a45b1c2988afbaa81c8c4e09106cf10eb625e6cc7f9d"
 
 [[files]]
 file = "kubejs/server_scripts/gamerules.js"
@@ -5742,7 +5746,7 @@ hash = "b309646ea61c64c2e003ea6b7713e475bfd92c6d45413d3bf184c6efd9a9720a"
 
 [[files]]
 file = "kubejs/server_scripts/playerLogin.js"
-hash = "0629bec2e2fcc4259d264023f2c73c4c1ea404ca8cda6706129a9373e74e66ec"
+hash = "98fc5804a2c77ce90f3b784b371a16257021e216751bf32eb1429a671d433635"
 
 [[files]]
 file = "kubejs/server_scripts/player_tweaks.js"
@@ -5902,7 +5906,7 @@ hash = "ab323610254d7b8ce09ca2580b344714c58fd4804d26ee0e2525baa24a148809"
 
 [[files]]
 file = "modpack-update-checker/meta.json"
-hash = "56e8411e12438b00060a1ba8ae1f6174becf078c1fb7ff22a78d006b8d7d1ae9"
+hash = "f1a831c3496b05c69b31a21686087b800cdac9ec983732de7021cea082e2f14c"
 
 [[files]]
 file = "modpack-update-checker/versions/1.100.0/changelog.txt"
@@ -8177,6 +8181,10 @@ file = "modpack-update-checker/versions/1.262.0/changelog.txt"
 hash = "2dc45f02c55c921433f37bf8b94ad979f43d63496f85f6fbd4f933c1cad5e132"
 
 [[files]]
+file = "modpack-update-checker/versions/1.262.1/changelog.txt"
+hash = "e63822a0e267aff57e013b71e6857f5d51cbeacfaf5f960da03b30f7b8593290"
+
+[[files]]
 file = "modpack-update-checker/versions/1.79.33/changelog.txt"
 hash = "3ffee41ebf2c4f32db44a257c726f8496cc33446635821d2cf364ce80a6bef3e"
 
@@ -8595,11 +8603,6 @@ metafile = true
 [[files]]
 file = "mods/copycats.pw.toml"
 hash = "853df4ab2418f347cbb1e3b4ca6c82b2a517a8e4e8ccabcd42c27e3496707a32"
-metafile = true
-
-[[files]]
-file = "mods/crafting-on-a-stick.pw.toml"
-hash = "2107056a612f9bd2cee42290461b83e13444fcecd87095617bdc01415f065490"
 metafile = true
 
 [[files]]
