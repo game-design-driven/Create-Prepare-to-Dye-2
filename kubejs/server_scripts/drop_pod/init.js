@@ -119,10 +119,3 @@ LevelEvents.tick((event) => {
     }
   }
 });
-
-// Prevent player's trying to enter the boat the Drop Pod uses
-ItemEvents.entityInteracted('minecraft:boat', (event) => {
-  if (event.target.tags.contains('PTD_DP_root')) {
-    event.cancel();
-  }
-});
