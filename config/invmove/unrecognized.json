@@ -33,7 +33,9 @@
     "appeng.client.gui.me.crafting.CraftConfirmScreen": true,
     "appeng.client.gui.me.crafting.CraftingCPUScreen": true,
     "appeng.client.gui.me.crafting.CraftingStatusScreen": true,
-    "com.simibubi.create.content.redstone.thresholdSwitch.ThresholdSwitchScreen": true
+    "com.simibubi.create.content.redstone.thresholdSwitch.ThresholdSwitchScreen": true,
+    "dev.huskuraft.effortless.forge.gui.MinecraftProxyScreen": true,
+    "appeng.client.gui.me.common.TerminalSettingsScreen": true
   },
   "hideBackground": {
     "dev.emi.emi.screen.RecipeScreen": true,
@@ -54,6 +56,7 @@
     "appeng.client.gui.me.crafting.CraftConfirmScreen": true,
     "appeng.client.gui.me.crafting.CraftingCPUScreen": true,
     "appeng.client.gui.me.crafting.CraftingStatusScreen": true,
-    "com.simibubi.create.content.redstone.thresholdSwitch.ThresholdSwitchScreen": true
+    "com.simibubi.create.content.redstone.thresholdSwitch.ThresholdSwitchScreen": true,
+    "appeng.client.gui.me.common.TerminalSettingsScreen": true
   }
 }

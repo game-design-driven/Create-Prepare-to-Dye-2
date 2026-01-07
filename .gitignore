@@ -92,3 +92,4 @@ kubejs/allEnglishTranslationKeys.json
 .claude/settings.local.json
 fancymenu_data/buddy
 config/flywheel-client.toml
+fancymenu_data/action_favorites.json

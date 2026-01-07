@@ -17,5 +17,15 @@
     "item.ae2.storage_monitor": "Storage Monitor",
     "item.ae2.terminal": "Storage Terminal",
     "gui.ae2.units.appliedenergistics": "MILK",
-    "gui.ae2.units.rf": "MILK!"
+    "gui.ae2.units.rf": "MILK!",
+    "gui.ae2.SmallFontCraft": "Buy",
+    "gui.ae2.CraftingPlan": "Acquisition Plan",
+    "gui.ae2.CraftingStatus": "Acquisition Status",
+    "gui.tooltips.ae2.Craftable": "Buyable",
+    "gui.tooltips.ae2.StoredCraftable": "Stored / Buyable",
+    "ae2.rei_jei_integration.has_encoded_ingredients": "Highlighted elements are already Buyable",
+    "gui.ae2.ConfirmCraftNoCpu": "",
+    "item.personalmesystem.personal_terminal": "Personal ME Terminal",
+    "gui.ae2.ToCraft": "To Buy: %s",
+    "gui.ae2.Start": "Buy Now!"
 }
