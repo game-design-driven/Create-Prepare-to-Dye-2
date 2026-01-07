@@ -104,4 +104,31 @@ ConfigsEvent.common((event) => {
   global.config_schematicannonFreeFuel = event.booleanValue("freeFuel", true);
 
   event.pop();
+
+  // =============================================================================
+  // DROP POD
+  // =============================================================================
+  event.push("dropPod");
+  event.comment("Settings for the Drop Pod contraption and descent logic");
+
+  global.drop_pod = { config: { } };
+
+  event.comment("The altitude (in blocks) above the target ground level where the pod spawns (default: 80)");
+  global.drop_pod.config.spawnHeight = event.intValue("spawnHeight", 80, 0, 300);
+
+  event.comment("The cruising speed of the pod during the initial descent in Blocks per Tick (default: 0.8)");
+  global.drop_pod.config.terminalVelocity = event.doubleValue("terminalVelocity", 0.8, 0.5, 2);
+
+  event.comment("The stabilized slow speed for the final touchdown in Blocks per Tick (default: 0.15)");
+  global.drop_pod.config.landingSpeed = event.doubleValue("landingSpeed", 0.15, 0.05, 0.5);
+
+  event.comment("Distance from ground (in blocks) where the pod begins to apply brakes (default 25.0)");
+  event.comment("IMPORTANT: This must be higher than breakingStartHeight.");
+  global.drop_pod.config.breakingStartHeight = event.doubleValue("breakingStartHeight", 25.0, 0, 300);
+
+  event.comment("Distance from ground (in blocks) where the pod reaches its minimum landing speed (default 7.0)");
+  event.comment("IMPORTANT: This must be lower than brakingStartHeight.");
+  global.drop_pod.config.breakingEndHeight = event.doubleValue("breakingEndHeight", 7.0, 0, 300);
+
+  event.pop();
 });
