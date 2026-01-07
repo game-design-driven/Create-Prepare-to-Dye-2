@@ -69,3 +69,23 @@
 	#Schematicannon requires no fuel when placed (default: true)
 	freeFuel = true
 
+[dropPod]
+	#Settings for the Drop Pod contraption and descent logic
+	#The altitude (in blocks) above the target ground level where the pod spawns (default: 80)
+	#Range: 0 ~ 300
+	spawnHeight = 80
+	#The cruising speed of the pod during the initial descent in Blocks per Tick (default: 0.8)
+	#Range: 0.5 ~ 2.0
+	terminalVelocity = 0.8
+	#The stabilized slow speed for the final touchdown in Blocks per Tick (default: 0.15)
+	#Range: 0.05 ~ 0.5
+	landingSpeed = 0.15
+	#Distance from ground (in blocks) where the pod begins to apply brakes (default 25.0)
+	#IMPORTANT: This must be higher than breakingStartHeight.
+	#Range: 0.0 ~ 300.0
+	breakingStartHeight = 25.0
+	#Distance from ground (in blocks) where the pod reaches its minimum landing speed (default 7.0)
+	#IMPORTANT: This must be lower than brakingStartHeight.
+	#Range: 0.0 ~ 300.0
+	breakingEndHeight = 7.0
+
