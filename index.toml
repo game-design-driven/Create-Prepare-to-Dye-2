@@ -8788,6 +8788,11 @@ hash = "2a3a4d1558f48a49746b266248676f7d28b7b8b9d45f36645e41a8806028dce5"
 metafile = true
 
 [[files]]
+file = "mods/ptdye-plus.pw.toml"
+hash = "1b2666ff60866875fce43ede84156246c1cd9a822ae874ce88ca7519707aad03"
+metafile = true
+
+[[files]]
 file = "mods/quark-oddities.pw.toml"
 hash = "056c481f39ce13ff8b3fa09fc5dd6b6549676135de8eb890ddc96ad180a4e383"
 metafile = true
