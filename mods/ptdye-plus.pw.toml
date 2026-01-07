@@ -1,0 +1,13 @@
+name = "Ptdye Plus"
+filename = "ptdyeplus-2.0.1.jar"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/ikDjkgLu/versions/GpkTAFrH/ptdyeplus-2.0.1.jar"
+hash-format = "sha512"
+hash = "a228a5a6f09f51af8f31ee335226ebf2f22ef218b14901b93db667252f05f984c3ba08e8a883e63a33b857f3b0679e14cd5105fdd99c08c7420ba6a32f797da2"
+
+[update]
+[update.modrinth]
+mod-id = "ikDjkgLu"
+version = "GpkTAFrH"

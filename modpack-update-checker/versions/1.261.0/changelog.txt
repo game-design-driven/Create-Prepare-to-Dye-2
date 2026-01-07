@@ -1,0 +1,13 @@
+## [1.261.0](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/compare/1.260.0...1.261.0) (2026-01-07)
+
+
+### Features
+
+* add ptdye plus to the pack ([43f3132](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/43f313259238397319250432e571e17f4b155199))
+
+
+### chores
+
+* autopublish 2026-01-07T13:47:58Z ([2c08190](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/2c08190a28366141d5c8b94f50b88d36bbd3b24a))
+
+

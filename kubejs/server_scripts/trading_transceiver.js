@@ -20,9 +20,9 @@ function showTerritoryError(event, player, block) {
     event.server.runCommandSilent('playsound minecraft:block.note_block.bass master ' + player.name.string + ' ' + bx + ' ' + by + ' ' + bz + ' 0.6 0.7');
 }
 
-// ============================================================================
+
 // Trading Transceiver - Call down delivery table
-// ============================================================================
+
 ItemEvents.rightClicked('ptdye:trading_transceiver', function(event) {
     var player = event.player;
     var target = event.target;
@@ -108,9 +108,9 @@ ItemEvents.rightClicked('ptdye:trading_transceiver', function(event) {
     event.cancel();
 });
 
-// ============================================================================
+
 // Postage Stamp Transceiver - Pick up delivery table
-// ============================================================================
+
 BlockEvents.rightClicked('wares:delivery_table', function(event) {
     if (event.hand !== 'main_hand') return;
     if (event.player.mainHandItem.id !== 'ptdye:postage_stamp_transceiver') return;

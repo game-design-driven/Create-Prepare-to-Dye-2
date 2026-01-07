@@ -5,9 +5,9 @@
 ConfigsEvent.common((event) => {
   event.setName("create-prepare-to-dye-2");
 
-  // =============================================================================
+
   // PLAYER SETTINGS
-  // =============================================================================
+
   event.push("player");
   event.comment("Player attribute and survival settings");
 
@@ -37,9 +37,9 @@ ConfigsEvent.common((event) => {
 
   event.pop();
 
-  // =============================================================================
+
   // STARTER KIT
-  // =============================================================================
+
   event.push("starterKit");
   event.comment("Starter kit settings for new players");
 
@@ -48,9 +48,9 @@ ConfigsEvent.common((event) => {
 
   event.pop();
 
-  // =============================================================================
+
   // DEVICE ASSEMBLY QUANTITIES
-  // =============================================================================
+
   event.push("deviceAssembly");
   event.comment("Output quantities for device sequenced assembly recipes");
 
@@ -80,9 +80,9 @@ ConfigsEvent.common((event) => {
 
   event.pop();
 
-  // =============================================================================
+
   // MANA POOL BURNER EFFICIENCY
-  // =============================================================================
+
   event.push("manaPoolBurner");
   event.comment("Mana cost multipliers for blaze burner alchemy recipes");
 
@@ -94,9 +94,9 @@ ConfigsEvent.common((event) => {
 
   event.pop();
 
-  // =============================================================================
+
   // SCHEMATICANNON
-  // =============================================================================
+
   event.push("schematicannon");
   event.comment("Schematicannon settings");
 

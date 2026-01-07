@@ -18,9 +18,6 @@ com.jab125.mpuc.client.gui.screen.changelog.ChangelogScreen {
 net.minecraft.client.gui.screens.PauseScreen {
 }
 
-net.minecraft.client.gui.screens.TitleScreen {
-}
-
 top.theillusivec4.curios.client.gui.CuriosScreen {
 }
 
@@ -43,5 +40,14 @@ net.minecraft.client.gui.screens.advancements.AdvancementsScreen {
 }
 
 appeng.client.gui.me.common.MEStorageScreen {
+}
+
+appeng.client.gui.me.crafting.CraftConfirmScreen {
+}
+
+net.minecraft.client.gui.screens.TitleScreen {
+}
+
+com.simibubi.create.infrastructure.gui.CreateMainMenuScreen {
 }
 

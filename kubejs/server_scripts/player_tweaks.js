@@ -8,9 +8,7 @@ EntityEvents.hurt(function (event) {
   }
 });
 
-// =============================================================================
 // HAND INTERACTIONS - Fill blocks directly with buckets
-// =============================================================================
 
 function fillBlockWithBucket(block, event) {
   var fluid;
@@ -94,9 +92,7 @@ BlockEvents.rightClicked("create:spout", function (event) {
   }
 });
 
-// =============================================================================
 // PET BETSY - Pet cows with empty hand, teleport back with command
-// =============================================================================
 
 // Pet cows with empty hand - stores last cow location
 ItemEvents.entityInteracted("minecraft:air", function(event) {
@@ -112,9 +108,7 @@ ItemEvents.entityInteracted("minecraft:air", function(event) {
   );
 });
 
-// =============================================================================
 // MILK COOLDOWN - Cows can only be milked every 400 ticks (20 seconds)
-// =============================================================================
 
 function milkCow(event, currentTime) {
   var target = event.target;

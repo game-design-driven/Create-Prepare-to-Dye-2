@@ -1,0 +1,21 @@
+## [1.260.0](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/compare/1.259.1...1.260.0) (2026-01-07)
+
+
+### Features
+
+* simplify ae2 buying (autocrafting) screen ([75344e9](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/75344e90a29a69c8d3706d9f5c4f462b530d944b))
+* theme ae2 byuing (autocrafting) screen ([006f347](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/006f347e21c247a4d7be9c6867a9491f335b8b3c))
+
+
+### Fixes
+
+* main menue fancymenue setup ([70684d7](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/70684d7634743f645af93afd38fb2ec776110083))
+* remove flywheel client from version control ([b63465b](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/b63465bd7e04a4a99af4997fc73972e372829915))
+* remove redundant seperators in code ([1de564c](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/1de564ce89200a4670cd7d74b57ae152efd86823))
+
+
+### chores
+
+* autopublish 2026-01-06T14:13:28Z ([076045d](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/076045ded8b69af92a94610dc922bca2a3441c03))
+
+

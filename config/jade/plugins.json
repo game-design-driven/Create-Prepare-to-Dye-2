@@ -51,6 +51,9 @@
     "painting": true,
     "chiseled_bookshelf": true
   },
+  "pondertooltip": {
+    "text": true
+  },
   "jadeaddons": {
     "equipment_requirement": ""
   },

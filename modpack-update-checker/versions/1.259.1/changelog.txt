@@ -1,0 +1,13 @@
+### [1.259.1](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/compare/1.259.0...1.259.1) (2026-01-06)
+
+
+### Fixes
+
+* Allow auto EOL for toml in .gitattibutes ([cab8793](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/cab8793033d1a1837076cf1b78bad25f786feb4e))
+
+
+### chores
+
+* autopublish 2026-01-04T16:02:56Z ([1866b05](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/1866b058465e2d9d7df603549673c09150f60907))
+
+

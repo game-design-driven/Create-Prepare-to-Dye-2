@@ -2,9 +2,9 @@
 //Create Prepare to Dye 2 - Loot Table Modifications
 
 LootJS.modifiers((event) => {
-  // =============================================================================
+
   // BLOCK LOOT MODIFICATIONS
-  // =============================================================================
+
 
   // Leaves don't drop sticks or apples
   event.addBlockLootModifier("#minecraft:leaves").removeLoot("minecraft:stick");
@@ -22,9 +22,9 @@ LootJS.modifiers((event) => {
   event.addBlockLootModifier("create:framed_glass_pane").addLoot("create:framed_glass_pane");
   event.addBlockLootModifier("create:horizontal_framed_glass_pane").addLoot("create:horizontal_framed_glass_pane");
 
-  // =============================================================================
+
   // ORE BONUS DROPS
-  // =============================================================================
+
 
   // Gold ore drops more gold
   event
@@ -64,9 +64,9 @@ LootJS.modifiers((event) => {
     .addLoot("2x minecraft:redstone")
     .applyOreBonus("minecraft:fortune");
 
-  // =============================================================================
+
   // AE2 QUARTZ MODIFICATIONS
-  // =============================================================================
+
 
   // Budding quartz drops itself instead of degrading
   event
@@ -97,9 +97,9 @@ LootJS.modifiers((event) => {
     .replaceLoot(ItemFilter.ALWAYS_TRUE, "4x minecraft:quartz")
     .applyOreBonus("minecraft:fortune");
 
-  // =============================================================================
+
   // GRASS/FERN SEED DROPS
-  // =============================================================================
+
 
   // Grass and ferns always drop seeds
   event
@@ -115,9 +115,9 @@ LootJS.modifiers((event) => {
     .addLoot("minecraft:wheat_seeds")
     .applyOreBonus("minecraft:fortune");
 
-  // =============================================================================
+
   // REMOVE ITEMS FROM LOOT TABLES
-  // =============================================================================
+
 
   // Remove flax seeds from supplementaries
   event.removeGlobalModifier("@supplementaries");
@@ -131,9 +131,9 @@ LootJS.modifiers((event) => {
   // Remove iron ingots from chest loot
   event.addLootTypeModifier(LootType.CHEST).removeLoot("minecraft:iron_ingot");
 
-  // =============================================================================
+
   // ENTITY LOOT MODIFICATIONS
-  // =============================================================================
+
 
   // Pillagers drop heads
   event
