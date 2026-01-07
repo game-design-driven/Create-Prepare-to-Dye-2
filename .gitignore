@@ -91,3 +91,4 @@ kubejs/allEnglishTranslationKeys.json
 /mods/.index
 .claude/settings.local.json
 fancymenu_data/buddy
+config/flywheel-client.toml
