@@ -1,9 +1,7 @@
 //priority: 0
 // Block Tweaks - block-related gameplay modifications
 
-// =============================================================================
 // INDESTRUCTIBLE ITEMS - Never despawn
-// =============================================================================
 
 var NEVER_DESPAWN_ITEMS = [
   "wares:delivery_agreement",
@@ -37,9 +35,7 @@ EntityEvents.spawned(function(event) {
   }
 });
 
-// =============================================================================
 // DIAMOND TOOLS SILK TOUCH
-// =============================================================================
 
 // Diamond tools have built-in silk touch
 var SILKY_TOOLS = [

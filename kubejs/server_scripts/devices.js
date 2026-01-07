@@ -5,9 +5,7 @@
 // between each other via stonecutter. Each group has a "generic" item that can
 // be crafted via sequenced assembly.
 
-// =============================================================================
 // DEVICE DEFINITIONS
-// =============================================================================
 
 global.DEVICE_GROUPS = {
   sturdy: {
@@ -419,9 +417,7 @@ global.DEVICE_GROUPS = {
   },
 };
 
-// =============================================================================
 // ITEM TAGS
-// =============================================================================
 
 ServerEvents.tags("item", function(event) {
   var groupNames = Object.keys(global.DEVICE_GROUPS);
@@ -453,9 +449,7 @@ ServerEvents.tags("item", function(event) {
   }
 });
 
-// =============================================================================
 // RECIPES
-// =============================================================================
 
 ServerEvents.recipes(function(event) {
   let groupNames = Object.keys(global.DEVICE_GROUPS);
@@ -526,9 +520,9 @@ ServerEvents.recipes(function(event) {
     }
   }
 
-  // =============================================================================
+
   // SPECIAL RECIPES
-  // =============================================================================
+
 
   // Tool parts - made via mixing
   event.recipes.create.mixing("2x ptdye:tool_parts", [

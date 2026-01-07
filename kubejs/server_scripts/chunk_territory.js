@@ -3,9 +3,9 @@
 var IntegerArgumentType = Java.loadClass('com.mojang.brigadier.arguments.IntegerArgumentType');
 var EntityArgument = Java.loadClass('net.minecraft.commands.arguments.EntityArgument');
 
-// ============================================================================
+
 // DATA LAYER
-// ============================================================================
+
 
 if (!global.ChunkTerritory) {
   global.ChunkTerritory = { chunks: {}, count: 0 };
@@ -96,18 +96,18 @@ CT.claimAdjacent = function (server, uuid, x, y, z, ticks) {
   return CT.claim(server, uuid, cx + nearest.dx, cz + nearest.dz, ticks, x, y, z);
 };
 
-// ============================================================================
+
 // CONFIG
-// ============================================================================
+
 
 var BORDER_DIST_SURVIVAL = 3;
 var BORDER_DIST_SPECTATOR = 5;
 var BORDER_LOOK_DISTANCE = 64;
 var ARROW_BORDER_DISTANCE = 5;
 
-// ============================================================================
+
 // UTILITIES
-// ============================================================================
+
 
 var playerState = {};
 var lastBorderSound = {};
@@ -172,9 +172,9 @@ function intArrayToUuid(arr) {
   return hex.slice(0,8) + '-' + hex.slice(8,12) + '-' + hex.slice(12,16) + '-' + hex.slice(16,20) + '-' + hex.slice(20);
 }
 
-// ============================================================================
+
 // SERVER EVENTS
-// ============================================================================
+
 
 ServerEvents.loaded(function (event) {
   CT.load(event.server);
@@ -221,9 +221,9 @@ PlayerEvents.loggedOut(function (event) {
   }
 });
 
-// ============================================================================
+
 // PLAYER TICK - ENFORCEMENT + BORDER PARTICLES
-// ============================================================================
+
 
 PlayerEvents.tick(function (event) {
   var player = event.player;
@@ -358,9 +358,9 @@ function spawnArrow(player, bx, by, bz, dirX, dirZ) {
   dust(dirX * 0.7 - px * 0.2, dirZ * 0.7 - pz * 0.2, 1.1);
 }
 
-// ============================================================================
+
 // BLOCK PROTECTION
-// ============================================================================
+
 
 function checkBlockAccess(event) {
   if (CT.count === 0) return true;
@@ -405,9 +405,9 @@ BlockEvents.rightClicked(function (event) {
   }
 });
 
-// ============================================================================
+
 // ITEM CONTAINMENT
-// ============================================================================
+
 
 EntityEvents.spawned('minecraft:item', function (event) {
   if (CT.count === 0) return;
@@ -465,9 +465,7 @@ EntityEvents.spawned('minecraft:item', function (event) {
   checkBorder();
 });
 
-// ============================================================================
 // COMMANDS
-// ============================================================================
 
 var DIRECTIONS = { north: [0, -1], south: [0, 1], east: [1, 0], west: [-1, 0] };
 
