@@ -48,3 +48,6 @@ appeng.client.gui.me.crafting.CraftConfirmScreen {
 net.minecraft.client.gui.screens.TitleScreen {
 }
 
+com.simibubi.create.infrastructure.gui.CreateMainMenuScreen {
+}
+

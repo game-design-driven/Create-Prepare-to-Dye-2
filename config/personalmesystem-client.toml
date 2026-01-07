@@ -1,0 +1,9 @@
+
+#Communication Relay Tooltip Settings
+[tooltips]
+	#Show virtual recipes in item tooltips
+	showRecipeTooltips = true
+	#Maximum number of recipes to show in tooltips (0 = show all)
+	#Range: 0 ~ 20
+	maxTooltipRecipes = 3
+
