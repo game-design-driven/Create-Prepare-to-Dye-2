@@ -1,0 +1,13 @@
+name = "TooltipsReforgedDyed"
+filename = "tooltips_reforged_dyed-0.1.8.jar"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/HI3AHY79/versions/h2OMEfQo/tooltips_reforged_dyed-0.1.8.jar"
+hash-format = "sha512"
+hash = "eb71fe7056e99dcf8da15477320c29b744638d29d7bf52d71cf7ac4ec5d21ae8267d3dfaca23ac11066f8c73fbfa2eec0599b8a42737fc43d8e0a2d3195f0f48"
+
+[update]
+[update.modrinth]
+mod-id = "HI3AHY79"
+version = "h2OMEfQo"
