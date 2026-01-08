@@ -1,1 +1,16 @@
-{ "schemaVersion": 9, "currentVersion": "1.263.2", "modpackName": "Create Prepare to Dye 2", "modpackAuthor": "Game Design Driven", "modpackReleaseType": "stable", "updateCheckerId": "https://raw.githubusercontent.com/game-design-driven/Create-Prepare-to-Dye-2/main/modpack-update-checker/", "advanced": { "bccEnabled": false, "expandButton": false, "updateCheckerType": 2, "retroWarning": false, "modpackMods": [] } }
+{
+    "schemaVersion": 9,
+    "currentVersion": "1.263.2",
+    "modpackName": "Create Prepare to Dye 2",
+    "modpackAuthor": "Game Design Driven",
+    "modpackReleaseType": "stable",
+    "updateCheckerId": "https://raw.githubusercontent.com/game-design-driven/Create-Prepare-to-Dye-2/main/modpack-update-checker/",
+    "advanced": {
+        "bccEnabled": false,
+        "expandButton": false,
+        "updateCheckerType": 2,
+        "retroWarning": false,
+        "modpackMods": [],
+        "forceModpackCompatible": true
+    }
+}

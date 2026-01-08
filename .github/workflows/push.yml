@@ -98,7 +98,26 @@ jobs:
       - name: Update changelog files
         run: |
           cd modpack-update-checker
-          echo $(jq -r '.versions[.versions| length] |= . + {"id":"${{ needs.tag_and_release.outputs.new_tag }}","releasedAt":${{ steps.get_time.outputs.time }}}' meta.json) > meta.json
+          jq \
+            --arg id "${{ needs.tag_and_release.outputs.new_tag }}" \
+            --argjson releasedAt "${{ steps.get_time.outputs.time }}" \
+            --arg updateType "minor" \
+            --arg modrinthUrl "https://modrinth.com/modpack/create-prepare-to-dye-2/version/${{ needs.tag_and_release.outputs.new_tag }}/" \
+            '
+            .versions += [
+              {
+                id: $id,
+                releasedAt: $releasedAt,
+                updateType: $updateType,
+                promotions: {
+                  downloads: {
+                    modrinth: $modrinthUrl
+                  }
+                }
+              }
+            ]
+            ' meta.json > meta.tmp && mv meta.tmp meta.json
+
 
           
           mkdir versions/${{ needs.tag_and_release.outputs.new_tag }}
