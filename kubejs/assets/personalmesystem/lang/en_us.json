@@ -1,0 +1,25 @@
+{
+  "item.personalmesystem.personal_terminal": "Personal ME Terminal",
+  "block.personalmesystem.communication_relay": "Communication Relay",
+
+  "gui.personalmesystem.personal_me_terminal": "Personal ME Terminal",
+  "gui.personalmesystem.player_inventory": "Player Inventory",
+  "gui.personalmesystem.combined_storage": "Combined Storage",
+  "gui.personalmesystem.bind": "Bind",
+  "gui.personalmesystem.bind_to_wap": "Bind Personal Terminal to this WAP",
+  "gui.personalmesystem.out_of_range": "Out of Range",
+  "gui.personalmesystem.not_bound": "Not Bound - Visit WAP to bind",
+  "gui.personalmesystem.bound_success": "Personal Terminal linked!",
+  "gui.personalmesystem.bind_failed": "Failed to bind Personal ME",
+  "gui.personalmesystem.no_wap_menu": "Open a Wireless Access Point to bind",
+  "gui.personalmesystem.no_terminal": "No Personal Terminal found",
+
+  "gui.personalmesystem.no_recipes": "No recipes configured",
+  "gui.personalmesystem.recipes_count": "exchanges (%d)",
+  "gui.personalmesystem.amount": "Amount: %d",
+  "gui.personalmesystem.tag": "Tag: #%s",
+
+  "tooltip.personalmesystem.no_recipes": "No recipes configured",
+  "tooltip.personalmesystem.recipes_count": "Virtual Recipes: %d",
+  "tooltip.personalmesystem.and_more": "  ... and %d more"
+}
