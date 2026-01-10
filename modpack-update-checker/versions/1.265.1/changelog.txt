@@ -1,0 +1,13 @@
+### [1.265.1](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/compare/1.265.0...1.265.1) (2026-01-10)
+
+
+### Fixes
+
+* remove figura online and button ([645f68a](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/645f68a8dba1c7367febd65834bbf0d5678da1a2))
+
+
+### chores
+
+* autopublish 2026-01-10T14:26:30Z ([de4abcb](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/de4abcbfd989e8e9d06defc2cacf7989f11238d8))
+
+

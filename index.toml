@@ -1250,7 +1250,7 @@ hash = "48981474996310a7861d97b5aaea8a11ba16d6075c273766daab566848930c09"
 
 [[files]]
 file = "VERSION"
-hash = "6ac2b86d2c2d4ab8b58d27d5518dc63d189add9ba6a977dec11f92f5c15b681b"
+hash = "ff36be8c624b14a31520f1b02dd74e8ba6dc7ee42b20d43034d0e7a1e2f581c2"
 
 [[files]]
 file = "config/MouseTweaks.cfg"
@@ -1474,7 +1474,7 @@ hash = "041d09315fdeec0eb2ea20fe5ae036cd28d5e3f9e2bc4ddacbd6ecc172c1cf1d"
 
 [[files]]
 file = "config/fancymenu/customization/pause.txt"
-hash = "72968a18827773b58d2a218d5058efa6ba311e4741c1189a85098ff38b903dba"
+hash = "f4d5fbe39b8c3b296ad7445d15da4d978e734de7317fcc65a76c847b844760d9"
 
 [[files]]
 file = "config/fancymenu/customization/personalassembler.txt"
@@ -1547,6 +1547,10 @@ hash = "3fcfc5f9957fbb86aea846c9ad49a24f47ca709c523c4018b584668e38b72f41"
 [[files]]
 file = "config/ferritecore-mixin.toml"
 hash = "e3ca99e0f233e3bcf8b6762a85b1139f716bf96644318fe9cb022c270461b287"
+
+[[files]]
+file = "config/figura.json"
+hash = "f94bda353985c598b9f227aaab35f190761813c89e57fd98946351f018464c64"
 
 [[files]]
 file = "config/finite_water.json"
@@ -1694,7 +1698,7 @@ hash = "e6692fd7c3b5d4db82c9836c81b02182500bb00c81817919120f514df2bc7f00"
 
 [[files]]
 file = "config/modpack-update-checker/config.json"
-hash = "9977524279de889baf7caa258eb3595ae85a501c30af2fdc88689d3595d024cf"
+hash = "37b099635d7a45d0156598ca4d40ba6d89fa5b055b5d6e5e5f9a19f8d49185f3"
 
 [[files]]
 file = "config/modpack-update-checker/modpack-info.txt"
@@ -4874,7 +4878,7 @@ hash = "ded1b3b51c1b47ee3e812ef73dfb4dd423dec7119ed921585bed038c95328c0d"
 
 [[files]]
 file = "kubejs/assets/sdrp/lang/en_us.json"
-hash = "0d5dea005888a7fcfb0a07472531d0d30892170f289aaeed59c5b1f8f7b16e9b"
+hash = "9fb0b2d949ca992083aef41860ca6b389f17a9ff222b2d33dfb33e31ad1398c4"
 
 [[files]]
 file = "kubejs/assets/storagedrawers/blockstates/controller.json"
@@ -5926,7 +5930,7 @@ hash = "ab323610254d7b8ce09ca2580b344714c58fd4804d26ee0e2525baa24a148809"
 
 [[files]]
 file = "modpack-update-checker/meta.json"
-hash = "651a3b50551fbef73c4492414c5394c1c560b76b443a3b23633ad93a0ca419cc"
+hash = "064f57fc60b4db28493bf7a5a843f87f03e7bb410f61b5a208515cad23b0bd8d"
 
 [[files]]
 file = "modpack-update-checker/versions/1.100.0/changelog.txt"
@@ -8235,6 +8239,10 @@ hash = "8f273a8077e5f264efe506976d3f836f7e440bf56748e05ffcacef7557c24281"
 [[files]]
 file = "modpack-update-checker/versions/1.265.0/changelog.txt"
 hash = "67ac42d007c9b4ca026139b0cd966f426fd62d98a926e3a2fe01633723630777"
+
+[[files]]
+file = "modpack-update-checker/versions/1.265.1/changelog.txt"
+hash = "c03855570f3db8e364bc32638136cb96fa11ce04abb96f83f1534f4f3420b6a9"
 
 [[files]]
 file = "modpack-update-checker/versions/1.79.33/changelog.txt"
