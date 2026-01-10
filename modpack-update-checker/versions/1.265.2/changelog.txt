@@ -1,0 +1,8 @@
+### [1.265.2](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/compare/1.265.1...1.265.2) (2026-01-10)
+
+
+### chores
+
+* autopublish 2026-01-10T17:52:35Z ([a28b41f](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/a28b41f2fd95bbcc7d1ca919c295c459d9cad36c))
+
+
