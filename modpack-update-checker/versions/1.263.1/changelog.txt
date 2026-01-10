@@ -1,0 +1,13 @@
+### [1.263.1](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/compare/1.263.0...1.263.1) (2026-01-08)
+
+
+### Modlist related changes
+
+* update TooltipsReforgedDyed to 0.1.12 ([319deaa](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/319deaa00cce467eb6847d24f39cf56067323a65))
+
+
+### chores
+
+* autopublish 2026-01-08T12:44:45Z ([58e8c9b](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/58e8c9bfa70acf3a29d43510bf3b82789c3fe527))
+
+

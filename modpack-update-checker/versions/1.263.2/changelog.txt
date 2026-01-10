@@ -1,0 +1,13 @@
+### [1.263.2](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/compare/1.263.1...1.263.2) (2026-01-08)
+
+
+### Fixes
+
+* modpack update checker ([5eeb68c](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/5eeb68ce778ccd7f970f9438780874267ea42bb4))
+
+
+### chores
+
+* autopublish 2026-01-08T13:13:24Z ([a30e51f](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/a30e51fd50df60ec0dce1e75d2288919b2800c08))
+
+

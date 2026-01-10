@@ -1,0 +1,8 @@
+## [1.264.0](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/compare/1.263.4...1.264.0) (2026-01-10)
+
+
+### Features
+
+* add ae2-personal-me-system ([7f3e08d](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/7f3e08d440c73a1717722c7687e24aeb0ce1ff8c))
+
+

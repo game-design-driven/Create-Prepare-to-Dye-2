@@ -1,0 +1,24 @@
+## [1.263.0](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/compare/1.262.3...1.263.0) (2026-01-08)
+
+
+### Features
+
+* add TooltipsReforgedDyed ([73395ff](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/73395ff121a287cf32809f35eb48cc3055a3f87f))
+* black_hole_bagels_llc seal fix ([7f70633](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/7f7063333a2ce502717f769eb59eb61ecb1baf97))
+
+
+### Fixes
+
+* ignore flywheel client ([390ec5b](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/390ec5b4c8cb36c8d3185a0435626429dbeae6e6))
+
+
+### Documentation and Localization
+
+* add lang files for pme ([dc2cd6d](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/dc2cd6d9e787ea08672000bd6705c6349531b09d))
+
+
+### chores
+
+* autopublish 2026-01-08T11:24:32Z ([d4d487a](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/d4d487a8750407acd1ded869ca884b29b6d5a278))
+
+

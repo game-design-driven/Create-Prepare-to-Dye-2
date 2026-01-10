@@ -1,0 +1,13 @@
+name = "ae2-personal-me-system"
+filename = "personalmesystem-1.0.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/8bfAOFcs/versions/1L3pQpvx/personalmesystem-1.0.0.jar"
+hash-format = "sha512"
+hash = "16cd3d3760eba6ce9a3b47294f515dce971450699d41f907b1648042742c080696b1657468049a2331318a06e9fa82375f97113ae7c7efd42eba4a89652db191"
+
+[update]
+[update.modrinth]
+mod-id = "8bfAOFcs"
+version = "1L3pQpvx"

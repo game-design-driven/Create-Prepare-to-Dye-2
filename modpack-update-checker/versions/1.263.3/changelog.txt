@@ -1,0 +1,13 @@
+### [1.263.3](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/compare/1.263.2...1.263.3) (2026-01-08)
+
+
+### Fixes
+
+* versions marked as minor in muc so that we won't get warnings when joining worlds ([1053a21](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/1053a2121529264d8722a9dddb691a4f640e3243))
+
+
+### chores
+
+* autopublish 2026-01-08T13:40:14Z ([5c49455](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/5c49455c0f0c6748e3b64c0184d0b30b8254bb4d))
+
+
