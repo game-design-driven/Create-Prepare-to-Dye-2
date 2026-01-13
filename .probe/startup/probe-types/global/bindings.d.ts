@@ -20,6 +20,7 @@ import {$OutputItem, $OutputItem$Type} from "packages/dev/latvian/mods/kubejs/it
 import {$ForgeEventWrapper, $ForgeEventWrapper$Type} from "packages/dev/latvian/mods/kubejs/forge/$ForgeEventWrapper"
 import {$Items, $Items$Type} from "packages/net/minecraft/world/item/$Items"
 import {$TextWrapper, $TextWrapper$Type} from "packages/dev/latvian/mods/kubejs/bindings/$TextWrapper"
+import {$SimChatBindings, $SimChatBindings$Type} from "packages/com/yardenzamir/simchat/integration/kubejs/$SimChatBindings"
 import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
 import {$Matrix3f, $Matrix3f$Type} from "packages/org/joml/$Matrix3f"
 import {$Stats, $Stats$Type} from "packages/net/minecraft/stats/$Stats"
@@ -93,6 +94,7 @@ const ResourceLocation: typeof $ResourceLocation
 const Structures: typeof $Structures
 const BlockProperties: typeof $BlockStateProperties
 const Component: typeof $TextWrapper
+const SimChat: typeof $SimChatBindings
 const console: $ConsoleJS
 const Java: $JavaWrapper
 const JsonIO: typeof $JsonIO

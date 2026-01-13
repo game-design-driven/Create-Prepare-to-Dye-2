@@ -49,9 +49,9 @@ declare module "packages/malte0811/ferritecore/mixin/blockstatecache/$DiscreteVS
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $DiscreteVSAccess {
 
- "getZSize"(): integer
  "getXSize"(): integer
  "getYSize"(): integer
+ "getZSize"(): integer
 }
 
 export namespace $DiscreteVSAccess {
@@ -114,9 +114,9 @@ public "getValue"<T extends $Comparable<(T)>>(arg0: integer, arg1: $Property$Typ
 public "getKey"(arg0: integer): $FastMapKey<(any)>
 public "getEntry"(arg0: integer, arg1: integer): $Map$Entry<($Property<(any)>), ($Comparable<(any)>)>
 public "with"<T extends $Comparable<(T)>>(arg0: integer, arg1: $Property$Type<(T)>, arg2: T): Value
+public "numProperties"(): integer
 public "isSingleState"(): boolean
 public "getPropertySet"(): $ImmutableSet<($Property<(any)>)>
-public "numProperties"(): integer
 public "withUnsafe"<T extends $Comparable<(T)>>(arg0: integer, arg1: $Property$Type<(T)>, arg2: any): Value
 public "getIndexOf"(arg0: $Map$Type<($Property$Type<(any)>), ($Comparable$Type<(any)>)>): integer
 get "singleState"(): boolean
@@ -137,13 +137,12 @@ export type $FastMap_<Value> = $FastMap$Type<(Value)>;
 declare module "packages/malte0811/ferritecore/ducks/$FastMapStateHolder" {
 import {$Comparable, $Comparable$Type} from "packages/java/lang/$Comparable"
 import {$Table, $Table$Type} from "packages/com/google/common/collect/$Table"
-import {$Property, $Property$Type} from "packages/net/minecraft/world/level/block/state/properties/$Property"
 import {$FastMap, $FastMap$Type} from "packages/malte0811/ferritecore/fastmap/$FastMap"
+import {$Property, $Property$Type} from "packages/net/minecraft/world/level/block/state/properties/$Property"
 import {$ImmutableMap, $ImmutableMap$Type} from "packages/com/google/common/collect/$ImmutableMap"
 
 export interface $FastMapStateHolder<S> {
 
- "replacePropertyMap"(arg0: $ImmutableMap$Type<($Property$Type<(any)>), ($Comparable$Type<(any)>)>): void
  "getStateMap"(): $FastMap<(S)>
  "getStateIndex"(): integer
  "getVanillaPropertyMap"(): $ImmutableMap<($Property<(any)>), ($Comparable<(any)>)>
@@ -151,6 +150,7 @@ export interface $FastMapStateHolder<S> {
  "setStateIndex"(arg0: integer): void
  "setNeighborTable"(arg0: $Table$Type<($Property$Type<(any)>), ($Comparable$Type<(any)>), (S)>): void
  "getNeighborTable"(): $Table<($Property<(any)>), ($Comparable<(any)>), (S)>
+ "replacePropertyMap"(arg0: $ImmutableMap$Type<($Property$Type<(any)>), ($Comparable$Type<(any)>)>): void
 }
 
 export namespace $FastMapStateHolder {

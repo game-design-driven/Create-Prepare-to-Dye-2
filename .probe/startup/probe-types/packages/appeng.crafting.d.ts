@@ -61,10 +61,10 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public "decode"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: boolean): $IPatternDetails
 public "decode"(arg0: $AEItemKey$Type, arg1: $Level$Type): $IPatternDetails
-public "addToMainCreativeTab"(arg0: $CreativeModeTab$Output$Type): void
+public "decode"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: boolean): $IPatternDetails
 public "onItemUseFirst"(arg0: $ItemStack$Type, arg1: $UseOnContext$Type): $InteractionResult
+public "addToMainCreativeTab"(arg0: $CreativeModeTab$Output$Type): void
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "getOutput"(arg0: $ItemStack$Type): $ItemStack
@@ -89,12 +89,12 @@ export class $ElapsedTimeTracker {
 constructor()
 constructor(arg0: $CompoundTag$Type)
 
-public "getElapsedTime"(): long
 /**
  * 
  * @deprecated
  */
 public "getStartItemCount"(): long
+public "getElapsedTime"(): long
 /**
  * 
  * @deprecated
@@ -102,8 +102,8 @@ public "getStartItemCount"(): long
 public "getRemainingItemCount"(): long
 public "writeToNBT"(): $CompoundTag
 public "getProgress"(): float
-get "elapsedTime"(): long
 get "startItemCount"(): long
+get "elapsedTime"(): long
 get "remainingItemCount"(): long
 get "progress"(): float
 }
@@ -283,15 +283,15 @@ import {$CraftingCPUCluster, $CraftingCPUCluster$Type} from "packages/appeng/me/
 import {$GenericStack, $GenericStack$Type} from "packages/appeng/api/stacks/$GenericStack"
 import {$ICraftingRequester, $ICraftingRequester$Type} from "packages/appeng/api/networking/crafting/$ICraftingRequester"
 import {$IEnergyService, $IEnergyService$Type} from "packages/appeng/api/networking/energy/$IEnergyService"
-import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
 import {$ICraftingLink, $ICraftingLink$Type} from "packages/appeng/api/networking/crafting/$ICraftingLink"
+import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
 import {$Set, $Set$Type} from "packages/java/util/$Set"
 import {$ICraftingSubmitResult, $ICraftingSubmitResult$Type} from "packages/appeng/api/networking/crafting/$ICraftingSubmitResult"
 import {$IGrid, $IGrid$Type} from "packages/appeng/api/networking/$IGrid"
 import {$ElapsedTimeTracker, $ElapsedTimeTracker$Type} from "packages/appeng/crafting/execution/$ElapsedTimeTracker"
 import {$Actionable, $Actionable$Type} from "packages/appeng/api/config/$Actionable"
-import {$KeyCounter, $KeyCounter$Type} from "packages/appeng/api/stacks/$KeyCounter"
 import {$ListCraftingInventory, $ListCraftingInventory$Type} from "packages/appeng/crafting/inv/$ListCraftingInventory"
+import {$KeyCounter, $KeyCounter$Type} from "packages/appeng/api/stacks/$KeyCounter"
 
 export class $CraftingCpuLogic {
 
@@ -299,9 +299,7 @@ constructor(arg0: $CraftingCPUCluster$Type)
 
 public "insert"(arg0: $AEKey$Type, arg1: long, arg2: $Actionable$Type): long
 public "cancel"(): void
-public "removeListener"(arg0: $Consumer$Type<($AEKey$Type)>): void
-public "addListener"(arg0: $Consumer$Type<($AEKey$Type)>): void
-public "getAllItems"(arg0: $KeyCounter$Type): void
+public "isCantStoreItems"(): boolean
 public "getInventory"(): $ListCraftingInventory
 public "tickCraftingLogic"(arg0: $IEnergyService$Type, arg1: $CraftingService$Type): void
 public "getLastModifiedOnTick"(): long
@@ -309,22 +307,24 @@ public "getAllWaitingFor"(arg0: $Set$Type<($AEKey$Type)>): void
 public "getLastLink"(): $ICraftingLink
 public "getWaitingFor"(arg0: $AEKey$Type): long
 public "readFromNBT"(arg0: $CompoundTag$Type): void
-public "isCantStoreItems"(): boolean
-public "trySubmitJob"(arg0: $IGrid$Type, arg1: $ICraftingPlan$Type, arg2: $IActionSource$Type, arg3: $ICraftingRequester$Type): $ICraftingSubmitResult
-public "getFinalJobOutput"(): $GenericStack
-public "getElapsedTimeTracker"(): $ElapsedTimeTracker
-public "executeCrafting"(arg0: integer, arg1: $CraftingService$Type, arg2: $IEnergyService$Type, arg3: $Level$Type): integer
+public "getAllItems"(arg0: $KeyCounter$Type): void
+public "addListener"(arg0: $Consumer$Type<($AEKey$Type)>): void
+public "removeListener"(arg0: $Consumer$Type<($AEKey$Type)>): void
 public "getPendingOutputs"(arg0: $AEKey$Type): long
+public "trySubmitJob"(arg0: $IGrid$Type, arg1: $ICraftingPlan$Type, arg2: $IActionSource$Type, arg3: $ICraftingRequester$Type): $ICraftingSubmitResult
+public "executeCrafting"(arg0: integer, arg1: $CraftingService$Type, arg2: $IEnergyService$Type, arg3: $Level$Type): integer
+public "getElapsedTimeTracker"(): $ElapsedTimeTracker
+public "getFinalJobOutput"(): $GenericStack
 public "writeToNBT"(arg0: $CompoundTag$Type): void
 public "hasJob"(): boolean
 public "storeItems"(): void
 public "getStored"(arg0: $AEKey$Type): long
+get "cantStoreItems"(): boolean
 get "inventory"(): $ListCraftingInventory
 get "lastModifiedOnTick"(): long
 get "lastLink"(): $ICraftingLink
-get "cantStoreItems"(): boolean
-get "finalJobOutput"(): $GenericStack
 get "elapsedTimeTracker"(): $ElapsedTimeTracker
+get "finalJobOutput"(): $GenericStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -357,15 +357,15 @@ public "insert"(arg0: $AEKey$Type, arg1: long, arg2: $Actionable$Type): long
 public "cancel"(): void
 public "isDone"(): boolean
 public "isStandalone"(): boolean
-public "isCanceled"(): boolean
 public "getCraftingID"(): $UUID
-public "markDone"(): void
+public "isCanceled"(): boolean
 public "setNexus"(arg0: $CraftingLinkNexus$Type): void
 public "writeToNBT"(arg0: $CompoundTag$Type): void
+public "markDone"(): void
 get "done"(): boolean
 get "standalone"(): boolean
-get "canceled"(): boolean
 get "craftingID"(): $UUID
+get "canceled"(): boolean
 set "nexus"(value: $CraftingLinkNexus$Type)
 }
 /**
@@ -392,10 +392,10 @@ export class $CraftingLinkNexus {
 constructor(arg0: $UUID$Type)
 
 public "removeNode"(): void
+public "isRequester"(arg0: $ICraftingRequester$Type): boolean
 public "isDead"(arg0: $IGrid$Type, arg1: $CraftingService$Type): boolean
 public "setRequest"(arg0: $CraftingLink$Type): void
 public "getRequest"(): $CraftingLink
-public "isRequester"(arg0: $ICraftingRequester$Type): boolean
 set "request"(value: $CraftingLink$Type)
 get "request"(): $CraftingLink
 }

@@ -27,8 +27,8 @@ export {} // Mark the file as a module, do not remove unless there are other imp
 export interface $ModpackInfo {
 
  "getModpackName"(): string
- "getModpackReleaseType"(): string
  "getModpackVersion"(): string
+ "getModpackReleaseType"(): string
 }
 
 export namespace $ModpackInfo {
@@ -52,9 +52,9 @@ import {$ModpackInfo, $ModpackInfo$Type} from "packages/com/jab125/mpuc/api/$Mod
 export interface $SimpleBrandingVersionExtension extends $ModpackInfo {
 
  "getModpackName"(): string
- "getModpackReleaseType"(): string
  "getModpackVersion"(): string
  "getModpackInfo"(): $ModpackInfo
+ "getModpackReleaseType"(): string
  "setModpackInfo"(arg0: $ModpackInfo$Type): void
 }
 

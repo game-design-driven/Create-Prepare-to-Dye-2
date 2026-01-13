@@ -1,7 +1,7 @@
 import {$Structures, $Structures$Type} from "packages/net/minecraft/data/worldgen/$Structures"
 import {$NBTIOWrapper, $NBTIOWrapper$Type} from "packages/dev/latvian/mods/kubejs/util/$NBTIOWrapper"
-import {$Vector3f, $Vector3f$Type} from "packages/org/joml/$Vector3f"
 import {$KMath, $KMath$Type} from "packages/dev/latvian/mods/kubejs/bindings/$KMath"
+import {$Vector3f, $Vector3f$Type} from "packages/org/joml/$Vector3f"
 import {$Vec3i, $Vec3i$Type} from "packages/net/minecraft/core/$Vec3i"
 import {$SDRPKubeJSWrapper, $SDRPKubeJSWrapper$Type} from "packages/com/sunekaer/sdrp/integration/kubejs/$SDRPKubeJSWrapper"
 import {$ColorWrapper, $ColorWrapper$Type} from "packages/dev/latvian/mods/rhino/mod/wrapper/$ColorWrapper"
@@ -19,6 +19,7 @@ import {$BlockWrapper, $BlockWrapper$Type} from "packages/dev/latvian/mods/kubej
 import {$OutputItem, $OutputItem$Type} from "packages/dev/latvian/mods/kubejs/item/$OutputItem"
 import {$Items, $Items$Type} from "packages/net/minecraft/world/item/$Items"
 import {$TextWrapper, $TextWrapper$Type} from "packages/dev/latvian/mods/kubejs/bindings/$TextWrapper"
+import {$SimChatBindings, $SimChatBindings$Type} from "packages/com/yardenzamir/simchat/integration/kubejs/$SimChatBindings"
 import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
 import {$Matrix3f, $Matrix3f$Type} from "packages/org/joml/$Matrix3f"
 import {$Stats, $Stats$Type} from "packages/net/minecraft/stats/$Stats"
@@ -57,54 +58,55 @@ import {$JsonIO, $JsonIO$Type} from "packages/dev/latvian/mods/kubejs/util/$Json
 import {$DirectionWrapper, $DirectionWrapper$Type} from "packages/dev/latvian/mods/rhino/mod/wrapper/$DirectionWrapper"
 
 declare global {
-const JavaMath: typeof $Math
 const LootType: typeof $LootContextType
-const LycheeLootContextParams: typeof $LycheeLootContextParams
 const Platform: typeof $PlatformWrapper
-const HOUR: double
-const global: $HashMap<(any), (any)>
 const OutputItem: typeof $OutputItem
-const IngredientHelper: $IngredientForgeHelper
 const RotationAxis: typeof $RotationAxis
-const Vec4f: typeof $Vector4f
 const Feature: typeof $Feature
-const Notification: typeof $NotificationBuilder
 const InteractionResult: typeof $InteractionResult
-const Matrix3f: typeof $Matrix3f
-const ResourceLocation: typeof $ResourceLocation
 const Painter: $Painter
 const Items: typeof $Items
 const MINUTE: double
 const BlockPos: typeof $BlockPos
+const Client: $Minecraft
+const SoundType: typeof $SoundType
+const Fluid: typeof $FluidWrapper
+const LycheeReference: typeof $Reference
+const Duration: typeof $Duration
+const LootContextParams: typeof $LootContextParams
+const Matrix4f: typeof $Matrix4f
+const LootEntry: typeof $LootEntryWrapper
+const KMath: typeof $KMath
+const Stats: typeof $Stats
+const Block: typeof $BlockWrapper
+const Interval: $IntervalJS
+const JavaMath: typeof $Math
+const LycheeLootContextParams: typeof $LycheeLootContextParams
+const HOUR: double
+const global: $HashMap<(any), (any)>
+const IngredientHelper: $IngredientForgeHelper
+const Vec4f: typeof $Vector4f
+const Notification: typeof $NotificationBuilder
+const Matrix3f: typeof $Matrix3f
+const ResourceLocation: typeof $ResourceLocation
 const Structures: typeof $Structures
 const BlockProperties: typeof $BlockStateProperties
 const Component: typeof $TextWrapper
-const Client: $Minecraft
-const SoundType: typeof $SoundType
+const SimChat: typeof $SimChatBindings
 const console: $ConsoleJS
 const Java: $JavaWrapper
 const JsonIO: typeof $JsonIO
 const Vec3i: typeof $Vec3i
 const Blocks: typeof $Blocks
 const DamageSource: typeof $DamageSource
-const Fluid: typeof $FluidWrapper
 const Quaternionf: typeof $Quaternionf
-const LycheeReference: typeof $Reference
 const SDRP: typeof $SDRPKubeJSWrapper
-const Duration: typeof $Duration
 const Text: typeof $TextWrapper
 const Vec3f: typeof $Vector3f
 const ConfigJS: typeof $Bindings
 const Vec3d: typeof $Vec3
-const LootContextParams: typeof $LootContextParams
-const Matrix4f: typeof $Matrix4f
-const LootEntry: typeof $LootEntryWrapper
-const KMath: typeof $KMath
 const InputItem: typeof $InputItem
-const Stats: typeof $Stats
-const Block: typeof $BlockWrapper
 const SECOND: double
-const Interval: $IntervalJS
 export import NBT = $NBTUtils
 export import Facing = $DirectionWrapper
 export import Color = $ColorWrapper

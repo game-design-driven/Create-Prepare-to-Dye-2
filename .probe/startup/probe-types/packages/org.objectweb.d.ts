@@ -63,8 +63,8 @@ public "getDimensions"(): integer
 public "getElementType"(): $Type
 public static "getObjectType"(arg0: string): $Type
 public "getOpcode"(arg0: integer): integer
-public static "getArgumentCount"(arg0: string): integer
 public "getArgumentCount"(): integer
+public static "getArgumentCount"(arg0: string): integer
 get "descriptor"(): string
 get "returnType"(): $Type
 get "size"(): integer
