@@ -107,7 +107,10 @@ When ready to push, [fork the repo](https://github.com/game-design-driven/Create
 git remote add origin https://github.com/YOUR_USERNAME/Create-Prepare-to-Dye-2.git
 ```
 
+Note about figura: Figura, the mod we use for the automaton model has a lot of online features that in this pack are fully disabled. You are welcome to enable them yourself if needed.
+
 [Join us on Discord](https://discord.gg/v8cZ83kTPY)   
 [Play now on Modrinth](https://modrinth.com/modpack/Create-Prepare-to-Dye-2)
 
 [![Discord Banner 3](https://discordapp.com/api/guilds/890222432605057044/widget.png?style=banner3)](https://discord.gg/v8cZ83kTPY)
+
