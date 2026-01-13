@@ -6,9 +6,7 @@ var COLORS = [
   "gray", "light_gray", "cyan", "purple", "blue", "brown", "green", "red", "black"
 ];
 
-=
 // ITEM HIDING - hide colored variants to reduce clutter
-=
 
 JEIEvents.hideItems(function(event) {
   for (var i = 0; i < COLORS.length; i++) {
@@ -58,9 +56,7 @@ JEIEvents.hideItems(function(event) {
   }
 });
 
-=
 // INFO PAGE GENERATION - auto-generates EMI info recipes for items with .emi.info translations
-=
 
 ClientEvents.lang("en_us", function(event) {
   var infoPages = {};
