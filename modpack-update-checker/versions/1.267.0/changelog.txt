@@ -1,0 +1,29 @@
+## [1.267.0](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/compare/1.266.0...1.267.0) (2026-01-13)
+
+
+### Features
+
+* add Advanced Loot Info ([eedbd5f](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/eedbd5f67f86c0617a49ede2ff8d69dacf27f118))
+
+
+### chores
+
+* probejs gen ([5f9cc66](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/5f9cc66cc8545b2ed5d9c2cee340b2eaff667eb1))
+
+
+### Documentation and Localization
+
+* add note about figure to readme ([e7e9b90](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/e7e9b905b6045dacbc6d26ee1abf787dc34428f1))
+
+
+### Minor tweaks
+
+* remove crafting on a stick leftovers ([eee5b89](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/eee5b890946fdf657020b0b91487e93087ded6c4))
+
+
+### Fixes
+
+* change figura server ip to 127.0.0.1 ([7c5fda7](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/7c5fda7093c5da9d8948527c8c0fda8e2596f593))
+* emi script invalid chars ([1092bed](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/1092bed590982907308c57ae68431ed1eed9ff16))
+
+
