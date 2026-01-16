@@ -1,0 +1,13 @@
+### [1.267.6](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/compare/1.267.5...1.267.6) (2026-01-16)
+
+
+### Modlist related changes
+
+* add ColumnQuickSwap to 0.2.0 ([0302401](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/03024012041ecc49e0257f71c87a03ce5f5c02a3))
+
+
+### chores
+
+* autopublish 2026-01-16T13:25:46Z ([345fef7](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/345fef7c281f74e708266c95aee6fd87cb14a766))
+
+
