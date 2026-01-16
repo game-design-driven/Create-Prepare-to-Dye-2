@@ -1,0 +1,22 @@
+
+#Typing Delay Settings
+#Controls how long the 'typing' indicator shows before messages appear.
+#Delay is calculated as: text.length / charsPerSecond, clamped to min/max.
+[typingDelay]
+	#Minimum typing delay in seconds
+	#Range: 0.0 ~ 30.0
+	minDelay = 0.3
+	#Maximum typing delay in seconds
+	#Range: 1.0 ~ 60.0
+	maxDelay = 3.0
+	#Simulated typing speed (characters per second)
+	#Range: 1.0 ~ 100.0
+	charsPerSecond = 100.0
+
+#Permission Settings
+[permissions]
+	#Required permission level to use /simchat commands (0-4)
+	#0 = all players, 1 = moderators, 2 = gamemaster, 3 = admin, 4 = owner
+	#Range: 0 ~ 4
+	commandPermissionLevel = 4
+

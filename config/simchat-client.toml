@@ -1,0 +1,50 @@
+
+#Sound Settings
+[sound]
+	#Sound to play when receiving a message.
+	#Use Minecraft resource location format (e.g., 'minecraft:block.note_block.bell').
+	#Leave empty to disable notification sound.
+	notificationSound = "minecraft:block.note_block.bell"
+	#Volume for notification sound (0.0 - 1.0)
+	#Range: 0.0 ~ 1.0
+	notificationVolume = 0.5
+
+#Toast Notification Settings
+[toast]
+	#Show toast notifications when receiving messages
+	showToasts = true
+	#How long toasts are displayed (seconds)
+	#Range: 1.0 ~ 30.0
+	toastDuration = 5.0
+
+#Animation Settings
+[animation]
+	#Speed of typing indicator animation (milliseconds per dot)
+	#Range: 100 ~ 2000
+	typingAnimationSpeed = 400
+
+#UI Dimension Settings
+[ui]
+	#Width of the entity list sidebar (pixels). Drag the divider in-game to resize.
+	#Range: 60 ~ 2000
+	sidebarWidth = 60
+	#Size of avatar images in chat (pixels)
+	#Range: 16 ~ 64
+	avatarSize = 32
+	#Padding between messages (pixels)
+	#Range: 2 ~ 20
+	messagePadding = 8
+	#Height of each entity in the sidebar list (pixels)
+	#Range: 32 ~ 80
+	entityListItemHeight = 48
+	#Sort mode for conversation list (0 = Recent, 1 = Alphabetical)
+	#Range: 0 ~ 1
+	sidebarSortMode = 0
+
+#Team Settings
+[team]
+	#Show toast notifications when a teammate clicks an action
+	notifyTeammateActions = true
+	#Play notification sound when a teammate clicks an action
+	teammateActionSound = true
+

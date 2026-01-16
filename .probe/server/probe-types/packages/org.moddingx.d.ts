@@ -22,39 +22,39 @@ static readonly "TYPE": $RecipeType<($EmptyRecipe)>
 constructor(arg0: $ResourceLocation$Type)
 
 public static "empty"(arg0: $ResourceLocation$Type): $FinishedRecipe
-public "getId"(): $ResourceLocation
 public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
+public "getId"(): $ResourceLocation
+public "isSpecial"(): boolean
+public "assemble"(arg0: $Container$Type, arg1: $RegistryAccess$Type): $ItemStack
+public "matches"(arg0: $Container$Type, arg1: $Level$Type): boolean
 public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
 public "getRemainingItems"(arg0: $Container$Type): $NonNullList<($ItemStack)>
 public "getIngredients"(): $NonNullList<($Ingredient)>
 public "getToastSymbol"(): $ItemStack
 public "getSerializer"(): $RecipeSerializer<(any)>
-public "assemble"(arg0: $Container$Type, arg1: $RegistryAccess$Type): $ItemStack
-public "matches"(arg0: $Container$Type, arg1: $Level$Type): boolean
-public "isSpecial"(): boolean
 public "showNotification"(): boolean
 public "isIncomplete"(): boolean
-public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
-public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
+public "getType"(): $ResourceLocation
 public "getGroup"(): string
 public "setGroup"(group: string): void
 public "getOrCreateId"(): $ResourceLocation
 public "getSchema"(): $RecipeSchema
-public "getType"(): $ResourceLocation
+public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
+public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
 public "getMod"(): string
 public "hasInput"(match: $ReplacementMatch$Type): boolean
 public "hasOutput"(match: $ReplacementMatch$Type): boolean
 get "id"(): $ResourceLocation
+get "special"(): boolean
 get "ingredients"(): $NonNullList<($Ingredient)>
 get "toastSymbol"(): $ItemStack
 get "serializer"(): $RecipeSerializer<(any)>
-get "special"(): boolean
 get "incomplete"(): boolean
+get "type"(): $ResourceLocation
 get "group"(): string
 set "group"(value: string)
 get "orCreateId"(): $ResourceLocation
 get "schema"(): $RecipeSchema
-get "type"(): $ResourceLocation
 get "mod"(): string
 }
 /**
@@ -82,8 +82,8 @@ export class $EmptyRecipe$Serializer implements $RecipeSerializer<($EmptyRecipe)
 static readonly "INSTANCE": $EmptyRecipe$Serializer
 
 
-public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $EmptyRecipe
 public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $EmptyRecipe
+public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $EmptyRecipe
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $EmptyRecipe$Type): void
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): $EmptyRecipe
@@ -102,8 +102,9 @@ export type $EmptyRecipe$Serializer_ = $EmptyRecipe$Serializer$Type;
 }}
 declare module "packages/org/moddingx/libx/command/$EnumArgument2" {
 import {$Suggestions, $Suggestions$Type} from "packages/com/mojang/brigadier/suggestion/$Suggestions"
-import {$CompletableFuture, $CompletableFuture$Type} from "packages/java/util/concurrent/$CompletableFuture"
 import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
+import {$StringReader, $StringReader$Type} from "packages/com/mojang/brigadier/$StringReader"
+import {$CompletableFuture, $CompletableFuture$Type} from "packages/java/util/concurrent/$CompletableFuture"
 import {$Collection, $Collection$Type} from "packages/java/util/$Collection"
 import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$SuggestionsBuilder, $SuggestionsBuilder$Type} from "packages/com/mojang/brigadier/suggestion/$SuggestionsBuilder"
@@ -113,9 +114,10 @@ import {$CommandContext, $CommandContext$Type} from "packages/com/mojang/brigadi
 export class $EnumArgument2<T extends $Enum<(T)>> implements $ArgumentType<(T)> {
 
 
+public "parse"(arg0: $StringReader$Type): T
+public static "enumArgument"<R extends $Enum<(R)>>(arg0: $Class$Type<(R)>): $EnumArgument2<(R)>
 public "listSuggestions"<S>(arg0: $CommandContext$Type<(S)>, arg1: $SuggestionsBuilder$Type): $CompletableFuture<($Suggestions)>
 public "getExamples"(): $Collection<(string)>
-public static "enumArgument"<R extends $Enum<(R)>>(arg0: $Class$Type<(R)>): $EnumArgument2<(R)>
 get "examples"(): $Collection<(string)>
 }
 /**
@@ -165,10 +167,10 @@ export class $EnumArgument2$Info implements $ArgumentTypeInfo<($EnumArgument2<(a
 static readonly "INSTANCE": $EnumArgument2$Info
 
 
-public "unpack"(arg0: $EnumArgument2$Type<(any)>): $EnumArgument2$Info$Template
-public "serializeToJson"(arg0: $EnumArgument2$Info$Template$Type, arg1: $JsonObject$Type): void
-public "deserializeFromNetwork"(arg0: $FriendlyByteBuf$Type): $EnumArgument2$Info$Template
 public "serializeToNetwork"(arg0: $EnumArgument2$Info$Template$Type, arg1: $FriendlyByteBuf$Type): void
+public "deserializeFromNetwork"(arg0: $FriendlyByteBuf$Type): $EnumArgument2$Info$Template
+public "serializeToJson"(arg0: $EnumArgument2$Info$Template$Type, arg1: $JsonObject$Type): void
+public "unpack"(arg0: $EnumArgument2$Type<(any)>): $EnumArgument2$Info$Template
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

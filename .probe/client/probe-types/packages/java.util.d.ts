@@ -1406,6 +1406,37 @@ export type $Properties$Type = ($Properties);
 declare global {
 export type $Properties_ = $Properties$Type;
 }}
+declare module "packages/java/util/$AbstractQueue" {
+import {$Collection, $Collection$Type} from "packages/java/util/$Collection"
+import {$AbstractCollection, $AbstractCollection$Type} from "packages/java/util/$AbstractCollection"
+import {$Queue, $Queue$Type} from "packages/java/util/$Queue"
+
+export class $AbstractQueue<E> extends $AbstractCollection<(E)> implements $Queue<(E)> {
+
+
+public "add"(arg0: E): boolean
+public "remove"(): E
+public "clear"(): void
+public "addAll"(arg0: $Collection$Type<(any)>): boolean
+public "element"(): E
+public "poll"(): E
+public "peek"(): E
+public "offer"(arg0: E): boolean
+public "equals"(arg0: any): boolean
+public "hashCode"(): integer
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $AbstractQueue$Type<E> = ($AbstractQueue<(E)>);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $AbstractQueue_<E> = $AbstractQueue$Type<(E)>;
+}}
 declare module "packages/java/util/jar/$Attributes" {
 import {$BiConsumer, $BiConsumer$Type} from "packages/java/util/function/$BiConsumer"
 import {$Function, $Function$Type} from "packages/java/util/function/$Function"
@@ -2325,8 +2356,8 @@ export interface $ScheduledExecutorService extends $ExecutorService {
 
  "schedule"(arg0: $Runnable$Type, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(any)>
  "schedule"<V>(arg0: $Callable$Type<(V)>, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(V)>
- "scheduleAtFixedRate"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
  "scheduleWithFixedDelay"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
+ "scheduleAtFixedRate"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
  "shutdown"(): void
  "isShutdown"(): boolean
  "submit"(arg0: $Runnable$Type): $Future<(any)>
@@ -6096,6 +6127,59 @@ export type $Stream$Type<T> = ($Stream<(T)>);
  */
 declare global {
 export type $Stream_<T> = $Stream$Type<(T)>;
+}}
+declare module "packages/java/util/concurrent/$ConcurrentLinkedQueue" {
+import {$Serializable, $Serializable$Type} from "packages/java/io/$Serializable"
+import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
+import {$Collection, $Collection$Type} from "packages/java/util/$Collection"
+import {$Predicate, $Predicate$Type} from "packages/java/util/function/$Predicate"
+import {$AbstractQueue, $AbstractQueue$Type} from "packages/java/util/$AbstractQueue"
+import {$Iterator, $Iterator$Type} from "packages/java/util/$Iterator"
+import {$Spliterator, $Spliterator$Type} from "packages/java/util/$Spliterator"
+import {$Queue, $Queue$Type} from "packages/java/util/$Queue"
+
+export class $ConcurrentLinkedQueue<E> extends $AbstractQueue<(E)> implements $Queue<(E)>, $Serializable {
+
+constructor()
+constructor(arg0: $Collection$Type<(any)>)
+
+public "add"(arg0: E): boolean
+public "remove"(arg0: any): boolean
+public "toString"(): string
+public "clear"(): void
+public "isEmpty"(): boolean
+public "size"(): integer
+public "toArray"(): (any)[]
+public "toArray"<T>(arg0: (T)[]): (T)[]
+public "iterator"(): $Iterator<(E)>
+public "contains"(arg0: any): boolean
+public "spliterator"(): $Spliterator<(E)>
+public "addAll"(arg0: $Collection$Type<(any)>): boolean
+public "forEach"(arg0: $Consumer$Type<(any)>): void
+public "poll"(): E
+public "peek"(): E
+public "removeIf"(arg0: $Predicate$Type<(any)>): boolean
+public "removeAll"(arg0: $Collection$Type<(any)>): boolean
+public "retainAll"(arg0: $Collection$Type<(any)>): boolean
+public "offer"(arg0: E): boolean
+public "remove"(): E
+public "element"(): E
+public "equals"(arg0: any): boolean
+public "hashCode"(): integer
+public "containsAll"(arg0: $Collection$Type<(any)>): boolean
+get "empty"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ConcurrentLinkedQueue$Type<E> = ($ConcurrentLinkedQueue<(E)>);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $ConcurrentLinkedQueue_<E> = $ConcurrentLinkedQueue$Type<(E)>;
 }}
 declare module "packages/java/util/stream/$BaseStream" {
 import {$AutoCloseable, $AutoCloseable$Type} from "packages/java/lang/$AutoCloseable"

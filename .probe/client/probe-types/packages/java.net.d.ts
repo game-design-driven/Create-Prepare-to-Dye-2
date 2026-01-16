@@ -175,23 +175,23 @@ public "setLength"(arg0: integer): void
 public "getAddress"(): $InetAddress
 public "getPort"(): integer
 public "getOffset"(): integer
-public "setPort"(arg0: integer): void
-public "getData"(): (byte)[]
-public "setData"(arg0: (byte)[]): void
-public "setData"(arg0: (byte)[], arg1: integer, arg2: integer): void
-public "getSocketAddress"(): $SocketAddress
 public "setSocketAddress"(arg0: $SocketAddress$Type): void
+public "getData"(): (byte)[]
+public "setData"(arg0: (byte)[], arg1: integer, arg2: integer): void
+public "setData"(arg0: (byte)[]): void
+public "setPort"(arg0: integer): void
+public "getSocketAddress"(): $SocketAddress
 public "setAddress"(arg0: $InetAddress$Type): void
 get "length"(): integer
 set "length"(value: integer)
 get "address"(): $InetAddress
 get "port"(): integer
 get "offset"(): integer
-set "port"(value: integer)
+set "socketAddress"(value: $SocketAddress$Type)
 get "data"(): (byte)[]
 set "data"(value: (byte)[])
+set "port"(value: integer)
 get "socketAddress"(): $SocketAddress
-set "socketAddress"(value: $SocketAddress$Type)
 set "address"(value: $InetAddress$Type)
 }
 /**

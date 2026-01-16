@@ -109,13 +109,6 @@ public "pop"(): $ConfigEventJS
  */
 public "pop"(amount: integer): $ConfigEventJS
 /**
- * Adds and returns a string config value
- * 
- * @param name - The name of the config option
- * @param defaultValue - The default value of the config option
- */
-public "stringValue"(name: string, defaultValue: string): $ForgeConfigSpec$ConfigValue<(string)>
-/**
  * Adds and returns a string config value option
  * 
  * @param name - The name of the config option
@@ -123,6 +116,13 @@ public "stringValue"(name: string, defaultValue: string): $ForgeConfigSpec$Confi
  * @param allowedValues - An array of strings, the values that are valid for this config option, should include the default value
  */
 public "stringValue"(name: string, defaultValue: string, allowedValues: (string)[]): $ForgeConfigSpec$ConfigValue<(string)>
+/**
+ * Adds and returns a string config value
+ * 
+ * @param name - The name of the config option
+ * @param defaultValue - The default value of the config option
+ */
+public "stringValue"(name: string, defaultValue: string): $ForgeConfigSpec$ConfigValue<(string)>
 /**
  * Adds a returns a string config option with a validator for the configured value
  * 
@@ -140,6 +140,13 @@ public "stringValueWithPredicate"(name: string, defaultValue: string, validator:
  */
 public "stringListValue"(name: string, defaultValues: (string)[], validator: $Predicate$Type<(string)>): $ForgeConfigSpec$ConfigValue<($List<(any)>)>
 /**
+ * Adds and returns an EnumValue config, with the enum class being pulled from the provided default enum value
+ * 
+ * @param name - The name of the config option
+ * @param defaultValue - The default value, must be an enum object
+ */
+public "enumValue"<T extends $Enum<(any)>>(name: string, defaultValue: T): $ForgeConfigSpec$EnumValue<(any)>
+/**
  * Adds and returns an EnumValue config
  * 
  * @param name - The name of the config option
@@ -147,13 +154,6 @@ public "stringListValue"(name: string, defaultValues: (string)[], validator: $Pr
  * @param enumValues - A list of all allowed values
  */
 public "enumValue"<T extends $Enum<(T)>>(name: string, defaultValue: string, enumValues: (string)[]): $ForgeConfigSpec$EnumValue<(any)>
-/**
- * Adds and returns an EnumValue config, with the enum class being pulled from the provided default enum value
- * 
- * @param name - The name of the config option
- * @param defaultValue - The default value, must be an enum object
- */
-public "enumValue"<T extends $Enum<(any)>>(name: string, defaultValue: T): $ForgeConfigSpec$EnumValue<(any)>
 set "name"(value: string)
 }
 /**

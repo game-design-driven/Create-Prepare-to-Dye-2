@@ -76,6 +76,8 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $Item$Properties$Type)
 
 public "getBytes"(arg0: $ItemStack$Type): integer
+public "getChargeRate"(arg0: $ItemStack$Type): double
+public "addToMainCreativeTab"(arg0: $CreativeModeTab$Output$Type): void
 public "consumeItem"(arg0: $ItemStack$Type, arg1: $AEItemKey$Type, arg2: boolean): boolean
 public "cycleColors"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: integer): void
 public "getActiveColor"(arg0: $ItemStack$Type): $AEColor
@@ -90,9 +92,7 @@ public "getFuzzyMode"(arg0: $ItemStack$Type): $FuzzyMode
 public "setFuzzyMode"(arg0: $ItemStack$Type, arg1: $FuzzyMode$Type): void
 public static "createFullColorApplicator"(): $ItemStack
 public "setActiveColor"(arg0: $ItemStack$Type, arg1: $AEColor$Type): void
-public "getChargeRate"(arg0: $ItemStack$Type): double
 public "getUpgrades"(arg0: $ItemStack$Type): $IUpgradeInventory
-public "addToMainCreativeTab"(arg0: $CreativeModeTab$Output$Type): void
 public "useOn"(arg0: $UseOnContext$Type): $InteractionResult
 public "interactLivingEntity"(arg0: $ItemStack$Type, arg1: $Player$Type, arg2: $LivingEntity$Type, arg3: $InteractionHand$Type): $InteractionResult
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
@@ -101,9 +101,9 @@ public "getName"(arg0: $ItemStack$Type): $Component
 public "getKeyType"(): $AEKeyType
 public "onWheel"(arg0: $ItemStack$Type, arg1: boolean): void
 public "getColor"(arg0: $ItemStack$Type): $ItemStack
-public "isStorageCell"(arg0: $ItemStack$Type): boolean
-public "getCellTooltipImage"(arg0: $ItemStack$Type): $Optional<($TooltipComponent)>
 public "addCellInformationToTooltip"(arg0: $ItemStack$Type, arg1: $List$Type<($Component$Type)>): void
+public "getCellTooltipImage"(arg0: $ItemStack$Type): $Optional<($TooltipComponent)>
+public "isStorageCell"(arg0: $ItemStack$Type): boolean
 public "isEditable"(arg0: $ItemStack$Type): boolean
 get "idleDrain"(): double
 get "keyType"(): $AEKeyType
@@ -185,7 +185,7 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $Item$Properties$Type)
 
 public "getBytes"(arg0: $ItemStack$Type): integer
-public static "getDamageFromPenetration"(arg0: float): integer
+public "getChargeRate"(arg0: $ItemStack$Type): double
 public "getBytesPerType"(arg0: $ItemStack$Type): integer
 public "getTotalTypes"(arg0: $ItemStack$Type): integer
 public "isBlackListed"(arg0: $ItemStack$Type, arg1: $AEKey$Type): boolean
@@ -194,16 +194,16 @@ public "getIdleDrain"(): double
 public "getConfigInventory"(arg0: $ItemStack$Type): $ConfigInventory
 public "getFuzzyMode"(arg0: $ItemStack$Type): $FuzzyMode
 public "setFuzzyMode"(arg0: $ItemStack$Type, arg1: $FuzzyMode$Type): void
-public "getChargeRate"(arg0: $ItemStack$Type): double
+public static "getDamageFromPenetration"(arg0: float): integer
 public "getUpgrades"(arg0: $ItemStack$Type): $IUpgradeInventory
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "getTooltipImage"(arg0: $ItemStack$Type): $Optional<($TooltipComponent)>
 public "getKeyType"(): $AEKeyType
 public "fireCannon"(arg0: $Level$Type, arg1: $ItemStack$Type, arg2: $Player$Type, arg3: $LookDirection$Type): boolean
-public "isStorageCell"(arg0: $ItemStack$Type): boolean
-public "getCellTooltipImage"(arg0: $ItemStack$Type): $Optional<($TooltipComponent)>
 public "addCellInformationToTooltip"(arg0: $ItemStack$Type, arg1: $List$Type<($Component$Type)>): void
+public "getCellTooltipImage"(arg0: $ItemStack$Type): $Optional<($TooltipComponent)>
+public "isStorageCell"(arg0: $ItemStack$Type): boolean
 public "isEditable"(arg0: $ItemStack$Type): boolean
 get "idleDrain"(): double
 get "keyType"(): $AEKeyType
@@ -294,9 +294,9 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type, arg1: $QuartzToolType$Type)
 
-public "getMenuHost"(arg0: $Player$Type, arg1: integer, arg2: $ItemStack$Type, arg3: $BlockPos$Type): $ItemMenuHost
 public "getCraftingRemainingItem"(arg0: $ItemStack$Type): $ItemStack
 public "hasCraftingRemainingItem"(arg0: $ItemStack$Type): boolean
+public "getMenuHost"(arg0: $Player$Type, arg1: integer, arg2: $ItemStack$Type, arg3: $BlockPos$Type): $ItemMenuHost
 public "useOn"(arg0: $UseOnContext$Type): $InteractionResult
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 }
@@ -412,8 +412,8 @@ constructor(arg0: $Item$Properties$Type)
 
 public static "wrap"(arg0: $GenericStack$Type): $ItemStack
 public static "wrap"(arg0: $AEKey$Type, arg1: long): $ItemStack
-public "unwrapAmount"(arg0: $ItemStack$Type): long
 public "addToMainCreativeTab"(arg0: $CreativeModeTab$Output$Type): void
+public "unwrapAmount"(arg0: $ItemStack$Type): long
 public "overrideOtherStackedOnMe"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: $Slot$Type, arg3: $ClickAction$Type, arg4: $Player$Type, arg5: $SlotAccess$Type): boolean
 public "unwrapWhat"(arg0: $ItemStack$Type): $AEKey
 }
@@ -458,14 +458,14 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $DoubleSupplier$Type, arg1: $Item$Properties$Type)
 
+public "shouldCauseReequipAnimation"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: boolean): boolean
+public "addToMainCreativeTab"(arg0: $CreativeModeTab$Output$Type): void
+public "extractAEPower"(arg0: $ItemStack$Type, arg1: double, arg2: $Actionable$Type): double
 public "getAEMaxPower"(arg0: $ItemStack$Type): double
 public "getPowerFlow"(arg0: $ItemStack$Type): $AccessRestriction
-public "extractAEPower"(arg0: $ItemStack$Type, arg1: double, arg2: $Actionable$Type): double
 public "getAECurrentPower"(arg0: $ItemStack$Type): double
 public "injectAEPower"(arg0: $ItemStack$Type, arg1: double, arg2: $Actionable$Type): double
-public "addToMainCreativeTab"(arg0: $CreativeModeTab$Output$Type): void
 public "initCapabilities"(arg0: $ItemStack$Type, arg1: $CompoundTag$Type): $ICapabilityProvider
-public "shouldCauseReequipAnimation"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: boolean): boolean
 public "isBarVisible"(arg0: $ItemStack$Type): boolean
 public "getBarWidth"(arg0: $ItemStack$Type): integer
 public "getBarColor"(arg0: $ItemStack$Type): integer
@@ -625,8 +625,8 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public static "findNetworkToolInv"(arg0: $Player$Type): $NetworkToolMenuHost
 public "onItemUseFirst"(arg0: $ItemStack$Type, arg1: $UseOnContext$Type): $InteractionResult
+public static "findNetworkToolInv"(arg0: $Player$Type): $NetworkToolMenuHost
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "overrideStackedOnOther"(arg0: $ItemStack$Type, arg1: $Slot$Type, arg2: $ClickAction$Type, arg3: $Player$Type): boolean
 public "overrideOtherStackedOnMe"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: $Slot$Type, arg3: $ClickAction$Type, arg4: $Player$Type, arg5: $SlotAccess$Type): boolean
@@ -669,12 +669,12 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public static "createFilter"(arg0: $AEKeyFilter$Type, arg1: $Collection$Type<($ItemStack$Type)>): $IPartitionList
+public static "createItemFilter"(arg0: $Collection$Type<($ItemStack$Type)>): $IPartitionList
 public "getConfigInventory"(arg0: $ItemStack$Type): $ConfigInventory
 public "getFuzzyMode"(arg0: $ItemStack$Type): $FuzzyMode
 public "setFuzzyMode"(arg0: $ItemStack$Type, arg1: $FuzzyMode$Type): void
+public static "createFilter"(arg0: $AEKeyFilter$Type, arg1: $Collection$Type<($ItemStack$Type)>): $IPartitionList
 public "getUpgrades"(arg0: $ItemStack$Type): $IUpgradeInventory
-public static "createItemFilter"(arg0: $Collection$Type<($ItemStack$Type)>): $IPartitionList
 public "isEditable"(arg0: $ItemStack$Type): boolean
 }
 /**
@@ -782,24 +782,24 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public "getData"(arg0: $ItemStack$Type): $CompoundTag
+public static "importGenericSettingsAndNotify"(arg0: any, arg1: $CompoundTag$Type, arg2: $Player$Type): void
+public "doesSneakBypassUse"(arg0: $ItemStack$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $Player$Type): boolean
+public "getColorCode"(arg0: $ItemStack$Type): ($AEColor)[]
+public static "getTintColor"(arg0: $ItemStack$Type, arg1: integer): integer
 public static "importGenericSettings"(arg0: any, arg1: $CompoundTag$Type, arg2: $Player$Type): $Set<($SettingsCategory)>
 public static "exportGenericSettings"(arg0: any, arg1: $CompoundTag$Type): $Set<($SettingsCategory)>
 public "setMemoryCardContents"(arg0: $ItemStack$Type, arg1: string, arg2: $CompoundTag$Type): void
 public "getSettingsName"(arg0: $ItemStack$Type): string
-public "getColorCode"(arg0: $ItemStack$Type): ($AEColor)[]
-public static "getTintColor"(arg0: $ItemStack$Type, arg1: integer): integer
-public "doesSneakBypassUse"(arg0: $ItemStack$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $Player$Type): boolean
-public static "importGenericSettingsAndNotify"(arg0: any, arg1: $CompoundTag$Type, arg2: $Player$Type): void
+public "getData"(arg0: $ItemStack$Type): $CompoundTag
 public "useOn"(arg0: $UseOnContext$Type): $InteractionResult
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "getColor"(arg0: $ItemStack$Type): integer
 public "notifyUser"(arg0: $Player$Type, arg1: $MemoryCardMessages$Type): void
-public "setColor"(arg0: $ItemStack$Type, arg1: integer): void
-public static "dyeArmor"(arg0: $ItemStack$Type, arg1: $List$Type<($DyeItem$Type)>): $ItemStack
 public "hasCustomColor"(arg0: $ItemStack$Type): boolean
 public "clearColor"(arg0: $ItemStack$Type): void
+public "setColor"(arg0: $ItemStack$Type, arg1: integer): void
+public static "dyeArmor"(arg0: $ItemStack$Type, arg1: $List$Type<($DyeItem$Type)>): $ItemStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -857,6 +857,48 @@ export type $EntropyManipulatorItem$Type = ($EntropyManipulatorItem);
 declare global {
 export type $EntropyManipulatorItem_ = $EntropyManipulatorItem$Type;
 }}
+declare module "packages/appeng/items/contents/$PortableCellMenuHost" {
+import {$IConfigManager, $IConfigManager$Type} from "packages/appeng/api/util/$IConfigManager"
+import {$ItemMenuHost, $ItemMenuHost$Type} from "packages/appeng/api/implementations/menuobjects/$ItemMenuHost"
+import {$PowerMultiplier, $PowerMultiplier$Type} from "packages/appeng/api/config/$PowerMultiplier"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$BiConsumer, $BiConsumer$Type} from "packages/java/util/function/$BiConsumer"
+import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
+import {$MEStorage, $MEStorage$Type} from "packages/appeng/api/storage/$MEStorage"
+import {$IPortableTerminal, $IPortableTerminal$Type} from "packages/appeng/api/implementations/menuobjects/$IPortableTerminal"
+import {$AbstractContainerMenu, $AbstractContainerMenu$Type} from "packages/net/minecraft/world/inventory/$AbstractContainerMenu"
+import {$AbstractPortableCell, $AbstractPortableCell$Type} from "packages/appeng/items/tools/powered/$AbstractPortableCell"
+import {$Actionable, $Actionable$Type} from "packages/appeng/api/config/$Actionable"
+import {$ISubMenu, $ISubMenu$Type} from "packages/appeng/menu/$ISubMenu"
+
+export class $PortableCellMenuHost extends $ItemMenuHost implements $IPortableTerminal {
+
+constructor(arg0: $Player$Type, arg1: integer, arg2: $AbstractPortableCell$Type, arg3: $ItemStack$Type, arg4: $BiConsumer$Type<($Player$Type), ($ISubMenu$Type)>)
+
+public "getInventory"(): $MEStorage
+public "extractAEPower"(arg0: double, arg1: $Actionable$Type, arg2: $PowerMultiplier$Type): double
+public "getConfigManager"(): $IConfigManager
+public "onBroadcastChanges"(arg0: $AbstractContainerMenu$Type): boolean
+public "returnToMainMenu"(arg0: $Player$Type, arg1: $ISubMenu$Type): void
+public "getMainMenuIcon"(): $ItemStack
+public "getCloseHotkey"(): string
+get "inventory"(): $MEStorage
+get "configManager"(): $IConfigManager
+get "mainMenuIcon"(): $ItemStack
+get "closeHotkey"(): string
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $PortableCellMenuHost$Type = ($PortableCellMenuHost);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $PortableCellMenuHost_ = $PortableCellMenuHost$Type;
+}}
 declare module "packages/appeng/items/materials/$EnergyCardItem" {
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
@@ -908,8 +950,8 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $Item$Properties$Type)
 
 public "toString"(): string
-public "addToMainCreativeTab"(arg0: $CreativeModeTab$Output$Type): void
 public "getRegistryName"(): $ResourceLocation
+public "addToMainCreativeTab"(arg0: $CreativeModeTab$Output$Type): void
 get "registryName"(): $ResourceLocation
 }
 /**
@@ -962,6 +1004,7 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $Item$Properties$Type, arg1: $ItemLike$Type, arg2: $ItemLike$Type, arg3: double, arg4: integer, arg5: integer, arg6: integer, arg7: $AEKeyType$Type)
 
 public "getBytes"(arg0: $ItemStack$Type): integer
+public "onItemUseFirst"(arg0: $ItemStack$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "getBytesPerType"(arg0: $ItemStack$Type): integer
 public "getTotalTypes"(arg0: $ItemStack$Type): integer
 public "getIdleDrain"(): double
@@ -969,17 +1012,16 @@ public "getConfigInventory"(arg0: $ItemStack$Type): $ConfigInventory
 public "getFuzzyMode"(arg0: $ItemStack$Type): $FuzzyMode
 public "setFuzzyMode"(arg0: $ItemStack$Type, arg1: $FuzzyMode$Type): void
 public "getUpgrades"(arg0: $ItemStack$Type): $IUpgradeInventory
-public "onItemUseFirst"(arg0: $ItemStack$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "getTooltipImage"(arg0: $ItemStack$Type): $Optional<($TooltipComponent)>
 public "getKeyType"(): $AEKeyType
 public static "getColor"(arg0: $ItemStack$Type, arg1: integer): integer
-public "isStorageCell"(arg0: $ItemStack$Type): boolean
+public "addCellInformationToTooltip"(arg0: $ItemStack$Type, arg1: $List$Type<($Component$Type)>): void
 public "getCellTooltipImage"(arg0: $ItemStack$Type): $Optional<($TooltipComponent)>
 public "isBlackListed"(arg0: $ItemStack$Type, arg1: $AEKey$Type): boolean
 public "storableInStorageCell"(): boolean
-public "addCellInformationToTooltip"(arg0: $ItemStack$Type, arg1: $List$Type<($Component$Type)>): void
+public "isStorageCell"(arg0: $ItemStack$Type): boolean
 public "isEditable"(arg0: $ItemStack$Type): boolean
 get "idleDrain"(): double
 get "keyType"(): $AEKeyType
@@ -1024,6 +1066,9 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
+public "createFacadeForItemUnchecked"(arg0: $ItemStack$Type): $ItemStack
+public "onItemUseFirst"(arg0: $ItemStack$Type, arg1: $UseOnContext$Type): $InteractionResult
+public "addToMainCreativeTab"(arg0: $CreativeModeTab$Output$Type): void
 public "createPartFromItemStack"(arg0: $ItemStack$Type, arg1: $Direction$Type): $FacadePart
 public static "canPlaceFacade"(arg0: $IPartHost$Type, arg1: $IFacadePart$Type): boolean
 public static "createFacade"(arg0: $ItemStack$Type, arg1: $Direction$Type): $IFacadePart
@@ -1031,9 +1076,6 @@ public "getTextureItem"(arg0: $ItemStack$Type): $ItemStack
 public "createFacadeForItem"(arg0: $ItemStack$Type, arg1: boolean): $ItemStack
 public "getTextureBlockState"(arg0: $ItemStack$Type): $BlockState
 public "createFromID"(arg0: integer): $ItemStack
-public "addToMainCreativeTab"(arg0: $CreativeModeTab$Output$Type): void
-public "onItemUseFirst"(arg0: $ItemStack$Type, arg1: $UseOnContext$Type): $InteractionResult
-public "createFacadeForItemUnchecked"(arg0: $ItemStack$Type): $ItemStack
 public "getName"(arg0: $ItemStack$Type): $Component
 }
 /**
@@ -1199,17 +1241,17 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $DoubleSupplier$Type, arg1: $Item$Properties$Type)
 
 public "getChargeRate"(arg0: $ItemStack$Type): double
-public "getUpgrades"(arg0: $ItemStack$Type): $IUpgradeInventory
-public "openFromInventory"(arg0: $Player$Type, arg1: integer): boolean
-public "getMenuType"(): $MenuType<(any)>
-public "getLinkedPosition"(arg0: $ItemStack$Type): $GlobalPos
 public "getLinkedGrid"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $Player$Type): $IGrid
 public "getMenuHost"(arg0: $Player$Type, arg1: integer, arg2: $ItemStack$Type, arg3: $BlockPos$Type): $ItemMenuHost
 public "getConfigManager"(arg0: $ItemStack$Type): $IConfigManager
+public "openFromInventory"(arg0: $Player$Type, arg1: integer): boolean
+public "getMenuType"(): $MenuType<(any)>
+public "getUpgrades"(arg0: $ItemStack$Type): $IUpgradeInventory
+public "getLinkedPosition"(arg0: $ItemStack$Type): $GlobalPos
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
-public "usePower"(arg0: $Player$Type, arg1: double, arg2: $ItemStack$Type): boolean
 public "hasPower"(arg0: $Player$Type, arg1: double, arg2: $ItemStack$Type): boolean
+public "usePower"(arg0: $Player$Type, arg1: double, arg2: $ItemStack$Type): boolean
 public "asItem"(): $Item
 get "menuType"(): $MenuType<(any)>
 }
@@ -1531,15 +1573,15 @@ export class $NetworkToolMenuHost extends $ItemMenuHost implements $InternalInve
 
 constructor(arg0: $Player$Type, arg1: integer, arg2: $ItemStack$Type, arg3: $IInWorldGridNodeHost$Type)
 
-public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
-public "saveChanges"(): void
 public "getInventory"(): $InternalInventory
-public "getGridHost"(): $IInWorldGridNodeHost
+public "saveChanges"(): void
+public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
 public "getInternalInventory"(): $InternalInventory
+public "getGridHost"(): $IInWorldGridNodeHost
 public "isClientSide"(): boolean
 get "inventory"(): $InternalInventory
-get "gridHost"(): $IInWorldGridNodeHost
 get "internalInventory"(): $InternalInventory
+get "gridHost"(): $IInWorldGridNodeHost
 get "clientSide"(): boolean
 }
 /**
@@ -1592,8 +1634,8 @@ export type $PaintBallItem_ = $PaintBallItem$Type;
 declare module "packages/appeng/items/tools/powered/$WirelessCraftingTerminalItem" {
 import {$ItemMenuHost, $ItemMenuHost$Type} from "packages/appeng/api/implementations/menuobjects/$ItemMenuHost"
 import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
-import {$MenuType, $MenuType$Type} from "packages/net/minecraft/world/inventory/$MenuType"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$MenuType, $MenuType$Type} from "packages/net/minecraft/world/inventory/$MenuType"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$IGridLinkableHandler, $IGridLinkableHandler$Type} from "packages/appeng/api/features/$IGridLinkableHandler"
@@ -1614,8 +1656,8 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $DoubleSupplier$Type, arg1: $Item$Properties$Type)
 
-public "getMenuType"(): $MenuType<(any)>
 public "getMenuHost"(arg0: $Player$Type, arg1: integer, arg2: $ItemStack$Type, arg3: $BlockPos$Type): $ItemMenuHost
+public "getMenuType"(): $MenuType<(any)>
 public "asItem"(): $Item
 get "menuType"(): $MenuType<(any)>
 }
@@ -1746,11 +1788,11 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type, arg1: integer)
 
-public "isSpatialStorage"(arg0: $ItemStack$Type): boolean
-public "setStoredDimension"(arg0: $ItemStack$Type, arg1: integer, arg2: $BlockPos$Type): void
-public "doSpatialTransition"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $BlockPos$Type, arg4: integer): boolean
-public "getAllocatedPlotId"(arg0: $ItemStack$Type): integer
 public "getMaxStoredDim"(arg0: $ItemStack$Type): integer
+public "getAllocatedPlotId"(arg0: $ItemStack$Type): integer
+public "doSpatialTransition"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $BlockPos$Type, arg4: integer): boolean
+public "setStoredDimension"(arg0: $ItemStack$Type, arg1: integer, arg2: $BlockPos$Type): void
+public "isSpatialStorage"(arg0: $ItemStack$Type): boolean
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 }
 /**
@@ -1800,6 +1842,7 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $AEKeyType$Type, arg1: integer, arg2: $MenuType$Type<(any)>, arg3: $StorageTier$Type, arg4: $Item$Properties$Type, arg5: integer)
 
 public "getBytes"(arg0: $ItemStack$Type): integer
+public "getChargeRate"(arg0: $ItemStack$Type): double
 public "getRecipeId"(): $ResourceLocation
 public "getBytesPerType"(arg0: $ItemStack$Type): integer
 public "getTotalTypes"(arg0: $ItemStack$Type): integer
@@ -1807,17 +1850,16 @@ public "getIdleDrain"(): double
 public "getConfigInventory"(arg0: $ItemStack$Type): $ConfigInventory
 public "getFuzzyMode"(arg0: $ItemStack$Type): $FuzzyMode
 public "setFuzzyMode"(arg0: $ItemStack$Type, arg1: $FuzzyMode$Type): void
-public "getChargeRate"(arg0: $ItemStack$Type): double
 public "getUpgrades"(arg0: $ItemStack$Type): $IUpgradeInventory
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "getTooltipImage"(arg0: $ItemStack$Type): $Optional<($TooltipComponent)>
 public "getKeyType"(): $AEKeyType
 public "getTier"(): $StorageTier
-public "isStorageCell"(arg0: $ItemStack$Type): boolean
+public "addCellInformationToTooltip"(arg0: $ItemStack$Type, arg1: $List$Type<($Component$Type)>): void
 public "getCellTooltipImage"(arg0: $ItemStack$Type): $Optional<($TooltipComponent)>
 public "isBlackListed"(arg0: $ItemStack$Type, arg1: $AEKey$Type): boolean
 public "storableInStorageCell"(): boolean
-public "addCellInformationToTooltip"(arg0: $ItemStack$Type, arg1: $List$Type<($Component$Type)>): void
+public "isStorageCell"(arg0: $ItemStack$Type): boolean
 public static "dyeArmor"(arg0: $ItemStack$Type, arg1: $List$Type<($DyeItem$Type)>): $ItemStack
 public "asItem"(): $Item
 get "recipeId"(): $ResourceLocation
@@ -2011,8 +2053,10 @@ import {$ConfigInventory, $ConfigInventory$Type} from "packages/appeng/util/$Con
 import {$FuzzyMode, $FuzzyMode$Type} from "packages/appeng/api/config/$FuzzyMode"
 import {$AEToolItem, $AEToolItem$Type} from "packages/appeng/hooks/$AEToolItem"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
+import {$PortableCellMenuHost, $PortableCellMenuHost$Type} from "packages/appeng/items/contents/$PortableCellMenuHost"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$DyeItem, $DyeItem$Type} from "packages/net/minecraft/world/item/$DyeItem"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$Actionable, $Actionable$Type} from "packages/appeng/api/config/$Actionable"
 import {$IUpgradeInventory, $IUpgradeInventory$Type} from "packages/appeng/api/upgrades/$IUpgradeInventory"
 import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
@@ -2041,12 +2085,13 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $MenuType$Type<(any)>, arg1: $Item$Properties$Type, arg2: integer)
 
 public "insert"(arg0: $Player$Type, arg1: $ItemStack$Type, arg2: $AEKey$Type, arg3: $AEKeyType$Type, arg4: long, arg5: $Actionable$Type): long
-public "getRecipeId"(): $ResourceLocation
 public "getChargeRate"(arg0: $ItemStack$Type): double
-public "getUpgrades"(arg0: $ItemStack$Type): $IUpgradeInventory
-public "openFromInventory"(arg0: $Player$Type, arg1: integer): boolean
-public "onUpgradesChanged"(arg0: $ItemStack$Type, arg1: $IUpgradeInventory$Type): void
 public "onItemUseFirst"(arg0: $ItemStack$Type, arg1: $UseOnContext$Type): $InteractionResult
+public "getRecipeId"(): $ResourceLocation
+public "getMenuHost"(arg0: $Player$Type, arg1: integer, arg2: $ItemStack$Type, arg3: $BlockPos$Type): $PortableCellMenuHost
+public "onUpgradesChanged"(arg0: $ItemStack$Type, arg1: $IUpgradeInventory$Type): void
+public "openFromInventory"(arg0: $Player$Type, arg1: integer): boolean
+public "getUpgrades"(arg0: $ItemStack$Type): $IUpgradeInventory
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "overrideStackedOnOther"(arg0: $ItemStack$Type, arg1: $Slot$Type, arg2: $ClickAction$Type, arg3: $Player$Type): boolean
 public "overrideOtherStackedOnMe"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: $Slot$Type, arg3: $ClickAction$Type, arg4: $Player$Type, arg5: $SlotAccess$Type): boolean
@@ -2056,10 +2101,10 @@ public "getConfigInventory"(arg0: $ItemStack$Type): $ConfigInventory
 public "getFuzzyMode"(arg0: $ItemStack$Type): $FuzzyMode
 public "setFuzzyMode"(arg0: $ItemStack$Type, arg1: $FuzzyMode$Type): void
 public "isEditable"(arg0: $ItemStack$Type): boolean
-public "setColor"(arg0: $ItemStack$Type, arg1: integer): void
-public static "dyeArmor"(arg0: $ItemStack$Type, arg1: $List$Type<($DyeItem$Type)>): $ItemStack
 public "hasCustomColor"(arg0: $ItemStack$Type): boolean
 public "clearColor"(arg0: $ItemStack$Type): void
+public "setColor"(arg0: $ItemStack$Type, arg1: integer): void
+public static "dyeArmor"(arg0: $ItemStack$Type, arg1: $List$Type<($DyeItem$Type)>): $ItemStack
 public "asItem"(): $Item
 get "recipeId"(): $ResourceLocation
 }

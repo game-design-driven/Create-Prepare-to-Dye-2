@@ -6,5 +6,5 @@
   "popup_button": "key.keyboard.unknown",
   "button_location": 1,
   "connection_toasts": false,
-  "server_ip": "none"
+  "server_ip": "127.0.0.1"
 }

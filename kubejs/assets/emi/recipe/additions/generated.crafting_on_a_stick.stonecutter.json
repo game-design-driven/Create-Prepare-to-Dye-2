@@ -1,7 +1,0 @@
-{
-	"type": "emi:info",
-	"stacks": [
-		"item:crafting_on_a_stick:stonecutter"
-	],
-	"text": "item.crafting_on_a_stick.stonecutter.emi.info"
-}

@@ -124,8 +124,8 @@ declare module "packages/net/blay09/mods/defaultoptions/$DefaultOptionsKeyMappin
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $DefaultOptionsKeyMapping {
 
- "defaultoptions$wasSeen"(): boolean
  "defaultoptions$setSeen"(arg0: boolean): void
+ "defaultoptions$wasSeen"(): boolean
 }
 
 export namespace $DefaultOptionsKeyMapping {
@@ -151,8 +151,8 @@ export interface $AbstractContainerScreenAccessor {
 
  "getImageWidth"(): integer
  "getImageHeight"(): integer
- "callIsHovering"(arg0: $Slot$Type, arg1: double, arg2: double): boolean
  "getHoveredSlot"(): $Slot
+ "callIsHovering"(arg0: $Slot$Type, arg1: double, arg2: double): boolean
  "callRenderSlot"(arg0: $GuiGraphics$Type, arg1: $Slot$Type): void
  "getLeftPos"(): integer
  "getTopPos"(): integer

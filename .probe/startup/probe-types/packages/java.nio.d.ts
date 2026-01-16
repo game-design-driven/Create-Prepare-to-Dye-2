@@ -1264,8 +1264,9 @@ public "connect"(arg0: $SocketAddress$Type): boolean
 public static "open"(arg0: $ProtocolFamily$Type): $SocketChannel
 public static "open"(): $SocketChannel
 public static "open"(arg0: $SocketAddress$Type): $SocketChannel
-public "socket"(): $Socket
+public "bind"(arg0: $SocketAddress$Type): $SocketChannel
 public "finishConnect"(): boolean
+public "socket"(): $Socket
 public "isConnectionPending"(): boolean
 public "getRemoteAddress"(): $SocketAddress
 public "isConnected"(): boolean
@@ -2570,9 +2571,9 @@ public "wakeup"(): $Selector
 public "selectNow"(arg0: $Consumer$Type<($SelectionKey$Type)>): integer
 public "selectNow"(): integer
 public "select"(): integer
-public "select"(arg0: long): integer
 public "select"(arg0: $Consumer$Type<($SelectionKey$Type)>): integer
 public "select"(arg0: $Consumer$Type<($SelectionKey$Type)>, arg1: long): integer
+public "select"(arg0: long): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

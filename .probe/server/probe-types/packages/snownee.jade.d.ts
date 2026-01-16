@@ -27,8 +27,8 @@ declare global {
 export type $Tooltip$Line_ = $Tooltip$Line$Type;
 }}
 declare module "packages/snownee/jade/api/$IWailaClientRegistration" {
-import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
 import {$JadeItemModNameCallback, $JadeItemModNameCallback$Type} from "packages/snownee/jade/api/callback/$JadeItemModNameCallback"
+import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
 import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$Screen, $Screen$Type} from "packages/net/minecraft/client/gui/screens/$Screen"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
@@ -45,8 +45,8 @@ import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$CustomEnchantPower, $CustomEnchantPower$Type} from "packages/snownee/jade/api/platform/$CustomEnchantPower"
 import {$ItemView, $ItemView$Type} from "packages/snownee/jade/api/view/$ItemView"
 import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
-import {$Accessor$ClientHandler, $Accessor$ClientHandler$Type} from "packages/snownee/jade/api/$Accessor$ClientHandler"
 import {$EntityAccessor$Builder, $EntityAccessor$Builder$Type} from "packages/snownee/jade/api/$EntityAccessor$Builder"
+import {$Accessor$ClientHandler, $Accessor$ClientHandler$Type} from "packages/snownee/jade/api/$Accessor$ClientHandler"
 import {$JadeBeforeRenderCallback, $JadeBeforeRenderCallback$Type} from "packages/snownee/jade/api/callback/$JadeBeforeRenderCallback"
 import {$Predicate, $Predicate$Type} from "packages/java/util/function/$Predicate"
 import {$Class, $Class$Type} from "packages/java/lang/$Class"
@@ -63,54 +63,54 @@ import {$FluidView, $FluidView$Type} from "packages/snownee/jade/api/view/$Fluid
 
 export interface $IWailaClientRegistration extends $PlatformWailaClientRegistration {
 
- "addConfig"(arg0: $ResourceLocation$Type, arg1: float, arg2: float, arg3: float, arg4: boolean): void
- "addConfig"(arg0: $ResourceLocation$Type, arg1: integer, arg2: integer, arg3: integer, arg4: boolean): void
- "addConfig"(arg0: $ResourceLocation$Type, arg1: string, arg2: $Predicate$Type<(string)>): void
- "addConfig"(arg0: $ResourceLocation$Type, arg1: $Enum$Type<(any)>): void
- "addConfig"(arg0: $ResourceLocation$Type, arg1: boolean): void
- "maybeLowVisionUser"(): boolean
- "isShowDetailsPressed"(): boolean
- "isServerConnected"(): boolean
+ "addTooltipCollectedCallback"(arg0: integer, arg1: $JadeTooltipCollectedCallback$Type): void
+ "addTooltipCollectedCallback"(arg0: $JadeTooltipCollectedCallback$Type): void
+ "addRenderBackgroundCallback"(arg0: integer, arg1: $JadeRenderBackgroundCallback$Type): void
+ "addRenderBackgroundCallback"(arg0: $JadeRenderBackgroundCallback$Type): void
+ "registerEnergyStorageClient"(arg0: $IClientExtensionProvider$Type<($CompoundTag$Type), ($EnergyView$Type)>): void
+ "isClientFeature"(arg0: $ResourceLocation$Type): boolean
+ "createPluginConfigScreen"(arg0: $Screen$Type, arg1: string): $Screen
+ "registerBlockIcon"(arg0: $IBlockComponentProvider$Type, arg1: $Class$Type<(any)>): void
+ "registerBlockComponent"(arg0: $IBlockComponentProvider$Type, arg1: $Class$Type<(any)>): void
+ "addConfigListener"(arg0: $ResourceLocation$Type, arg1: $Consumer$Type<($ResourceLocation$Type)>): void
+ "registerEntityIcon"(arg0: $IEntityComponentProvider$Type, arg1: $Class$Type<(any)>): void
+ "registerEntityComponent"(arg0: $IEntityComponentProvider$Type, arg1: $Class$Type<(any)>): void
+ "usePickedResult"(arg0: $EntityType$Type<(any)>): void
+ "usePickedResult"(arg0: $Block$Type): void
+ "blockAccessor"(): $BlockAccessor$Builder
+ "entityAccessor"(): $EntityAccessor$Builder
+ "addAfterRenderCallback"(arg0: integer, arg1: $JadeAfterRenderCallback$Type): void
+ "addAfterRenderCallback"(arg0: $JadeAfterRenderCallback$Type): void
+ "addBeforeRenderCallback"(arg0: $JadeBeforeRenderCallback$Type): void
+ "addBeforeRenderCallback"(arg0: integer, arg1: $JadeBeforeRenderCallback$Type): void
+ "addRayTraceCallback"(arg0: integer, arg1: $JadeRayTraceCallback$Type): void
+ "addRayTraceCallback"(arg0: $JadeRayTraceCallback$Type): void
+ "addItemModNameCallback"(arg0: $JadeItemModNameCallback$Type): void
+ "addItemModNameCallback"(arg0: integer, arg1: $JadeItemModNameCallback$Type): void
+ "registerItemStorageClient"(arg0: $IClientExtensionProvider$Type<($ItemStack$Type), ($ItemView$Type)>): void
+ "registerFluidStorageClient"(arg0: $IClientExtensionProvider$Type<($CompoundTag$Type), ($FluidView$Type)>): void
  "registerProgressClient"(arg0: $IClientExtensionProvider$Type<($CompoundTag$Type), ($ProgressView$Type)>): void
+ "isServerConnected"(): boolean
+ "isShowDetailsPressed"(): boolean
+ "maybeLowVisionUser"(): boolean
  "getServerData"(): $CompoundTag
  "setServerData"(arg0: $CompoundTag$Type): void
  "getBlockCamouflage"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type): $ItemStack
  "markAsClientFeature"(arg0: $ResourceLocation$Type): void
  "markAsServerFeature"(arg0: $ResourceLocation$Type): void
- "isClientFeature"(arg0: $ResourceLocation$Type): boolean
  "registerAccessorHandler"<T extends $Accessor<(any)>>(arg0: $Class$Type<(T)>, arg1: $Accessor$ClientHandler$Type<(T)>): void
  "getAccessorHandler"(arg0: $Class$Type<(any)>): $Accessor$ClientHandler<($Accessor<(any)>)>
- "addConfigListener"(arg0: $ResourceLocation$Type, arg1: $Consumer$Type<($ResourceLocation$Type)>): void
- "registerBlockIcon"(arg0: $IBlockComponentProvider$Type, arg1: $Class$Type<(any)>): void
- "registerBlockComponent"(arg0: $IBlockComponentProvider$Type, arg1: $Class$Type<(any)>): void
- "registerEntityIcon"(arg0: $IEntityComponentProvider$Type, arg1: $Class$Type<(any)>): void
- "registerEntityComponent"(arg0: $IEntityComponentProvider$Type, arg1: $Class$Type<(any)>): void
- "usePickedResult"(arg0: $Block$Type): void
- "usePickedResult"(arg0: $EntityType$Type<(any)>): void
- "blockAccessor"(): $BlockAccessor$Builder
- "entityAccessor"(): $EntityAccessor$Builder
- "addAfterRenderCallback"(arg0: $JadeAfterRenderCallback$Type): void
- "addAfterRenderCallback"(arg0: integer, arg1: $JadeAfterRenderCallback$Type): void
- "addBeforeRenderCallback"(arg0: $JadeBeforeRenderCallback$Type): void
- "addBeforeRenderCallback"(arg0: integer, arg1: $JadeBeforeRenderCallback$Type): void
- "addRayTraceCallback"(arg0: $JadeRayTraceCallback$Type): void
- "addRayTraceCallback"(arg0: integer, arg1: $JadeRayTraceCallback$Type): void
- "addItemModNameCallback"(arg0: $JadeItemModNameCallback$Type): void
- "addItemModNameCallback"(arg0: integer, arg1: $JadeItemModNameCallback$Type): void
- "createPluginConfigScreen"(arg0: $Screen$Type, arg1: string): $Screen
- "registerItemStorageClient"(arg0: $IClientExtensionProvider$Type<($ItemStack$Type), ($ItemView$Type)>): void
- "registerFluidStorageClient"(arg0: $IClientExtensionProvider$Type<($CompoundTag$Type), ($FluidView$Type)>): void
- "addTooltipCollectedCallback"(arg0: $JadeTooltipCollectedCallback$Type): void
- "addTooltipCollectedCallback"(arg0: integer, arg1: $JadeTooltipCollectedCallback$Type): void
- "addRenderBackgroundCallback"(arg0: $JadeRenderBackgroundCallback$Type): void
- "addRenderBackgroundCallback"(arg0: integer, arg1: $JadeRenderBackgroundCallback$Type): void
- "registerEnergyStorageClient"(arg0: $IClientExtensionProvider$Type<($CompoundTag$Type), ($EnergyView$Type)>): void
+ "addConfig"(arg0: $ResourceLocation$Type, arg1: integer, arg2: integer, arg3: integer, arg4: boolean): void
+ "addConfig"(arg0: $ResourceLocation$Type, arg1: float, arg2: float, arg3: float, arg4: boolean): void
+ "addConfig"(arg0: $ResourceLocation$Type, arg1: boolean): void
+ "addConfig"(arg0: $ResourceLocation$Type, arg1: string, arg2: $Predicate$Type<(string)>): void
+ "addConfig"(arg0: $ResourceLocation$Type, arg1: $Enum$Type<(any)>): void
  "hideTarget"(arg0: $Block$Type): void
  "hideTarget"(arg0: $EntityType$Type<(any)>): void
- "shouldHide"(arg0: $BlockState$Type): boolean
  "shouldHide"(arg0: $Entity$Type): boolean
- "shouldPick"(arg0: $Entity$Type): boolean
+ "shouldHide"(arg0: $BlockState$Type): boolean
  "shouldPick"(arg0: $BlockState$Type): boolean
+ "shouldPick"(arg0: $Entity$Type): boolean
  "registerCustomEnchantPower"(arg0: $Block$Type, arg1: $CustomEnchantPower$Type): void
 }
 
@@ -146,14 +146,14 @@ export interface $BlockAccessor$Builder {
  "build"(): $BlockAccessor
  "level"(arg0: $Level$Type): $BlockAccessor$Builder
  "hit"(arg0: $BlockHitResult$Type): $BlockAccessor$Builder
+ "requireVerification"(): $BlockAccessor$Builder
  "blockEntity"(arg0: $BlockEntity$Type): $BlockAccessor$Builder
  "blockEntity"(arg0: $Supplier$Type<($BlockEntity$Type)>): $BlockAccessor$Builder
- "showDetails"(arg0: boolean): $BlockAccessor$Builder
  "serverConnected"(arg0: boolean): $BlockAccessor$Builder
- "requireVerification"(): $BlockAccessor$Builder
- "blockState"(arg0: $BlockState$Type): $BlockAccessor$Builder
+ "showDetails"(arg0: boolean): $BlockAccessor$Builder
  "player"(arg0: $Player$Type): $BlockAccessor$Builder
  "serverData"(arg0: $CompoundTag$Type): $BlockAccessor$Builder
+ "blockState"(arg0: $BlockState$Type): $BlockAccessor$Builder
  "fakeBlock"(arg0: $ItemStack$Type): $BlockAccessor$Builder
 }
 
@@ -185,12 +185,12 @@ export interface $Accessor<T extends $HitResult> {
 
  "getTarget"(): any
  "getLevel"(): $Level
- "getAccessorType"(): $Class<(any)>
- "isServerConnected"(): boolean
- "getHitResult"(): T
  "getPickedResult"(): $ItemStack
- "getServerData"(): $CompoundTag
+ "getHitResult"(): T
  "showDetails"(): boolean
+ "isServerConnected"(): boolean
+ "getServerData"(): $CompoundTag
+ "getAccessorType"(): $Class<(any)>
  "getPlayer"(): $Player
  "toNetwork"(arg0: $FriendlyByteBuf$Type): void
  "verifyData"(arg0: $CompoundTag$Type): boolean
@@ -298,8 +298,8 @@ export interface $IBlockComponentProvider extends $IToggleableProvider {
 
  "appendTooltip"(arg0: $ITooltip$Type, arg1: $BlockAccessor$Type, arg2: $IPluginConfig$Type): void
  "getIcon"(arg0: $BlockAccessor$Type, arg1: $IPluginConfig$Type, arg2: $IElement$Type): $IElement
- "isRequired"(): boolean
  "enabledByDefault"(): boolean
+ "isRequired"(): boolean
  "getDefaultPriority"(): integer
  "getUid"(): $ResourceLocation
 }
@@ -390,14 +390,14 @@ export interface $IElement {
  "getSize"(): $Vec2
  "tag"(arg0: $ResourceLocation$Type): $IElement
  "getTag"(): $ResourceLocation
- "align"(arg0: $IElement$Align$Type): $IElement
- "translate"(arg0: $Vec2$Type): $IElement
- "render"(arg0: $GuiGraphics$Type, arg1: float, arg2: float, arg3: float, arg4: float): void
- "getAlignment"(): $IElement$Align
  "getTranslation"(): $Vec2
+ "clearCachedMessage"(): $IElement
  "getCachedSize"(): $Vec2
  "getCachedMessage"(): string
- "clearCachedMessage"(): $IElement
+ "render"(arg0: $GuiGraphics$Type, arg1: float, arg2: float, arg3: float, arg4: float): void
+ "align"(arg0: $IElement$Align$Type): $IElement
+ "translate"(arg0: $Vec2$Type): $IElement
+ "getAlignment"(): $IElement$Align
 }
 
 export namespace $IElement {
@@ -454,8 +454,8 @@ import {$GuiGraphics, $GuiGraphics$Type} from "packages/net/minecraft/client/gui
 export interface $IBoxStyle {
 
  "tag"(arg0: $ResourceLocation$Type): void
- "render"(arg0: $GuiGraphics$Type, arg1: float, arg2: float, arg3: float, arg4: float): void
  "borderWidth"(): float
+ "render"(arg0: $GuiGraphics$Type, arg1: float, arg2: float, arg3: float, arg4: float): void
 }
 
 export namespace $IBoxStyle {
@@ -633,8 +633,8 @@ export interface $IEntityComponentProvider extends $IToggleableProvider {
 
  "appendTooltip"(arg0: $ITooltip$Type, arg1: $EntityAccessor$Type, arg2: $IPluginConfig$Type): void
  "getIcon"(arg0: $EntityAccessor$Type, arg1: $IPluginConfig$Type, arg2: $IElement$Type): $IElement
- "isRequired"(): boolean
  "enabledByDefault"(): boolean
+ "isRequired"(): boolean
  "getDefaultPriority"(): integer
  "getUid"(): $ResourceLocation
 }
@@ -671,21 +671,21 @@ import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 
 export interface $BlockAccessor extends $Accessor<($BlockHitResult)> {
 
+ "isFakeBlock"(): boolean
+ "getFakeBlock"(): $ItemStack
+ "getBlockState"(): $BlockState
+ "getBlockEntity"(): $BlockEntity
  "getSide"(): $Direction
  "getAccessorType"(): $Class<(any)>
- "getBlockEntity"(): $BlockEntity
- "getBlockState"(): $BlockState
- "getFakeBlock"(): $ItemStack
- "isFakeBlock"(): boolean
  "getPosition"(): $BlockPos
  "getBlock"(): $Block
  "getTarget"(): any
  "getLevel"(): $Level
- "isServerConnected"(): boolean
- "getHitResult"(): $BlockHitResult
  "getPickedResult"(): $ItemStack
- "getServerData"(): $CompoundTag
+ "getHitResult"(): $BlockHitResult
  "showDetails"(): boolean
+ "isServerConnected"(): boolean
+ "getServerData"(): $CompoundTag
  "getPlayer"(): $Player
  "toNetwork"(arg0: $FriendlyByteBuf$Type): void
  "verifyData"(arg0: $CompoundTag$Type): boolean
@@ -715,10 +715,10 @@ import {$ITooltip, $ITooltip$Type} from "packages/snownee/jade/api/$ITooltip"
 
 export interface $Accessor$ClientHandler<T extends $Accessor<(any)>> {
 
- "requestData"(arg0: T): void
- "gatherComponents"(arg0: T, arg1: $Function$Type<($IJadeProvider$Type), ($ITooltip$Type)>): void
  "shouldDisplay"(arg0: T): boolean
  "shouldRequestData"(arg0: T): boolean
+ "requestData"(arg0: T): void
+ "gatherComponents"(arg0: T, arg1: $Function$Type<($IJadeProvider$Type), ($ITooltip$Type)>): void
  "getIcon"(arg0: T): $IElement
 }
 
@@ -819,8 +819,8 @@ import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/
 
 export interface $IToggleableProvider extends $IJadeProvider {
 
- "isRequired"(): boolean
  "enabledByDefault"(): boolean
+ "isRequired"(): boolean
  "getDefaultPriority"(): integer
  "getUid"(): $ResourceLocation
 
@@ -852,10 +852,10 @@ export interface $ITooltipRenderer {
 
  "getSize"(): $Vec2
  "setSize"(arg0: $Vec2$Type): void
- "recalculateRealRect"(): void
- "getRealScale"(): float
- "getRealRect"(): $Rect2i
  "recalculateSize"(): void
+ "recalculateRealRect"(): void
+ "getRealRect"(): $Rect2i
+ "getRealScale"(): float
  "getTooltip"(): $Tooltip
  "getIcon"(): $IElement
  "setIcon"(arg0: $IElement$Type): void
@@ -974,8 +974,8 @@ public static "fromContainer"(arg0: $Container$Type, arg1: integer, arg2: intege
  * @deprecated
  */
 public static "compacted"(arg0: $Stream$Type<($ItemStack$Type)>, arg1: integer): $ViewGroup<($ItemStack)>
-public static "groupOf"(arg0: any, arg1: $Accessor$Type<(any)>): $List<($ViewGroup<($ItemStack)>)>
 public static "groupOf"(arg0: $Container$Type, arg1: $Accessor$Type<(any)>): $List<($ViewGroup<($ItemStack)>)>
+public static "groupOf"(arg0: any, arg1: $Accessor$Type<(any)>): $List<($ViewGroup<($ItemStack)>)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1002,12 +1002,12 @@ constructor(arg0: $List$Type<(T)>)
 
 public static "read"<T>(arg0: $CompoundTag$Type, arg1: $Function$Type<($CompoundTag$Type), (T)>): $ViewGroup<(T)>
 public "save"(arg0: $CompoundTag$Type, arg1: $Function$Type<(T), ($CompoundTag$Type)>): void
-public "getExtraData"(): $CompoundTag
 public "setProgress"(arg0: float): void
+public "getExtraData"(): $CompoundTag
 public static "readList"<T>(arg0: $CompoundTag$Type, arg1: string, arg2: $Function$Type<($CompoundTag$Type), (T)>): $List<($ViewGroup<(T)>)>
 public static "saveList"<T>(arg0: $CompoundTag$Type, arg1: string, arg2: $List$Type<($ViewGroup$Type<(T)>)>, arg3: $Function$Type<(T), ($CompoundTag$Type)>): boolean
-get "extraData"(): $CompoundTag
 set "progress"(value: float)
+get "extraData"(): $CompoundTag
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1313,12 +1313,12 @@ import {$IServerDataProvider, $IServerDataProvider$Type} from "packages/snownee/
 
 export interface $IWailaCommonRegistration {
 
+ "registerProgress"<T>(arg0: $IServerExtensionProvider$Type<(T), ($CompoundTag$Type)>, arg1: $Class$Type<(any)>): void
  "registerEntityDataProvider"(arg0: $IServerDataProvider$Type<($EntityAccessor$Type)>, arg1: $Class$Type<(any)>): void
- "registerItemStorage"<T>(arg0: $IServerExtensionProvider$Type<(T), ($ItemStack$Type)>, arg1: $Class$Type<(any)>): void
+ "registerBlockDataProvider"(arg0: $IServerDataProvider$Type<($BlockAccessor$Type)>, arg1: $Class$Type<(any)>): void
  "registerFluidStorage"<T>(arg0: $IServerExtensionProvider$Type<(T), ($CompoundTag$Type)>, arg1: $Class$Type<(any)>): void
  "registerEnergyStorage"<T>(arg0: $IServerExtensionProvider$Type<(T), ($CompoundTag$Type)>, arg1: $Class$Type<(any)>): void
- "registerProgress"<T>(arg0: $IServerExtensionProvider$Type<(T), ($CompoundTag$Type)>, arg1: $Class$Type<(any)>): void
- "registerBlockDataProvider"(arg0: $IServerDataProvider$Type<($BlockAccessor$Type)>, arg1: $Class$Type<(any)>): void
+ "registerItemStorage"<T>(arg0: $IServerExtensionProvider$Type<(T), ($ItemStack$Type)>, arg1: $Class$Type<(any)>): void
 }
 
 export namespace $IWailaCommonRegistration {
@@ -1349,16 +1349,16 @@ import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity
 
 export interface $EntityAccessor extends $Accessor<($EntityHitResult)> {
 
- "getAccessorType"(): $Class<(any)>
  "getRawEntity"(): $Entity
+ "getAccessorType"(): $Class<(any)>
  "getEntity"(): $Entity
  "getTarget"(): any
  "getLevel"(): $Level
- "isServerConnected"(): boolean
- "getHitResult"(): $EntityHitResult
  "getPickedResult"(): $ItemStack
- "getServerData"(): $CompoundTag
+ "getHitResult"(): $EntityHitResult
  "showDetails"(): boolean
+ "isServerConnected"(): boolean
+ "getServerData"(): $CompoundTag
  "getPlayer"(): $Player
  "toNetwork"(arg0: $FriendlyByteBuf$Type): void
  "verifyData"(arg0: $CompoundTag$Type): boolean
@@ -1393,11 +1393,11 @@ export interface $EntityAccessor$Builder {
  "from"(arg0: $EntityAccessor$Type): $EntityAccessor$Builder
  "build"(): $EntityAccessor
  "level"(arg0: $Level$Type): $EntityAccessor$Builder
- "hit"(arg0: $EntityHitResult$Type): $EntityAccessor$Builder
  "hit"(arg0: $Supplier$Type<($EntityHitResult$Type)>): $EntityAccessor$Builder
- "showDetails"(arg0: boolean): $EntityAccessor$Builder
- "serverConnected"(arg0: boolean): $EntityAccessor$Builder
+ "hit"(arg0: $EntityHitResult$Type): $EntityAccessor$Builder
  "requireVerification"(): $EntityAccessor$Builder
+ "serverConnected"(arg0: boolean): $EntityAccessor$Builder
+ "showDetails"(arg0: boolean): $EntityAccessor$Builder
  "player"(arg0: $Player$Type): $EntityAccessor$Builder
  "serverData"(arg0: $CompoundTag$Type): $EntityAccessor$Builder
  "entity"(arg0: $Entity$Type): $EntityAccessor$Builder
@@ -1486,14 +1486,14 @@ export interface $IBoxElement extends $IElement {
  "getSize"(): $Vec2
  "tag"(arg0: $ResourceLocation$Type): $IElement
  "getTag"(): $ResourceLocation
- "align"(arg0: $IElement$Align$Type): $IElement
- "translate"(arg0: $Vec2$Type): $IElement
- "render"(arg0: $GuiGraphics$Type, arg1: float, arg2: float, arg3: float, arg4: float): void
- "getAlignment"(): $IElement$Align
  "getTranslation"(): $Vec2
+ "clearCachedMessage"(): $IElement
  "getCachedSize"(): $Vec2
  "getCachedMessage"(): string
- "clearCachedMessage"(): $IElement
+ "render"(arg0: $GuiGraphics$Type, arg1: float, arg2: float, arg3: float, arg4: float): void
+ "align"(arg0: $IElement$Align$Type): $IElement
+ "translate"(arg0: $Vec2$Type): $IElement
+ "getAlignment"(): $IElement$Align
 }
 
 export namespace $IBoxElement {
@@ -1520,10 +1520,10 @@ export interface $IProgressStyle {
 
  "color"(arg0: integer): $IProgressStyle
  "color"(arg0: integer, arg1: integer): $IProgressStyle
- "overlay"(arg0: $IElement$Type): $IProgressStyle
  "render"(arg0: $GuiGraphics$Type, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float, arg6: $Component$Type): void
- "textColor"(arg0: integer): $IProgressStyle
+ "overlay"(arg0: $IElement$Type): $IProgressStyle
  "vertical"(arg0: boolean): $IProgressStyle
+ "textColor"(arg0: integer): $IProgressStyle
 }
 
 export namespace $IProgressStyle {

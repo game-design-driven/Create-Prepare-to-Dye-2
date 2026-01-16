@@ -77,7 +77,8 @@ StartupEvents.registry("item", (event) => {
   event
     .create("ptdye:trading_transceiver")
     .displayName(
-      "United SPACE consumer union plus plus\u00ae Oscar-Delta\u2122 class Trading Platform\u00ae request transceiver"
+      // "United SPACE consumer union plus plus\u00ae Oscar-Delta\u2122 class Trading Platform\u00ae request transceiver"
+      "Trading Platform Transceiver"
     )
     .unstackable()
     .rarity("epic");

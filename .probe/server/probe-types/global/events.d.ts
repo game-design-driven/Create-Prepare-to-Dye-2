@@ -20,6 +20,7 @@ import {$ServerEventJS, $ServerEventJS$Type} from "packages/dev/latvian/mods/kub
 import {$PlayerChangeDimensionEventJS, $PlayerChangeDimensionEventJS$Type} from "packages/pie/ilikepiefoo/events/$PlayerChangeDimensionEventJS"
 import {$EntitySpawnedEventJS, $EntitySpawnedEventJS$Type} from "packages/dev/latvian/mods/kubejs/entity/$EntitySpawnedEventJS"
 import {$ItemClickedEventJS, $ItemClickedEventJS$Type} from "packages/dev/latvian/mods/kubejs/item/$ItemClickedEventJS"
+import {$RegisterCallbacksKubeEvent, $RegisterCallbacksKubeEvent$Type} from "packages/com/yardenzamir/simchat/integration/kubejs/$RegisterCallbacksKubeEvent"
 import {$BlockLeftClickedEventJS, $BlockLeftClickedEventJS$Type} from "packages/dev/latvian/mods/kubejs/block/$BlockLeftClickedEventJS"
 import {$CheckLivingEntitySpawnEventJS, $CheckLivingEntitySpawnEventJS$Type} from "packages/dev/latvian/mods/kubejs/entity/$CheckLivingEntitySpawnEventJS"
 import {$PlayerRespawnedEventJS, $PlayerRespawnedEventJS$Type} from "packages/dev/latvian/mods/kubejs/player/$PlayerRespawnedEventJS"
@@ -82,11 +83,14 @@ function fishingLootTables(handler: (event: $FishingLootEventJS) => void): void
 function genericLootTables(handler: (event: $GenericLootEventJS) => void): void
 function highPriorityData(handler: (event: $DataPackEventJS) => void): void
 }
+export namespace ArchEvents {
+function handleServer(extra: string, handler: (event: $ProxyEventJS) => void): void
+}
 export namespace NetworkEvents {
 function dataReceived(extra: string, handler: (event: $NetworkEventJS) => void): void
 }
-export namespace ArchEvents {
-function handleServer(extra: string, handler: (event: $ProxyEventJS) => void): void
+export namespace SimChatEvents {
+function registerCallbacks(handler: (event: $RegisterCallbacksKubeEvent) => void): void
 }
 export namespace CommonAddedEvents {
 function entityTame(handler: (event: $EntityTameEventJS) => void): void

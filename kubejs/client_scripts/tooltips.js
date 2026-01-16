@@ -396,13 +396,13 @@ ItemEvents.tooltip(function(event) {
       var reqItems = stored.get("requestedItems");
       var payItems = stored.get("paymentItems");
       if (reqItems || payItems) {
-        text.add(Text.gold("Stored Trade:"));
+        text.add(Text.gold("Trade:"));
         addTradeTooltip(text, reqItems, payItems);
       }
       return;
     }
 
-    text.add(Text.gold("Stored Trade:"));
+    text.add(Text.gold("Trade:"));
     addTradeTooltip(text, tag.get("requestedItems"), tag.get("paymentItems"));
   });
 

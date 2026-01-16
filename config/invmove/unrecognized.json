@@ -36,7 +36,9 @@
     "com.simibubi.create.content.redstone.thresholdSwitch.ThresholdSwitchScreen": true,
     "dev.huskuraft.effortless.forge.gui.MinecraftProxyScreen": true,
     "appeng.client.gui.me.common.TerminalSettingsScreen": true,
-    "com.yardenzamir.personalmesystem.client.CommunicationRelayScreen": true
+    "com.yardenzamir.personalmesystem.client.CommunicationRelayScreen": true,
+    "com.kcw.simchat.client.screen.ChatScreen": true,
+    "com.yardenzamir.simchat.client.screen.ChatScreen": true
   },
   "hideBackground": {
     "dev.emi.emi.screen.RecipeScreen": true,
@@ -59,6 +61,8 @@
     "appeng.client.gui.me.crafting.CraftingStatusScreen": true,
     "com.simibubi.create.content.redstone.thresholdSwitch.ThresholdSwitchScreen": true,
     "appeng.client.gui.me.common.TerminalSettingsScreen": true,
-    "com.yardenzamir.personalmesystem.client.CommunicationRelayScreen": true
+    "com.yardenzamir.personalmesystem.client.CommunicationRelayScreen": true,
+    "com.kcw.simchat.client.screen.ChatScreen": true,
+    "com.yardenzamir.simchat.client.screen.ChatScreen": true
   }
 }

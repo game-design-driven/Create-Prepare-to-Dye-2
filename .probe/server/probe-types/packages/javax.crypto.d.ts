@@ -11,15 +11,15 @@ public "getName"(): string
 public static "getInstance"(arg0: string, arg1: string): $ExemptionMechanism
 public static "getInstance"(arg0: string, arg1: $Provider$Type): $ExemptionMechanism
 public static "getInstance"(arg0: string): $ExemptionMechanism
-public "init"(arg0: $Key$Type, arg1: $AlgorithmParameterSpec$Type): void
 public "init"(arg0: $Key$Type): void
 public "init"(arg0: $Key$Type, arg1: $AlgorithmParameters$Type): void
+public "init"(arg0: $Key$Type, arg1: $AlgorithmParameterSpec$Type): void
 public "getProvider"(): $Provider
-public "genExemptionBlob"(arg0: (byte)[]): integer
-public "genExemptionBlob"(): (byte)[]
-public "genExemptionBlob"(arg0: (byte)[], arg1: integer): integer
 public "isCryptoAllowed"(arg0: $Key$Type): boolean
 public "getOutputSize"(arg0: integer): integer
+public "genExemptionBlob"(arg0: (byte)[], arg1: integer): integer
+public "genExemptionBlob"(arg0: (byte)[]): integer
+public "genExemptionBlob"(): (byte)[]
 get "name"(): string
 get "provider"(): $Provider
 }

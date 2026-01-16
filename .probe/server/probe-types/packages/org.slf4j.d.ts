@@ -135,13 +135,13 @@ export interface $LoggingEventBuilder {
  "log"(arg0: string, ...arg1: (any)[]): void
  "log"(arg0: string, arg1: any, arg2: any): void
  "setCause"(arg0: $Throwable$Type): $LoggingEventBuilder
- "addMarker"(arg0: $Marker$Type): $LoggingEventBuilder
  "setMessage"(arg0: $Supplier$Type<(string)>): $LoggingEventBuilder
  "setMessage"(arg0: string): $LoggingEventBuilder
+ "addMarker"(arg0: $Marker$Type): $LoggingEventBuilder
  "addArgument"(arg0: $Supplier$Type<(any)>): $LoggingEventBuilder
  "addArgument"(arg0: any): $LoggingEventBuilder
- "addKeyValue"(arg0: string, arg1: $Supplier$Type<(any)>): $LoggingEventBuilder
  "addKeyValue"(arg0: string, arg1: any): $LoggingEventBuilder
+ "addKeyValue"(arg0: string, arg1: $Supplier$Type<(any)>): $LoggingEventBuilder
 }
 
 export namespace $LoggingEventBuilder {

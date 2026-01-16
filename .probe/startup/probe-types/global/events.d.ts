@@ -22,13 +22,13 @@ import {$RemoveWorldgenEventJS, $RemoveWorldgenEventJS$Type} from "packages/dev/
 import {$ItemToolTierRegistryEventJS, $ItemToolTierRegistryEventJS$Type} from "packages/dev/latvian/mods/kubejs/item/custom/$ItemToolTierRegistryEventJS"
 
 declare global {
-export namespace WorldgenEvents {
-function add(handler: (event: $AddWorldgenEventJS) => void): void
-function remove(handler: (event: $RemoveWorldgenEventJS) => void): void
-}
 export namespace ArchEvents {
 function registry(handler: (event: $ArchEventRegisterEventJS) => void): void
 function handleStartup(extra: string, handler: (event: $ProxyEventJS) => void): void
+}
+export namespace WorldgenEvents {
+function add(handler: (event: $AddWorldgenEventJS) => void): void
+function remove(handler: (event: $RemoveWorldgenEventJS) => void): void
 }
 export namespace LycheeEvents {
 function customAction(extra: string, handler: (event: $CustomActionEventJS) => void): void
@@ -50,13 +50,13 @@ function modification(handler: (event: $ItemModificationEventJS) => void): void
 function toolTierRegistry(handler: (event: $ItemToolTierRegistryEventJS) => void): void
 function armorTierRegistry(handler: (event: $ItemArmorTierRegistryEventJS) => void): void
 }
-export namespace ClientEvents {
-function init(handler: (event: $ClientInitEventJS) => void): void
-}
 export namespace CreateEvents {
 function boilerHeatHandler(handler: (event: $BoilerHeaterHandlerEvent) => void): void
 function pipeFluidEffect(handler: (event: $SpecialFluidHandlerEvent) => void): void
 function spoutHandler(handler: (event: $SpecialSpoutHandlerEvent) => void): void
+}
+export namespace ClientEvents {
+function init(handler: (event: $ClientInitEventJS) => void): void
 }
 export namespace StartupEvents {
 function init(handler: (event: $StartupEventJS) => void): void

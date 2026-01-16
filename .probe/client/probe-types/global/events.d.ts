@@ -71,11 +71,11 @@ function snippets(handler: (event: $SnippetGenerationEventJS) => void): void
 function assignType(handler: (event: $TypeAssignmentEventJS) => void): void
 function modifyClass(handler: (event: $TypingModificationEventJS) => void): void
 }
-export namespace NetworkEvents {
-function dataReceived(extra: string, handler: (event: $NetworkEventJS) => void): void
-}
 export namespace ArchEvents {
 function handleClient(extra: string, handler: (event: $ProxyEventJS) => void): void
+}
+export namespace NetworkEvents {
+function dataReceived(extra: string, handler: (event: $NetworkEventJS) => void): void
 }
 export namespace LycheeEvents {
 function clickedInfoBadge(extra: string, handler: (event: $ClickedInfoBadgeEventJS) => void): void
@@ -118,12 +118,12 @@ function registerFluidSubtypes(handler: (event: $RegisterFluidSubtypeEventJS) =>
 function registerCategories(handler: (event: $RegisterCategoriesEventJS) => void): void
 function registerRecipeTransferHandlers(handler: (event: $RegisterRecipeTransferHandlersEventJS) => void): void
 }
-export namespace JadeEvents {
-function onClientRegistration(handler: (event: $WailaClientRegistrationEventJS) => void): void
-}
 export namespace Ponder {
 function registry(handler: (event: $PonderRegistryEventJS) => void): void
 function tags(handler: (event: $PonderItemTagEventJS) => void): void
+}
+export namespace JadeEvents {
+function onClientRegistration(handler: (event: $WailaClientRegistrationEventJS) => void): void
 }
 export namespace ItemEvents {
 function rightClicked(extra: $Item$Type, handler: (event: $ItemClickedEventJS) => void): void
