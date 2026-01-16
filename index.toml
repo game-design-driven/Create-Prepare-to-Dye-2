@@ -8842,7 +8842,7 @@ metafile = true
 
 [[files]]
 file = "mods/item-converter.pw.toml"
-hash = "62ed95da862deeb4d02b3ca38461b1f7c17d6ca7a011a43f8ec198d069f5a0a1"
+hash = "b1b886f42c757ca17a9b5cdf02dc41a3e30c043a9b148f96996e841637f53aab"
 metafile = true
 
 [[files]]
