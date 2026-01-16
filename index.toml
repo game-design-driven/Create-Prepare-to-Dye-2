@@ -8964,6 +8964,11 @@ hash = "b8c7497acbf4890b4609b6b20de7affdd3482fc99af975d9ff6b29c075e1d8a7"
 metafile = true
 
 [[files]]
+file = "mods/sim-chat.pw.toml"
+hash = "281e8c45ba2e3654754b77c5d0225f18580f154d9193c365b56910f63bc01702"
+metafile = true
+
+[[files]]
 file = "mods/srdp.pw.toml"
 hash = "ff25194df224f541e642b6ead95bd493050e16ce4b2e5be9629fa63edebedd62"
 metafile = true
