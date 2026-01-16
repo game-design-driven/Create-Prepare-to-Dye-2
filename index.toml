@@ -8717,6 +8717,11 @@ hash = "e3dd03e7fec88831974857e2cdded54dd5c5bdcaa3f6d6248c2800e82db4dd41"
 metafile = true
 
 [[files]]
+file = "mods/column-quick-swap.pw.toml"
+hash = "2004840a92626122a18281843d4e634e23b76e312297786219f669f5f7bee3e9"
+metafile = true
+
+[[files]]
 file = "mods/configjs.pw.toml"
 hash = "6bc214e2144c633c076f6d6f22346d9da034397f691dc1ec915ac8211ad33f50"
 metafile = true

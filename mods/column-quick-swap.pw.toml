@@ -1,0 +1,13 @@
+name = "Column-Quick-Swap"
+filename = "column-quick-swap-e730b9a-dev.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/vYQcU5aT/versions/oxvdr23q/column-quick-swap-e730b9a-dev.jar"
+hash-format = "sha512"
+hash = "7328dee194d4a96a827e42e93e9164fa683b55acc3c0145e8da0f4ff9e28ef4b03d5c2084510155cbe1da1802dc143d3e7c21b8d2b4f8c988b550707d2d35b8a"
+
+[update]
+[update.modrinth]
+mod-id = "vYQcU5aT"
+version = "oxvdr23q"
