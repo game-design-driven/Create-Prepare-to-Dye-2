@@ -1,13 +1,13 @@
 name = "Ptdye Plus"
-filename = "ptdyeplus-2.0.9.jar"
+filename = "ptdyeplus-2.1.0.jar"
 side = "client"
 
 [download]
-url = "https://cdn.modrinth.com/data/ikDjkgLu/versions/FvXmFEdX/ptdyeplus-2.0.9.jar"
+url = "https://cdn.modrinth.com/data/ikDjkgLu/versions/Q2Do8v87/ptdyeplus-2.1.0.jar"
 hash-format = "sha512"
-hash = "2a0dbc03e50746cdb602e05586068deead3bffbcd4842f65921c41730d8304199663518beb064fad1423691223f6df610ecf54ea0eb42e883946f3e7ee2cc1b2"
+hash = "390bef20949b4a7192b169cda42f46139bd48aa180d7da80fef7fc32b281965553e02c26e33a12ad2d60648692dc34f70e5899cf6b2f8cb24ce6305e1f3cdc15"
 
 [update]
 [update.modrinth]
 mod-id = "ikDjkgLu"
-version = "FvXmFEdX"
+version = "Q2Do8v87"
