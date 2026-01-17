@@ -37,8 +37,8 @@
     "dev.huskuraft.effortless.forge.gui.MinecraftProxyScreen": true,
     "appeng.client.gui.me.common.TerminalSettingsScreen": true,
     "com.yardenzamir.personalmesystem.client.CommunicationRelayScreen": true,
-    "com.kcw.simchat.client.screen.ChatScreen": true,
-    "com.yardenzamir.simchat.client.screen.ChatScreen": true
+    "com.yardenzamir.simchat.client.screen.ChatScreen": false,
+    "betteradvancements.common.gui.BetterAdvancementsScreen": true
   },
   "hideBackground": {
     "dev.emi.emi.screen.RecipeScreen": true,
