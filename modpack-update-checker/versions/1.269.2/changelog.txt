@@ -1,0 +1,13 @@
+### [1.269.2](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/compare/1.269.1...1.269.2) (2026-01-17)
+
+
+### Modlist related changes
+
+* add ae2-personal-me-system to 0.2.2 ([1026c8b](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/1026c8b3f175a1d9f0e6da57a84e43a59dee4712))
+
+
+### chores
+
+* autopublish 2026-01-17T13:36:29Z ([c1b8dfc](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/c1b8dfcf1e3b8b2785ac3083da744a7a437b6c32))
+
+
