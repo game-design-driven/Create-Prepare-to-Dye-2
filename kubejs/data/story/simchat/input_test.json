@@ -1,0 +1,20 @@
+{
+  "$schema": "https://raw.githubusercontent.com/game-design-driven/sim-chat/main/schemas/dialogue.schema.json",
+  "entityId": "mayor",
+  "entityName": "Mayor Thompson",
+  "text": "Welcome to our town! What should I call you?",
+  "actions": [
+    {
+      "label": "Enter your name",
+      "playerInput": {
+        "id": "playerName",
+        "maxLength": 32,
+        "pattern": "^[a-zA-Z ]+$",
+        "error": "Name must contain only letters and spaces",
+        "saveAsData": true
+      },
+      "reply": "My name is {input:playerName}.",
+      "commands": ["simchat team title {input:playerName}'s Party"]
+    }
+  ]
+}
