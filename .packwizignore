@@ -2,6 +2,7 @@
 *.mrpack
 
 *.jar
+*.py
 *.zip
 
 /config/jei/recipe-category-sort-order.ini
