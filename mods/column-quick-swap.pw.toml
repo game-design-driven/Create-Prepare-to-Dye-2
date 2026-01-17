@@ -1,13 +1,13 @@
 name = "Column-Quick-Swap"
-filename = "column-quick-swap-0.2.1-dev.jar"
+filename = "column-quick-swap-0.2.2.jar"
 side = "both"
 
 [download]
-url = "https://cdn.modrinth.com/data/vYQcU5aT/versions/g0YyTwRy/column-quick-swap-0.2.1-dev.jar"
+url = "https://cdn.modrinth.com/data/vYQcU5aT/versions/WxV4urDm/column-quick-swap-0.2.2.jar"
 hash-format = "sha512"
-hash = "87d9c561c0f2e00d6ac6ff0b9814231c193780f45e7e70e5fa71d5815a8e5c3538b6db35a0adfa69f7ffe707fd75ee74a1181c3974ebd33a7c1040efaa91c899"
+hash = "5ef067d6c31e730a0e60250fba4e6e10b412b146f24ef64164969dfa2ddf9dcc9419ea4d6d8ffa436b4e4aad7fc36e85584428e1b3389297fc84d95057371cb6"
 
 [update]
 [update.modrinth]
 mod-id = "vYQcU5aT"
-version = "g0YyTwRy"
+version = "WxV4urDm"
