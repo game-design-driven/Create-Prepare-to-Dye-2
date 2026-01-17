@@ -93,5 +93,20 @@
             ],
             "url": "./.vscode/probe.doc-schema.json"
         }
+    ],
+    "VsCodeTaskButtons.showCounter": true,
+    "VsCodeTaskButtons.tasks": [
+        {
+            "label": "$(sync) SimChat Sync",
+            "task": "SimChat: Sync (Chart → JSON)",
+            "tooltip": "Create JSON scaffolds and reformat domain charts",
+            "alignment": "left"
+        },
+        {
+            "label": "$(symbol-namespace) Generate Master",
+            "task": "SimChat: Generate Master Chart",
+            "tooltip": "Generate master chart from all domain charts",
+            "alignment": "left"
+        }
     ]
 }
