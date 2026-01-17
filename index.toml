@@ -1286,7 +1286,7 @@ hash = "48981474996310a7861d97b5aaea8a11ba16d6075c273766daab566848930c09"
 
 [[files]]
 file = "VERSION"
-hash = "938fadd486d2517d40e81117ce188869a70f0518d65c44e32ba8a40cbf06ccda"
+hash = "10d8ac4c8e871cac152db58b3c5ec17e31b5a63584edc9446c0d063faf5573f5"
 
 [[files]]
 file = "config/MouseTweaks.cfg"
@@ -1742,7 +1742,7 @@ hash = "e6692fd7c3b5d4db82c9836c81b02182500bb00c81817919120f514df2bc7f00"
 
 [[files]]
 file = "config/modpack-update-checker/config.json"
-hash = "ea3f9e52a24173485bc79f04a54f50891e9db8226c07ce54e44a27519c7ad82a"
+hash = "89c86213cab1ffa336d83fab4920be91a6ff6bf738cee237c7dd61a54019581e"
 
 [[files]]
 file = "config/modpack-update-checker/modpack-info.txt"
@@ -4966,7 +4966,7 @@ hash = "ded1b3b51c1b47ee3e812ef73dfb4dd423dec7119ed921585bed038c95328c0d"
 
 [[files]]
 file = "kubejs/assets/sdrp/lang/en_us.json"
-hash = "26b55c393f8dfa15f627d4c584d55d21542cf81758f54848265fb54d944c5abc"
+hash = "6ae9342fdddf6c4161865056780891649f64847414f6d24fb1e39054f691418c"
 
 [[files]]
 file = "kubejs/assets/storagedrawers/blockstates/controller.json"
@@ -6110,7 +6110,7 @@ hash = "ab323610254d7b8ce09ca2580b344714c58fd4804d26ee0e2525baa24a148809"
 
 [[files]]
 file = "modpack-update-checker/meta.json"
-hash = "fee6f0a53ab6451c09ece7734336eda4532e4d14e8699c90c12e6173aa044480"
+hash = "811fd23bc9b7f11b041111d3f1d8913d47785480040ba063b358ae51465b9b47"
 
 [[files]]
 file = "modpack-update-checker/versions/1.100.0/changelog.txt"
@@ -8477,6 +8477,10 @@ file = "modpack-update-checker/versions/1.269.4/changelog.txt"
 hash = "02a035185f9b09cc5c6cf00fbc43fdcf62f7973bbbebe269c1fd854ff8afab1b"
 
 [[files]]
+file = "modpack-update-checker/versions/1.269.5/changelog.txt"
+hash = "490a4e0b9e3758d1849545299cf51009a2e844096a8ba4c194b774762cf86ceb"
+
+[[files]]
 file = "modpack-update-checker/versions/1.79.33/changelog.txt"
 hash = "3ffee41ebf2c4f32db44a257c726f8496cc33446635821d2cf364ce80a6bef3e"
 
@@ -9010,7 +9014,7 @@ metafile = true
 
 [[files]]
 file = "mods/item-converter.pw.toml"
-hash = "b1b886f42c757ca17a9b5cdf02dc41a3e30c043a9b148f96996e841637f53aab"
+hash = "c21176de5baef741e8f25d15d99a01aaf4fd873a1561ca3d60c53cec15f81e15"
 metafile = true
 
 [[files]]
