@@ -1,0 +1,17 @@
+{
+  "entityId": "template_tester",
+  "entityName": "Test Bot ({runtime:team:title})",
+  "entitySubtitle": "Time check",
+  "entityImage": "simchat:default",
+  "text": "Current time is {compile:world:time} (compiled at send) vs {runtime:world:time} (live). Day {runtime:world:day}, weather: {runtime:world:weather}.",
+  "actions": [
+    {
+      "label": "Check again",
+      "nextState": "simchat:template_test_time"
+    },
+    {
+      "label": "Back to start",
+      "nextState": "simchat:template_test"
+    }
+  ]
+}

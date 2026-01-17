@@ -1,0 +1,26 @@
+{
+  "entityId": "template_tester",
+  "entityName": "Test Bot ({runtime:team:title})",
+  "entitySubtitle": "Day {runtime:world:day}",
+  "entityImage": "simchat:default",
+  "text": "Hello {player:name}! Your team is '{compile:team:title}' (compile) vs '{runtime:team:title}' (runtime). Current day: {runtime:world:day}. Counter: {runtime:data:test_counter}",
+  "actions": [
+    {
+      "label": "Increment counter",
+      "reply": "I incremented the counter to {runtime:data:test_counter}",
+      "commands": [
+        "simchat data add test_counter 1"
+      ],
+      "nextState": "simchat:template_test_response"
+    },
+    {
+      "label": "Check time ({runtime:world:time})",
+      "reply": "Checking time...",
+      "nextState": "simchat:template_test_time"
+    },
+    {
+      "label": "Static label (compile)",
+      "reply": "This reply shows runtime day: {runtime:world:day}"
+    }
+  ]
+}

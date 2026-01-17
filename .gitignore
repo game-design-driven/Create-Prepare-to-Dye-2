@@ -97,3 +97,4 @@ config/flywheel-client.toml
 /simchat_examples.old
 /kubejs/data/simchat_examples
 /kubejs/data/simchat_examples
+*.pyc

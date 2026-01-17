@@ -1,0 +1,23 @@
+{
+  "entityId": "template_tester",
+  "entityName": "Test Bot ({runtime:team:title})",
+  "entitySubtitle": "Counter: {runtime:data:test_counter}",
+  "entityImage": "simchat:default",
+  "text": "Counter is now {compile:data:test_counter} (compile-time value) or {runtime:data:test_counter} (runtime value). They should match right after sending, but runtime updates live!",
+  "actions": [
+    {
+      "label": "Increment again (+1)",
+      "commands": ["simchat data add test_counter 1"],
+      "nextState": "simchat:template_test_response"
+    },
+    {
+      "label": "Increment by 5",
+      "commands": ["simchat data add test_counter 5"],
+      "nextState": "simchat:template_test_response"
+    },
+    {
+      "label": "Back to start",
+      "nextState": "simchat:template_test"
+    }
+  ]
+}
