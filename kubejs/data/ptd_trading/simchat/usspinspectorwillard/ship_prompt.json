@@ -1,0 +1,19 @@
+{
+  "$schema": "https://raw.githubusercontent.com/game-design-driven/sim-chat/main/schemas/dialogue.schema.json",
+  "entityId": "usspinspectorwillard",
+  "entityName": "Willard",
+  "entitySubtitle": "USSP Compliance Inspector",
+  "text": "Your ship is in Union impound. Standard procedure after an unscheduled landing. It contains your cargo hold, power systems, and whatever equipment you packed. You will need it to build anything worth taxing. Ready?",
+  "actions": [
+    {
+      "label": "Yes, release my ship",
+      "reply": "Release it.",
+      "nextState": "ptd_trading:usspinspectorwillard/give_ship"
+    },
+    {
+      "label": "I have a ship?",
+      "reply": "I have a ship?",
+      "nextState": "ptd_trading:usspinspectorwillard/explain_ship"
+    }
+  ]
+}

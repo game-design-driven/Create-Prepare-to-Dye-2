@@ -1,0 +1,14 @@
+{
+  "$schema": "https://raw.githubusercontent.com/game-design-driven/sim-chat/main/schemas/dialogue.schema.json",
+  "entityId": "usspinspectorwillard",
+  "entityName": "Willard",
+  "entitySubtitle": "USSP Compliance Inspector",
+  "text": "Your ship is in Union impound. Safety audit, cargo manifest, standard seizure protocol. Register, and I can release it to you.",
+  "actions": [
+    {
+      "label": "...Okay",
+      "reply": "Fine. Back to the paperwork.",
+      "nextState": "ptd_trading:usspinspectorwillard/intro"
+    }
+  ]
+}

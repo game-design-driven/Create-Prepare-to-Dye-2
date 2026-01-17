@@ -1,0 +1,19 @@
+{
+  "$schema": "https://raw.githubusercontent.com/game-design-driven/sim-chat/main/schemas/dialogue.schema.json",
+  "entityId": "usspinspectorwillard",
+  "entityName": "Willard",
+  "entitySubtitle": "USSP Compliance Inspector",
+  "text": "The vessel you arrived in. Grounded permanently now—no fuel for orbit, no clearance for launch. But the hull is intact. Storage systems, power core, fabrication tools. Everything you need to bootstrap a production line. Without it, you start with nothing. This rock is barren—no ore, no organics, no salvage.",
+  "actions": [
+    {
+      "label": "Release my ship",
+      "reply": "Release it.",
+      "nextState": "ptd_trading:usspinspectorwillard/give_ship"
+    },
+    {
+      "label": "I'll be fine without one, thanks",
+      "reply": "I'll manage without it.",
+      "nextState": "ptd_trading:usspinspectorwillard/decline_ship"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://raw.githubusercontent.com/game-design-driven/sim-chat/main/schemas/dialogue.schema.json",
+  "entityId": "usspinspectorwillard",
+  "entityName": "Willard",
+  "entitySubtitle": "USSP Compliance Inspector",
+  "text": "Bold. Without that hull you have no storage, no power core, no tools. Just dust and determination. The impound lot does not charge storage fees. Yet.",
+  "actions": [
+    {
+      "label": "On second thought, release my ship",
+      "reply": "Release it.",
+      "nextState": "ptd_trading:usspinspectorwillard/give_ship"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://raw.githubusercontent.com/game-design-driven/sim-chat/main/schemas/dialogue.schema.json",
+  "entityId": "usspinspectorwillard",
+  "entityName": "Willard",
+  "entitySubtitle": "USSP Compliance Inspector",
+  "text": "State your company name for the Union ledger. Keep it short and legal. We can change the records later if you like.",
+  "actions": [
+    {
+      "label": "Enter company name",
+      "playerInput": {
+        "id": "companyName",
+        "maxLength": 32,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9' -]{0,31}$",
+        "error": "Use 1-32 letters, numbers, spaces, apostrophes, or dashes"
+      },
+      "reply": "Register us as {input:companyName}.",
+      "commands": [
+        "simchat team title {input:companyName}",
+        "simchat data set willard_registered 1"
+      ],
+      "nextState": "ptd_trading:usspinspectorwillard/intent"
+    }
+  ]
+}

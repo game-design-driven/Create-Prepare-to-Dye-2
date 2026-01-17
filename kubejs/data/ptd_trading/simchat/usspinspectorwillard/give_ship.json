@@ -1,0 +1,17 @@
+{
+  "$schema": "https://raw.githubusercontent.com/game-design-driven/sim-chat/main/schemas/dialogue.schema.json",
+  "entityId": "usspinspectorwillard",
+  "entityName": "Willard",
+  "entitySubtitle": "USSP Compliance Inspector",
+  "text": "Releasing impound hold. Your ship will be delivered to your designated landing zone. [Placeholder: ship delivery pending implementation]",
+  "actions": [
+    {
+      "label": "Thank you",
+      "reply": "Thank you.",
+      "commands": [
+        "simchat data set ship_released 1"
+      ],
+      "nextState": "ptd_trading:usspinspectorwillard/end"
+    }
+  ]
+}

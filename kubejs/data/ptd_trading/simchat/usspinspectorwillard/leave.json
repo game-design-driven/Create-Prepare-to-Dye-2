@@ -1,0 +1,19 @@
+{
+  "$schema": "https://raw.githubusercontent.com/game-design-driven/sim-chat/main/schemas/dialogue.schema.json",
+  "entityId": "usspinspectorwillard",
+  "entityName": "Willard",
+  "entitySubtitle": "USSP Compliance Inspector",
+  "text": "Your contract specifies production and trade on this rock. We are incentevised but not obliged to set you up for trade and production, nothing more. You can file a complaint with the void, or get to work.",
+  "actions": [
+    {
+      "label": "Fine. Register me",
+      "reply": "Register me.",
+      "nextState": "ptd_trading:usspinspectorwillard/name_provided"
+    },
+    {
+      "label": "I'm not registering",
+      "reply": "I'm not registering.",
+      "nextState": "ptd_trading:usspinspectorwillard/decline_registration"
+    }
+  ]
+}

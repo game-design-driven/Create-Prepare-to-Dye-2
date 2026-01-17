@@ -1,0 +1,24 @@
+{
+  "$schema": "https://raw.githubusercontent.com/game-design-driven/sim-chat/main/schemas/dialogue.schema.json",
+  "entityId": "usspinspectorwillard",
+  "entityName": "Willard",
+  "entitySubtitle": "USSP Compliance Inspector",
+  "text": "Then you are an unlicensed operator. No registry, no trade routes. No trade routes, no resupply. No resupply, no spare parts. The Union does not punish; it prices.",
+  "actions": [
+    {
+      "label": "Oh.. I see, in that case.. Where do I sign?",
+      "reply": "Where do I sign?",
+      "nextState": "ptd_trading:usspinspectorwillard/name_provided"
+    },
+    {
+      "label": "Prefer to not provide a name",
+      "reply": "I still don't want to name it.",
+      "nextState": "ptd_trading:usspinspectorwillard/explain_registration"
+    },
+    {
+      "label": "I'll figure it out myself. Goodbye",
+      "reply": "I'll figure it out myself.",
+      "nextState": "ptd_trading:usspinspectorwillard/change_mind"
+    }
+  ]
+}

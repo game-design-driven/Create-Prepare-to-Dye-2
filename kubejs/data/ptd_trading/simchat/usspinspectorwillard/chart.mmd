@@ -1,0 +1,45 @@
+%%{init:{"theme":"default","flowchart":{"curve":"linear"},"themeCSS":".flowchart-link{stroke-dasharray:16 10 !important;stroke-linecap:round !important;animation:dash 1.6s linear infinite !important}@keyframes dash{to{stroke-dashoffset:-52}}marker path{stroke-dasharray:none !important;animation:none !important}"}}%%
+flowchart LR
+
+n_intro(intro — Willard):::n_entity_usspinspectorwillard
+    n_intro -->|"Sure thing" | n_name_provided
+    n_intro -->|"Where am I? What is this? Who are you??" | n_confused
+    n_intro -->|"Where is my ship?" | n_ship_where_intro
+    n_intro -->|"Can I leave?" | n_leave
+n_ship_where_intro(ship_where_intro — Willard):::n_entity_usspinspectorwillard
+    n_ship_where_intro -->|"...Okay" | n_intro
+n_leave(leave_denied — Willard):::n_entity_usspinspectorwillard
+    n_leave -->|"Fine. Register me" | n_name_provided
+    n_leave -->|"I'm not registering" | n_decline_registration
+n_confused(confused — Willard):::n_entity_usspinspectorwillard
+    n_confused -->|"Alright, fine" | n_name_provided
+    n_confused -->|"I'm not part of your shitty union" | n_decline_registration
+    n_confused -->|"Can we just not have a name for our company?" | n_explain_registration
+n_decline_registration(decline_registration — Willard):::n_entity_usspinspectorwillard
+    n_decline_registration -->|"Oh.. I see, in that case.. Where do I sign?" | n_name_provided
+    n_decline_registration -->|"Prefer to not provide a name" | n_explain_registration
+    n_decline_registration -->|"I'll figure it out myself. Goodbye" | n_change_mind
+n_change_mind(change_mind — Willard):::n_entity_usspinspectorwillard
+    n_change_mind -->|"Call me if you change your mind" | n_name_provided
+n_explain_registration(explain_registration — Willard):::n_entity_usspinspectorwillard
+    n_explain_registration -->|"Alright, fine" | n_name_provided
+    n_explain_registration -->|"Yes, put me down without a name" | n_intent
+n_name_provided(name_provided — Willard):::n_entity_usspinspectorwillard
+    n_name_provided -->|"What's next?" | n_intent
+n_intent(intent — Willard):::n_entity_usspinspectorwillard
+    n_intent -->|"Build a thriving empire" | n_ship_prompt
+    n_intent -->|"Make piles of salt" | n_ship_prompt
+    n_intent -->|"Pay my debts" | n_ship_prompt
+    n_intent -->|"Make the best production lines this system has ever seen" | n_ship_prompt
+    n_intent -->|"No idea" | n_ship_prompt
+n_ship_prompt(ship_prompt — Willard):::n_entity_usspinspectorwillard
+    n_ship_prompt -->|"Yes, get me my spaceship" | n_give_ship
+    n_ship_prompt -->|"I have a ship?" | n_explain_ship
+n_explain_ship(explain_ship — Willard):::n_entity_usspinspectorwillard
+    n_explain_ship -->|"Yes, get me my spaceship" | n_give_ship
+    n_explain_ship -->|"I'll be fine without one, thanks" | n_decline_ship
+n_decline_ship(decline_ship — Willard):::n_entity_usspinspectorwillard
+    n_decline_ship -->|"On second thought, I do need a ship" | n_give_ship
+n_give_ship(give_ship — Willard):::n_entity_usspinspectorwillard
+    n_give_ship -->|"Thank you" | n_end
+n_end(end — Willard):::n_entity_usspinspectorwillard

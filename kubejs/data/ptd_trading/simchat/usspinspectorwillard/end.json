@@ -1,0 +1,8 @@
+{
+  "$schema": "https://raw.githubusercontent.com/game-design-driven/sim-chat/main/schemas/dialogue.schema.json",
+  "entityId": "usspinspectorwillard",
+  "entityName": "Willard",
+  "entitySubtitle": "USSP Compliance Inspector",
+  "text": "Welcome to the ledger, {runtime:team:title}. The market is thin, the planet is thinner, and your success is now taxable. Begin production, establish a trade loop, and keep your receipts. I will return when the Union wants its cut.",
+  "actions": []
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://raw.githubusercontent.com/game-design-driven/sim-chat/main/schemas/dialogue.schema.json",
+  "entityId": "usspinspectorwillard",
+  "entityName": "Willard",
+  "entitySubtitle": "USSP Compliance Inspector",
+  "text": "A name is how the market finds you, how the tax ledger binds you, and how the Union files your liabilities. If you insist on anonymity, I can register you as a provisional entity under \"Provisional Concern\". You can rename later with `simchat team title <new title>`.",
+  "actions": [
+    {
+      "label": "Alright, fine",
+      "reply": "Alright, give me a proper name.",
+      "nextState": "ptd_trading:usspinspectorwillard/name_provided"
+    },
+    {
+      "label": "Yes, put me down without a name",
+      "reply": "Provisional is fine.",
+      "nextState": "ptd_trading:usspinspectorwillard/intent"
+    }
+  ]
+}

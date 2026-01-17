@@ -1,0 +1,14 @@
+{
+  "$schema": "https://raw.githubusercontent.com/game-design-driven/sim-chat/main/schemas/dialogue.schema.json",
+  "entityId": "usspinspectorwillard",
+  "entityName": "Willard",
+  "entitySubtitle": "USSP Compliance Inspector",
+  "text": "The wasteland is vast and the Union is patient. When you tire of independence, the paperwork is here.",
+  "actions": [
+    {
+      "label": "Call me if you change your mind",
+      "reply": "...Right. Let's just register.",
+      "nextState": "ptd_trading:usspinspectorwillard/name_provided"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://raw.githubusercontent.com/game-design-driven/sim-chat/main/schemas/dialogue.schema.json",
+  "entityId": "usspinspectorwillard",
+  "entityName": "Willard",
+  "entitySubtitle": "USSP Compliance Inspector",
+  "text": "You are on a dead planet with a live mortgage. The United Space Consumer Union Plus Plus owns the trade routes and the courts. I am the clerk between you and legal market access. If your memory banks are corrupted, blame the hard landing. If your intent is unclear, choose a name and let commerce sort the rest.",
+  "actions": [
+    {
+      "label": "Alright, fine",
+      "reply": "Alright. Let's do it.",
+      "nextState": "ptd_trading:usspinspectorwillard/name_provided"
+    },
+    {
+      "label": "I'm not part of your shitty union",
+      "reply": "I'm not part of your union.",
+      "nextState": "ptd_trading:usspinspectorwillard/decline_registration"
+    },
+    {
+      "label": "Can we just not have a name for our company?",
+      "reply": "Can I skip the name for now?",
+      "nextState": "ptd_trading:usspinspectorwillard/explain_registration"
+    }
+  ]
+}
