@@ -1,0 +1,13 @@
+### [1.269.1](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/compare/1.269.0...1.269.1) (2026-01-17)
+
+
+### Fixes
+
+* ignore py scripts in packaging ([89f088a](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/89f088afa4cdf2bc1f2cde253875e388d0b909f0))
+
+
+### chores
+
+* autopublish 2026-01-17T13:32:53Z ([b594038](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/b594038656d9224b322bb7407e7b8c3735349433))
+
+

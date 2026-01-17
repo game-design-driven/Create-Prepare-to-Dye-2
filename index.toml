@@ -1286,7 +1286,7 @@ hash = "48981474996310a7861d97b5aaea8a11ba16d6075c273766daab566848930c09"
 
 [[files]]
 file = "VERSION"
-hash = "e4249627517c62f978217beb3da04df3b5f4ebfc1c7259ea1b6a8a20588ca3ce"
+hash = "f99f11e0274d8c331718826ac510c708688a2c757510a53cb10de25094823d8c"
 
 [[files]]
 file = "config/MouseTweaks.cfg"
@@ -1742,7 +1742,7 @@ hash = "e6692fd7c3b5d4db82c9836c81b02182500bb00c81817919120f514df2bc7f00"
 
 [[files]]
 file = "config/modpack-update-checker/config.json"
-hash = "44f2c674ba8d83228a68da2d8b2ae5c55962c8347896cebd0c313f58738c4f0e"
+hash = "2071b8cc8963422cba0251971e51509baf6e496fdae0c93baa941df3bb1b8eb8"
 
 [[files]]
 file = "config/modpack-update-checker/modpack-info.txt"
@@ -4966,7 +4966,7 @@ hash = "ded1b3b51c1b47ee3e812ef73dfb4dd423dec7119ed921585bed038c95328c0d"
 
 [[files]]
 file = "kubejs/assets/sdrp/lang/en_us.json"
-hash = "a32cd2b2f179d150e34616973767c02fcfc3b308004e04df8e2f1bc4d8da98f1"
+hash = "05f9ce61117f1c1ceafb2ba6474c663be74abc8060e434c622e2e1a4ea5684fc"
 
 [[files]]
 file = "kubejs/assets/storagedrawers/blockstates/controller.json"
@@ -5677,10 +5677,6 @@ file = "kubejs/data/ptd/worldgen/placed_feature/replace_terracotta/replace9.json
 hash = "ce6d92118c1344fad4f2b6ba5e098d62191d70b6b51afab730b1431200246f01"
 
 [[files]]
-file = "kubejs/data/ptd_trading/simchat/generate_mermaid.py"
-hash = "b0b00bbe1a73a79a763efc9dba75a81e7eaf680097c5caf8ef59ce6cf8abbb3b"
-
-[[files]]
 file = "kubejs/data/ptd_trading/simchat/readme.md"
 hash = "b30b6250d988e67cb218dfae4fed08b0ea334944d461179a7cbda75db803b150"
 
@@ -6114,7 +6110,7 @@ hash = "ab323610254d7b8ce09ca2580b344714c58fd4804d26ee0e2525baa24a148809"
 
 [[files]]
 file = "modpack-update-checker/meta.json"
-hash = "f753856002f5cff800dab5eb063edf63733b18d4e2fb19d51b9502b414e6a994"
+hash = "83632c4ec5a83b1491c2dffab048f8087a4c0158281b61fd57655da7acd46495"
 
 [[files]]
 file = "modpack-update-checker/versions/1.100.0/changelog.txt"
@@ -8469,6 +8465,10 @@ file = "modpack-update-checker/versions/1.269.0/changelog.txt"
 hash = "e663267068db18d15a8fb1d7ad4a410b2f4e5797a8f271a40b39d1bb7bee2aa0"
 
 [[files]]
+file = "modpack-update-checker/versions/1.269.1/changelog.txt"
+hash = "1a7bb9bc8c1a0dfea29d8ba979219417d563171625f2216340a31f18c3548003"
+
+[[files]]
 file = "modpack-update-checker/versions/1.79.33/changelog.txt"
 hash = "3ffee41ebf2c4f32db44a257c726f8496cc33446635821d2cf364ce80a6bef3e"
 
@@ -8815,10 +8815,6 @@ hash = "7664bf7006aa8fcd3bf092879ae4a6ac991145f220922ce14a506baa7a50d564"
 [[files]]
 file = "modpack-update-checker/versions/1.98.0/changelog.txt"
 hash = "6065f548d5b11a56b27d3ca0565eeee0f68995691069be49ffb5c3dde6b88f7d"
-
-[[files]]
-file = "modpack-update-checker/versions/collect.py"
-hash = "b993c588f962b18a4915f49be618a02895b5abfb4159f76867e8625c10300485"
 
 [[files]]
 file = "modrinth banner white.png"
@@ -9261,18 +9257,6 @@ hash = "38be3820fc816086d658a7e1b35f74fb061afd13ea84bf341722468d1bea9568"
 [[files]]
 file = "server.old/start.sh"
 hash = "c7a47ddd80ff8c0c93bbc3302610254b4fe233141d5696dfe04a11bc37ac2da1"
-
-[[files]]
-file = "tools/check_mod_sync.py"
-hash = "7ca3b505b9b0eef53a39ee3b1d957c16e6d0402a9220985fb94939e2ddff1451"
-
-[[files]]
-file = "tools/check_rank.py"
-hash = "54a735ad03f2353e61b420286739df23be08f823bf43ffcf811e36f1ecad1a36"
-
-[[files]]
-file = "tools/create_original_name_aliases.py"
-hash = "187630e70f792622e69a420750d7da6cfb481395af579cd0dd0753a929dc9ab1"
 
 [[files]]
 file = "tools/generate_varient_list.sh"
