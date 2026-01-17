@@ -61,7 +61,6 @@ var TOOLTIP_ITEMS = [
   "wares:delivery_agreement",
   "wares:completed_delivery_agreement",
   "supplementaries:ash",
-  "crafting_on_a_stick:stonecutter",
   // Dyeing
   "minecraft:redstone",
   "minecraft:redstone_ore",
