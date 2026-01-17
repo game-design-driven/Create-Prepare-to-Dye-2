@@ -1,13 +1,13 @@
 name = "ae2-personal-me-system"
-filename = "personalmesystem-fb23aae.jar"
+filename = "personalmesystem-0.2.2.jar"
 side = "both"
 
 [download]
-url = "https://cdn.modrinth.com/data/8bfAOFcs/versions/hDJpvwz1/personalmesystem-fb23aae.jar"
+url = "https://cdn.modrinth.com/data/8bfAOFcs/versions/aSAWzuQM/personalmesystem-0.2.2.jar"
 hash-format = "sha512"
-hash = "663d32371217a29a6a72d55d548afba13eaa91979f13042183db1c2492109224d719ef86f44b52bd5fa02c88cb05c99951a676eaef25f1cb65faea1d5f105207"
+hash = "a05554c7ed79c7ddd699e6c790572d745e5b8e8a1d1fa7b5350b9d76750e0230130c582531dfd989e8f25c7282d5a84eb3fcac7cb505a59ea484d69c1f7b6095"
 
 [update]
 [update.modrinth]
 mod-id = "8bfAOFcs"
-version = "hDJpvwz1"
+version = "aSAWzuQM"
