@@ -1,0 +1,47 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "SimChat: Sync (Chart → JSON)",
+            "type": "shell",
+            "command": "uv",
+            "args": [
+                "run",
+                "python",
+                "generate_mermaid.py",
+                "sync"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/kubejs/data/ptd_trading/simchat"
+            },
+            "presentation": {
+                "reveal": "silent",
+                "panel": "shared",
+                "clear": false,
+                "close": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "SimChat: Generate Master Chart",
+            "type": "shell",
+            "command": "uv",
+            "args": [
+                "run",
+                "python",
+                "generate_mermaid.py",
+                "generate"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/kubejs/data/ptd_trading/simchat"
+            },
+            "presentation": {
+                "reveal": "silent",
+                "panel": "shared",
+                "clear": false,
+                "close": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}
