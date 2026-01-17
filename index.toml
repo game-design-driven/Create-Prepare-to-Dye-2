@@ -1286,7 +1286,7 @@ hash = "48981474996310a7861d97b5aaea8a11ba16d6075c273766daab566848930c09"
 
 [[files]]
 file = "VERSION"
-hash = "61de346d6999920597f22dbce6b28007f1080cc3fce0aa395b222ff41a95eaf6"
+hash = "e4249627517c62f978217beb3da04df3b5f4ebfc1c7259ea1b6a8a20588ca3ce"
 
 [[files]]
 file = "config/MouseTweaks.cfg"
@@ -1742,7 +1742,7 @@ hash = "e6692fd7c3b5d4db82c9836c81b02182500bb00c81817919120f514df2bc7f00"
 
 [[files]]
 file = "config/modpack-update-checker/config.json"
-hash = "23bfcf331027b4bea1ba78c0b01262f30f020323435fbd3480ea53125ad8a2bd"
+hash = "44f2c674ba8d83228a68da2d8b2ae5c55962c8347896cebd0c313f58738c4f0e"
 
 [[files]]
 file = "config/modpack-update-checker/modpack-info.txt"
@@ -1807,6 +1807,54 @@ hash = "e94d9aaba553a243a071d9f1874b6f3497cb3ab7c527a424d6d31f9b890a8bfd"
 [[files]]
 file = "config/simchat-common.toml"
 hash = "bf42efb843149a79cc81e6cb791a0d3af57533a265bc05c5f820e870562de4a1"
+
+[[files]]
+file = "config/simchat/entities/USSPInspectorWillard.json"
+hash = "dfb9d8b92b3ba01f4d3d8f4ccec1bc70f756c55fd8e14554ac9e998df0d8b3b9"
+
+[[files]]
+file = "config/simchat/entities/USSPInspectorWillard.png"
+hash = "ca4866512243a3ce2bc64a2cacd1392573cb1fff0f752435ff6661ab43041b9c"
+
+[[files]]
+file = "config/simchat/entities/black_hole_bagels_llc.png"
+hash = "03d89c30f4c40161e8c9d75e52bc59fac3bb7d96ebbf7c6d336fedd9c7c0ea88"
+
+[[files]]
+file = "config/simchat/entities/boards_and_wires.png"
+hash = "63de0b0a10b2c03bd06bb359ca49841fc55cd3a59d65da5c336a0a813edef64f"
+
+[[files]]
+file = "config/simchat/entities/bobs_construction_fleet.png"
+hash = "88c3f789100442efe5b3e0e296ea0694802f4cd4c0f5f7694994258d7be43141"
+
+[[files]]
+file = "config/simchat/entities/cosmic_cuisine_collective.png"
+hash = "a5c790dfbda0bb94e0adb8e55b8c3c726d822b3f4bf1e1f99ab3f5afff284807"
+
+[[files]]
+file = "config/simchat/entities/default.png"
+hash = "63de0b0a10b2c03bd06bb359ca49841fc55cd3a59d65da5c336a0a813edef64f"
+
+[[files]]
+file = "config/simchat/entities/galactic_beast_deliveries.png"
+hash = "a68278fa5ab9238e5a779852cafd72f119e0bc909f0a35db6b670932ff938d31"
+
+[[files]]
+file = "config/simchat/entities/interstellar_livestock_logistics.png"
+hash = "a68278fa5ab9238e5a779852cafd72f119e0bc909f0a35db6b670932ff938d31"
+
+[[files]]
+file = "config/simchat/entities/magical_landscaping_co.png"
+hash = "b94d03ab62bacc0982cfc99382f43320bb21f5eb500a1667957549dff2524bd8"
+
+[[files]]
+file = "config/simchat/entities/qube.png"
+hash = "ca4866512243a3ce2bc64a2cacd1392573cb1fff0f752435ff6661ab43041b9c"
+
+[[files]]
+file = "config/simchat/entities/stellar_sigil_syndicate.png"
+hash = "1968a33a4d68b0dd41788932e3cf5439a420148f956a1d25f887a03b4076b97c"
 
 [[files]]
 file = "config/storagedrawers-client.toml"
@@ -4446,7 +4494,7 @@ hash = "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
 
 [[files]]
 file = "kubejs/assets/ptd/lang/en_us.json"
-hash = "d27090b8114e99548c78d50e0351652d3047b990302d6771d368bc4acb0cf140"
+hash = "baba8a9e6cc0dcbc29e0dc24ec897d7587c399d21b29c6655d4428bda5005814"
 
 [[files]]
 file = "kubejs/assets/ptdye/blockstates/animation_block.json"
@@ -4458,7 +4506,7 @@ hash = "7502b3535f8010c81781cbe80b92a6408598d83f88eb50089c68495a275a404b"
 
 [[files]]
 file = "kubejs/assets/ptdye/lang/en_us.json"
-hash = "d83d1a197b2c6f8d0c3f627864389a8f37849bcb6017c5cedc88ae297a73fb24"
+hash = "c8ea98b3bb31eb09337e60dca45bc24ef5ed53f57a494cce30350c547eaa64aa"
 
 [[files]]
 file = "kubejs/assets/ptdye/models/block/animation_block.json"
@@ -4918,7 +4966,7 @@ hash = "ded1b3b51c1b47ee3e812ef73dfb4dd423dec7119ed921585bed038c95328c0d"
 
 [[files]]
 file = "kubejs/assets/sdrp/lang/en_us.json"
-hash = "15cd28fd8fa6b895af0c72f992950b9b694719b692348c4321875a21d5f51c4c"
+hash = "a32cd2b2f179d150e34616973767c02fcfc3b308004e04df8e2f1bc4d8da98f1"
 
 [[files]]
 file = "kubejs/assets/storagedrawers/blockstates/controller.json"
@@ -5154,7 +5202,7 @@ hash = "b3ab0803e37b72c79a5cac24920c2a0afa6233a51b6e7016fffa66f0926f0281"
 
 [[files]]
 file = "kubejs/client_scripts/tooltips.js"
-hash = "18136284fbf82850b82d76642563c30d3887c1e0e8b17ab72de522a08d873e21"
+hash = "36ff30558fb328acc34a43539bce4e736f60c4e3a49a210f82eec3b0417c6a81"
 
 [[files]]
 file = "kubejs/client_scripts/tooltips/botaniaDebookified.js"
@@ -5162,7 +5210,7 @@ hash = "f8544e090bb499097e7787bfa684c23cc4bf72b33e0e1904694d106dd644b765"
 
 [[files]]
 file = "kubejs/config/client.properties"
-hash = "25a1c10bd6d98c60a895b1b465e2c35a0eaf80fef880f3a8ce4a5f421a169703"
+hash = "0dc5ca933ff876ecf4324e815c06a17cff75095fd2d5710af0e9454e364ee8d3"
 
 [[files]]
 file = "kubejs/config/common.properties"
@@ -5633,8 +5681,96 @@ file = "kubejs/data/ptd_trading/simchat/generate_mermaid.py"
 hash = "b0b00bbe1a73a79a763efc9dba75a81e7eaf680097c5caf8ef59ce6cf8abbb3b"
 
 [[files]]
+file = "kubejs/data/ptd_trading/simchat/readme.md"
+hash = "b30b6250d988e67cb218dfae4fed08b0ea334944d461179a7cbda75db803b150"
+
+[[files]]
+file = "kubejs/data/ptd_trading/simchat/simchat_flow.mmd"
+hash = "746cad385a71c39bb91db356f1ea6771c7a2fd19309e89c81d1954c6c8bb930e"
+
+[[files]]
+file = "kubejs/data/ptd_trading/simchat/usspinspectorwillard/change_mind.json"
+hash = "a33202b047f390f40c8405e83a004fc52d14ff9e4892804ef5c5b71e500fb9fd"
+
+[[files]]
+file = "kubejs/data/ptd_trading/simchat/usspinspectorwillard/chart.mmd"
+hash = "f614594216d91c1d9580941260386c2a6a2d8ac8c20b0d6e76ab98e00f9a2ef3"
+
+[[files]]
+file = "kubejs/data/ptd_trading/simchat/usspinspectorwillard/confused.json"
+hash = "2e5f18146d1877e5a2b9fe06235de246df4503189db075bea45af6dcd54fe32c"
+
+[[files]]
+file = "kubejs/data/ptd_trading/simchat/usspinspectorwillard/decline_registration.json"
+hash = "a53b4b0e58d78f551df1b792c96329edd20f5c457848ab7ffef57b6cc6c48dbd"
+
+[[files]]
+file = "kubejs/data/ptd_trading/simchat/usspinspectorwillard/decline_ship.json"
+hash = "d80e0c651d2218a333b14f25cccc1422bbb7f59cd0bfaac465b6f7c0f27a5669"
+
+[[files]]
+file = "kubejs/data/ptd_trading/simchat/usspinspectorwillard/end.json"
+hash = "ca6c468051b668bd04af47a362e65f331093e2363fdb46baba306994b3124ca5"
+
+[[files]]
+file = "kubejs/data/ptd_trading/simchat/usspinspectorwillard/explain_registration.json"
+hash = "cf61981f284ecdac2e21ccce3cf6f3b3343126c6db26d28e022b12ea8b6fbb4f"
+
+[[files]]
+file = "kubejs/data/ptd_trading/simchat/usspinspectorwillard/explain_ship.json"
+hash = "cd09339518640525332926be1d028f70a1978584ad532e26eb699a72d922898d"
+
+[[files]]
+file = "kubejs/data/ptd_trading/simchat/usspinspectorwillard/give_ship.json"
+hash = "2dbe5d3987ec67644defd1e977cbf0929c1a9fb54d6be34bf65a7cde31a938ca"
+
+[[files]]
+file = "kubejs/data/ptd_trading/simchat/usspinspectorwillard/intent.json"
+hash = "dd113814c6f99c78cfbea1d39d756a7f81a91731370e682d51e7ec704afe7b78"
+
+[[files]]
+file = "kubejs/data/ptd_trading/simchat/usspinspectorwillard/intro.json"
+hash = "e70043f71cb6046c9ca5020513974bfdc1045ded292c33062fb2ce8cdd01d4c4"
+
+[[files]]
+file = "kubejs/data/ptd_trading/simchat/usspinspectorwillard/leave.json"
+hash = "a2027c6cdd7fe4523d13dbd3e3031af12512707b45a87dc968e1d20bd5777c3c"
+
+[[files]]
+file = "kubejs/data/ptd_trading/simchat/usspinspectorwillard/name_provided.json"
+hash = "677be3fc3d21622bf459d82dcd6b2be795e08e1100bbbd020f1f8bce96ef9188"
+
+[[files]]
+file = "kubejs/data/ptd_trading/simchat/usspinspectorwillard/ship_prompt.json"
+hash = "31b41fa80c38ca52ee6c580cf4e3e91f582b97053a6b4b3df07b83c77691a81d"
+
+[[files]]
+file = "kubejs/data/ptd_trading/simchat/usspinspectorwillard/ship_where_intro.json"
+hash = "525e90e82dd91b8d67f91e8668a98a5a35bcc718c4b500517dff34c29d045f19"
+
+[[files]]
 file = "kubejs/data/salt/worldgen/biome_modifier/add_rock_salt_deposit.json"
 hash = "7952921e9d4106984e0f71cf58e061f812a3fc35d12b7a23d0459ff965ce4618"
+
+[[files]]
+file = "kubejs/data/simchat/simchat/template_test.json"
+hash = "b5ceaa34c345a582ef3e284e0012154988628bd784894e32cd1256ce5e8f5c24"
+
+[[files]]
+file = "kubejs/data/simchat/simchat/template_test_response.json"
+hash = "45dc07b4e3639e1948a16fbbba4c182317f2911993aa487c6f18f7f6a3a102f2"
+
+[[files]]
+file = "kubejs/data/simchat/simchat/template_test_time.json"
+hash = "e30f0423c7a9bde87ecd7894ad8723112289cde957900606826b035c88f1ddb4"
+
+[[files]]
+file = "kubejs/data/story/simchat/input_test.json"
+hash = "8d5a9f68090ebbab6fa8656ddd680e6d5341494610d4037c2c7117e3fa0da014"
+
+[[files]]
+file = "kubejs/data/story/simchat/readme.md"
+hash = "7d7363b536fc96f4d5acef8662cad256e290b55f5b14e16ac50b91d85281cd2b"
 
 [[files]]
 file = "kubejs/data/supplementaries/loot_modifiers/ash_from_burning_mobs.json"
@@ -5897,6 +6033,10 @@ file = "kubejs/server_scripts/removals.js"
 hash = "9117cffa55dc5427252648d44479b3f992896742e66ffb58f1a88d60b3ef980f"
 
 [[files]]
+file = "kubejs/server_scripts/simchat.js"
+hash = "83ba6cfe164c1abfb0b7bbc956a99f83a579817e2c04bc9989d11f9b8bcc84a2"
+
+[[files]]
 file = "kubejs/server_scripts/storagedrawers.js"
 hash = "f4ccc7b437f9a295492c72ebf00cb8c9e673710d58657cb15328ab1a1b9123cb"
 
@@ -5974,7 +6114,7 @@ hash = "ab323610254d7b8ce09ca2580b344714c58fd4804d26ee0e2525baa24a148809"
 
 [[files]]
 file = "modpack-update-checker/meta.json"
-hash = "568faf7f18e59d2d4f788f9ffd4c429f8cff451eaf79c160eabc632298b8bbf1"
+hash = "f753856002f5cff800dab5eb063edf63733b18d4e2fb19d51b9502b414e6a994"
 
 [[files]]
 file = "modpack-update-checker/versions/1.100.0/changelog.txt"
@@ -8323,6 +8463,10 @@ hash = "71bea3156b17424cbf7864e484114fe67f19363cd8374b0d68e859d8d385687f"
 [[files]]
 file = "modpack-update-checker/versions/1.268.0/changelog.txt"
 hash = "95400e80602a5785dfb4c8f24785c71105acb05a8737be2bbd2a008d12848443"
+
+[[files]]
+file = "modpack-update-checker/versions/1.269.0/changelog.txt"
+hash = "e663267068db18d15a8fb1d7ad4a410b2f4e5797a8f271a40b39d1bb7bee2aa0"
 
 [[files]]
 file = "modpack-update-checker/versions/1.79.33/changelog.txt"

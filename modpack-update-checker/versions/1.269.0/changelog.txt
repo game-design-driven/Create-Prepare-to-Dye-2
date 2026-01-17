@@ -1,0 +1,32 @@
+## [1.269.0](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/compare/1.268.0...1.269.0) (2026-01-17)
+
+
+### Features
+
+* add simchat entities and their images ([4b9f02a](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/4b9f02ab738d8512101c1af23651f8e0c02454e8))
+* landing sequence with ussp inspector ([f74e6fa](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/f74e6fa11ce23eea496e0cc00919a7f8ffbaf25f))
+* random simchat experiments ([8ad7fee](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/8ad7fee099c42d272b59c38ad64a0c4e15be8ad4))
+
+
+### Minor tweaks
+
+* more simchat tests ([21a5193](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/21a5193f40962da55bbc2bf4f5d1b23c1b9a7bc9))
+* some more simchat tests ([021da9b](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/021da9bca3f1c1571e2eddd459d7443e19443b9a))
+
+
+### Documentation and Localization
+
+* change kjs title to ptd2. Not sure where that takes effect lol ([61ad50c](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/61ad50c151339733545fd5b124ec73dace10a576))
+* random ideas for simchat story ([ca0f1ad](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/ca0f1adc3a86dfe5c7c8f8c3fba3590f2ee9d93c))
+
+
+### chores
+
+* autopublish 2026-01-17T13:29:00Z ([4fc72b2](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/4fc72b25f402a27248b1d9620ca0d51e99da15da))
+
+
+### Fixes
+
+* remove crafting on a stick entries ([acbf47a](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/acbf47a1e22956274f9836e3167ed6840a7ff640))
+
+
