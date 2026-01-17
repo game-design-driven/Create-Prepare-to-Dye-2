@@ -1286,7 +1286,7 @@ hash = "48981474996310a7861d97b5aaea8a11ba16d6075c273766daab566848930c09"
 
 [[files]]
 file = "VERSION"
-hash = "2d8697bec02e62feb87a5a596fc05ded52a84c10b9fe32f689869a2540593e05"
+hash = "61de346d6999920597f22dbce6b28007f1080cc3fce0aa395b222ff41a95eaf6"
 
 [[files]]
 file = "config/MouseTweaks.cfg"
@@ -1315,6 +1315,10 @@ hash = "bd98c35e394d4ae37e2385f719680d2365527df98894b337d6cf0f2089b15ee6"
 [[files]]
 file = "config/anotherliquidmilkmod.toml"
 hash = "9ffecedc2dc573ce007f9cdd14c757e07c3c0534ca84fcb66afd5cef1354ac4a"
+
+[[files]]
+file = "config/betterf3.toml"
+hash = "730291ea8bea464248cc1fe899ff8620baaf00bf95e5120d55c699d74fe32907"
 
 [[files]]
 file = "config/botania-client.toml"
@@ -1574,7 +1578,7 @@ hash = "b0a8838143c6860fe57d244bd977d264e9238dcc6352bcc3ac2aee3b23f20ae6"
 
 [[files]]
 file = "config/fancymenu/options.txt"
-hash = "0a39100c8eccde7600475f9e9fa4cb124f2f82fb91d94dcd4c852e48b024f369"
+hash = "e9fd20ab34c83e954885bbc6d3e8facdee83c7671d3db7150599379dc690efc4"
 
 [[files]]
 file = "config/fancymenu/ui_themes/dark.json"
@@ -1682,7 +1686,7 @@ hash = "2027a1b29ce1966e09b853fdd9d07ef73ea954119e36ddf25d1eea60c113b38d"
 
 [[files]]
 file = "config/invmove/unrecognized.json"
-hash = "bef0265141ca1751e79da7affdcd0742f94795ff2d66e03f94ab12ce7d0fefc1"
+hash = "6920d83711198e3c01af9cc201e11329e280422c6612a9b3e4aaaf9ef521c43e"
 
 [[files]]
 file = "config/invmove/vanilla.json"
@@ -1738,7 +1742,7 @@ hash = "e6692fd7c3b5d4db82c9836c81b02182500bb00c81817919120f514df2bc7f00"
 
 [[files]]
 file = "config/modpack-update-checker/config.json"
-hash = "e22b4f4d2b852eaa5e66acd0383f5f4d5aa7c8dc45d1511ce1b6d44eb5b9f82a"
+hash = "23bfcf331027b4bea1ba78c0b01262f30f020323435fbd3480ea53125ad8a2bd"
 
 [[files]]
 file = "config/modpack-update-checker/modpack-info.txt"
@@ -1802,7 +1806,7 @@ hash = "e94d9aaba553a243a071d9f1874b6f3497cb3ab7c527a424d6d31f9b890a8bfd"
 
 [[files]]
 file = "config/simchat-common.toml"
-hash = "fe216511d22286fe1d6a689397448e7fc9cc3b46d00d86799a5a93f735b693b0"
+hash = "bf42efb843149a79cc81e6cb791a0d3af57533a265bc05c5f820e870562de4a1"
 
 [[files]]
 file = "config/storagedrawers-client.toml"
@@ -4914,7 +4918,7 @@ hash = "ded1b3b51c1b47ee3e812ef73dfb4dd423dec7119ed921585bed038c95328c0d"
 
 [[files]]
 file = "kubejs/assets/sdrp/lang/en_us.json"
-hash = "222d9ea4992752aefb5c4cde84c992ca36a66c5a72cff0283d6261fc033230aa"
+hash = "15cd28fd8fa6b895af0c72f992950b9b694719b692348c4321875a21d5f51c4c"
 
 [[files]]
 file = "kubejs/assets/storagedrawers/blockstates/controller.json"
@@ -5625,6 +5629,10 @@ file = "kubejs/data/ptd/worldgen/placed_feature/replace_terracotta/replace9.json
 hash = "ce6d92118c1344fad4f2b6ba5e098d62191d70b6b51afab730b1431200246f01"
 
 [[files]]
+file = "kubejs/data/ptd_trading/simchat/generate_mermaid.py"
+hash = "b0b00bbe1a73a79a763efc9dba75a81e7eaf680097c5caf8ef59ce6cf8abbb3b"
+
+[[files]]
 file = "kubejs/data/salt/worldgen/biome_modifier/add_rock_salt_deposit.json"
 hash = "7952921e9d4106984e0f71cf58e061f812a3fc35d12b7a23d0459ff965ce4618"
 
@@ -5966,7 +5974,7 @@ hash = "ab323610254d7b8ce09ca2580b344714c58fd4804d26ee0e2525baa24a148809"
 
 [[files]]
 file = "modpack-update-checker/meta.json"
-hash = "c3792c8d7e258038d4264aa74ac5aa19f363d6e89fe23c1eb26f2304d1505029"
+hash = "568faf7f18e59d2d4f788f9ffd4c429f8cff451eaf79c160eabc632298b8bbf1"
 
 [[files]]
 file = "modpack-update-checker/versions/1.100.0/changelog.txt"
@@ -8311,6 +8319,10 @@ hash = "abdae0626334ad7c45893a479ddb6f926efab3be94db9924bdeafd6056d6c658"
 [[files]]
 file = "modpack-update-checker/versions/1.267.8/changelog.txt"
 hash = "71bea3156b17424cbf7864e484114fe67f19363cd8374b0d68e859d8d385687f"
+
+[[files]]
+file = "modpack-update-checker/versions/1.268.0/changelog.txt"
+hash = "95400e80602a5785dfb4c8f24785c71105acb05a8737be2bbd2a008d12848443"
 
 [[files]]
 file = "modpack-update-checker/versions/1.79.33/changelog.txt"
