@@ -5,10 +5,10 @@
 [typingDelay]
 	#Minimum typing delay in seconds
 	#Range: 0.0 ~ 30.0
-	minDelay = 0.3
+	minDelay = 0.2
 	#Maximum typing delay in seconds
 	#Range: 1.0 ~ 60.0
-	maxDelay = 3.0
+	maxDelay = 1.2
 	#Simulated typing speed (characters per second)
 	#Range: 1.0 ~ 100.0
 	charsPerSecond = 100.0
