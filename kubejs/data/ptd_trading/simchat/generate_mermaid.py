@@ -1,186 +1,100 @@
 #!/usr/bin/env python3
 """
-Generate a Mermaid flowchart of SimChat dialogues.
+SimChat Mermaid Chart System
 
-Usage:
-  uv run generate_mermaid.py
+Workflow:
+  1. Edit domain chart (usspinspectorwillard/chart.mmd) with simple node IDs
+  2. Run 'sync' → creates JSON scaffolds, adds animations to domain chart
+  3. Edit JSON files → fill in dialogue content
+  4. Run 'generate' → reads domain charts → generates master chart
 
-Notes:
-- Outputs to simchat_flow.mmd in the same folder as this script.
-- Scans all *.json in this folder, skipping 'ui/' and schema files.
-- Nodes are grouped by the top-level folder (broker, buyer, contractor, etc.).
-- Edges follow actions[].nextState and label with the action label (+ condition if present).
+Domain charts: Simple node IDs (n_intro, n_decline), no subgraphs
+Master chart: Prefixed IDs (n_usspinspectorwillard_intro), with subgraphs
 """
 
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import re
 import sys
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Set, Tuple
+
+
+# ============================================================================
+# CONFIGURATION
+# ============================================================================
 
 SCRIPT_DIR = Path(__file__).parent.resolve()
-OUTPUT_FILE = SCRIPT_DIR / "simchat_flow.mmd"
+MASTER_CHART = SCRIPT_DIR / "simchat_flow.mmd"
 
-# Styling configuration
-EDGE_COLORS = {
-    "tradeEdge": "#3EBC7C",  # Green for item trades
-    "conditionalEdge": "#F39C12",  # Orange for conditional flows
-    "commandEdge": "#8956DD",  # Purple for command actions
-    "defaultEdge": "#34495E",  # Gray for default transitions
-    "missingNode": "#E74C3C",  # Red for missing/external references
-}
-EDGE_STYLES = {
-    "tradeEdge": "stroke-width:2px",
-    "conditionalEdge": "stroke-width:2px,stroke-dasharray:5",
-    "commandEdge": "stroke-width:2px",
-    "defaultEdge": "stroke-width:2px",
-}
 NODE_STROKE_WIDTH = 3
 NODE_BORDER_RADIUS = 12
-FLOWCHART_DIRECTION = "LR"  # "LR" for left-to-right, "TD" for top-down
-ANIMATE_EDGE_RATIO = 2  # Animate every Nth edge (2 = every other edge)
+FLOWCHART_DIRECTION = "LR"
+
+# Mermaid init block for animated dashed edges
+MERMAID_INIT = '%%{init:{"theme":"default","flowchart":{"curve":"linear"},"themeCSS":".flowchart-link{stroke-dasharray:16 10 !important;stroke-linecap:round !important;animation:dash 1.6s linear infinite !important}@keyframes dash{to{stroke-dashoffset:-52}}marker path{stroke-dasharray:none !important;animation:none !important}"}}%%'
+
+# JSON schema URL for dialogue files
+DIALOGUE_SCHEMA = "https://raw.githubusercontent.com/game-design-driven/sim-chat/main/schemas/dialogue.schema.json"
+
+
+# ============================================================================
+# DATA MODELS
+# ============================================================================
+
+@dataclass
+class MermaidNode:
+    """Node parsed from Mermaid diagram."""
+    node_id: str  # e.g., n_intro (domain) or n_usspinspectorwillard_intro (master)
+    label: str  # Display label
+    css_class: str  # Entity class for styling
 
 
 @dataclass
-class ItemSpec:
-    id: str
-    count: int = 1
+class MermaidEdge:
+    """Edge parsed from Mermaid diagram."""
+    edge_id: str  # e.g., e0
+    source_id: str  # e.g., n_intro
+    target_id: str  # e.g., n_decline
+    label: str  # Button label
+    has_items: bool = False
+    has_condition: bool = False
+    has_command: bool = False
 
 
 @dataclass
-class Action:
-    label: str
-    reply: Optional[str]
-    commands: List[str]
-    next_state: Optional[str]
-    condition: Optional[str]
-    items_input: List[ItemSpec]
-    items_output: List[ItemSpec]
+class DomainChart:
+    """Parsed domain chart."""
+    domain: str  # Folder name (e.g., usspinspectorwillard)
+    nodes: List[MermaidNode]
+    edges: List[MermaidEdge]
+    original_content: str  # Original file content
 
 
-@dataclass
-class Dialogue:
-    path: str  # e.g., broker/welcome
-    entity_id: str
-    entity_name: str
-    entity_subtitle: Optional[str]
-    text: str
-    actions: List[Action]
+# ============================================================================
+# UTILITIES
+# ============================================================================
 
-
-def read_json(path: Path) -> Optional[dict]:
-    try:
-        return json.loads(path.read_text(encoding="utf-8"))
-    except Exception:
-        return None
-
-
-def is_dialogue_json(obj: dict) -> bool:
-    return (
-        isinstance(obj, dict)
-        and isinstance(obj.get("entityId"), str)
-        and isinstance(obj.get("entityName"), str)
-        and isinstance(obj.get("text"), str)
-    )
-
-
-def sanitize_node_id(s: str) -> str:
-    return "n_" + re.sub(r"[^A-Za-z0-9_]", "_", s)
-
-
-def escape_label(s: str) -> str:
-    return s.replace('"', '\\"')
-
-
-def to_resource_path(root: Path, file_path: Path) -> str:
-    rel = file_path.relative_to(root).as_posix()
-    if rel.lower().endswith(".json"):
-        rel = rel[:-5]
-    return rel
-
-
-def parse_action(obj: dict) -> Action:
-    items_in = []
-    for it in obj.get("itemsInput", []) or []:
-        if isinstance(it, dict) and "id" in it:
-            items_in.append(ItemSpec(id=str(it["id"]), count=int(it.get("count", 1))))
-    items_out = []
-    for it in obj.get("itemsOutput", []) or []:
-        if isinstance(it, dict) and "id" in it:
-            items_out.append(ItemSpec(id=str(it["id"]), count=int(it.get("count", 1))))
-    return Action(
-        label=str(obj.get("label", "")),
-        reply=str(obj["reply"]) if isinstance(obj.get("reply"), str) else None,
-        commands=[str(c) for c in (obj.get("commands") or [])],
-        next_state=str(obj["nextState"])
-        if isinstance(obj.get("nextState"), str)
-        else None,
-        condition=str(obj["condition"])
-        if isinstance(obj.get("condition"), str)
-        else None,
-        items_input=items_in,
-        items_output=items_out,
-    )
-
-
-def parse_dialogue(root: Path, file_path: Path, obj: dict) -> Dialogue:
-    actions = [
-        parse_action(a) for a in (obj.get("actions") or []) if isinstance(a, dict)
-    ]
-    return Dialogue(
-        path=to_resource_path(root, file_path),
-        entity_id=str(obj["entityId"]),
-        entity_name=str(obj["entityName"]),
-        entity_subtitle=str(obj["entitySubtitle"])
-        if isinstance(obj.get("entitySubtitle"), str)
-        else None,
-        text=str(obj["text"]),
-        actions=actions,
-    )
-
-
-def iter_dialogue_files(root: Path) -> List[Path]:
-    out: List[Path] = []
-    for path in root.rglob("*.json"):
-        if "/ui/" in path.as_posix() or "\\ui\\" in str(path):
-            continue
-        if path.name.lower() in ("dialogue.schema.json", "entity-config.schema.json"):
-            continue
-        out.append(path)
-    return sorted(out)
-
-
-def normalize_next_state(ns: str) -> str:
-    if ":" in ns:
-        ns = ns.split(":", 1)[1]
-    ns = ns.lstrip("/").rstrip()
-    if ns.lower().endswith(".json"):
-        ns = ns[:-5]
-    return ns
-
-
-def group_title_for(folder: str, dialogues: List[Dialogue]) -> str:
-    counts: Dict[str, int] = {}
-    for d in dialogues:
-        counts[d.entity_name] = counts.get(d.entity_name, 0) + 1
-    if counts:
-        top = max(counts.items(), key=lambda kv: kv[1])[0]
-        return f"{top} ({folder}/*)"
-    return f"{folder}/*"
+def get_entity_color(entity_id: str) -> str:
+    """Generate deterministic color from entity ID."""
+    hash_bytes = hashlib.md5(entity_id.encode()).digest()
+    hash_val = int.from_bytes(hash_bytes[:4], byteorder="big")
+    h = hash_val % 360
+    s = 60 + (hash_val % 30)
+    l = 45 + (hash_val % 15)
+    return hsl_to_hex(h, s, l)
 
 
 def hsl_to_hex(h: int, s: int, l: int) -> str:
     """Convert HSL to hex color."""
-    s_norm = s / 100.0
-    l_norm = l / 100.0
-
-    c = (1 - abs(2 * l_norm - 1)) * s_norm
-    x = c * (1 - abs(((h / 60.0) % 2) - 1))
-    m = l_norm - c / 2
+    s, l = s / 100, l / 100
+    c = (1 - abs(2 * l - 1)) * s
+    x = c * (1 - abs((h / 60) % 2 - 1))
+    m = l - c / 2
 
     if 0 <= h < 60:
         r, g, b = c, x, 0
@@ -195,217 +109,452 @@ def hsl_to_hex(h: int, s: int, l: int) -> str:
     else:
         r, g, b = c, 0, x
 
-    r = int((r + m) * 255)
-    g = int((g + m) * 255)
-    b = int((b + m) * 255)
-
+    r, g, b = int((r + m) * 255), int((g + m) * 255), int((b + m) * 255)
     return f"#{r:02x}{g:02x}{b:02x}"
 
 
-def get_entity_color(entity_id: str) -> str:
-    """Generate a color for an entity based on its ID."""
-    # Use deterministic hash to generate consistent colors per entity
-    hash_bytes = hashlib.md5(entity_id.encode()).digest()
-    hash_val = int.from_bytes(hash_bytes[:4], byteorder="big")
-
-    # Use HSL to generate distinct, vibrant colors
-    # Keep saturation high and lightness moderate for good visibility
-    h = hash_val % 360
-    s = 60 + (hash_val % 30)  # 60-90% saturation
-    l = 45 + (hash_val % 15)  # 45-60% lightness
-
-    return hsl_to_hex(h, s, l)
+def discover_domains(root: Path) -> List[str]:
+    """Find all domain folders that contain chart.mmd."""
+    domains = []
+    for chart_file in root.glob("*/chart.mmd"):
+        if chart_file.parent != root:
+            domains.append(chart_file.parent.name)
+    return sorted(domains)
 
 
-def get_action_emoji(action: Action) -> str:
-    """Return emoji prefix for action based on type."""
-    if action.items_input or action.items_output:
-        return "📦 "
-    if action.commands:
-        return "⚙️ "
-    if action.condition:
-        return "🔀 "
-    return ""
+# ============================================================================
+# PARSING
+# ============================================================================
 
+def parse_domain_chart(chart_path: Path) -> DomainChart:
+    """Parse a domain chart file."""
+    content = chart_path.read_text(encoding="utf-8")
+    domain = chart_path.parent.name
 
-def build_mermaid(dialogues: List[Dialogue]) -> str:
-    groups: Dict[str, List[Dialogue]] = {}
-    for d in dialogues:
-        top = d.path.split("/", 1)[0] if "/" in d.path else d.path
-        groups.setdefault(top, []).append(d)
+    nodes = []
+    edges = []
 
-    lines: List[str] = [f"flowchart {FLOWCHART_DIRECTION}", ""]
+    # Parse nodes: n_intro(intro — Willard):::n_entity_willard (CSS class optional)
+    node_pattern = r'^\s*(n_\w+)\(([^)]+)\)(?:::(\w+))?'
 
-    # Track entity classes and edges
-    entity_classes: Dict[str, str] = {}
+    # Parse edges: n_intro -->|"Label" | n_decline (new syntax, note space before closing |)
+    edge_pattern_pipe = r'^\s*(n_\w+)\s+-->\|"([^"]+)"\s*\|\s*(n_\w+)'
+    # Old syntax: n_intro -- "Label" --> n_decline
+    edge_pattern_old = r'^\s*(n_\w+)\s+--\s*"([^"]+)"\s*-->\s*(n_\w+)'
+    # With edge ID: n_intro e0@-- "Label" --> n_decline
+    edge_pattern_id = r'^\s*(n_\w+)\s+(e\d+)@--\s*"([^"]+)"\s*-->\s*(n_\w+)'
+
     edge_counter = 0
-    animated_edges: List[str] = []
-    edges_by_class: Dict[str, List[str]] = {
-        "tradeEdge": [],
-        "conditionalEdge": [],
-        "commandEdge": [],
-        "defaultEdge": [],
-    }
-
-    path_to_node_id: Dict[str, str] = {}
-    node_to_entity_class: Dict[str, str] = {}
-
-    for folder, ds in sorted(groups.items()):
-        title = group_title_for(folder, ds)
-        subgraph_id = sanitize_node_id("g_" + folder)
-        lines.append(f'subgraph {subgraph_id}["{escape_label(title)}"]')
-
-        for d in sorted(ds, key=lambda x: x.path):
-            node_id = sanitize_node_id(d.path)
-            path_to_node_id[d.path] = node_id
-
-            # Track entity class
-            entity_class = sanitize_node_id(f"entity_{d.entity_id}")
-            if entity_class not in entity_classes:
-                entity_classes[entity_class] = d.entity_id
-            node_to_entity_class[node_id] = entity_class
-
-            # Create fancy node with shape and label
-            label = escape_label(f"{d.path.split('/')[-1]} — {d.entity_name}")
-            lines.append(f'  {node_id}@{{shape: div-rect, label: "{label}"}}')
-
-        lines.append("end")
-        lines.append("")
-
-    missing_group_id = sanitize_node_id("g_missing")
-    missing_nodes: Dict[str, str] = {}
-
-    # Build edges with styling
-    for d in sorted(dialogues, key=lambda x: x.path):
-        src_id = path_to_node_id.get(d.path)
-        if not src_id:
+    for line in content.split("\n"):
+        # Try node pattern
+        match = re.match(node_pattern, line)
+        if match:
+            node_id = match.group(1)
+            label = match.group(2)
+            css_class = match.group(3) if match.group(3) else f"n_entity_{domain.lower()}"
+            nodes.append(MermaidNode(
+                node_id=node_id,
+                label=label,
+                css_class=css_class,
+            ))
             continue
-        for a in d.actions:
-            if not a.next_state:
-                continue
-            target = normalize_next_state(a.next_state)
-            tgt_id = path_to_node_id.get(target)
-            if not tgt_id:
-                if target not in missing_nodes:
-                    missing_nodes[target] = sanitize_node_id(f"missing_{target}")
-                tgt_id = missing_nodes[target]
 
-            # Create unique edge ID
-            edge_id = f"e{edge_counter}"
+        # Try new pipe syntax first
+        match = re.match(edge_pattern_pipe, line)
+        if match:
+            source_id, label, target_id = match.groups()
+            edges.append(MermaidEdge(
+                edge_id=f"e{edge_counter}",
+                source_id=source_id,
+                target_id=target_id,
+                label=label,
+                has_items="📦" in label,
+                has_condition="🔀" in label,
+                has_command="⚙️" in label,
+            ))
+            edge_counter += 1
+            continue
+
+        # Try old syntax with ID
+        match = re.match(edge_pattern_id, line)
+        if match:
+            source_id, edge_id, label, target_id = match.groups()
+            edges.append(MermaidEdge(
+                edge_id=edge_id,
+                source_id=source_id,
+                target_id=target_id,
+                label=label,
+                has_items="📦" in label,
+                has_condition="🔀" in label,
+                has_command="⚙️" in label,
+            ))
+            continue
+
+        # Try old syntax without ID
+        match = re.match(edge_pattern_old, line)
+        if match:
+            source_id, label, target_id = match.groups()
+            edges.append(MermaidEdge(
+                edge_id=f"e{edge_counter}",
+                source_id=source_id,
+                target_id=target_id,
+                label=label,
+                has_items="📦" in label,
+                has_condition="🔀" in label,
+                has_command="⚙️" in label,
+            ))
             edge_counter += 1
 
-            # Build edge label with emoji
-            emoji = get_action_emoji(a)
-            edge_label = a.label or ""
-            if a.condition:
-                cond_str = a.condition if len(a.condition) < 30 else a.condition[:27] + "..."
-                edge_label = f"{edge_label} ({cond_str})" if edge_label else f"({cond_str})"
+    return DomainChart(
+        domain=domain,
+        nodes=nodes,
+        edges=edges,
+        original_content=content,
+    )
 
-            full_label = f"{emoji}{edge_label}" if edge_label else ""
 
-            # Determine edge class
-            edge_class = "defaultEdge"
-            if a.items_input or a.items_output:
-                edge_class = "tradeEdge"
-            elif a.condition:
-                edge_class = "conditionalEdge"
-            elif a.commands:
-                edge_class = "commandEdge"
+def node_id_to_filename(node_id: str) -> str:
+    """Convert node ID to filename: n_intro → intro."""
+    if node_id.startswith("n_"):
+        return node_id[2:]
+    return node_id
 
-            # Track edge by class
-            edges_by_class[edge_class].append(edge_id)
 
-            # Create styled edge
-            if full_label:
-                lines.append(f'{src_id} {edge_id}@-- "{escape_label(full_label)}" --> {tgt_id}')
+# ============================================================================
+# JSON SCAFFOLD GENERATION
+# ============================================================================
+
+def load_existing_json_paths(domain_path: Path) -> Set[str]:
+    """Load all existing JSON filenames in a domain folder."""
+    if not domain_path.exists():
+        return set()
+    return {f.stem for f in domain_path.glob("*.json")}
+
+
+def generate_scaffold(domain: str, node: MermaidNode, edges: List[MermaidEdge]) -> dict:
+    """Generate JSON scaffold for a node."""
+    filename = node_id_to_filename(node.node_id)
+
+    # Infer entity info from label (assumes "filename — EntityName" format)
+    parts = node.label.split(" — ")
+    entity_name = parts[1].strip() if len(parts) > 1 else domain.replace("_", " ").title()
+    entity_id = domain
+
+    # Find outgoing edges
+    outgoing = [e for e in edges if e.source_id == node.node_id]
+
+    actions = []
+    for edge in outgoing:
+        target_filename = node_id_to_filename(edge.target_id)
+        action = {
+            "label": edge.label.replace("📦 ", "").replace("🔀 ", "").replace("⚙️ ", "").strip(),
+            "nextState": f"ptd_trading:{domain}/{target_filename}",
+        }
+
+        if edge.has_items:
+            action["itemsInput"] = [{"id": "minecraft:TODO", "count": 1}]
+        if edge.has_condition:
+            action["condition"] = "TODO: Add condition"
+        if edge.has_command:
+            action["commands"] = ["TODO: Add command"]
+
+        actions.append(action)
+
+    return {
+        "$schema": DIALOGUE_SCHEMA,
+        "entityId": entity_id,
+        "entityName": entity_name,
+        "text": f"TODO: Add dialogue text for {domain}/{filename}",
+        "actions": actions,
+    }
+
+
+# ============================================================================
+# CHART MANIPULATION
+# ============================================================================
+
+def add_animations_to_chart(chart_path: Path, edge_ids: List[str]) -> None:
+    """Reformat chart: add init block, remove edge IDs."""
+    content = chart_path.read_text(encoding="utf-8")
+    lines = content.split("\n")
+
+    # Check if init block already exists
+    has_init = "%%{init:" in content
+
+    # Categorize lines
+    init_lines = []
+    header_lines = []
+    nodes = []  # Store parsed nodes with metadata
+    edge_lines = []
+
+    domain = chart_path.parent.name
+
+    node_pattern = r'^\s*(n_\w+)\(([^)]+)\)(?:::(\w+))?'
+    # Match all edge formats
+    edge_pattern = r'^\s*(n_\w+)\s+(?:e\d+@)?--[>|-]'
+
+    in_init = False
+    in_header = True
+    skip_animation_section = False
+
+    for line in lines:
+        stripped = line.strip()
+
+        # Skip animation sections
+        if stripped.startswith("%% Animate"):
+            skip_animation_section = True
+            continue
+        if skip_animation_section:
+            if stripped and "@{animate: true}" in stripped:
+                continue
+            elif not stripped:
+                continue
             else:
-                lines.append(f"{src_id} {edge_id}@--> {tgt_id}")
+                skip_animation_section = False
 
-            # Add to animated edges list
-            animated_edges.append(edge_id)
+        # Capture init block
+        if stripped.startswith("%%{init:"):
+            in_init = True
+            init_lines.append(line)
+            continue
+        if in_init:
+            init_lines.append(line)
+            if stripped.endswith("%%"):
+                in_init = False
+            continue
 
-    # Missing nodes with different shape
-    if missing_nodes:
-        lines.append("")
-        lines.append(f'subgraph {missing_group_id}["Missing/External targets"]')
-        for path, nid in sorted(missing_nodes.items()):
-            label = escape_label(path.split("/")[-1])
-            lines.append(f'  {nid}@{{shape: das, label: "{label}"}}')
+        # Capture header
+        if in_header:
+            header_lines.append(line)
+            if stripped.startswith("flowchart"):
+                in_header = False
+            continue
+
+        if not stripped:
+            continue
+
+        # Parse nodes and edges
+        match = re.match(node_pattern, line)
+        if match:
+            node_id = match.group(1)
+            label = match.group(2)
+            css_class = match.group(3) if match.group(3) else f"n_entity_{domain.lower()}"
+            nodes.append((node_id, label, css_class))
+        elif re.match(edge_pattern, line):
+            edge_lines.append(line)
+
+    # Group edges by source node and normalize to new format
+    edges_by_source = {}
+    edge_pipe_pattern = r'^\s*(n_\w+)\s+-->\|"([^"]+)"\s*\|\s*(n_\w+)'
+    edge_old_pattern = r'^\s*(n_\w+)\s+(?:e\d+@)?--\s*"([^"]+)"\s*-->\s*(n_\w+)'
+
+    for edge_line in edge_lines:
+        # Try new pipe format
+        match = re.match(edge_pipe_pattern, edge_line)
+        if match:
+            source_id, label, target_id = match.groups()
+            normalized = f'{source_id} -->|"{label}" | {target_id}'
+            if source_id not in edges_by_source:
+                edges_by_source[source_id] = []
+            edges_by_source[source_id].append(normalized)
+            continue
+
+        # Try old format
+        match = re.match(edge_old_pattern, edge_line)
+        if match:
+            source_id, label, target_id = match.groups()
+            normalized = f'{source_id} -->|"{label}" | {target_id}'
+            if source_id not in edges_by_source:
+                edges_by_source[source_id] = []
+            edges_by_source[source_id].append(normalized)
+
+    # Rebuild: init + header + nodes with edges
+    output = []
+
+    # Add init block if not present
+    if not has_init:
+        output.append(MERMAID_INIT)
+    else:
+        output.extend(init_lines)
+
+    output.extend(header_lines)
+    output.append("")
+
+    for node_id, label, css_class in nodes:
+        node_line = f"{node_id}({label}):::{css_class}"
+        output.append(node_line)
+        # Add edges from this node (indented)
+        if node_id in edges_by_source:
+            for edge_line in edges_by_source[node_id]:
+                stripped = edge_line.strip()
+                output.append(f"    {stripped}")
+
+    chart_path.write_text("\n".join(output), encoding="utf-8")
+
+
+# ============================================================================
+# MASTER CHART GENERATION
+# ============================================================================
+
+def build_master_chart(domain_charts: List[DomainChart]) -> str:
+    """Build master chart from all domain charts."""
+    lines = [MERMAID_INIT, f"flowchart {FLOWCHART_DIRECTION}", ""]
+
+    # Collect all entity classes for styling
+    entity_classes = {}
+
+    for chart in domain_charts:
+        domain = chart.domain
+        subgraph_id = f"n_g_{domain}"
+
+        # Subgraph header
+        lines.append(f'subgraph {subgraph_id}["{domain.replace("_", " ").title()} ({domain}/*)"]')
+
+        # Nodes with prefixed IDs
+        for node in chart.nodes:
+            prefixed_id = f"n_{domain}_{node_id_to_filename(node.node_id)}"
+            prefixed_class = f"n_entity_{domain}"
+            lines.append(f"  {prefixed_id}({node.label}):::{prefixed_class}")
+            entity_classes[prefixed_class] = domain
+
         lines.append("end")
+        lines.append("")
 
-    # Add CSS class definitions
+        # Edges without IDs (handled by init block)
+        for edge in chart.edges:
+            source_prefixed = f"n_{domain}_{node_id_to_filename(edge.source_id)}"
+            target_prefixed = f"n_{domain}_{node_id_to_filename(edge.target_id)}"
+            lines.append(f'{source_prefixed} -- "{edge.label}" --> {target_prefixed}')
+
+    # Add styling
     lines.append("")
     lines.append("    %% Entity color classes")
-    for entity_class, entity_id in sorted(entity_classes.items()):
+    for css_class, entity_id in entity_classes.items():
         color = get_entity_color(entity_id)
-        lines.append(
-            f"    classDef {entity_class} stroke:{color},"
-            f"stroke-width:{NODE_STROKE_WIDTH}px,rx:{NODE_BORDER_RADIUS}"
-        )
-
-    lines.append("")
-    lines.append("    %% Edge classes")
-    for edge_class, color in EDGE_COLORS.items():
-        if edge_class == "missingNode":
-            continue
-        style = EDGE_STYLES.get(edge_class, "stroke-width:2px")
-        lines.append(f"    classDef {edge_class} stroke:{color},{style}")
+        lines.append(f"    classDef {css_class} stroke:{color},stroke-width:{NODE_STROKE_WIDTH}px,rx:{NODE_BORDER_RADIUS}")
 
     lines.append("")
     lines.append("    %% Special node classes")
-    missing_color = EDGE_COLORS["missingNode"]
-    lines.append(
-        f"    classDef missingNode stroke:{missing_color},"
-        f"stroke-width:2px,stroke-dasharray:5,rx:8"
-    )
+    lines.append("    classDef missingNode stroke:#E74C3C,stroke-width:2px,stroke-dasharray:5,rx:8")
 
-    # Apply node classes
     lines.append("")
-    lines.append("    %% Apply entity classes to nodes")
-    for node_id, entity_class in sorted(node_to_entity_class.items()):
-        lines.append(f"    class {node_id} {entity_class}")
-
-    if missing_nodes:
-        lines.append("")
-        lines.append("    %% Apply missing node classes")
-        for nid in sorted(missing_nodes.values()):
-            lines.append(f"    class {nid} missingNode")
-
-    # Animate important edges
-    lines.append("")
-    lines.append("    %% Animate important edges")
-    for edge_id in animated_edges[::ANIMATE_EDGE_RATIO]:
-        lines.append(f"    {edge_id}@{{animate: true}}")
-
-    # Apply edge classes
-    lines.append("")
-    lines.append("    %% Apply edge styling")
-    for edge_class, edge_ids in sorted(edges_by_class.items()):
-        if edge_ids:
-            edges_str = ",".join(edge_ids)
-            lines.append(f"    class {edges_str} {edge_class}")
-
-    return "\n".join(lines) + "\n"
+    return "\n".join(lines)
 
 
-def main() -> int:
-    files = iter_dialogue_files(SCRIPT_DIR)
-    dialogues: List[Dialogue] = []
-    for fp in files:
-        obj = read_json(fp)
-        if not obj or not is_dialogue_json(obj):
-            continue
-        dialogues.append(parse_dialogue(SCRIPT_DIR, fp, obj))
+# ============================================================================
+# COMMANDS
+# ============================================================================
 
-    if not dialogues:
-        print("No dialogues found.", file=sys.stderr)
+def cmd_sync(_args) -> int:
+    """Sync domain charts → create JSON scaffolds, add animations."""
+    print("Syncing domain charts → JSON...")
+
+    domains = discover_domains(SCRIPT_DIR)
+    if not domains:
+        print("No domain charts found (*/chart.mmd)")
         return 1
 
-    mermaid = build_mermaid(dialogues)
-    OUTPUT_FILE.write_text(mermaid, encoding="utf-8")
-    print(f"Wrote {OUTPUT_FILE}")
+    total_created = 0
+
+    for domain in domains:
+        chart_path = SCRIPT_DIR / domain / "chart.mmd"
+        print(f"\nProcessing {domain}/chart.mmd")
+
+        # Parse chart
+        chart = parse_domain_chart(chart_path)
+
+        # Load existing JSON files
+        domain_path = SCRIPT_DIR / domain
+        existing_files = load_existing_json_paths(domain_path)
+
+        # Find missing JSON files
+        chart_filenames = {node_id_to_filename(n.node_id) for n in chart.nodes}
+        missing = chart_filenames - existing_files
+
+        # Create scaffolds
+        created = []
+        for node in chart.nodes:
+            filename = node_id_to_filename(node.node_id)
+            if filename in missing:
+                scaffold = generate_scaffold(domain, node, chart.edges)
+                json_path = domain_path / f"{filename}.json"
+                json_path.parent.mkdir(parents=True, exist_ok=True)
+                json_path.write_text(json.dumps(scaffold, indent=2) + "\n", encoding="utf-8")
+                created.append(filename)
+
+        if created:
+            print(f"  Created {len(created)} JSON files: {', '.join(created)}")
+            total_created += len(created)
+
+        # Check for orphans
+        orphans = existing_files - chart_filenames
+        if orphans:
+            print(f"  ⚠ {len(orphans)} orphaned JSON files (not in chart): {', '.join(sorted(orphans))}")
+
+        # Always reformat chart (add init block, normalize edges)
+        add_animations_to_chart(chart_path, [e.edge_id for e in chart.edges])
+        if chart.edges:
+            print(f"  Reformatted chart ({len(chart.edges)} edges)")
+
+    if total_created:
+        print(f"\n✓ Created {total_created} JSON files total")
+    else:
+        print("\n✓ All JSON files up to date")
+
     return 0
 
 
+def cmd_generate(_args) -> int:
+    """Generate master chart from domain charts."""
+    print("Generating master chart from domain charts...")
+
+    domains = discover_domains(SCRIPT_DIR)
+    if not domains:
+        print("No domain charts found (*/chart.mmd)")
+        return 1
+
+    # Parse all domain charts
+    domain_charts = []
+    for domain in domains:
+        chart_path = SCRIPT_DIR / domain / "chart.mmd"
+        chart = parse_domain_chart(chart_path)
+        domain_charts.append(chart)
+        print(f"  Parsed {domain}/chart.mmd ({len(chart.nodes)} nodes, {len(chart.edges)} edges)")
+
+    # Build master chart
+    master_content = build_master_chart(domain_charts)
+    MASTER_CHART.write_text(master_content, encoding="utf-8")
+
+    total_nodes = sum(len(c.nodes) for c in domain_charts)
+    total_edges = sum(len(c.edges) for c in domain_charts)
+    print(f"\n✓ Generated {MASTER_CHART.name}")
+    print(f"  {len(domains)} domains, {total_nodes} nodes, {total_edges} edges")
+
+    return 0
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(
+        description="SimChat Mermaid Chart System"
+    )
+    subparsers = parser.add_subparsers(dest="command", help="Command to run")
+
+    subparsers.add_parser("sync", help="Sync domain charts → JSON scaffolds")
+    subparsers.add_parser("generate", help="Generate master chart from domain charts")
+
+    args = parser.parse_args()
+
+    if not args.command:
+        args.command = "generate"
+
+    if args.command == "sync":
+        return cmd_sync(args)
+    elif args.command == "generate":
+        return cmd_generate(args)
+    else:
+        parser.print_help()
+        return 1
+
+
 if __name__ == "__main__":
-    raise SystemExit(main())
+    sys.exit(main())
