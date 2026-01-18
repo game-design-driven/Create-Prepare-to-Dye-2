@@ -21,44 +21,53 @@
   </a>
 </p>
 
-⚙️ Create : Prepare to Dye is an opinionated new take on automation based gameplay
+⚙️ Create : Prepare to Dye is an fresh new take on automation based gameplay.
 
 ## Intro
-As the head of a crumbling, inherited, capitalistic space company, you are forced to use the last card you have left, the rights to a small, dead, irradiated planet called **Chroma Prime**.
+**As the head of a crumbling, inherited, capitalistic space company, you’re forced to use the last card you have left: a contract on a small, dead, irradiated planet called Chroma Prime.**
 
-**Chroma Prime** is mostly depleted in resources, but it is all you have left. You must take the planet, and **sell as much as possible** back to the hungry society of the "United SPACE consumer union plus plus" in order to **reestablish your company** as the "top shelf", "high volume production", "safe importer/exporter" "wheelchair accessible" winner it once was. You will need to **build factories** and **trade routes**, create lasting **relationships**, compete with rivals and back-stab your way **to the top.**
+You don’t own Chroma Prime. You don’t even own your own automaton. You’ve signed a restrictive land-use lease with the United SPACE Consumer Union Plus Plus, granting you temporary operating rights on a fenced patch of wasteland under their oversight and whatever they decide “public interest” means this week.
 
-Things did start off on the wrong hoof though, as you **crash land on the barren planet, your milk powered spaceship is destroyed** as **you and Betsy are left to pick up the scraps and build your empire from sand and... milk?.**
+**Chroma Prime is depleted, hostile, and dead**. Treated like an industrial afterthought, but it’s all you have. Your job is to extract value from nothing: **build factories, secure trade routes, and sell as much as possible** back to the hungry society of the "United SPACE consumer union plus plus" until your company regains its old status as “top shelf,” “high volume production,” “safe importer/exporter,” “wheelchair accessible” winner it once was.
 
+Relationships are survival. The Union can revise your lease, raise your rent, restrict your outputs, or terminate your rights. Rivals can lobby for audits. Partners can demand exclusivity. You’ll negotiate, undercut, and betray your way to the top while keeping the Union satisfied enough to let you stay.
+
+Now it’s you, a model B fuel source, and a planet that gives you both nothing for free, except the capitalistic chance to build an empire from trade lines and.. milk?
 ## About the project
 
 ### Concept
-- Your goal is to be the highest rated producer in the system. Trade with the best of them and have the most productive and reliable production lines.
-- This planet is depleted, you will need to figure out how to produce the resources you'll need on your own, mining need not apply.
+- Your goal is to become a valued producer in the system. Trade with the best of them and have the most productive and reliable production lines.
+- This planet is depleted, you will need to figure out how to produce/buy the resources you'll need on your own, mining need not apply.
 - You inhibit the shell of a powerful automaton. You don't eat, you don't sleep, you can build and break blocks with ease, even at a distance.
+- Your only passive source of resources is you provided model B fuel source, use it's products wisely.
 ### Gameplay loop
-- You accept trade deals with various companies
+- You accept and negotiate trade deals with various companies
 - You produce the resources needed to fulfill the trade deals
 - You use the resources to grow your production and get better trade deals
-- Successful trade deals can level up your trade contract, giving you access to more advanced trade deals
+- Successful trade deals can level up your trade contracts, giving you access to more advanced trade deals
+- Rent more and more land from the many intermediaries who own the land on Chroma Prime. 
 ### Core values
+<details>
+  <summary>Not minecraft</summary>
+Minecraft is a great game, but in our case anything minecraft that's not specifically fitting this pack is fully removed. Don't expect to do any mining nor crafting. No exploration, nether, end, punching wood. No crafting tables, furnaces and nothing else you may expect. This is not a minecraft expansion, this is a minecraft override.
+</details>
 <details>
   <summary>Complex and unique automation</summary>
   
 Using Create, botania, quark and supplementries to set the style of automation we want. We deconstruct and construct **very intricately built and balanced processing lines.** We heavily focus on the concept of **difficult automation, cheap devices**. You will iterate and design your solutions and each one will take you to new places and areas of problem solving and logistics. 
 
 ---
-we add/alter many processing lines (over 3000 recipe changes and additions (including dynamic ones)) that focus on the core gameplay loop of the pack, and are designed to be interesting and fun to automate. They are not arbitrary or random, they are finely tuned specifically for this experience.
+we add/alter many processing lines (over ~~2000~~ ~~3000~~ 4000 recipe changes and additions) that focus on the core gameplay loop of the pack, and are designed to be interesting and fun to automate. They are not arbitrary or random, they are finely tuned specifically for this experience.
 </details>
 <details>
   <summary>Radical simplification</summary>
 
-No clutter. Every item and block has ~~a reason~~ at least a few reasons to be in the game. Otherwise it gets yeeted. And many things do indeed get yeeted, including from vanilla. Did anyone say nether? Never heard of it. To clarify, a reason is not "it's fun" there are many fun things you won't find in this modpack that are available somewhere else. A reason is "it's fun and it fits the core gameplay loop of the pack".
+No clutter. Every item and block has ~~a reason~~ at least a few reasons to be in the game. Otherwise it does not make it in
 </details>
 <details>
   <summary>Remove tiers</summary>
 
-* all other recipes have a place in any stage of the game. For example the grindstones from Create are not a flat upgrade over the millstone, the millstone produces a lot of a single product, while the grindstones produce multiple products, but at a lower quantity. Every recipe will have advantages and disadvantages, and depending on your existing processing lines it might make sense to use different ones.
+* all or almost all recipes have a place in any stage of the game. For example the grindstones from Create are not a flat upgrade over the millstone, the millstone produces a lot of a single product, while the grindstones produce multiple products, but at a lower quantity. Every recipe will have advantages and disadvantages, and depending on your existing processing and trade lines it might make sense to use different ones.
 </details>
 <details>
   <summary>Low amount of tasks that aren't "making cool stuff"</summary>
@@ -68,19 +77,18 @@ No clutter. Every item and block has ~~a reason~~ at least a few reasons to be i
 <details>
   <summary>Heavily Documented, in game</summary>
   
-You item and recipe index is a core gameplay element. Imagine playing Botania without needing to open a book or a wiki. See [botania-debookified](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/blob/main/kubejs/client_scripts/tooltips/botaniaDebookified.js) for technical details.
+You item and recipe index is a core gameplay element. Imagine playing Botania without needing to open a book or a wiki.
 </details>
 <details>
   <summary>A new take on progression</summary>
   
-Progression and "tiers" in this modpack are not done with more and more expansive machines and devices. **You are not leveling up your machines, you are leveling up your production.** Your early game white plate production will tie well into your late game, like most of the processes in this pack. As the game progresses the scale and the complexity of your lines will grow. You upgrade processes, not machines.
+Progression and "tiers" in this modpack are not done with more and more expansive machines and devices. **You are not leveling up your machines, you are leveling up your production.** Your early game white plate production will tie well into your late game if it's well designed, like most of the processes in this pack. As the game progresses the scale and the complexity of your lines will grow. You upgrade processes, not machines.
 </details>
 
 <details>
   <summary>Customization and Modularity</summary>
   
-We have a clear gameplay loop we try to enforce, but if there is something that doesn't fit, you should be able to change it easily.
-Our script base uses a feature based aproach, where you can enable and disable features of the pack, and even add your own using our recipe managers.
+We have a clear gameplay loop we try to enforce, but if there is something that doesn't fit, you should be able to change it easily in our master config file 
 </details>
 
 
