@@ -3,7 +3,7 @@
   "entityId": "usspinspectorwillard",
   "entityName": "Willard",
   "entitySubtitle": "USSP Compliance Inspector",
-  "text": "You are on a dead planet with a live mortgage. The United Space Consumer Union Plus Plus owns the trade routes and the courts. I am the clerk between you and legal market access. If your memory banks are corrupted, blame the hard landing. If your intent is unclear, choose a name and let commerce sort the rest.",
+  "text": "You are on a dead planet with a live mortgage. The United Space Consumer Union Plus Plus owns the trade routes and the courts. I am what stands between you and market access",
   "actions": [
     {
       "label": "Alright, fine",
@@ -17,7 +17,7 @@
     },
     {
       "label": "Can we just not have a name for our company?",
-      "reply": "Can I skip the name for now?",
+      "reply": "Can we skip the name for now?",
       "nextState": "ptd_trading:usspinspectorwillard/explain_registration"
     }
   ]

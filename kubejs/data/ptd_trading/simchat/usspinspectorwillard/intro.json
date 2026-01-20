@@ -5,7 +5,9 @@
   "entitySubtitle": "USSP Compliance Inspector",
   "text": [
     "Congratulations, You made planetfall in Sector-0, {player:name}. Dead rock, dead markets. I am Inspector Willard of the United Space Consumer Union Plus Plus. Your contract says you intend to establish a production concern.  I need a company name for the ledger.",
-    "I need a company name before we proceed."
+    "I need a company name before we proceed.",
+    "Company name?",
+    "Name..?"
   ],
   "actions": [
     {
@@ -22,6 +24,7 @@
       "label": "Where is my ship?",
       "reply": "I want my ship back.",
       "nextState": "ptd_trading:usspinspectorwillard/ship_where_intro"
+
     },
     {
       "label": "Can I leave?",

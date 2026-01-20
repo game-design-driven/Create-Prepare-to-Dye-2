@@ -6,6 +6,21 @@
 SimChat.clearCallbacks()
 
 // ============================================
+// BENCHMARK SLOW FUNCTION (for testing chunked loading)
+// ============================================
+let slowCounter = 0
+SimChat.registerCallback('slowCounter', function(ctx) {
+    // Busy loop to simulate slow template resolution (~20ms)
+    let start = Date.now()
+    while (Date.now() - start < 20) {
+        // Busy wait
+        Math.sqrt(Math.random())
+    }
+    slowCounter++
+    return 'Count: ' + slowCounter
+})
+
+// ============================================
 // HELPER: Get team data value
 // ============================================
 function getTeamData(ctx, key) {
