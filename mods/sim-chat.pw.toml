@@ -1,13 +1,13 @@
 name = "sim-chat"
-filename = "simchat-0.9.3.jar"
+filename = "simchat-0.10.1.jar"
 side = "both"
 
 [download]
-url = "https://cdn.modrinth.com/data/oYh7N7U3/versions/r82GrRtj/simchat-0.9.3.jar"
+url = "https://cdn.modrinth.com/data/oYh7N7U3/versions/Gkhc9TrG/simchat-0.10.1.jar"
 hash-format = "sha512"
-hash = "4b80ae53db546cab1b6cc02a970cf517330cfee5bcac2ef5a9df71e53f841bfac1126107fe4f8089d93f8135b35eb215176d6e3551bf1115424dfc12af24930a"
+hash = "c4e00f1c3f434fc5a92d6d230834f0b5755b36172aaa50660713651e1ea203de1e11184f9f1274807334617ba737c2046e5719fc9e54a0a038db4c20288c718d"
 
 [update]
 [update.modrinth]
 mod-id = "oYh7N7U3"
-version = "r82GrRtj"
+version = "Gkhc9TrG"

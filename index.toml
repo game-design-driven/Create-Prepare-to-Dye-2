@@ -9166,7 +9166,7 @@ metafile = true
 
 [[files]]
 file = "mods/sim-chat.pw.toml"
-hash = "1524bb4df9bc66e0d368119a631a446df323e0f05d3d37101f71cb59f04d652b"
+hash = "364d35bafe4fc1f074dc486856b117487e8431a9bb90005883fdf574f0d198b9"
 metafile = true
 
 [[files]]
