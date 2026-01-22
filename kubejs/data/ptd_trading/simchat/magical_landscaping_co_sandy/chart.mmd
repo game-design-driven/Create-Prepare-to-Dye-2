@@ -1,0 +1,28 @@
+%%{init:{"theme":"default","flowchart":{"curve":"linear"},"themeCSS":".flowchart-link{stroke-dasharray:16 10 !important;stroke-linecap:round !important;animation:dash 1.6s linear infinite !important}@keyframes dash{to{stroke-dashoffset:-52}}marker path{stroke-dasharray:none !important;animation:none !important}"}}%%
+flowchart LR
+
+n_intro(intro - Sandy):::n_entity_magical_landscaping_co_sandy
+    n_intro -->|"Yes I am" | n_interested
+    n_intro -->|"No thanks" | n_no_meat
+    n_intro -->|"Who are you?" | n_who_are_you
+
+n_who_are_you(who_are_you - Sandy):::n_entity_magical_landscaping_co_sandy
+    n_who_are_you -->|"Ok, lets do business" | n_interested
+
+n_no_meat(no_meat - Sandy):::n_entity_magical_landscaping_co_sandy
+    n_no_meat -->|"How do you know about my planet?" | n_planet_exposition
+    n_no_meat -->|"Sure, lets talk" | n_interested
+
+n_planet_exposition(planet_exposition - Sandy):::n_entity_magical_landscaping_co_sandy
+    n_planet_exposition -->|"Alright, let's talk" | n_interested
+n_interested(interested - Sandy):::n_entity_magical_landscaping_co_sandy
+    n_interested -->|"How do I get the powder?" | n_powder_explain
+    n_interested -->|"Here you go" | n_powder_deal
+
+n_powder_explain(powder_explain - Sandy):::n_entity_magical_landscaping_co_sandy
+    n_powder_explain -->|"Is that it?" | n_powder_deal
+
+n_powder_deal(powder_deal - Sandy):::n_entity_magical_landscaping_co_sandy
+    n_powder_deal -->|"So I just put the powder in there?" | n_mesh_explain
+    n_powder_deal -->|"How does the trading mesh work?" | n_mesh_explain
+
