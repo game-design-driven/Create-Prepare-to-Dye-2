@@ -79,7 +79,7 @@ global.drop_pod.spawnDrop = (level, origin, player) => {
   doorTop.persistentData.putUUID('root', root.uuid);
 
   // Comment below to prevent teleporting player to drop pod seat
-  // core.addSittingPassenger(player, 0);
+  core.addSittingPassenger(player, 0);
   // player.persistentData.putBoolean('PTD_locked', true); // see startup_scripts/mount_lock
 
   root.persistentData.putString('state', 'falling');
