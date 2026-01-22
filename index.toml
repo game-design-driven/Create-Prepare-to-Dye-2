@@ -1286,7 +1286,7 @@ hash = "48981474996310a7861d97b5aaea8a11ba16d6075c273766daab566848930c09"
 
 [[files]]
 file = "VERSION"
-hash = "e3b368a9751191df3f9758b36644ba0b5da0a94c88b3f305a0b69933416251da"
+hash = "1953106ab791eaf097f445f0b5c27ac92b9457b6097e83c9ead8083c8a090e84"
 
 [[files]]
 file = "config/MouseTweaks.cfg"
@@ -1742,7 +1742,7 @@ hash = "e6692fd7c3b5d4db82c9836c81b02182500bb00c81817919120f514df2bc7f00"
 
 [[files]]
 file = "config/modpack-update-checker/config.json"
-hash = "b65155eb6e9f20b68b2899dd2d859d6a73be3aa70c51a4add3362e1b14453987"
+hash = "5d74cd46597ea06d3fab3e202d4d5b244aa32bbb557a9c9d3652f4be1ad8202e"
 
 [[files]]
 file = "config/modpack-update-checker/modpack-info.txt"
@@ -4966,7 +4966,7 @@ hash = "ded1b3b51c1b47ee3e812ef73dfb4dd423dec7119ed921585bed038c95328c0d"
 
 [[files]]
 file = "kubejs/assets/sdrp/lang/en_us.json"
-hash = "b071c7ed8063f52102d9fe0dd5c255d85a297cf7dfa818cb5e2dbf40aa2adb68"
+hash = "1f3ac43d3ee05d053d880ea667e940336ced6af97e716f29900d1558f9869f46"
 
 [[files]]
 file = "kubejs/assets/storagedrawers/blockstates/controller.json"
@@ -5694,7 +5694,7 @@ hash = "f614594216d91c1d9580941260386c2a6a2d8ac8c20b0d6e76ab98e00f9a2ef3"
 
 [[files]]
 file = "kubejs/data/ptd_trading/simchat/usspinspectorwillard/confused.json"
-hash = "2e5f18146d1877e5a2b9fe06235de246df4503189db075bea45af6dcd54fe32c"
+hash = "7f92e0a6c71012b5d7552d7a0f85ab03206ba5072a12ae9c631e2c07bc74df08"
 
 [[files]]
 file = "kubejs/data/ptd_trading/simchat/usspinspectorwillard/decline_registration.json"
@@ -5706,11 +5706,11 @@ hash = "d80e0c651d2218a333b14f25cccc1422bbb7f59cd0bfaac465b6f7c0f27a5669"
 
 [[files]]
 file = "kubejs/data/ptd_trading/simchat/usspinspectorwillard/end.json"
-hash = "ca6c468051b668bd04af47a362e65f331093e2363fdb46baba306994b3124ca5"
+hash = "346e55f2486e0f8837c766ab08f2add2d308f58a803a683878361e37921c70eb"
 
 [[files]]
 file = "kubejs/data/ptd_trading/simchat/usspinspectorwillard/explain_registration.json"
-hash = "cf61981f284ecdac2e21ccce3cf6f3b3343126c6db26d28e022b12ea8b6fbb4f"
+hash = "be54a246a62ef9744e2a1e600e973aee0fd8509e8d7be2e78cb0719dd5855b50"
 
 [[files]]
 file = "kubejs/data/ptd_trading/simchat/usspinspectorwillard/explain_ship.json"
@@ -5726,7 +5726,7 @@ hash = "dd113814c6f99c78cfbea1d39d756a7f81a91731370e682d51e7ec704afe7b78"
 
 [[files]]
 file = "kubejs/data/ptd_trading/simchat/usspinspectorwillard/intro.json"
-hash = "e70043f71cb6046c9ca5020513974bfdc1045ded292c33062fb2ce8cdd01d4c4"
+hash = "915125207ef341fe2e6ad6ff08f11a3c58467efbcdc98c1620670378112cdf51"
 
 [[files]]
 file = "kubejs/data/ptd_trading/simchat/usspinspectorwillard/leave.json"
@@ -6030,7 +6030,7 @@ hash = "9117cffa55dc5427252648d44479b3f992896742e66ffb58f1a88d60b3ef980f"
 
 [[files]]
 file = "kubejs/server_scripts/simchat.js"
-hash = "83ba6cfe164c1abfb0b7bbc956a99f83a579817e2c04bc9989d11f9b8bcc84a2"
+hash = "3dc11425c1e82d62a0e07a977e3c4c80376a881e1ae459d5bfd1d2574493b604"
 
 [[files]]
 file = "kubejs/server_scripts/storagedrawers.js"
@@ -6110,7 +6110,7 @@ hash = "ab323610254d7b8ce09ca2580b344714c58fd4804d26ee0e2525baa24a148809"
 
 [[files]]
 file = "modpack-update-checker/meta.json"
-hash = "ee51bce5b269c82d0bee50909c095745924636828f8784ab4714d5d9749f88aa"
+hash = "695f34eb7dd402eda537075b0a3d74e2edec851616a950aa2ccd6c52a586de51"
 
 [[files]]
 file = "modpack-update-checker/versions/1.100.0/changelog.txt"
@@ -8495,6 +8495,10 @@ hash = "101a04f58d40faaf7c8dc577e6f3839a829a05fb4ed7c35e19918268eee27453"
 [[files]]
 file = "modpack-update-checker/versions/1.269.9/changelog.txt"
 hash = "e675d090cab9b0b068779a9b85939744beaad1a6c6cd575ff587de995926ff21"
+
+[[files]]
+file = "modpack-update-checker/versions/1.270.0/changelog.txt"
+hash = "c37e7c28c44a3e6c989491902a9858398d6b0c73b7bde49a809b2e212b04c044"
 
 [[files]]
 file = "modpack-update-checker/versions/1.79.33/changelog.txt"

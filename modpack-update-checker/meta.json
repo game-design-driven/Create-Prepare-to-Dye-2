@@ -1169,6 +1169,16 @@
           "modrinth": "https://modrinth.com/modpack/create-prepare-to-dye-2/version/1.269.10/"
         }
       }
+    },
+    {
+      "id": "1.270.0",
+      "releasedAt": 1769066941603,
+      "updateType": "minor",
+      "promotions": {
+        "downloads": {
+          "modrinth": "https://modrinth.com/modpack/create-prepare-to-dye-2/version/1.270.0/"
+        }
+      }
     }
   ]
 }
