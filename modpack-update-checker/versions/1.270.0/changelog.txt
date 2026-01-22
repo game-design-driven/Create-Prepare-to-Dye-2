@@ -1,0 +1,13 @@
+## [1.270.0](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/compare/1.269.10...1.270.0) (2026-01-20)
+
+
+### Features
+
+* simchat configs tests and scripts ([459c1fb](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/459c1fbe00314393751f4bd06e65b126b5b7f311))
+
+
+### chores
+
+* autopublish 2026-01-20T19:00:31Z ([eb2c8ad](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/eb2c8ad3d927a6542278e19512f1370f73c2f19f))
+
+
