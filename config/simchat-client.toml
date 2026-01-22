@@ -27,7 +27,7 @@
 [ui]
 	#Width of the entity list sidebar (pixels). Drag the divider in-game to resize.
 	#Range: 60 ~ 2000
-	sidebarWidth = 60
+	sidebarWidth = 264
 	#Size of avatar images in chat (pixels)
 	#Range: 16 ~ 64
 	avatarSize = 32
@@ -47,4 +47,27 @@
 	notifyTeammateActions = true
 	#Play notification sound when a teammate clicks an action
 	teammateActionSound = true
+
+#Debug Settings
+[debug]
+	#Enable verbose debug logging
+	enabled = true
+
+#History Loading Settings
+[history]
+	#How many messages to request when scrolling up
+	#Range: 10 ~ 2000
+	lazyLoadBatchSize = 40
+	#Distance from top (pixels) before requesting older messages
+	#Range: 20 ~ 500
+	lazyLoadThreshold = 100
+	#Messages to keep per conversation after closing chat
+	#Range: 1 ~ 5000
+	closedCacheSize = 400
+
+#Template Settings
+[templates]
+	#How many runtime template requests to send per client tick
+	#Range: 1 ~ 200
+	requestsPerTick = 20
 

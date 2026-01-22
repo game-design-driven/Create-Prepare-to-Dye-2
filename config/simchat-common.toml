@@ -15,8 +15,104 @@
 
 #Permission Settings
 [permissions]
-	#Required permission level to use /simchat commands (0-4)
+	#Permission to use /simchat send
 	#0 = all players, 1 = moderators, 2 = gamemaster, 3 = admin, 4 = owner
 	#Range: 0 ~ 4
-	commandPermissionLevel = 4
+	send = 4
+	#Permission to use /simchat system
+	#0 = all players, 1 = moderators, 2 = gamemaster, 3 = admin, 4 = owner
+	#Range: 0 ~ 4
+	system = 4
+	#Permission to use /simchat clear
+	#0 = all players, 1 = moderators, 2 = gamemaster, 3 = admin, 4 = owner
+	#Range: 0 ~ 4
+	clear = 4
+	#Permission to use /simchat open
+	#0 = all players, 1 = moderators, 2 = gamemaster, 3 = admin, 4 = owner
+	#Range: 0 ~ 4
+	open = 4
+	#Permission to use /simchat openmessage
+	#0 = all players, 1 = moderators, 2 = gamemaster, 3 = admin, 4 = owner
+	#Range: 0 ~ 4
+	openmessage = 0
+
+	[permissions.team]
+		#Permission to use /simchat team create
+		#0 = all players, 1 = moderators, 2 = gamemaster, 3 = admin, 4 = owner
+		#Range: 0 ~ 4
+		create = 4
+		#Permission to use /simchat team invite
+		#0 = all players, 1 = moderators, 2 = gamemaster, 3 = admin, 4 = owner
+		#Range: 0 ~ 4
+		invite = 4
+		#Permission to use /simchat team join
+		#0 = all players, 1 = moderators, 2 = gamemaster, 3 = admin, 4 = owner
+		#Range: 0 ~ 4
+		join = 4
+		#Permission to use /simchat team list
+		#0 = all players, 1 = moderators, 2 = gamemaster, 3 = admin, 4 = owner
+		#Range: 0 ~ 4
+		list = 4
+		#Permission to use /simchat team info
+		#0 = all players, 1 = moderators, 2 = gamemaster, 3 = admin, 4 = owner
+		#Range: 0 ~ 4
+		info = 4
+		#Permission to use /simchat team title
+		#0 = all players, 1 = moderators, 2 = gamemaster, 3 = admin, 4 = owner
+		#Range: 0 ~ 4
+		title = 4
+		#Permission to use /simchat team color
+		#0 = all players, 1 = moderators, 2 = gamemaster, 3 = admin, 4 = owner
+		#Range: 0 ~ 4
+		color = 4
+
+	[permissions.callback]
+		#Permission to use /simchat callback list
+		#0 = all players, 1 = moderators, 2 = gamemaster, 3 = admin, 4 = owner
+		#Range: 0 ~ 4
+		list = 4
+		#Permission to use /simchat callback run
+		#0 = all players, 1 = moderators, 2 = gamemaster, 3 = admin, 4 = owner
+		#Range: 0 ~ 4
+		run = 4
+		#Permission to use /simchat reload
+		#0 = all players, 1 = moderators, 2 = gamemaster, 3 = admin, 4 = owner
+		#Range: 0 ~ 4
+		reload = 4
+
+	[permissions.data]
+		#Permission to use /simchat data get
+		#0 = all players, 1 = moderators, 2 = gamemaster, 3 = admin, 4 = owner
+		#Range: 0 ~ 4
+		get = 4
+		#Permission to use /simchat data set
+		#0 = all players, 1 = moderators, 2 = gamemaster, 3 = admin, 4 = owner
+		#Range: 0 ~ 4
+		set = 4
+		#Permission to use /simchat data add
+		#0 = all players, 1 = moderators, 2 = gamemaster, 3 = admin, 4 = owner
+		#Range: 0 ~ 4
+		add = 4
+		#Permission to use /simchat data remove
+		#0 = all players, 1 = moderators, 2 = gamemaster, 3 = admin, 4 = owner
+		#Range: 0 ~ 4
+		remove = 4
+		#Permission to use /simchat data list
+		#0 = all players, 1 = moderators, 2 = gamemaster, 3 = admin, 4 = owner
+		#Range: 0 ~ 4
+		list = 4
+
+#Debug Settings
+[debug]
+	#Enable verbose debug logging
+	enabled = true
+
+#History Sync Settings
+[historySync]
+	#How many recent messages per conversation to send on sync
+	#Range: 0 ~ 5000
+	initialMessageCount = 40
+	#Server-side cap for lazy load batch size
+	#Range: 10 ~ 2000
+	maxLazyLoadBatchSize = 40
 
