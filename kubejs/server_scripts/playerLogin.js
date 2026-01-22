@@ -50,6 +50,10 @@ PlayerEvents.loggedIn((event) => {
       }
     }
     event.server.persistentData.putBoolean("existing_world", true);
+    Utils.server.scheduleInTicks(20, function() {
+      event.player.runCommand("spawnDrop")
+    });
+
   }
 });
 
