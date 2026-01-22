@@ -20,4 +20,18 @@ ideas
 - loans
 - develop a new processing line and with the help of an enthusiastic partner you can patent it or, once his rival contacts you, open source it and give it away (giving up potential future profits but gaining reputation and allies)
 - Ability to request advanced payment, getting less reputation but more immediate cashflow
-
+- Loans from shady companies
+- Artificial scarcity plays - A company asks you to stop producing a product temporarily so they can drain market stockpiles and spike prices. You get a cut, but smaller producers get squeezed out and may remember.
+- Dumping contracts - Sell at a loss to bankrupt a competitor. The company funding this pays you the difference plus a bonus, but you've now made an enemy and established yourself as "for hire."
+- Vertical integration pressure - A company you supply starts acquiring your other buyers. Eventually they offer to acquire you (game over? prestige ending?) or you can fight back by diversifying.
+- The whistleblower - An employee from Company X contacts you with evidence of their unsafe practices. Expose them (tanks their reputation, they become hostile, regulators thank you), sell the info back to X (they owe you a favor), or sell it to their competitor.
+- Reputation laundering - A despised company offers premium rates if you'll act as a middleman, selling their products under your name. Easy money until someone finds out.
+- The face-saving contract - A company publicly announced a product they can't actually produce. They'll pay you handsomely to secretly supply it. If you ever reveal this, they're ruined but you become known as untrustworthy.
+- The inspection - Regulators are coming. You can pause shady operations (lost productivity), bribe them (risk of exposure), or just take the fine (public record).
+- The disaster - A company's facility explodes. They desperately need product to cover obligations. You can gouge them, help at fair rates (they'll remember), or help a different company capitalize on the gap.
+- The cooperative - A workers' co-op offers worse rates but gives you a "fair trade" reputation modifier that unlocks certain clients and closes off others.
+- The bailout - A struggling company begs for a loan. You can give fair terms (risky, low return), predatory terms (you might end up owning them), or refuse (they go under, market consolidates).
+- The investigation — If you've been too shady, an investigative entity starts building a case. You can lie low, destroy evidence (risk), bribe witnesses (risk), or get ahead of it by self-reporting (controlled damage).
+- Refernces to other mods
+    - Thaumaturge contacting player asking help with research materials. If thaumcraft license allows we can import some ingredients from it
+    - 
