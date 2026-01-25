@@ -9070,6 +9070,11 @@ hash = "4346dfe4ab95594d1fd415393bf58a744be7b338f1831b297857dad607f56526"
 metafile = true
 
 [[files]]
+file = "mods/kiwi.pw.toml"
+hash = "481cc9765a61653ef25e572f1c49dbe1f4279873c1a0e0f0c24fa742a88ef740"
+metafile = true
+
+[[files]]
 file = "mods/konkrete.pw.toml"
 hash = "90a70141bcec839b6a1aa647c91f97bb7b33b6b9e6ce6b3b18a4113aa7dff636"
 metafile = true
