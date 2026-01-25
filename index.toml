@@ -1286,7 +1286,7 @@ hash = "48981474996310a7861d97b5aaea8a11ba16d6075c273766daab566848930c09"
 
 [[files]]
 file = "VERSION"
-hash = "1953106ab791eaf097f445f0b5c27ac92b9457b6097e83c9ead8083c8a090e84"
+hash = "75793e75a9b932c6051c4b867003571162efa8fde330ac91c4d668c2a65bde84"
 
 [[files]]
 file = "config/MouseTweaks.cfg"
@@ -1742,7 +1742,7 @@ hash = "e6692fd7c3b5d4db82c9836c81b02182500bb00c81817919120f514df2bc7f00"
 
 [[files]]
 file = "config/modpack-update-checker/config.json"
-hash = "5d74cd46597ea06d3fab3e202d4d5b244aa32bbb557a9c9d3652f4be1ad8202e"
+hash = "f67a18549e9c60733a67e061f75cc1faf51b3325c3d779bdb665412e26d793a4"
 
 [[files]]
 file = "config/modpack-update-checker/modpack-info.txt"
@@ -1802,11 +1802,11 @@ hash = "ba7035f674438cc475cddbb298745110e9e4d6dbad5bb8cfdb3998b0b6570235"
 
 [[files]]
 file = "config/simchat-client.toml"
-hash = "e94d9aaba553a243a071d9f1874b6f3497cb3ab7c527a424d6d31f9b890a8bfd"
+hash = "9585ec3fe996146ab0532e28042948c7681415583eb7b5151f40ff2338d6e21c"
 
 [[files]]
 file = "config/simchat-common.toml"
-hash = "bf42efb843149a79cc81e6cb791a0d3af57533a265bc05c5f820e870562de4a1"
+hash = "d5a65aa5c5e23971ea4e239c0e7f1608de2e358c11b7bf8ea06e17695e3542b8"
 
 [[files]]
 file = "config/simchat/entities/USSPInspectorWillard.json"
@@ -1922,7 +1922,7 @@ hash = "09a72b381ab098f303bd92eb8647e112a7bf22745e1cf8748282283f75660705"
 
 [[files]]
 file = "design-doc.md"
-hash = "c29d386c709b1c5c242c8109b088d1f3e809333636dc274de156d80c99472a8a"
+hash = "ea310f70c5bb8c93d0a8574664e1d282ad47323f0ea9b1180a3b7c9b3a5daaa7"
 
 [[files]]
 file = "discord banner.png"
@@ -4966,7 +4966,7 @@ hash = "ded1b3b51c1b47ee3e812ef73dfb4dd423dec7119ed921585bed038c95328c0d"
 
 [[files]]
 file = "kubejs/assets/sdrp/lang/en_us.json"
-hash = "1f3ac43d3ee05d053d880ea667e940336ced6af97e716f29900d1558f9869f46"
+hash = "944bf087a377446dfc988a9b33b04ad9787b41cb831fea6c9c1152812cc0cf21"
 
 [[files]]
 file = "kubejs/assets/storagedrawers/blockstates/controller.json"
@@ -5199,6 +5199,10 @@ hash = "d9f79782aeb14a202b7584223c1601b29e7a776c1112245e1ecfcb25db1501bf"
 [[files]]
 file = "kubejs/client_scripts/jsconfig.json"
 hash = "b3ab0803e37b72c79a5cac24920c2a0afa6233a51b6e7016fffa66f0926f0281"
+
+[[files]]
+file = "kubejs/client_scripts/openModConfig.js"
+hash = "9968160c84bf96d46cbf6ec5ff59613607eaf963bf6cdc968a59644e4badfb02"
 
 [[files]]
 file = "kubejs/client_scripts/tooltips.js"
@@ -5677,6 +5681,10 @@ file = "kubejs/data/ptd/worldgen/placed_feature/replace_terracotta/replace9.json
 hash = "ce6d92118c1344fad4f2b6ba5e098d62191d70b6b51afab730b1431200246f01"
 
 [[files]]
+file = "kubejs/data/ptd_trading/simchat/magical_landscaping_co_sandy/chart.mmd"
+hash = "25f41e4672f0b8828347bef47346a1bdf8897ef2cc5d04721909ea207aef5ada"
+
+[[files]]
 file = "kubejs/data/ptd_trading/simchat/readme.md"
 hash = "b30b6250d988e67cb218dfae4fed08b0ea334944d461179a7cbda75db803b150"
 
@@ -5766,7 +5774,7 @@ hash = "8d5a9f68090ebbab6fa8656ddd680e6d5341494610d4037c2c7117e3fa0da014"
 
 [[files]]
 file = "kubejs/data/story/simchat/readme.md"
-hash = "7d7363b536fc96f4d5acef8662cad256e290b55f5b14e16ac50b91d85281cd2b"
+hash = "333497e201659d80b4d9944eaf6e471049d961650c1c0af46c6f94c595006b96"
 
 [[files]]
 file = "kubejs/data/supplementaries/loot_modifiers/ash_from_burning_mobs.json"
@@ -5910,7 +5918,7 @@ hash = "8d8ab36224c5f6a82a7060b997e282dc4a5bf614fd92cb1c935e32d02ccd0ec1"
 
 [[files]]
 file = "kubejs/server_scripts/drop_pod/spawn.js"
-hash = "3d209aaabdaf201cdf271d00245df2a816ec2710d395409556855644724602d4"
+hash = "a0529bd5ef40e7e1b68b05140841c0f446bfd374470de5b20617a7bbe8630249"
 
 [[files]]
 file = "kubejs/server_scripts/drop_pod/stateMachine.js"
@@ -5942,7 +5950,7 @@ hash = "b309646ea61c64c2e003ea6b7713e475bfd92c6d45413d3bf184c6efd9a9720a"
 
 [[files]]
 file = "kubejs/server_scripts/playerLogin.js"
-hash = "98fc5804a2c77ce90f3b784b371a16257021e216751bf32eb1429a671d433635"
+hash = "0329c83dae0a6802aa7e4c56bdcd73d20823e8833b20fbea5db3f7e1f0a5c10e"
 
 [[files]]
 file = "kubejs/server_scripts/player_tweaks.js"
@@ -6110,7 +6118,7 @@ hash = "ab323610254d7b8ce09ca2580b344714c58fd4804d26ee0e2525baa24a148809"
 
 [[files]]
 file = "modpack-update-checker/meta.json"
-hash = "695f34eb7dd402eda537075b0a3d74e2edec851616a950aa2ccd6c52a586de51"
+hash = "b2247993e16dc7a1850feeb1a1eae73bd605b368d185c81f0dc983d78bc59579"
 
 [[files]]
 file = "modpack-update-checker/versions/1.100.0/changelog.txt"
@@ -8499,6 +8507,10 @@ hash = "e675d090cab9b0b068779a9b85939744beaad1a6c6cd575ff587de995926ff21"
 [[files]]
 file = "modpack-update-checker/versions/1.270.0/changelog.txt"
 hash = "c37e7c28c44a3e6c989491902a9858398d6b0c73b7bde49a809b2e212b04c044"
+
+[[files]]
+file = "modpack-update-checker/versions/1.271.1/changelog.txt"
+hash = "d520f21e5bc919f1ce1585d777e0455c6714c146b0c929178fdf274ee13c5218"
 
 [[files]]
 file = "modpack-update-checker/versions/1.79.33/changelog.txt"
