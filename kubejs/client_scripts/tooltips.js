@@ -21,14 +21,14 @@ function formatTooltipText(text) {
 // Returns true if shift not held (adds hint and caller should return early)
 function shiftHint(text, hint) {
   if ($Screen.hasShiftDown()) return false;
-  text.add(Text.darkGray("Hold ").append(Text.gray("[Shift]")).append(Text.darkGray(" for " + (hint || "Summary"))));
+  text.add(Text.darkGray("Hold [").append(Text.gray("Shift")).append(Text.darkGray("] for " + (hint || "Summary"))));
   return true;
 }
 
 // Returns true if ctrl not held (adds hint and caller should return early)
 function ctrlHint(text, hint) {
   if ($Screen.hasControlDown()) return false;
-  text.add(Text.darkGray("Hold ").append(Text.gray("[Ctrl]")).append(Text.darkGray(" for " + (hint || "Details"))));
+  text.add(Text.darkGray("Hold [").append(Text.gray("Ctrl")).append(Text.darkGray("] for " + (hint || "Details"))));
   return true;
 }
 
