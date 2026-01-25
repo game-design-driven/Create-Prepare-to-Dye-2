@@ -1,0 +1,23 @@
+## [1.272.0](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/compare/1.271.1...1.272.0) (2026-01-25)
+
+
+### Features
+
+* add kiwi ([d758289](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/d75828937b42e20e49e32ccc1e2699f047f8b54b))
+
+
+### Documentation and Localization
+
+* fix tooltips colors ([782fc47](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/782fc47388947f2d24640ea5922051f9a3f473aa))
+
+
+### Fixes
+
+* milk and fermented goop as fuel ([7ecdcad](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/7ecdcadf08505261a00fc9bdf47bdac93ffcb752))
+
+
+### chores
+
+* autopublish 2026-01-25T07:22:16Z ([768f72a](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/768f72acf5ae57a2ed070e7a9ff1d52678592c0d))
+
+

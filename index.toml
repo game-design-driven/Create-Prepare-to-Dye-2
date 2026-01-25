@@ -1286,7 +1286,7 @@ hash = "48981474996310a7861d97b5aaea8a11ba16d6075c273766daab566848930c09"
 
 [[files]]
 file = "VERSION"
-hash = "75793e75a9b932c6051c4b867003571162efa8fde330ac91c4d668c2a65bde84"
+hash = "0dc3025900d2722506896f571ae688b4a411a05abb38c3ab8c51350ae1a7f796"
 
 [[files]]
 file = "config/MouseTweaks.cfg"
@@ -1741,8 +1741,20 @@ file = "config/jupiter.json"
 hash = "e6692fd7c3b5d4db82c9836c81b02182500bb00c81817919120f514df2bc7f00"
 
 [[files]]
+file = "config/kiwi-client.yaml"
+hash = "89bdd5f2207f943caa0a6be635b96f0bbff0aba132f8ecd970857fb56318de80"
+
+[[files]]
+file = "config/kiwi-common.yaml"
+hash = "be8ffd6a4ed69300864736280b44e2b537fef40ee69fcdf8687403d9a13b8014"
+
+[[files]]
+file = "config/lychee-common.yaml"
+hash = "98fc7eda3eb102b1155380e0d75af5ec7115a0bf5f052f1f54d197cdf1d0ee1e"
+
+[[files]]
 file = "config/modpack-update-checker/config.json"
-hash = "f67a18549e9c60733a67e061f75cc1faf51b3325c3d779bdb665412e26d793a4"
+hash = "679e1709a0e9bae657aa5b00a8ae2d12b142f2192396f117c79d1ecdd75c36fd"
 
 [[files]]
 file = "config/modpack-update-checker/modpack-info.txt"
@@ -4966,7 +4978,7 @@ hash = "ded1b3b51c1b47ee3e812ef73dfb4dd423dec7119ed921585bed038c95328c0d"
 
 [[files]]
 file = "kubejs/assets/sdrp/lang/en_us.json"
-hash = "944bf087a377446dfc988a9b33b04ad9787b41cb831fea6c9c1152812cc0cf21"
+hash = "e04b6caba2bb9c5f1c116160d3883f792571a47c05a15ca4255ea71df7b450f4"
 
 [[files]]
 file = "kubejs/assets/storagedrawers/blockstates/controller.json"
@@ -5206,7 +5218,7 @@ hash = "9968160c84bf96d46cbf6ec5ff59613607eaf963bf6cdc968a59644e4badfb02"
 
 [[files]]
 file = "kubejs/client_scripts/tooltips.js"
-hash = "36ff30558fb328acc34a43539bce4e736f60c4e3a49a210f82eec3b0417c6a81"
+hash = "e5e2900419a5a702be87e87545d892044bde3d50cf7ab18cc9d42119dcd1e9f7"
 
 [[files]]
 file = "kubejs/client_scripts/tooltips/botaniaDebookified.js"
@@ -5551,6 +5563,34 @@ hash = "e27765753567bf29eacb96d1339b0ee9db7ff12ed58d1a9a094d4ed9e901ec50"
 [[files]]
 file = "kubejs/data/botania/orechid_ore_weights/orechid_ignem.json"
 hash = "ca2d5d08632e85b6cab5279889d30969aa1979e6c8e19f7917770b4131988425"
+
+[[files]]
+file = "kubejs/data/createdieselgenerators/createdieselgenerators/fuel_type/biodiesel.json"
+hash = "5c02bfecbf20ca54daa78a98dd2a98e861fa54655ce92faa26fcb74b99b057ec"
+
+[[files]]
+file = "kubejs/data/createdieselgenerators/createdieselgenerators/fuel_type/diesel.json"
+hash = "0fadc2c2158ba5ae32222a58b1999fa79636dc13ceb0b6b4b0f1e240f20c0d5a"
+
+[[files]]
+file = "kubejs/data/createdieselgenerators/createdieselgenerators/fuel_type/ethanol.json"
+hash = "0546c7dd1bb0322f3b307a0e042833a2d2ff4c8dfe18f90d2c97db24ea802a00"
+
+[[files]]
+file = "kubejs/data/createdieselgenerators/createdieselgenerators/fuel_type/fermented_goop.json"
+hash = "7fbdedc8760f65deca87a1afa1f86fedc538a884b39b7511853a2ddbb65baa76"
+
+[[files]]
+file = "kubejs/data/createdieselgenerators/createdieselgenerators/fuel_type/gasoline.json"
+hash = "fa4b9246c29dacc7d2ce15dea0721649cace9464e9392fa7ce41af0de853c237"
+
+[[files]]
+file = "kubejs/data/createdieselgenerators/createdieselgenerators/fuel_type/milk.json"
+hash = "6782f304a5bbab2f57e4b58193c3c41208fbe0b1f268e58eadf26fb4603fc22a"
+
+[[files]]
+file = "kubejs/data/createdieselgenerators/createdieselgenerators/fuel_type/plantoil.json"
+hash = "fb15f7b23efbaea017ea9a50724576a129d1acb9109ee8d0fbf1b4cdd694c20c"
 
 [[files]]
 file = "kubejs/data/minecraft/dimension/overworld.json"
@@ -6118,7 +6158,7 @@ hash = "ab323610254d7b8ce09ca2580b344714c58fd4804d26ee0e2525baa24a148809"
 
 [[files]]
 file = "modpack-update-checker/meta.json"
-hash = "b2247993e16dc7a1850feeb1a1eae73bd605b368d185c81f0dc983d78bc59579"
+hash = "a31dc6e134d032dc759b6fc79fb4f758f0ea06fe9ddfcb318a85548cbc077a2d"
 
 [[files]]
 file = "modpack-update-checker/versions/1.100.0/changelog.txt"
@@ -8511,6 +8551,10 @@ hash = "c37e7c28c44a3e6c989491902a9858398d6b0c73b7bde49a809b2e212b04c044"
 [[files]]
 file = "modpack-update-checker/versions/1.271.1/changelog.txt"
 hash = "d520f21e5bc919f1ce1585d777e0455c6714c146b0c929178fdf274ee13c5218"
+
+[[files]]
+file = "modpack-update-checker/versions/1.272.0/changelog.txt"
+hash = "e0996f4ded4efe5ea25a0c8eb0190cb6760a5e6bd196b8a67f3decf14e28afc8"
 
 [[files]]
 file = "modpack-update-checker/versions/1.79.33/changelog.txt"
