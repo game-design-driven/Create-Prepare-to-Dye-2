@@ -1,13 +1,13 @@
 name = "Item Converter"
-filename = "item-converter-1.1.2.jar"
+filename = "item-converter-1.2.0.jar"
 side = "both"
 
 [download]
-url = "https://cdn.modrinth.com/data/9pniJAtk/versions/scNtrgum/item-converter-1.1.2.jar"
+url = "https://cdn.modrinth.com/data/9pniJAtk/versions/zVytFKKw/item-converter-1.2.0.jar"
 hash-format = "sha512"
-hash = "86efdc46d322f8cccb9db38cafd8558971421b1cffe00ba8501a063ada6d46b9c5b3df9d915bc4e5f07498d1c74bf9cce1e0de140efc5fb9c4d0bc4feeddc9ae"
+hash = "f54c074788a2848960c8d8983550d8e838b4379f5745a2bf8df36bdc83ff3775835bdc5de3138e3e02aa8574fdb0332e97c007f1f69ec75cb9c34b134b85e32d"
 
 [update]
 [update.modrinth]
 mod-id = "9pniJAtk"
-version = "scNtrgum"
+version = "zVytFKKw"
