@@ -1,0 +1,13 @@
+### [1.272.1](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/compare/1.272.0...1.272.1) (2026-01-27)
+
+
+### Modlist related changes
+
+* add sim-chat to 0.12.0 ([41c7399](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/41c739954ede4b902878edf91579f6be51c2fdb0))
+
+
+### chores
+
+* autopublish 2026-01-25T16:25:17Z ([c9e41d4](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/c9e41d49a31566f095b1d1d6e378a71e907508d8))
+
+
