@@ -1,13 +1,13 @@
 name = "TooltipsReforgedDyed"
-filename = "tooltips_reforged_dyed-0.2.1.jar"
+filename = "tooltips_reforged_dyed-0.3.1.jar"
 side = "client"
 
 [download]
-url = "https://cdn.modrinth.com/data/HI3AHY79/versions/vXn4xDyp/tooltips_reforged_dyed-0.2.1.jar"
+url = "https://cdn.modrinth.com/data/HI3AHY79/versions/1EvHX0iE/tooltips_reforged_dyed-0.3.1.jar"
 hash-format = "sha512"
-hash = "5d21b7402d7a917faa7a918ab56208c091568a71916868da7e8ed5547a5e8ac6f7c4a732ea0b6ab40dc74eb44f027cfbae01516da4c5337d566b67d14e7bbabb"
+hash = "415775efcec9121afe54f849221f11c9120580b352d071182672b7252c26acdd73e195745e8b75907dccd67c15a0b22dd4d8b73eda349537998e901edb123fac"
 
 [update]
 [update.modrinth]
 mod-id = "HI3AHY79"
-version = "vXn4xDyp"
+version = "1EvHX0iE"
