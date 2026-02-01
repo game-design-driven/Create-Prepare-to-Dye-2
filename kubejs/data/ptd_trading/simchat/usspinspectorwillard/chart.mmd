@@ -1,45 +1,48 @@
 %%{init:{"theme":"default","flowchart":{"curve":"linear"},"themeCSS":".flowchart-link{stroke-dasharray:16 10 !important;stroke-linecap:round !important;animation:dash 1.6s linear infinite !important}@keyframes dash{to{stroke-dashoffset:-52}}marker path{stroke-dasharray:none !important;animation:none !important}"}}%%
 flowchart LR
 
-n_intro(intro — Willard):::n_entity_usspinspectorwillard
-    n_intro -->|"Sure thing" | n_name_provided
-    n_intro -->|"Where am I? What is this? Who are you??" | n_confused
-    n_intro -->|"Where is my ship?" | n_ship_where_intro
-    n_intro -->|"Can I leave?" | n_leave
-n_ship_where_intro(ship_where_intro — Willard):::n_entity_usspinspectorwillard
-    n_ship_where_intro -->|"...Okay" | n_intro
-n_leave(leave_denied — Willard):::n_entity_usspinspectorwillard
-    n_leave -->|"Fine. Register me" | n_name_provided
-    n_leave -->|"I'm not registering" | n_decline_registration
-n_confused(confused — Willard):::n_entity_usspinspectorwillard
-    n_confused -->|"Alright, fine" | n_name_provided
-    n_confused -->|"I'm not part of your shitty union" | n_decline_registration
-    n_confused -->|"Can we just not have a name for our company?" | n_explain_registration
-n_decline_registration(decline_registration — Willard):::n_entity_usspinspectorwillard
-    n_decline_registration -->|"Oh.. I see, in that case.. Where do I sign?" | n_name_provided
-    n_decline_registration -->|"Prefer to not provide a name" | n_explain_registration
-    n_decline_registration -->|"I'll figure it out myself. Goodbye" | n_change_mind
-n_change_mind(change_mind — Willard):::n_entity_usspinspectorwillard
-    n_change_mind -->|"Call me if you change your mind" | n_name_provided
-n_explain_registration(explain_registration — Willard):::n_entity_usspinspectorwillard
-    n_explain_registration -->|"Alright, fine" | n_name_provided
-    n_explain_registration -->|"Yes, put me down without a name" | n_intent
-n_name_provided(name_provided — Willard):::n_entity_usspinspectorwillard
-    n_name_provided -->|"What's next?" | n_intent
-n_intent(intent — Willard):::n_entity_usspinspectorwillard
-    n_intent -->|"Build a thriving empire" | n_ship_prompt
-    n_intent -->|"Make piles of salt" | n_ship_prompt
-    n_intent -->|"Pay my debts" | n_ship_prompt
-    n_intent -->|"Make the best production lines this system has ever seen" | n_ship_prompt
-    n_intent -->|"No idea" | n_ship_prompt
-n_ship_prompt(ship_prompt — Willard):::n_entity_usspinspectorwillard
-    n_ship_prompt -->|"Yes, get me my spaceship" | n_give_ship
-    n_ship_prompt -->|"I have a ship?" | n_explain_ship
-n_explain_ship(explain_ship — Willard):::n_entity_usspinspectorwillard
-    n_explain_ship -->|"Yes, get me my spaceship" | n_give_ship
-    n_explain_ship -->|"I'll be fine without one, thanks" | n_decline_ship
-n_decline_ship(decline_ship — Willard):::n_entity_usspinspectorwillard
-    n_decline_ship -->|"On second thought, I do need a ship" | n_give_ship
-n_give_ship(give_ship — Willard):::n_entity_usspinspectorwillard
-    n_give_ship -->|"Thank you" | n_end
-n_end(end — Willard):::n_entity_usspinspectorwillard
+n_intro("intro — Willard<br/>Congratulations, You made planetfall in Sector-0, {player:name}. Dead rock, dead markets. I am Inspector Willard of the United Space Consumer Union Plus Plus. Your contract says you intend to establish a production concern.  I need a company name for the ledger.<br/>I need a company name before we proceed.<br/>Company name?<br/>Name..?"):::n_entity_usspinspectorwillard
+    n_intro -->|"Sure thing<br/>Register the company." | n_name_provided
+    n_intro -->|"Where am I? What is this? Who are you??<br/>I need answers, not forms." | n_confused
+    n_intro -->|"Where is my ship?<br/>I want my ship back." | n_ship_where_intro
+    n_intro -->|"Can I leave?<br/>Am I allowed to leave?" | n_leave
+n_ship_where_intro("ship_where_intro — Willard<br/>Your ship is in Union impound. Safety audit, cargo manifest, standard seizure protocol. Register, and I can release it to you."):::n_entity_usspinspectorwillard
+    n_ship_where_intro -->|"...Okay<br/>Fine. Back to the paperwork." | n_intro
+n_leave("leave_denied — Willard<br/>Your contract specifies production and trade on this rock. We are incentevised but not obliged to set you up for trade and production, nothing more. You can file a complaint with the void, or get to work."):::n_entity_usspinspectorwillard
+    n_leave -->|"Fine. Register me<br/>Register me." | n_name_provided
+    n_leave -->|"I'm not registering<br/>I'm not registering." | n_decline_registration
+n_confused("confused — Willard<br/>You are on a dead planet with a live mortgage. The United Space Consumer Union Plus Plus owns the trade routes and the courts. I am what stands between you and market access"):::n_entity_usspinspectorwillard
+    n_confused -->|"Alright, fine<br/>Alright. Let's do it." | n_name_provided
+    n_confused -->|"I'm not part of your shitty union<br/>I'm not part of your union." | n_decline_registration
+    n_confused -->|"Can we just not have a name for our company?<br/>Can we skip the name for now?" | n_explain_registration
+n_decline_registration("decline_registration — Willard<br/>Then you are an unlicensed operator. No registry, no trade routes. The Union does not punish; it prices."):::n_entity_usspinspectorwillard
+    n_decline_registration -->|"Oh.. I see, in that case.. Where do I sign?<br/>Where do I sign?" | n_name_provided
+    n_decline_registration -->|"Prefer to not provide a name<br/>I still don't want to name it." | n_explain_registration
+    n_decline_registration -->|"I'll figure it out myself. Goodbye<br/>I'll figure it out myself." | n_change_mind
+n_change_mind("change_mind — Willard<br/>The wasteland is vast and the Union is patient. When you tire of independence, the paperwork is here."):::n_entity_usspinspectorwillard
+    n_change_mind -->|"Call me if you change your mind<br/>...Right. Let's just register." | n_name_provided
+n_explain_registration("explain_registration — Willard<br/>A name is how the market finds you, how the tax ledger binds you, and how we align you. If you insist on anonymity, I can register you as a provisional entity under &quot;Provisional Concern&quot;. You can rename later"):::n_entity_usspinspectorwillard
+    n_explain_registration -->|"Alright, fine<br/>Alright, give me a proper name." | n_name_provided
+    n_explain_registration -->|"Yes, put me down without a name<br/>Provisional is fine." | n_intent
+n_name_provided("name_provided — Willard<br/>State your company name for the Union ledger. Keep it short and legal. We can change the records later if you like."):::n_entity_usspinspectorwillard
+    n_name_provided -->|"Enter company name<br/>Register us as {input:companyName}." | n_intent
+n_intent("intent — Willard<br/>Intent of operation. What is the purpose of your venture {player:name} of {runtime:team:title}?"):::n_entity_usspinspectorwillard
+    n_intent -->|"Build a salty empire<br/>Empire. Profits. Longevity." | n_ship_prompt
+    n_intent -->|"Make piles of salt<br/>Salt. Mountains of it." | n_ship_prompt
+    n_intent -->|"Pay my debts<br/>Debt first. Ambition later." | n_ship_prompt
+    n_intent -->|"Make the best production lines this system has ever seen<br/>I build machines that outlive their creators." | n_ship_prompt
+    n_intent -->|"No idea<br/>Still figuring it out." | n_ship_prompt
+n_ship_prompt("ship_prompt — Willard<br/>Your ship is in Union impound. Standard procedure after an unscheduled landing. It contains your cargo hold, power systems, and whatever equipment you packed. You will need it to build anything worth taxing. Ready?"):::n_entity_usspinspectorwillard
+    n_ship_prompt -->|"Yes, release my ship<br/>Release it." | n_give_ship
+    n_ship_prompt -->|"I have a ship?<br/>I have a ship?" | n_explain_ship
+n_explain_ship("explain_ship — Willard<br/>The vessel you arrived in. Grounded permanently now—no fuel for orbit, no clearance for launch. But the hull is intact. Storage systems, power core, fabrication tools. Everything you need to bootstrap a production line. Without it, you start with nothing. This rock is barren—no ore, no organics, no salvage."):::n_entity_usspinspectorwillard
+    n_explain_ship -->|"Release my ship<br/>Release it." | n_give_ship
+    n_explain_ship -->|"I'll be fine without one, thanks<br/>I'll manage without it." | n_decline_ship
+n_decline_ship("decline_ship — Willard<br/>Bold. Without that hull you have no storage, no power core, no tools. Just dust and determination. The impound lot does not charge storage fees. Yet."):::n_entity_usspinspectorwillard
+    n_decline_ship -->|"On second thought, release my ship<br/>Release it." | n_give_ship
+n_give_ship("give_ship — Willard<br/>Releasing impound hold. Your ship will be delivered to your designated landing zone. [Placeholder: ship delivery pending implementation]"):::n_entity_usspinspectorwillard
+    n_give_ship -->|"Thank you<br/>Thank you." | n_end
+n_end("end — Willard<br/>Welcome to the ledger, {runtime:team:title}. Your success is now taxable. Begin production, establish a trade loop, and keep your receipts. I will return when the Union wants its cut."):::n_entity_usspinspectorwillard
+
+
+

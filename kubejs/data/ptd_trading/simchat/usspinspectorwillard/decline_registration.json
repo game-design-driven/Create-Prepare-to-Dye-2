@@ -3,7 +3,7 @@
   "entityId": "usspinspectorwillard",
   "entityName": "Willard",
   "entitySubtitle": "USSP Compliance Inspector",
-  "text": "Then you are an unlicensed operator. No registry, no trade routes. No trade routes, no resupply. No resupply, no spare parts. The Union does not punish; it prices.",
+  "text": "Then you are an unlicensed operator. No registry, no trade routes. The Union does not punish; it prices.",
   "actions": [
     {
       "label": "Oh.. I see, in that case.. Where do I sign?",
