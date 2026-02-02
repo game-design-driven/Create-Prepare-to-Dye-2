@@ -1,0 +1,14 @@
+## [1.273.0](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/compare/1.272.6...1.273.0) (2026-02-02)
+
+
+### Features
+
+* expand intro ([b263f0b](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/b263f0b23d531475a1db780a12db6d196de54796))
+
+
+### Fixes
+
+* added missing sqlite jdbc ([b7aa0be](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/b7aa0beaf642c739ef468da73943a6a03178cd31))
+* remove old discord integration ([fd92f0c](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/fd92f0c96ff8efcd760ab7df44fe0124595f1b2c))
+
+
