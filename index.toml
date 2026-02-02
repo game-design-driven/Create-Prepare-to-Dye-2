@@ -9167,6 +9167,11 @@ hash = "c9f8bce06b85e4dbfdaecc7d0930bf7f4fabccc7967f867b7eb7acb8dd5b77a7"
 metafile = true
 
 [[files]]
+file = "mods/minecraft-sqlite-jdbc.pw.toml"
+hash = "ecefc477e828763bee305bbcf32fa45c300614bd10beb2e60aa0c897bc8be4ad"
+metafile = true
+
+[[files]]
 file = "mods/modpack-update-checker.pw.toml"
 hash = "41b50161270a219e82fdb466b83ad42fa663dcd83472be3b8fea8decd78543c8"
 metafile = true
