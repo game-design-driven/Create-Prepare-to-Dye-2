@@ -1,0 +1,18 @@
+## [1.274.0](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/compare/1.273.0...1.274.0) (2026-02-10)
+
+
+### Features
+
+* add magical_landscaping_co_sandy initial dialogs ([f634784](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/f634784f754200adb3eb5f4d58aa08e598e39057))
+
+
+### Documentation and Localization
+
+* add status to the pack's readme ([991c6c0](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/991c6c00c3cf48f0b61763eca22419a0c3c8294c))
+
+
+### chores
+
+* autopublish 2026-02-02T06:48:04Z ([c10307e](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/c10307ed76a821fd12886ab18c2be0286c783161))
+
+

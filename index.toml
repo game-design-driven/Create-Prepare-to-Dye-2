@@ -1278,7 +1278,7 @@ hash = "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499"
 
 [[files]]
 file = "README.md"
-hash = "6b4b28595717347f68ef1592fd2f8d44276a055e4e99373e353dda206b3d6c6a"
+hash = "867b018ebc774176410697952f6fb760448c29f557dca78dcc3a3caa78da31d9"
 
 [[files]]
 file = "SECURITY.md"
@@ -1286,7 +1286,7 @@ hash = "48981474996310a7861d97b5aaea8a11ba16d6075c273766daab566848930c09"
 
 [[files]]
 file = "VERSION"
-hash = "a0bb80b3824b5ec8d305733f92c390acbc75ae9181d93e25b158360cef6f9041"
+hash = "3397e9204251a166c2a54b44722872f07c3eda748f1c1ed38ae1ddeb3bcff1f4"
 
 [[files]]
 file = "config/MouseTweaks.cfg"
@@ -1754,7 +1754,7 @@ hash = "98fc7eda3eb102b1155380e0d75af5ec7115a0bf5f052f1f54d197cdf1d0ee1e"
 
 [[files]]
 file = "config/modpack-update-checker/config.json"
-hash = "6752bd6790387db55af0eb474d83842243dbe5c54988965b3da10258a1990332"
+hash = "ca029f5670a5d21d7fd822a7199348018d2b9d9cbac82b87025485eded315b07"
 
 [[files]]
 file = "config/modpack-update-checker/modpack-info.txt"
@@ -1814,11 +1814,11 @@ hash = "ba7035f674438cc475cddbb298745110e9e4d6dbad5bb8cfdb3998b0b6570235"
 
 [[files]]
 file = "config/simchat-client.toml"
-hash = "9585ec3fe996146ab0532e28042948c7681415583eb7b5151f40ff2338d6e21c"
+hash = "c6d2993830467b481b629ea7a270320bb42f08ad584693b23fadbdd41804c7a1"
 
 [[files]]
 file = "config/simchat-common.toml"
-hash = "d5a65aa5c5e23971ea4e239c0e7f1608de2e358c11b7bf8ea06e17695e3542b8"
+hash = "64b104ab3be50b7057031eca14117887a278f5abdffbaebf05ad1abe7bdb10e4"
 
 [[files]]
 file = "config/simchat/entities/USSPInspectorWillard.json"
@@ -1859,6 +1859,10 @@ hash = "a68278fa5ab9238e5a779852cafd72f119e0bc909f0a35db6b670932ff938d31"
 [[files]]
 file = "config/simchat/entities/magical_landscaping_co.png"
 hash = "b94d03ab62bacc0982cfc99382f43320bb21f5eb500a1667957549dff2524bd8"
+
+[[files]]
+file = "config/simchat/entities/magical_landscaping_co_sandy.json"
+hash = "dabc1ae342bf369f6298b474bb4a00f1b642c83022ed5d64bd9a9514a7653505"
 
 [[files]]
 file = "config/simchat/entities/qube.png"
@@ -4978,7 +4982,7 @@ hash = "ded1b3b51c1b47ee3e812ef73dfb4dd423dec7119ed921585bed038c95328c0d"
 
 [[files]]
 file = "kubejs/assets/sdrp/lang/en_us.json"
-hash = "5fd29ac461f2c654607d7683263312bb4b0a46272d3e90c7a4fd624a6df8524c"
+hash = "b995ceebe597d5a17b936e99b8ded1068399e7125f085152b3498bddec30d1db"
 
 [[files]]
 file = "kubejs/assets/storagedrawers/blockstates/controller.json"
@@ -5722,7 +5726,43 @@ hash = "ce6d92118c1344fad4f2b6ba5e098d62191d70b6b51afab730b1431200246f01"
 
 [[files]]
 file = "kubejs/data/ptd_trading/simchat/magical_landscaping_co_sandy/chart.mmd"
-hash = "25f41e4672f0b8828347bef47346a1bdf8897ef2cc5d04721909ea207aef5ada"
+hash = "4d25e54cf247d67f8c88adedba72ce4fafb7dc53e5de19961fd230e47aa1e9fd"
+
+[[files]]
+file = "kubejs/data/ptd_trading/simchat/magical_landscaping_co_sandy/interested.json"
+hash = "273b16d096ec8975a4cb52dc43050851633143030adee42476b72902b80526f4"
+
+[[files]]
+file = "kubejs/data/ptd_trading/simchat/magical_landscaping_co_sandy/intro.json"
+hash = "78b65c613e7a9dbca36e48da154add4fe133471b09e0d17a16d33ba88e45b585"
+
+[[files]]
+file = "kubejs/data/ptd_trading/simchat/magical_landscaping_co_sandy/no_meat.json"
+hash = "bb78b1a9fb227bd6d06d2f51cfa507a3ba426aef7adbfc17158836b4fdc954b2"
+
+[[files]]
+file = "kubejs/data/ptd_trading/simchat/magical_landscaping_co_sandy/planet_exposition.json"
+hash = "92ef157dae6cc4053be4bccb415e4d1f2c3aacbd73907a852ddfc2229ea0d45c"
+
+[[files]]
+file = "kubejs/data/ptd_trading/simchat/magical_landscaping_co_sandy/powder_deal.json"
+hash = "478f057956c50b5d25bc5e7193ccc56fbf10848a212140ce8d05000f33f44372"
+
+[[files]]
+file = "kubejs/data/ptd_trading/simchat/magical_landscaping_co_sandy/powder_explain.json"
+hash = "e80dcac20601e6c5464775163eacaf05773df7456a322f41c7ad17ed677eec97"
+
+[[files]]
+file = "kubejs/data/ptd_trading/simchat/magical_landscaping_co_sandy/where_from.json"
+hash = "e861f40f46e1125a1d2cae7123f15085dfdcb386dd2aead46be095ff1fa5bfea"
+
+[[files]]
+file = "kubejs/data/ptd_trading/simchat/magical_landscaping_co_sandy/who_are_you.json"
+hash = "dea3892a586ff9dacde032a10a151cbb58994d5b881fe44281a107fbd3f96118"
+
+[[files]]
+file = "kubejs/data/ptd_trading/simchat/magical_landscaping_co_sandy/who_person.json"
+hash = "5a4e07064d868661b0f74248f376b00c5d455e9045acdd5428dc48dedf7ab8a7"
 
 [[files]]
 file = "kubejs/data/ptd_trading/simchat/readme.md"
@@ -5730,7 +5770,7 @@ hash = "b30b6250d988e67cb218dfae4fed08b0ea334944d461179a7cbda75db803b150"
 
 [[files]]
 file = "kubejs/data/ptd_trading/simchat/simchat_flow.mmd"
-hash = "746cad385a71c39bb91db356f1ea6771c7a2fd19309e89c81d1954c6c8bb930e"
+hash = "d88b944987ce2dc65c773865573cfd0676cc5cb5746ffa297657dd5144f699cf"
 
 [[files]]
 file = "kubejs/data/ptd_trading/simchat/usspinspectorwillard/change_mind.json"
@@ -6158,7 +6198,7 @@ hash = "ab323610254d7b8ce09ca2580b344714c58fd4804d26ee0e2525baa24a148809"
 
 [[files]]
 file = "modpack-update-checker/meta.json"
-hash = "3f82b6673cdda32edf6eb6eb70c1001374fe5996aab0d2defdb6cc1b74bcbffd"
+hash = "559329f505b118dcbd1e73b1b40421ecb1779af95d5307264b15e5e617bef77d"
 
 [[files]]
 file = "modpack-update-checker/versions/1.100.0/changelog.txt"
@@ -8567,6 +8607,10 @@ hash = "596981b84d7584785125ada3071dee0d369c12dbc1df1a1bc1ae8b232b70a3fc"
 [[files]]
 file = "modpack-update-checker/versions/1.273.0/changelog.txt"
 hash = "2bcdab6d9fbda95cf9a71bdc63843f4f001bdff7af5f6375a79faa8796c466e3"
+
+[[files]]
+file = "modpack-update-checker/versions/1.274.0/changelog.txt"
+hash = "5da0181f9ffaddd959475d966db13bc9a9df919e814d30a25e2035f2da656e3b"
 
 [[files]]
 file = "modpack-update-checker/versions/1.79.33/changelog.txt"
