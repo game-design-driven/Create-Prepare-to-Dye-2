@@ -1,0 +1,36 @@
+{
+  "$schema": "https://raw.githubusercontent.com/game-design-driven/sim-chat/main/schemas/dialogue.schema.json",
+  "entityId": "magical_landscaping_co_sandy",
+  "entityName": "Sandy",
+  "text": [
+    "Ha, like you have a choice. You and your dead blue planet. We are actually doing YOU a favor by contacting you you know, it's clear there is nothing of note on that rock of yours, why did you even get here? What brought you to such a barren place?",
+    "Hm.. Ok. Well, do you want to do business with us?"
+  ],
+  "actions": [
+    {
+      "label": "None of your business",
+      "nextState": "ptd_trading:magical_landscaping_co_sandy/no_meat",
+      "reply": "None of your business"
+    },
+    {
+      "label": "Out of other options",
+      "nextState": "ptd_trading:magical_landscaping_co_sandy/no_meat",
+      "reply": "I have nowhere else to go"
+    },
+    {
+      "label": "This is the best place for my work",
+      "nextState": "ptd_trading:magical_landscaping_co_sandy/no_meat",
+      "reply": "An intentional choice. This place is actually perfect for me"
+    },
+    {
+      "label": "How do you know about my planet?",
+      "nextState": "ptd_trading:magical_landscaping_co_sandy/planet_exposition",
+      "reply": "How do you know about my planet?"
+    },
+    {
+      "label": "Forget it, lets talk. I want to do business",
+      "nextState": "ptd_trading:magical_landscaping_co_sandy/interested",
+      "reply": "Forget it, lets talk. I want to do business"
+    }
+  ]
+}

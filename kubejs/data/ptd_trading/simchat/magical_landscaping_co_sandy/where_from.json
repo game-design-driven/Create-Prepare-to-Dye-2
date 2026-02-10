@@ -1,0 +1,26 @@
+{
+  "$schema": "https://raw.githubusercontent.com/game-design-driven/sim-chat/main/schemas/dialogue.schema.json",
+  "entityId": "magical_landscaping_co_sandy",
+  "entityName": "Sandy",
+  "text": [
+    "Alright that's enough, lets go back to business",
+    "..."
+  ],
+  "actions": [
+    {
+      "label": "Alright",
+      "nextState": "ptd_trading:magical_landscaping_co_sandy/interested",
+      "reply": "Business it is then"
+    },
+    {
+      "label": "Not sure we're up for work",
+      "nextState": "ptd_trading:magical_landscaping_co_sandy/no_meat",
+      "reply": "Not sure we're up for work"
+    },
+    {
+      "label": "You come here often?",
+      "nextState": "ptd_trading:magical_landscaping_co_sandy/where_from",
+      "reply": "You come here often?"
+    }
+  ]
+}

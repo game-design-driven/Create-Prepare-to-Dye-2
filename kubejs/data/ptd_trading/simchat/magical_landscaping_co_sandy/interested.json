@@ -1,0 +1,18 @@
+{
+  "$schema": "https://raw.githubusercontent.com/game-design-driven/sim-chat/main/schemas/dialogue.schema.json",
+  "entityId": "magical_landscaping_co_sandy",
+  "entityName": "Sandy",
+  "text": "TODO: Add dialogue text for magical_landscaping_co_sandy/interested",
+  "actions": [
+    {
+      "label": "How do I get the powder?",
+      "nextState": "ptd_trading:magical_landscaping_co_sandy/powder_explain",
+      "reply": "How do I get the powder?"
+    },
+    {
+      "label": "Here you go",
+      "nextState": "ptd_trading:magical_landscaping_co_sandy/powder_deal",
+      "reply": "Here you go"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://raw.githubusercontent.com/game-design-driven/sim-chat/main/schemas/dialogue.schema.json",
+  "entityId": "magical_landscaping_co_sandy",
+  "entityName": "Sandy",
+  "text": [
+    "Oh, I'm no one. Sandy if you'd like. Just a humble representative of MLC, no one of note really. You are the first to ask me such an odd question."
+  ],
+  "actions": [
+    {
+      "label": "Alright, let's do business",
+      "nextState": "ptd_trading:magical_landscaping_co_sandy/interested",
+      "reply": "Alright, let's do business"
+    },
+    {
+      "label": "Not interested",
+      "nextState": "ptd_trading:magical_landscaping_co_sandy/no_meat",
+      "reply": "Not interested"
+    },
+    {
+      "label": "Where are you from?",
+      "nextState": "ptd_trading:magical_landscaping_co_sandy/where_from",
+      "reply": "Where are you from?"
+    }
+  ]
+}
