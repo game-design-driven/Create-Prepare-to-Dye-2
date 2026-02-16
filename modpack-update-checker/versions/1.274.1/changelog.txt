@@ -1,0 +1,13 @@
+### [1.274.1](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/compare/1.274.0...1.274.1) (2026-02-16)
+
+
+### chores
+
+* autopublish 2026-02-10T07:46:52Z ([4d94c3c](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/4d94c3c4cf54bbd87814f9a28cf683a4286b0718))
+
+
+### Modlist related changes
+
+* update Prepare to Dye Plus to 2.2.0 ([834c269](https://github.com/game-design-driven/Create-Prepare-to-Dye-2/commit/834c2693e2c0c06b2e89d8540e5e848f2a5f3ab7))
+
+
