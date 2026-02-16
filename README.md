@@ -22,6 +22,17 @@
 </p>
 
 ⚙️ Create : Prepare to Dye is an fresh new take on automation based gameplay.
+## status
+This pack is in the early development stage
+
+- [x] Infrastructure for development
+- [x] Core Gameplay systems
+- [ ] Playtesting phase - First 1 to 5 hours of gameplay
+- [ ] Posting on reddit and such
+- [ ] feature complete
+- [ ] story complete
+
+If you'd like to join development or playtesting please hop on our [discord](https://discord.gg/v8cZ83kTPY) 
 
 ## Intro
 **As the head of a crumbling, inherited, capitalistic space company, you’re forced to use the last card you have left: a contract on a small, dead, irradiated planet called Chroma Prime.**

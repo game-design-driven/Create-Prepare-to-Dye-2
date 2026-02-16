@@ -1,0 +1,25 @@
+{
+  "$schema": "https://raw.githubusercontent.com/game-design-driven/sim-chat/main/schemas/dialogue.schema.json",
+  "entityId": "magical_landscaping_co_sandy",
+  "entityName": "Sandy",
+  "text": [
+    "It is such a pleasure to hear we have fresh meat in the mesh, it has indeed been a while. Are you the one they call {team:title}? And more importantly, are you interested in work?"
+  ],
+  "actions": [
+    {
+      "label": "Yes",
+      "nextState": "ptd_trading:magical_landscaping_co_sandy/interested",
+      "reply": "Yes, we are {team:title} and yes, we'd like to hear your offer"
+    },
+    {
+      "label": "No thanks",
+      "nextState": "ptd_trading:magical_landscaping_co_sandy/no_meat",
+      "reply": "No thanks"
+    },
+    {
+      "label": "Who are you?",
+      "nextState": "ptd_trading:magical_landscaping_co_sandy/who_are_you",
+      "reply": "Who are you?"
+    }
+  ]
+}

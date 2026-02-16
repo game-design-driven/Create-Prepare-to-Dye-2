@@ -27,7 +27,7 @@
 [ui]
 	#Width of the entity list sidebar (pixels). Drag the divider in-game to resize.
 	#Range: 60 ~ 2000
-	sidebarWidth = 264
+	sidebarWidth = 190
 	#Size of avatar images in chat (pixels)
 	#Range: 16 ~ 64
 	avatarSize = 32
@@ -40,6 +40,8 @@
 	#Sort mode for conversation list (0 = Recent, 1 = Alphabetical)
 	#Range: 0 ~ 1
 	sidebarSortMode = 0
+	#Background color for the chat panel (ARGB hex, e.g. 0xDD12121F)
+	chatBackgroundColor = "0xCC1F5C8F"
 
 #Team Settings
 [team]
@@ -70,4 +72,56 @@
 	#How many runtime template requests to send per client tick
 	#Range: 1 ~ 200
 	requestsPerTick = 20
+
+#Color Settings
+[colors]
+	sidebarBackgroundColor = "0xDD1A1A2E"
+	dividerColor = "0xFF3D3D5C"
+	dividerHoverColor = "0xFF6060A0"
+	headerTextColor = "0xFFFFFFFF"
+	headerSubtitleColor = "0xFF888888"
+	emptyStateTextColor = "0xFF888888"
+	headerSeparatorColor = "0xFF3D3D5C"
+	refreshButtonColor = "0xFF303050"
+	refreshButtonHoverColor = "0xFF404060"
+	refreshTextColor = "0xFFCCCCCC"
+	sortButtonColor = "0xFF303050"
+	sortButtonHoverColor = "0xFF404060"
+	sortTextColor = "0xFFCCCCCC"
+	compactHintColor = "0xFF888888"
+	scrollbarColor = "0x80FFFFFF"
+	inputBgColor = "0xFF0968B6"
+	outputBgColor = "0xFFCE640B"
+	disabledBgColor = "0xFF404040"
+	playerNameColor = "0xFF7BCB8B"
+	entityNameColor = "0xFF88AAFF"
+	subtitleColor = "0xFF888888"
+	dayTextColor = "0xFF666666"
+	messageTextColor = "0xFFE0E0E0"
+	disabledTextColor = "0xFF808080"
+	whiteTextColor = "0xFFFFFFFF"
+	systemTextColor = "0xFF888888"
+	buttonDefaultColor = "0xFF304080"
+	buttonHoverColor = "0xFF4060A0"
+	borderDisabledColor = "0xFF606060"
+	borderHoverColor = "0xFF6080C0"
+	borderDefaultColor = "0xFF405090"
+	focusBorderColor = "0xFF6FA8FF"
+	contextMenuBgColor = "0xFF202030"
+	contextMenuBorderColor = "0xFF505070"
+	contextMenuTextColor = "0xFFE0E0E0"
+	contextMenuHighlightColor = "0x2A405070"
+	inputValidColor = "0xFF55FF55"
+	inputInvalidColor = "0xFFFF5555"
+	inputFieldBgColor = "0xFF202020"
+	inputFieldBorderColor = "0xFF404040"
+	inputFieldBorderFocusedColor = "0xFF606060"
+	inputCursorColor = "0xFFFFFFFF"
+	inputSendEnabledColor = "0xFF308030"
+	inputSendDisabledColor = "0xFF404040"
+	toastSenderColor = "0xFF88AAFF"
+	toastPreviewColor = "0xFFCCCCCC"
+	toastBackgroundColor = "0xF0202030"
+	toastBorderColor = "0xFF404060"
+	toastHintColor = "0xFF666688"
 

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://raw.githubusercontent.com/game-design-driven/sim-chat/main/schemas/dialogue.schema.json",
+  "entityId": "magical_landscaping_co_sandy",
+  "entityName": "Sandy",
+  "text": [
+    "Oh. You must jest, it is clear you know us, everyone does. Well, you do live on a literal dead rock though, so maybe it comes with the territory. We are the renowned Magical Landscaping Cooperation or MLC for short. We build and maintain mountains, rivers, valleys and other luxury landscape widgets for interested parties. We are known for quality above all and good price above that in turn. Always looking for new cheap sources for materials and labor."
+  ],
+  "actions": [
+    {
+      "label": "Ok, lets do business",
+      "nextState": "ptd_trading:magical_landscaping_co_sandy/interested",
+      "reply": "Ok, lets do business"
+    },
+    {
+      "label": "Not interested",
+      "nextState": "ptd_trading:magical_landscaping_co_sandy/no_meat",
+      "reply": "Not interested"
+    },
+    {
+      "label": "I mean who are you specifically?",
+      "nextState": "ptd_trading:magical_landscaping_co_sandy/who_person",
+      "reply": "I mean who are you specifically?"
+    }
+  ]
+}

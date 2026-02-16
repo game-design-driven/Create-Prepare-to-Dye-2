@@ -116,3 +116,16 @@
 	#Range: 10 ~ 2000
 	maxLazyLoadBatchSize = 40
 
+#Team Join Settings
+[teamJoin]
+	#Behavior for players joining an existing world.
+	#join_largest = join the largest existing team
+	#join_smallest = join the smallest existing team
+	#join_random = join a random existing team
+	#create_new = always create a new team
+	joinBehavior = "join_largest"
+	#Maximum members for auto-join (-1 disables cap).
+	#If no team is eligible, a new team is created.
+	#Range: > -1
+	joinSizeCap = -1
+

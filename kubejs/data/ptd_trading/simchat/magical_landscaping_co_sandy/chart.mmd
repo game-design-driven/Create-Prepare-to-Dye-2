@@ -1,17 +1,32 @@
 %%{init:{"theme":"default","flowchart":{"curve":"linear"},"themeCSS":".flowchart-link{stroke-dasharray:16 10 !important;stroke-linecap:round !important;animation:dash 1.6s linear infinite !important}@keyframes dash{to{stroke-dashoffset:-52}}marker path{stroke-dasharray:none !important;animation:none !important}"}}%%
 flowchart LR
 
-n_intro(intro - Sandy):::n_entity_magical_landscaping_co_sandy
-    n_intro -->|"Yes I am" | n_interested
+n_intro("intro - Sandy</br>It is such a pleasure to hear we have fresh meat in the mesh, it has indeed been a while. Are you the one they call {team:title}? And more importantly, are you interested in work?"):::n_entity_magical_landscaping_co_sandy
+    n_intro -->|"Yes</br>Yes, we are {team:title} and yes, we'd like to hear your offer" | n_interested
     n_intro -->|"No thanks" | n_no_meat
     n_intro -->|"Who are you?" | n_who_are_you
 
-n_who_are_you(who_are_you - Sandy):::n_entity_magical_landscaping_co_sandy
+n_who_are_you("who_are_you - Sandy</br>Oh. You must jest, it is clear you know us, everyone does. Well, you do live on a literal dead rock though, so maybe it comes with the territory. We are the renowned Magical Landscaping Cooperation or MLC for short. We build and maintain mountains, rivers, valleys and other luxury landscape widgets for interested parties. We are known for quality above all and good price above that in turn. Always looking for new cheap sources for materials and labor."):::n_entity_magical_landscaping_co_sandy
     n_who_are_you -->|"Ok, lets do business" | n_interested
+    n_who_are_you -->|"Not interested" | n_no_meat
+    n_who_are_you -->|"I mean who are you specifically?" | n_who_person
 
-n_no_meat(no_meat - Sandy):::n_entity_magical_landscaping_co_sandy
+n_who_person("who_person - Sandy</br>Oh, I'm no one. Sandy if you'd like. Just a humble representative of MLC, no one of note really. You are the first to ask me such an odd question."):::n_entity_magical_landscaping_co_sandy
+    n_who_person -->|"Alright, let's do business" | n_interested
+    n_who_person -->|"Not interested" | n_no_meat
+    n_who_person -->|"Where are you from?" | n_where_from
+
+n_where_from("where_from - Sandy</br>Alright that's enough, lets go back to business</br>..."):::n_entity_magical_landscaping_co_sandy
+    n_where_from -->|"Alright</br>Business it is then" | n_interested
+    n_where_from -->|"Not sure we're up for work" | n_no_meat
+    n_where_from -->|"You come here often?" | n_where_from
+
+n_no_meat("no_meat - Sandy</br>Ha, like you have a choice. You and your dead blue planet. We are actually doing YOU a favor by contacting you you know, it's clear there is nothing of note on that rock of yours, why did you even get here? What brought you to such a barren place?</br>Hm.. Ok. Well, do you want to do business with us?"):::n_entity_magical_landscaping_co_sandy
+    n_no_meat -->|"None of your business" | n_no_meat
+    n_no_meat -->|"Out of other options</br>I have nowhere else to go" | n_no_meat
+    n_no_meat -->|"This is the best place for my work</br>An intentional choice. This place is actually perfect for me" | n_no_meat
     n_no_meat -->|"How do you know about my planet?" | n_planet_exposition
-    n_no_meat -->|"Sure, lets talk" | n_interested
+    n_no_meat -->|"Forget it, lets talk. I want to do business" | n_interested
 
 n_planet_exposition(planet_exposition - Sandy):::n_entity_magical_landscaping_co_sandy
     n_planet_exposition -->|"Alright, let's talk" | n_interested
@@ -25,4 +40,8 @@ n_powder_explain(powder_explain - Sandy):::n_entity_magical_landscaping_co_sandy
 n_powder_deal(powder_deal - Sandy):::n_entity_magical_landscaping_co_sandy
     n_powder_deal -->|"So I just put the powder in there?" | n_mesh_explain
     n_powder_deal -->|"How does the trading mesh work?" | n_mesh_explain
+
+
+
+
 

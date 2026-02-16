@@ -1,7 +1,29 @@
 %%{init:{"theme":"default","flowchart":{"curve":"linear"},"themeCSS":".flowchart-link{stroke-dasharray:16 10 !important;stroke-linecap:round !important;animation:dash 1.6s linear infinite !important}@keyframes dash{to{stroke-dashoffset:-52}}marker path{stroke-dasharray:none !important;animation:none !important}"}}%%
 flowchart LR
 
-subgraph n_g_usspinspectorwillard["usspinspectorwillard (usspinspectorwillard/*)"]
+subgraph n_g_magical_landscaping_co_sandy["Magical Landscaping Co Sandy (magical_landscaping_co_sandy/*)"]
+  n_magical_landscaping_co_sandy_intro(intro - Sandy):::n_entity_magical_landscaping_co_sandy
+  n_magical_landscaping_co_sandy_who_are_you(who_are_you - Sandy):::n_entity_magical_landscaping_co_sandy
+  n_magical_landscaping_co_sandy_no_meat(no_meat - Sandy):::n_entity_magical_landscaping_co_sandy
+  n_magical_landscaping_co_sandy_planet_exposition(planet_exposition - Sandy):::n_entity_magical_landscaping_co_sandy
+  n_magical_landscaping_co_sandy_interested(interested - Sandy):::n_entity_magical_landscaping_co_sandy
+  n_magical_landscaping_co_sandy_powder_explain(powder_explain - Sandy):::n_entity_magical_landscaping_co_sandy
+  n_magical_landscaping_co_sandy_powder_deal(powder_deal - Sandy):::n_entity_magical_landscaping_co_sandy
+end
+
+n_magical_landscaping_co_sandy_intro -- "Yes I am" --> n_magical_landscaping_co_sandy_interested
+n_magical_landscaping_co_sandy_intro -- "No thanks" --> n_magical_landscaping_co_sandy_no_meat
+n_magical_landscaping_co_sandy_intro -- "Who are you?" --> n_magical_landscaping_co_sandy_who_are_you
+n_magical_landscaping_co_sandy_who_are_you -- "Ok, lets do business" --> n_magical_landscaping_co_sandy_interested
+n_magical_landscaping_co_sandy_no_meat -- "How do you know about my planet?" --> n_magical_landscaping_co_sandy_planet_exposition
+n_magical_landscaping_co_sandy_no_meat -- "Sure, lets talk" --> n_magical_landscaping_co_sandy_interested
+n_magical_landscaping_co_sandy_planet_exposition -- "Alright, let's talk" --> n_magical_landscaping_co_sandy_interested
+n_magical_landscaping_co_sandy_interested -- "How do I get the powder?" --> n_magical_landscaping_co_sandy_powder_explain
+n_magical_landscaping_co_sandy_interested -- "Here you go" --> n_magical_landscaping_co_sandy_powder_deal
+n_magical_landscaping_co_sandy_powder_explain -- "Is that it?" --> n_magical_landscaping_co_sandy_powder_deal
+n_magical_landscaping_co_sandy_powder_deal -- "So I just put the powder in there?" --> n_magical_landscaping_co_sandy_mesh_explain
+n_magical_landscaping_co_sandy_powder_deal -- "How does the trading mesh work?" --> n_magical_landscaping_co_sandy_mesh_explain
+subgraph n_g_usspinspectorwillard["Usspinspectorwillard (usspinspectorwillard/*)"]
   n_usspinspectorwillard_intro(intro — Willard):::n_entity_usspinspectorwillard
   n_usspinspectorwillard_ship_where_intro(ship_where_intro — Willard):::n_entity_usspinspectorwillard
   n_usspinspectorwillard_leave(leave_denied — Willard):::n_entity_usspinspectorwillard
@@ -48,7 +70,8 @@ n_usspinspectorwillard_decline_ship -- "On second thought, I do need a ship" -->
 n_usspinspectorwillard_give_ship -- "Thank you" --> n_usspinspectorwillard_end
 
     %% Entity color classes
-    classDef n_entity_usspinspectorwillard stroke:#d41b43,stroke-width:3px,rx:12
+    classDef n_entity_magical_landscaping_co_sandy stroke:#2dc27c,stroke-width:3px,rx:12
+    classDef n_entity_usspinspectorwillard stroke:#2dc782,stroke-width:3px,rx:12
 
     %% Special node classes
     classDef missingNode stroke:#E74C3C,stroke-width:2px,stroke-dasharray:5,rx:8
