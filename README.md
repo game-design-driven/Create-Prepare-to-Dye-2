@@ -1,5 +1,7 @@
+# This project is not ready, you are welcome to play the first Create : Prepare to Dye instead or join development
+
 <!-- ![infographic](https://raw.githubusercontent.com/game-design-driven/Create-Prepare-to-Dye-2/main/infographic.png) -->
-# ⚙️ Create : Prepare to Dye         
+# ⚙️ Create : Prepare to Dye 2         
 [![Discord](https://img.shields.io/discord/890222432605057044?label=Chat+on+Discord)](https://discord.gg/v8cZ83kTPY)
 [![Modrinth Game Versions](https://img.shields.io/modrinth/game-versions/bMs2ZGmU?label=Avilable+for)](https://modrinth.com/modpack/Create-Prepare-to-Dye)
 [![Modrinth Game Versions](https://img.shields.io/modrinth/game-versions/nFSlxpJI?label=Avilable+for)](https://modrinth.com/modpack/Create-Prepare-to-Dye-2)
